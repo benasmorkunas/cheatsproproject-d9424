@@ -39,11 +39,7 @@ export default function WhyJoinUs() {
   ];
 
   return (
-    <section className="py-20 bg-gray-900 relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-gradient-to-r from-green-600/10 to-purple-600/10"></div>
-      </div>
+    <section className="py-20 relative overflow-hidden">
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -165,7 +161,7 @@ export default function WhyJoinUs() {
           transition={{ duration: 0.8, delay: 0.7 }}
           className="text-center mt-16"
         >
-          <div className="bg-gradient-to-r from-purple-800/30 to-blue-800/30 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-8">
+          <div className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8">
             <h3 className="text-2xl font-bold text-white mb-4">
               Ready to Start Earning?
             </h3>

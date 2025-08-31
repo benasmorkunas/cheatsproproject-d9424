@@ -6,6 +6,7 @@ import { ChevronDown, Shield, Clock, Users, MessageCircle, Star, ExternalLink, H
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import Header from '@/components/homepage/Header';
+import MinimalisticBackground from '@/components/common/MinimalisticBackground';
 
 const faqData = [
   {
@@ -120,10 +121,9 @@ export default function FAQPage() {
   const totalQuestions = faqData.reduce((sum, category) => sum + category.questions.length, 0);
 
   return (
-    <>
+    <MinimalisticBackground>
       <Header />
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-blue-900 pt-24">
-        <section className="py-20 text-center">
+        <section className="py-20 text-center pt-24">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.h1 
               className="text-5xl md:text-6xl font-bold text-white mb-6"
@@ -357,7 +357,6 @@ export default function FAQPage() {
             </div>
           </motion.div>
         </div>
-      </div>
-    </>
+    </MinimalisticBackground>
   );
 }

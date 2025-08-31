@@ -25,11 +25,6 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-purple-900/20 to-gray-900">
-        <div className="absolute inset-0 bg-[url('/api/placeholder/1920/1080')] opacity-10 bg-cover bg-center"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent"></div>
-      </div>
 
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -97,7 +92,7 @@ export default function HeroSection() {
                 className={`${
                   stat.highlight 
                     ? 'bg-gradient-to-br from-green-800/30 to-emerald-800/30 border-green-500/30' 
-                    : 'bg-gray-800/50 border-purple-500/20'
+                    : 'bg-gray-800/50 border-gray-700/50'
                 } backdrop-blur-sm border rounded-xl p-4 md:p-6 min-w-[140px] md:min-w-[180px]`}
               >
                 <div className="flex items-center justify-center space-x-2 mb-2">

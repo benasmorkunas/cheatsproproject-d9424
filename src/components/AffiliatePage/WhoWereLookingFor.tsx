@@ -67,12 +67,7 @@ export default function WhoWereLookingFor() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-green-500/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"></div>
-      </div>
+    <section className="py-20 relative overflow-hidden">
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -208,7 +203,7 @@ export default function WhoWereLookingFor() {
           transition={{ duration: 0.8, delay: 0.7 }}
           className="text-center mt-12"
         >
-          <div className="bg-gradient-to-r from-purple-800/20 to-blue-800/20 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-6">
+          <div className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6">
             <p className="text-lg text-gray-300">
               <span className="text-purple-400 font-semibold">New to affiliate marketing?</span> 
               {' '}No problem! We provide comprehensive training, marketing materials, 

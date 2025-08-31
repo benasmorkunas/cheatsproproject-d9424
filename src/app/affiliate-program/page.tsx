@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Header from '@/components/homepage/Header';
 import Footer from '@/components/homepage/Footer';
+import MinimalisticBackground from '@/components/common/MinimalisticBackground';
 import {
   HeroSection,
   WhyJoinUs,
@@ -77,7 +78,7 @@ const structuredData = {
 
 export default function AffiliateProgram() {
   return (
-    <div className="min-h-screen bg-gray-900">
+    <MinimalisticBackground>
       {/* Structured Data */}
       <script
         type="application/ld+json"
@@ -95,6 +96,6 @@ export default function AffiliateProgram() {
       </main>
       
       <Footer />
-    </div>
+    </MinimalisticBackground>
   );
 }

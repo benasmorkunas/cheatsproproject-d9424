@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useMemo } from 'react';
 
 interface MinimalisticBackgroundProps {
   children: React.ReactNode;
@@ -11,6 +12,41 @@ export default function MinimalisticBackground({
   children, 
   className = "" 
 }: MinimalisticBackgroundProps) {
+  // Generate consistent random values for server and client
+  const smokeData = useMemo(() => {
+    const mainDrips = Array.from({ length: 35 }, (_, i) => ({
+      id: i,
+      leftOffset: (i * 2.86) + (Math.sin(i * 0.7) * 2 - 1),
+      height: 40 + (i * 3) + Math.sin(i * 1.2) * 30,
+      dropletTop: 35 + (i * 3) + Math.sin(i * 0.9) * 25,
+      dropletEnd: 45 + (i * 3) + Math.sin(i * 1.1) * 35,
+    }));
+
+    const fineStreams = Array.from({ length: 50 }, (_, i) => ({
+      id: i,
+      left: (Math.sin(i * 2.3) * 0.5 + 0.5) * 100,
+      startHeight: Math.abs(Math.sin(i * 1.8)) * 20,
+      endHeight: Math.abs(Math.sin(i * 2.1)) * 40 + 30,
+      duration: 3 + Math.abs(Math.sin(i * 1.5)) * 4,
+      delay: Math.abs(Math.sin(i * 3.2)) * 5,
+    }));
+
+    const heavyAreas = Array.from({ length: 8 }, (_, i) => ({
+      id: i,
+      left: i * 12.5 + Math.abs(Math.sin(i * 1.4)) * 10,
+      startHeight: 40 + Math.abs(Math.sin(i * 2.2)) * 20,
+      endHeight: 60 + Math.abs(Math.sin(i * 1.9)) * 30,
+      duration: 2 + Math.abs(Math.sin(i * 2.5)) * 3,
+    }));
+
+    const bgColumns = Array.from({ length: 18 }, (_, i) => ({
+      id: i,
+      startHeight: 20 + Math.abs(Math.sin(i * 1.6)) * 15,
+      endHeight: 35 + Math.abs(Math.sin(i * 2.4)) * 25,
+    }));
+
+    return { mainDrips, fineStreams, heavyAreas, bgColumns };
+  }, []);
   return (
     <div className={`relative min-h-screen ${className}`}>
       {/* Base minimalistic dark gradient background */}
@@ -21,18 +57,18 @@ export default function MinimalisticBackground({
         {/* Smoke drips from top */}
         <div className="absolute top-0 left-0 right-0 h-screen">
           {/* Individual smoke drips across the width */}
-          {Array.from({ length: 35 }).map((_, i) => (
+          {smokeData.mainDrips.map((drip) => (
             <motion.div
-              key={i}
+              key={drip.id}
               className="absolute top-0"
               style={{
-                left: `${(i * 2.86) + (Math.random() * 2 - 1)}%`, // Distributed across width with slight randomness
+                left: `${drip.leftOffset}%`,
                 width: '2px',
                 height: '100%',
               }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: i * 0.1 }}
+              transition={{ duration: 1, delay: drip.id * 0.1 }}
             >
               {/* Main smoke drip trail */}
               <motion.div
@@ -51,14 +87,14 @@ export default function MinimalisticBackground({
                   )`,
                 }}
                 animate={{
-                  height: [0, `${40 + (i * 3) + Math.random() * 30}vh`],
+                  height: [0, `${drip.height}vh`],
                 }}
                 transition={{
-                  duration: 2 + (i * 0.2),
+                  duration: 2 + (drip.id * 0.2),
                   repeat: Infinity,
                   repeatType: "reverse",
                   ease: "easeInOut",
-                  delay: i * 0.3
+                  delay: drip.id * 0.3
                 }}
               />
               
@@ -70,23 +106,23 @@ export default function MinimalisticBackground({
                   left: '-5px'
                 }}
                 animate={{
-                  top: [`${35 + (i * 3) + Math.random() * 25}vh`, `${45 + (i * 3) + Math.random() * 35}vh`],
+                  top: [`${drip.dropletTop}vh`, `${drip.dropletEnd}vh`],
                   opacity: [0.8, 0.3],
                   scale: [1, 0.6]
                 }}
                 transition={{
-                  duration: 2 + (i * 0.2),
+                  duration: 2 + (drip.id * 0.2),
                   repeat: Infinity,
                   repeatType: "reverse",
                   ease: "easeInOut",
-                  delay: i * 0.3 + 1.5
+                  delay: drip.id * 0.3 + 1.5
                 }}
               />
             </motion.div>
           ))}
           
           {/* Wider background smoke columns for depth */}
-          {Array.from({ length: 18 }).map((_, i) => (
+          {smokeData.bgColumns.map((col, i) => (
             <motion.div
               key={`bg-${i}`}
               className="absolute top-0"
@@ -96,7 +132,7 @@ export default function MinimalisticBackground({
                 opacity: 0.6
               }}
               animate={{
-                height: [`${20 + Math.random() * 15}vh`, `${35 + Math.random() * 25}vh`],
+                height: [`${col.startHeight}vh`, `${col.endHeight}vh`],
               }}
               transition={{
                 duration: 4 + (i * 0.5),
@@ -122,24 +158,24 @@ export default function MinimalisticBackground({
           ))}
           
           {/* Additional fine smoke streams for density */}
-          {Array.from({ length: 50 }).map((_, i) => (
+          {smokeData.fineStreams.map((stream) => (
             <motion.div
-              key={`fine-${i}`}
+              key={`fine-${stream.id}`}
               className="absolute top-0"
               style={{
-                left: `${Math.random() * 100}%`,
+                left: `${stream.left}%`,
                 width: '1px',
                 opacity: 0.4
               }}
               animate={{
-                height: [`${Math.random() * 20}vh`, `${Math.random() * 40 + 30}vh`],
+                height: [`${stream.startHeight}vh`, `${stream.endHeight}vh`],
               }}
               transition={{
-                duration: 3 + Math.random() * 4,
+                duration: stream.duration,
                 repeat: Infinity,
                 repeatType: "reverse",
                 ease: "easeInOut",
-                delay: Math.random() * 5
+                delay: stream.delay
               }}
             >
               <div
@@ -158,20 +194,20 @@ export default function MinimalisticBackground({
           ))}
           
           {/* Heavy emission areas with concentrated smoke */}
-          {Array.from({ length: 8 }).map((_, i) => (
+          {smokeData.heavyAreas.map((area, i) => (
             <motion.div
               key={`heavy-${i}`}
               className="absolute top-0"
               style={{
-                left: `${i * 12.5 + Math.random() * 10}%`,
+                left: `${area.left}%`,
                 width: '20px',
                 opacity: 0.7
               }}
               animate={{
-                height: [`${40 + Math.random() * 20}vh`, `${60 + Math.random() * 30}vh`],
+                height: [`${area.startHeight}vh`, `${area.endHeight}vh`],
               }}
               transition={{
-                duration: 2 + Math.random() * 3,
+                duration: area.duration,
                 repeat: Infinity,
                 repeatType: "reverse",
                 ease: "easeInOut",

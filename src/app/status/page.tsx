@@ -6,11 +6,15 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Header from '@/components/homepage/Header';
 import { formatPrice } from '@/lib/utils';
+import MinimalisticBackground from '@/components/common/MinimalisticBackground';
 
 export default function StatusPage() {
-  const [currentTime, setCurrentTime] = useState(new Date());
+  const [currentTime, setCurrentTime] = useState<Date | null>(null);
 
   useEffect(() => {
+    // Set initial time on client
+    setCurrentTime(new Date());
+    
     const timer = setInterval(() => {
       setCurrentTime(new Date());
     }, 1000);
@@ -95,25 +99,10 @@ export default function StatusPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900">
+    <MinimalisticBackground>
       <Header />
       {/* Header */}
-      <section className="relative py-16 pt-20 bg-gradient-to-b from-gray-800 to-gray-900 overflow-hidden">
-        <div className="absolute inset-0">
-          <motion.div
-            className="absolute top-10 right-10 w-72 h-72 bg-green-500/10 rounded-full blur-3xl"
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.3, 0.6, 0.3],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
-        </div>
-
+      <section className="relative py-16 pt-20 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             className="text-center"
@@ -139,7 +128,7 @@ export default function StatusPage() {
                 <Activity className="w-5 h-5 text-green-400" />
                 <span className="text-green-400 font-semibold">All Systems Operational</span>
                 <span className="text-gray-400">•</span>
-                <span className="text-gray-400">{currentTime.toLocaleString()}</span>
+                <span className="text-gray-400">{currentTime?.toLocaleString() || 'Loading...'}</span>
               </div>
             </div>
           </motion.div>
@@ -383,6 +372,6 @@ export default function StatusPage() {
           </motion.div>
         </section>
       </div>
-    </div>
+    </MinimalisticBackground>
   );
 }

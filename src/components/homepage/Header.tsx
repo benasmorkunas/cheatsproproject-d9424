@@ -67,7 +67,7 @@ export default function Header() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full left-0 mt-2 w-48 bg-gray-800/95 backdrop-blur-md border border-white/10 rounded-lg shadow-xl"
+                    className="absolute top-full left-0 mt-2 w-48 bg-gray-900/30 backdrop-blur-sm border border-white/10 rounded-lg shadow-xl"
                     onMouseEnter={() => setIsShopDropdownOpen(true)}
                     onMouseLeave={() => setIsShopDropdownOpen(false)}
                   >
@@ -153,7 +153,7 @@ export default function Header() {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
           >
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-gray-800/95 backdrop-blur-md rounded-lg mt-2">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-gray-900/30 backdrop-blur-sm rounded-lg mt-2 border border-white/10">
               {/* Shop Items */}
               <div className="mb-2">
                 <div className="px-3 py-2 text-white/80 font-semibold text-sm uppercase tracking-wide">Shop</div>
