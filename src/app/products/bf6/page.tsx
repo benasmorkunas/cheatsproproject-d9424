@@ -11,6 +11,7 @@ import Footer from '@/components/homepage/Footer';
 import { getBF6Products } from '@/lib/mockProducts';
 import { useCart } from '@/contexts/CartContext';
 import Head from 'next/head';
+import MinimalisticBackground from '@/components/common/MinimalisticBackground';
 
 export default function BF6ProductsPage() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -76,12 +77,12 @@ export default function BF6ProductsPage() {
         <meta name="keywords" content="BF6 cheat, Battlefield 6 hack, BF6 aimbot, BF6 ESP, wallhack, undetected cheat" />
       </Head>
       
-      <div className="min-h-screen bg-gray-900">
+      <MinimalisticBackground>
         <Header />
         
-        <main className="pt-20">
+        <main className="pt-0">
           {/* Hero Section */}
-          <section className="py-20 bg-gradient-to-r from-orange-900/20 to-red-900/20">
+          <section className="py-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
@@ -129,7 +130,7 @@ export default function BF6ProductsPage() {
         </main>
         
         <Footer />
-      </div>
+      </MinimalisticBackground>
     </>
   );
 }

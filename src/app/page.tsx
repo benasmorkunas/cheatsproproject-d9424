@@ -13,7 +13,7 @@ export default function HomePage() {
   return (
     <MinimalisticBackground>
       <Header />
-      <main>
+      <main className="pt-0">
         <Hero />
         <TrustElements />
         <FeaturesSection />

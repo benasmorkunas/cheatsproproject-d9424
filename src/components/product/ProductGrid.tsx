@@ -94,7 +94,7 @@ export function ProductGrid({ products, onAddToCart, loading }: ProductGridProps
     <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
       {products.map((product, index) => (
         <motion.div
-          key={product.id}
+          key={`${product.id}-${index}`}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-50px' }}

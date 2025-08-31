@@ -8,19 +8,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useCart } from '@/contexts/CartContext';
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isShopDropdownOpen, setIsShopDropdownOpen] = useState(false);
   const { itemCount } = useCart();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const navItems = [
     { name: 'STATUS', href: '/status', highlight: true },
@@ -38,11 +28,7 @@ export default function Header() {
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-gray-900/95 backdrop-blur-md border-b border-purple-500/20'
-          : 'bg-transparent'
-      }`}
+      className="relative z-50 bg-transparent"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
@@ -71,7 +57,7 @@ export default function Header() {
               >
                 <span>SHOP</span>
                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isShopDropdownOpen ? 'rotate-180' : ''}`} />
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full bg-gradient-to-r from-purple-400 to-blue-400"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full bg-gradient-to-r from-white/80 to-white/40"></span>
               </button>
 
               <AnimatePresence>
@@ -81,7 +67,7 @@ export default function Header() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full left-0 mt-2 w-48 bg-gray-800/95 backdrop-blur-md border border-purple-500/20 rounded-lg shadow-xl"
+                    className="absolute top-full left-0 mt-2 w-48 bg-gray-800/95 backdrop-blur-md border border-white/10 rounded-lg shadow-xl"
                     onMouseEnter={() => setIsShopDropdownOpen(true)}
                     onMouseLeave={() => setIsShopDropdownOpen(false)}
                   >
@@ -89,7 +75,7 @@ export default function Header() {
                       <Link
                         key={item.name}
                         href={item.href}
-                        className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-purple-500/10 transition-colors duration-200 font-semibold first:rounded-t-lg last:rounded-b-lg"
+                        className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 transition-colors duration-200 font-semibold first:rounded-t-lg last:rounded-b-lg"
                       >
                         {item.name}
                       </Link>
@@ -115,8 +101,8 @@ export default function Header() {
                 <span>{item.name}</span>
                 <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
                   item.highlight 
-                    ? 'bg-gradient-to-r from-green-400 to-blue-400' 
-                    : 'bg-gradient-to-r from-purple-400 to-blue-400'
+                    ? 'bg-gradient-to-r from-green-400 to-green-300' 
+                    : 'bg-gradient-to-r from-white/80 to-white/40'
                 }`}></span>
               </Link>
             ))}
@@ -133,7 +119,7 @@ export default function Header() {
                 <motion.span
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
-                  className="absolute -top-2 -right-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-semibold"
+                  className="absolute -top-2 -right-2 bg-gradient-to-r from-white/90 to-white/70 text-black text-xs rounded-full w-5 h-5 flex items-center justify-center font-semibold"
                 >
                   {itemCount > 99 ? '99+' : itemCount}
                 </motion.span>
@@ -141,7 +127,7 @@ export default function Header() {
             </Link>
 
             <motion.button
-              className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-6 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105"
+              className="bg-gradient-to-r from-white/90 to-white/70 hover:from-white hover:to-white/90 text-black px-6 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -170,7 +156,7 @@ export default function Header() {
             <div className="px-2 pt-2 pb-3 space-y-1 bg-gray-800/95 backdrop-blur-md rounded-lg mt-2">
               {/* Shop Items */}
               <div className="mb-2">
-                <div className="px-3 py-2 text-purple-400 font-semibold text-sm uppercase tracking-wide">Shop</div>
+                <div className="px-3 py-2 text-white/80 font-semibold text-sm uppercase tracking-wide">Shop</div>
                 {shopItems.map((item) => (
                   <Link
                     key={item.name}
