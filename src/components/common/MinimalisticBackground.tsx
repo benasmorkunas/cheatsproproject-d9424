@@ -16,195 +16,212 @@ export default function MinimalisticBackground({
       {/* Base minimalistic dark gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#0e0e0e] via-[#1a1a1a] to-[#0f0f0f] -z-50" />
       
-      {/* Enhanced smoke animation covering entire top side with maximum blur */}
+      {/* Smoke dripping effect behind blur - rainy window aesthetic */}
       <div className="absolute inset-0 -z-40 overflow-hidden">
-        {/* Comprehensive smoke coverage across entire top */}
-        <motion.div
-          className="absolute -top-32 left-0 right-0 h-[70vh]"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 3 }}
-        >
-          {/* Full-width smoke base layer with grain texture - covers entire top */}
-          <motion.div
-            className="absolute inset-0 opacity-60"
-            style={{
-              background: `
-                linear-gradient(180deg, 
-                  rgba(255, 255, 255, 0.25) 0%,
-                  rgba(240, 240, 240, 0.20) 15%,
-                  rgba(200, 200, 200, 0.15) 35%,
-                  rgba(160, 160, 160, 0.10) 50%,
-                  rgba(120, 120, 120, 0.05) 65%,
-                  transparent 70%
-                ),
-                radial-gradient(ellipse 2000px 800px at 0% -20%, 
-                  rgba(255, 255, 255, 0.35) 0%, 
-                  rgba(220, 220, 220, 0.20) 25%,
-                  rgba(180, 180, 180, 0.10) 45%,
-                  transparent 65%
-                ),
-                radial-gradient(ellipse 2200px 900px at 25% -25%, 
-                  rgba(245, 245, 245, 0.30) 0%, 
-                  rgba(200, 200, 200, 0.18) 30%,
-                  rgba(150, 150, 150, 0.08) 55%,
-                  transparent 70%
-                ),
-                radial-gradient(ellipse 2400px 1000px at 50% -30%, 
-                  rgba(255, 255, 255, 0.40) 0%, 
-                  rgba(230, 230, 230, 0.25) 20%,
-                  rgba(190, 190, 190, 0.12) 40%,
-                  rgba(140, 140, 140, 0.06) 60%,
-                  transparent 68%
-                ),
-                radial-gradient(ellipse 2200px 900px at 75% -25%, 
-                  rgba(240, 240, 240, 0.32) 0%, 
-                  rgba(195, 195, 195, 0.18) 28%,
-                  rgba(155, 155, 155, 0.09) 52%,
-                  transparent 70%
-                ),
-                radial-gradient(ellipse 2000px 800px at 100% -20%, 
-                  rgba(255, 255, 255, 0.38) 0%, 
-                  rgba(215, 215, 215, 0.22) 26%,
-                  rgba(175, 175, 175, 0.11) 48%,
-                  transparent 68%
-                ),
-                /* Grain texture overlay */
-                url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E")
-              `,
-              filter: 'blur(80px) contrast(1.2)', // Increased blur significantly + contrast for grain
-            }}
-            animate={{
-              opacity: [0.6, 0.8, 0.6],
-            }}
-            transition={{
-              duration: 10,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
-          
-          {/* Secondary full-coverage layer with enhanced grain */}
-          <motion.div
-            className="absolute inset-0 opacity-45"
-            style={{
-              background: `
-                linear-gradient(180deg, 
-                  rgba(230, 230, 230, 0.18) 0%,
-                  rgba(200, 200, 200, 0.12) 20%,
-                  rgba(170, 170, 170, 0.08) 40%,
-                  rgba(140, 140, 140, 0.04) 60%,
-                  transparent 70%
-                ),
-                radial-gradient(ellipse 1800px 700px at 12% -18%, 
-                  rgba(220, 220, 220, 0.25) 0%, 
-                  rgba(180, 180, 180, 0.15) 32%,
-                  rgba(140, 140, 140, 0.08) 58%,
-                  transparent 75%
-                ),
-                radial-gradient(ellipse 2000px 800px at 38% -22%, 
-                  rgba(235, 235, 235, 0.22) 0%, 
-                  rgba(190, 190, 190, 0.13) 35%,
-                  rgba(145, 145, 145, 0.06) 62%,
-                  transparent 78%
-                ),
-                radial-gradient(ellipse 2100px 850px at 62% -24%, 
-                  rgba(225, 225, 225, 0.24) 0%, 
-                  rgba(185, 185, 185, 0.14) 33%,
-                  rgba(143, 143, 143, 0.07) 60%,
-                  transparent 76%
-                ),
-                radial-gradient(ellipse 1900px 750px at 88% -19%, 
-                  rgba(240, 240, 240, 0.26) 0%, 
-                  rgba(195, 195, 195, 0.15) 31%,
-                  rgba(150, 150, 150, 0.08) 57%,
-                  transparent 74%
-                ),
-                /* Fine grain overlay */
-                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter2)' opacity='0.12'/%3E%3C/svg%3E")
-              `,
-              filter: 'blur(120px) contrast(1.3) brightness(1.1)', // Heavy blur with enhanced grain contrast
-            }}
-            animate={{
-              opacity: [0.45, 0.65, 0.45],
-            }}
-            transition={{
-              duration: 14,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 1.5
-            }}
-          />
-          
-          {/* Tertiary subtle layer with maximum grain */}
-          <motion.div
-            className="absolute inset-0 opacity-30"
-            style={{
-              background: `
-                linear-gradient(180deg, 
-                  rgba(210, 210, 210, 0.12) 0%,
-                  rgba(180, 180, 180, 0.08) 25%,
-                  rgba(150, 150, 150, 0.05) 50%,
-                  transparent 70%
-                ),
-                radial-gradient(ellipse 2500px 1200px at 20% -35%, 
-                  rgba(200, 200, 200, 0.18) 0%, 
-                  rgba(160, 160, 160, 0.10) 40%,
-                  rgba(120, 120, 120, 0.05) 70%,
-                  transparent 85%
-                ),
-                radial-gradient(ellipse 2600px 1300px at 80% -40%, 
-                  rgba(215, 215, 215, 0.20) 0%, 
-                  rgba(170, 170, 170, 0.12) 38%,
-                  rgba(125, 125, 125, 0.06) 68%,
-                  transparent 83%
-                ),
-                /* Heavy grain texture */
-                url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter3'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='8' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter3)' opacity='0.18'/%3E%3C/svg%3E")
-              `,
-              filter: 'blur(150px) contrast(1.4) saturate(1.2)', // Maximum blur with heavy grain effects
-            }}
-            animate={{
-              opacity: [0.30, 0.50, 0.30],
-            }}
-            transition={{
-              duration: 18,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 3
-            }}
-          />
-          
-          {/* Floating smoke particles with grain across full width */}
-          {Array.from({ length: 8 }).map((_, i) => (
+        {/* Smoke drips from top */}
+        <div className="absolute top-0 left-0 right-0 h-screen">
+          {/* Individual smoke drips across the width */}
+          {Array.from({ length: 35 }).map((_, i) => (
             <motion.div
               key={i}
-              className="absolute top-0 opacity-20"
+              className="absolute top-0"
               style={{
-                left: `${i * 12.5}%`,
-                width: '80px',
-                height: '80px',
-                background: `
-                  radial-gradient(circle, rgba(255,255,255,0.35) 0%, transparent 70%),
-                  url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='particleNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23particleNoise)' opacity='0.25'/%3E%3C/svg%3E")
-                `,
-                filter: 'blur(60px) contrast(1.3)' // Increased particle blur with grain
+                left: `${(i * 2.86) + (Math.random() * 2 - 1)}%`, // Distributed across width with slight randomness
+                width: '2px',
+                height: '100%',
+              }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: i * 0.1 }}
+            >
+              {/* Main smoke drip trail */}
+              <motion.div
+                className="absolute top-0 left-0 w-full"
+                style={{
+                  background: `linear-gradient(180deg, 
+                    rgba(255, 255, 255, 0.4) 0%,
+                    rgba(240, 240, 240, 0.35) 10%,
+                    rgba(220, 220, 220, 0.3) 20%,
+                    rgba(200, 200, 200, 0.25) 35%,
+                    rgba(180, 180, 180, 0.2) 50%,
+                    rgba(160, 160, 160, 0.15) 65%,
+                    rgba(140, 140, 140, 0.1) 80%,
+                    rgba(120, 120, 120, 0.05) 90%,
+                    transparent 100%
+                  )`,
+                }}
+                animate={{
+                  height: [0, `${40 + (i * 3) + Math.random() * 30}vh`],
+                }}
+                transition={{
+                  duration: 2 + (i * 0.2),
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  ease: "easeInOut",
+                  delay: i * 0.3
+                }}
+              />
+              
+              {/* Drip droplet at the end */}
+              <motion.div
+                className="absolute w-3 h-3 rounded-full"
+                style={{
+                  background: `radial-gradient(circle, rgba(255,255,255,0.6) 0%, rgba(220,220,220,0.4) 50%, transparent 100%)`,
+                  left: '-5px'
+                }}
+                animate={{
+                  top: [`${35 + (i * 3) + Math.random() * 25}vh`, `${45 + (i * 3) + Math.random() * 35}vh`],
+                  opacity: [0.8, 0.3],
+                  scale: [1, 0.6]
+                }}
+                transition={{
+                  duration: 2 + (i * 0.2),
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  ease: "easeInOut",
+                  delay: i * 0.3 + 1.5
+                }}
+              />
+            </motion.div>
+          ))}
+          
+          {/* Wider background smoke columns for depth */}
+          {Array.from({ length: 18 }).map((_, i) => (
+            <motion.div
+              key={`bg-${i}`}
+              className="absolute top-0"
+              style={{
+                left: `${(i * 5.56) + 2.78}%`,
+                width: '8px',
+                opacity: 0.6
               }}
               animate={{
-                x: [0, Math.random() * 200 - 100, Math.random() * 150 - 75, 0],
-                y: [0, Math.random() * 80 + 40, Math.random() * 120 + 80, Math.random() * 180 + 120],
-                opacity: [0.20, 0.35, 0.20, 0],
-                scale: [1, 1.8 + Math.random() * 0.5, 2.5 + Math.random() * 0.8, 3.2 + Math.random() * 1]
+                height: [`${20 + Math.random() * 15}vh`, `${35 + Math.random() * 25}vh`],
               }}
               transition={{
-                duration: 20 + Math.random() * 10,
+                duration: 4 + (i * 0.5),
                 repeat: Infinity,
+                repeatType: "reverse",
+                ease: "easeInOut",
+                delay: i * 0.8
+              }}
+            >
+              <div
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  background: `linear-gradient(180deg, 
+                    rgba(255, 255, 255, 0.2) 0%,
+                    rgba(200, 200, 200, 0.15) 30%,
+                    rgba(160, 160, 160, 0.1) 60%,
+                    transparent 100%
+                  )`,
+                }}
+              />
+            </motion.div>
+          ))}
+          
+          {/* Additional fine smoke streams for density */}
+          {Array.from({ length: 50 }).map((_, i) => (
+            <motion.div
+              key={`fine-${i}`}
+              className="absolute top-0"
+              style={{
+                left: `${Math.random() * 100}%`,
+                width: '1px',
+                opacity: 0.4
+              }}
+              animate={{
+                height: [`${Math.random() * 20}vh`, `${Math.random() * 40 + 30}vh`],
+              }}
+              transition={{
+                duration: 3 + Math.random() * 4,
+                repeat: Infinity,
+                repeatType: "reverse",
                 ease: "easeInOut",
                 delay: Math.random() * 5
               }}
-            />
+            >
+              <div
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  background: `linear-gradient(180deg, 
+                    rgba(255, 255, 255, 0.3) 0%,
+                    rgba(220, 220, 220, 0.2) 40%,
+                    rgba(180, 180, 180, 0.1) 70%,
+                    transparent 100%
+                  )`,
+                }}
+              />
+            </motion.div>
           ))}
-        </motion.div>
+          
+          {/* Heavy emission areas with concentrated smoke */}
+          {Array.from({ length: 8 }).map((_, i) => (
+            <motion.div
+              key={`heavy-${i}`}
+              className="absolute top-0"
+              style={{
+                left: `${i * 12.5 + Math.random() * 10}%`,
+                width: '20px',
+                opacity: 0.7
+              }}
+              animate={{
+                height: [`${40 + Math.random() * 20}vh`, `${60 + Math.random() * 30}vh`],
+              }}
+              transition={{
+                duration: 2 + Math.random() * 3,
+                repeat: Infinity,
+                repeatType: "reverse",
+                ease: "easeInOut",
+                delay: i * 0.4
+              }}
+            >
+              <div
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  background: `linear-gradient(180deg, 
+                    rgba(255, 255, 255, 0.25) 0%,
+                    rgba(240, 240, 240, 0.2) 20%,
+                    rgba(200, 200, 200, 0.15) 40%,
+                    rgba(160, 160, 160, 0.1) 60%,
+                    rgba(120, 120, 120, 0.05) 80%,
+                    transparent 100%
+                  )`,
+                }}
+              />
+            </motion.div>
+          ))}
+        </div>
+      </div>
+      
+      {/* Rainy window blur effect overlay */}
+      <div className="absolute inset-0 -z-30 overflow-hidden pointer-events-none">
+        <div 
+          className="absolute inset-0 opacity-80"
+          style={{
+            background: `
+              linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.02) 0%,
+                rgba(240, 240, 240, 0.01) 50%,
+                transparent 100%
+              )
+            `,
+            backdropFilter: 'blur(80px) saturate(1.2)',
+            filter: 'contrast(1.1) brightness(1.05)',
+          }}
+        />
+        
+        {/* Additional glass texture overlay */}
+        <div 
+          className="absolute inset-0 opacity-30"
+          style={{
+            background: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='glassNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.4' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23glassNoise)' opacity='0.08'/%3E%3C/svg%3E")`,
+            backdropFilter: 'blur(120px)',
+          }}
+        />
       </div>
       
       {/* Content */}
