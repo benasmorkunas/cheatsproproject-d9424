@@ -1,0 +1,32 @@
+{
+  "amount": 799,
+  "currency": "usd",
+  "metadata": {
+    "product_id": "99999",
+    "customer_email": "new-klaviyo-test@example.com",
+    "products": [
+      {
+        "id": 99999,
+        "name": "Test Klaviyo Product",
+        "price": "7.99",
+        "quantity": 1
+      }
+    ],
+    "isFirstTimePurchase": true,
+    "productCount": 1,
+    "customer_first_name": "New",
+    "customer_last_name": "Customer",
+    "customer_name": "New Customer"
+  },
+  "status": "completed",
+  "id": "KC2YA8",
+  "createdAt": "2025-08-29T22:09:15.168Z",
+  "customerInfo": {
+    "email": "new-klaviyo-test@example.com",
+    "firstName": "New",
+    "lastName": "Customer"
+  },
+  "updatedAt": "2025-08-29T22:09:20.012Z",
+  "paymentIntentId": "pi_NewKlaviyoTest456",
+  "completedAt": "2025-08-29T22:11:00.000Z"
+}

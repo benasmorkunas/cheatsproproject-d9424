@@ -1,0 +1,36 @@
+{
+  "amount": 1038,
+  "currency": "usd",
+  "automatic_payment_methods": {
+    "enabled": true
+  },
+  "metadata": {
+    "product_id": 27535,
+    "customer_email": "klaviyo-test@example.com",
+    "products": [
+      {
+        "id": 27535,
+        "name": "CS2 LITE VERSION",
+        "price": "3.99",
+        "quantity": 1
+      }
+    ],
+    "isFirstTimePurchase": true,
+    "productCount": 1,
+    "customer_first_name": "Klaviyo",
+    "customer_last_name": "Test",
+    "customer_name": "Klaviyo Test"
+  },
+  "timestamp": "2025-08-29T21:45:57.348Z",
+  "status": "completed",
+  "id": "55FO3F",
+  "createdAt": "2025-08-29T21:45:58.635Z",
+  "updatedAt": "2025-08-29T22:09:06.956Z",
+  "paymentIntentId": "pi_KlaviyoTest123",
+  "completedAt": "2025-08-29T22:10:00.000Z",
+  "customerInfo": {
+    "email": "klaviyo-test@example.com",
+    "firstName": "Klaviyo",
+    "lastName": "Test"
+  }
+}

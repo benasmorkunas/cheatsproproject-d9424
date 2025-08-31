@@ -1,0 +1,137 @@
+[
+  {
+    "id": "bf6-plus-1day",
+    "name": "BF6 Plus Version 1 Day",
+    "price": 599,
+    "description": "Battlefield 6 hacks with AI aimbot and stealth",
+    "image": "/images/bf6-plus.webp",
+    "stripe_price_id": "price_bf6_plus_1day",
+    "currency": "usd"
+  },
+  {
+    "id": "bf6-plus-7day",
+    "name": "BF6 Plus Version 7 Day",
+    "price": 1499,
+    "description": "Battlefield 6 hacks with AI aimbot and stealth",
+    "image": "/images/bf6-plus.webp",
+    "stripe_price_id": "price_bf6_plus_7day",
+    "currency": "usd"
+  },
+  {
+    "id": "bf6-plus-30day",
+    "name": "BF6 Plus Version 30 Day",
+    "price": 2999,
+    "description": "Battlefield 6 hacks with AI aimbot and stealth",
+    "image": "/images/bf6-plus.webp",
+    "stripe_price_id": "price_bf6_plus_30day",
+    "currency": "usd"
+  },
+  {
+    "id": "bf6-pro-1day",
+    "name": "BF6 Pro Version 1 Day",
+    "price": 799,
+    "description": "Advanced Battlefield 6 hacks with premium features",
+    "image": "/images/bf6-pro.webp",
+    "stripe_price_id": "price_bf6_pro_1day",
+    "currency": "usd"
+  },
+  {
+    "id": "bf6-pro-7day",
+    "name": "BF6 Pro Version 7 Day",
+    "price": 1999,
+    "description": "Advanced Battlefield 6 hacks with premium features",
+    "image": "/images/bf6-pro.webp",
+    "stripe_price_id": "price_bf6_pro_7day",
+    "currency": "usd"
+  },
+  {
+    "id": "bf6-pro-30day",
+    "name": "BF6 Pro Version 30 Day",
+    "price": 3999,
+    "description": "Advanced Battlefield 6 hacks with premium features",
+    "image": "/images/bf6-pro.webp",
+    "stripe_price_id": "price_bf6_pro_30day",
+    "currency": "usd"
+  },
+  {
+    "id": "cs2-lite-1day",
+    "name": "CS2 Lite Version 1 Day",
+    "price": 399,
+    "description": "Basic CS2 cheats for casual gameplay",
+    "image": "/images/cs2-lite.webp",
+    "stripe_price_id": "price_cs2_lite_1day",
+    "currency": "usd"
+  },
+  {
+    "id": "cs2-lite-7day",
+    "name": "CS2 Lite Version 7 Day",
+    "price": 999,
+    "description": "Basic CS2 cheats for casual gameplay",
+    "image": "/images/cs2-lite.webp",
+    "stripe_price_id": "price_cs2_lite_7day",
+    "currency": "usd"
+  },
+  {
+    "id": "cs2-lite-30day",
+    "name": "CS2 Lite Version 30 Day",
+    "price": 1999,
+    "description": "Basic CS2 cheats for casual gameplay",
+    "image": "/images/cs2-lite.webp",
+    "stripe_price_id": "price_cs2_lite_30day",
+    "currency": "usd"
+  },
+  {
+    "id": "cs2-plus-1day",
+    "name": "CS2 Plus Version 1 Day",
+    "price": 599,
+    "description": "Enhanced CS2 cheats with additional features",
+    "image": "/images/cs2-plus.webp",
+    "stripe_price_id": "price_cs2_plus_1day",
+    "currency": "usd"
+  },
+  {
+    "id": "cs2-plus-7day",
+    "name": "CS2 Plus Version 7 Day",
+    "price": 1499,
+    "description": "Enhanced CS2 cheats with additional features",
+    "image": "/images/cs2-plus.webp",
+    "stripe_price_id": "price_cs2_plus_7day",
+    "currency": "usd"
+  },
+  {
+    "id": "cs2-plus-30day",
+    "name": "CS2 Plus Version 30 Day",
+    "price": 2999,
+    "description": "Enhanced CS2 cheats with additional features",
+    "image": "/images/cs2-plus.webp",
+    "stripe_price_id": "price_cs2_plus_30day",
+    "currency": "usd"
+  },
+  {
+    "id": "cs2-pro-1day",
+    "name": "CS2 Pro Version 1 Day",
+    "price": 799,
+    "description": "Professional CS2 cheats with premium features",
+    "image": "/images/cs2-pro.webp",
+    "stripe_price_id": "price_cs2_pro_1day",
+    "currency": "usd"
+  },
+  {
+    "id": "cs2-pro-7day",
+    "name": "CS2 Pro Version 7 Day",
+    "price": 1999,
+    "description": "Professional CS2 cheats with premium features",
+    "image": "/images/cs2-pro.webp",
+    "stripe_price_id": "price_cs2_pro_7day",
+    "currency": "usd"
+  },
+  {
+    "id": "cs2-pro-30day",
+    "name": "CS2 Pro Version 30 Day",
+    "price": 3999,
+    "description": "Professional CS2 cheats with premium features",
+    "image": "/images/cs2-pro.webp",
+    "stripe_price_id": "price_cs2_pro_30day",
+    "currency": "usd"
+  }
+]

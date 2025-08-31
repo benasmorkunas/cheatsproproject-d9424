@@ -1,0 +1,24 @@
+{
+  "amount": 599,
+  "currency": "usd",
+  "metadata": {
+    "product_id": "77777",
+    "customer_email": "metadata-only@example.com",
+    "customer_first_name": "Meta",
+    "customer_last_name": "Data",
+    "products": [
+      {
+        "id": 77777,
+        "name": "Metadata Test Product",
+        "price": "5.99",
+        "quantity": 1
+      }
+    ],
+    "isFirstTimePurchase": true,
+    "productCount": 1
+  },
+  "status": "completed",
+  "id": "UB2I5U",
+  "createdAt": "2025-08-29T22:15:04.708Z",
+  "updatedAt": "2025-08-29T22:15:08.980Z"
+}

@@ -1,0 +1,31 @@
+{
+  "amount": 1038,
+  "currency": "usd",
+  "automatic_payment_methods": {
+    "enabled": true
+  },
+  "metadata": {
+    "product_id": 27535,
+    "customer_email": "benaunas@gmail.com",
+    "products": [
+      {
+        "id": 27535,
+        "name": "CS2 LITE VERSION",
+        "price": "3.99",
+        "quantity": 1
+      }
+    ],
+    "isFirstTimePurchase": true,
+    "productCount": 1,
+    "customer_first_name": "Benas",
+    "customer_last_name": "Morkunas",
+    "customer_name": "Benas Morkunas"
+  },
+  "timestamp": "2025-08-29T22:03:56.299Z",
+  "status": "completed",
+  "id": "VA4MEP",
+  "createdAt": "2025-08-29T22:03:58.860Z",
+  "updatedAt": "2025-08-29T22:06:00.447Z",
+  "paymentIntentId": "pi_3S1aOrDgNZJsmfkI34K7xnvO",
+  "completedAt": "2025-08-29T22:06:00.428Z"
+}
