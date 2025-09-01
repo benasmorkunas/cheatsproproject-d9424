@@ -1,0 +1,31 @@
+{
+  "amount": 1038,
+  "currency": "usd",
+  "automatic_payment_methods": {
+    "enabled": true
+  },
+  "metadata": {
+    "product_id": 27535,
+    "customer_email": "asdasd@gmail.com",
+    "products": [
+      {
+        "id": 27535,
+        "name": "CS2 LITE VERSION",
+        "price": "3.99",
+        "quantity": 1
+      }
+    ],
+    "isFirstTimePurchase": true,
+    "productCount": 1,
+    "customer_first_name": "123213",
+    "customer_last_name": "12321321",
+    "customer_name": "123213 12321321"
+  },
+  "timestamp": "2025-08-29T22:16:29.928Z",
+  "status": "completed",
+  "id": "EM4FAO",
+  "createdAt": "2025-08-29T22:16:31.249Z",
+  "updatedAt": "2025-08-29T22:17:31.684Z",
+  "paymentIntentId": "pi_3S1ab0DgNZJsmfkI1N3tiDhp",
+  "completedAt": "2025-08-29T22:17:31.668Z"
+}

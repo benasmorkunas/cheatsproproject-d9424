@@ -1,0 +1,27 @@
+{
+  "amount": 1477,
+  "currency": "usd",
+  "automatic_payment_methods": {
+    "enabled": true
+  },
+  "metadata": {
+    "product_id": "27535",
+    "customer_email": "",
+    "order_id": "TEST123",
+    "products": [
+      {
+        "id": 27535,
+        "name": "CS2 LITE VERSION",
+        "price": "3.99",
+        "quantity": 2
+      }
+    ],
+    "isFirstTimePurchase": true,
+    "productCount": 1
+  },
+  "timestamp": "2025-08-29T10:00:00.000Z",
+  "status": "incomplete",
+  "customerInfo": null,
+  "id": "K1EN3H",
+  "createdAt": "2025-08-29T21:34:59.395Z"
+}

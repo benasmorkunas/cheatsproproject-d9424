@@ -1,0 +1,27 @@
+{
+  "amount": 1038,
+  "currency": "usd",
+  "automatic_payment_methods": {
+    "enabled": true
+  },
+  "metadata": {
+    "product_id": 27535,
+    "customer_email": "",
+    "order_id": "4X5VFN",
+    "products": [
+      {
+        "id": 27535,
+        "name": "CS2 LITE VERSION",
+        "price": "3.99",
+        "quantity": 1
+      }
+    ],
+    "isFirstTimePurchase": true,
+    "productCount": 1
+  },
+  "timestamp": "2025-08-29T21:35:45.735Z",
+  "status": "incomplete",
+  "customerInfo": null,
+  "id": "894AU6",
+  "createdAt": "2025-08-29T21:35:46.219Z"
+}

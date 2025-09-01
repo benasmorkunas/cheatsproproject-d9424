@@ -1,0 +1,26 @@
+{
+  "amount": 603,
+  "currency": "usd",
+  "automatic_payment_methods": {
+    "enabled": true
+  },
+  "metadata": {
+    "product_id": 21,
+    "customer_email": "",
+    "products": [
+      {
+        "id": 21,
+        "name": "CS2 LITE VERSION",
+        "price": "3.99",
+        "quantity": 1
+      }
+    ],
+    "isFirstTimePurchase": true,
+    "productCount": 1
+  },
+  "timestamp": "2025-08-31T14:16:15.598Z",
+  "status": "incomplete",
+  "customerInfo": null,
+  "id": "DN2TQC",
+  "createdAt": "2025-08-31T14:16:20.533Z"
+}

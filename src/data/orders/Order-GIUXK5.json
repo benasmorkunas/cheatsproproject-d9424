@@ -1,0 +1,34 @@
+{
+  "amount": 1477,
+  "currency": "usd",
+  "automatic_payment_methods": {
+    "enabled": true
+  },
+  "metadata": {
+    "product_id": 27535,
+    "customer_email": "",
+    "order_id": "EG61VR",
+    "products": [
+      {
+        "id": 27535,
+        "name": "CS2 LITE VERSION",
+        "price": "3.99",
+        "quantity": 2
+      }
+    ],
+    "isFirstTimePurchase": false,
+    "productCount": 1
+  },
+  "timestamp": "2025-08-28T21:39:59.788Z",
+  "status": "completed",
+  "customerInfo": {
+    "email": "benasmorkunas@gmail.com",
+    "firstName": "Benas",
+    "lastName": "Morkunas"
+  },
+  "id": "GIUXK5",
+  "createdAt": "2025-08-28T21:40:00.175Z",
+  "updatedAt": "2025-08-28T21:40:45.079Z",
+  "paymentIntentId": "pi_3S1DY6DgNZJsmfkI22fttlfo",
+  "completedAt": "2025-08-28T21:40:45.057Z"
+}

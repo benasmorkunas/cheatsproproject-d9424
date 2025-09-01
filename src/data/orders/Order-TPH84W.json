@@ -1,0 +1,26 @@
+{
+  "amount": 1477,
+  "currency": "usd",
+  "automatic_payment_methods": {
+    "enabled": true
+  },
+  "metadata": {
+    "product_id": "cs2-lite-1day",
+    "customer_email": "",
+    "products": [
+      {
+        "id": "cs2-lite-1day",
+        "name": "CS2 Lite Version",
+        "price": 399,
+        "quantity": 2
+      }
+    ],
+    "isFirstTimePurchase": true,
+    "productCount": 1
+  },
+  "timestamp": "2025-08-31T21:33:38.717Z",
+  "status": "incomplete",
+  "customerInfo": null,
+  "id": "TPH84W",
+  "createdAt": "2025-08-31T21:33:39.238Z"
+}

@@ -1,0 +1,26 @@
+{
+  "amount": 2358,
+  "currency": "usd",
+  "automatic_payment_methods": {
+    "enabled": true
+  },
+  "metadata": {
+    "product_id": 3,
+    "customer_email": "",
+    "products": [
+      {
+        "id": 3,
+        "name": "CS2 ESP & Wallhack",
+        "price": "15.99",
+        "quantity": 1
+      }
+    ],
+    "isFirstTimePurchase": true,
+    "productCount": 1
+  },
+  "timestamp": "2025-08-31T11:03:29.001Z",
+  "status": "incomplete",
+  "customerInfo": null,
+  "id": "CDVPO0",
+  "createdAt": "2025-08-31T11:03:29.513Z"
+}

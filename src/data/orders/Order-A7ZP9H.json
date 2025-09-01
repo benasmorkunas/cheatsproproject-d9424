@@ -1,0 +1,21 @@
+{
+  "amount": 999,
+  "currency": "usd",
+  "metadata": {
+    "product_id": "12345",
+    "customer_email": "",
+    "products": [
+      {
+        "id": 12345,
+        "name": "Test Product",
+        "price": "9.99",
+        "quantity": 1
+      }
+    ],
+    "isFirstTimePurchase": true,
+    "productCount": 1
+  },
+  "status": "incomplete",
+  "id": "A7ZP9H",
+  "createdAt": "2025-08-29T21:58:30.915Z"
+}

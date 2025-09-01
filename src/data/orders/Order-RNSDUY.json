@@ -1,0 +1,18 @@
+{
+  "amount": 1258,
+  "currency": "usd",
+  "automatic_payment_methods": {
+    "enabled": true
+  },
+  "metadata": {
+    "product_id": 27614,
+    "customer_email": "",
+    "order_id": "3YSBFI",
+    "products": "[{\"id\":27614,\"name\":\"CS2 PLUS VERSION\",\"price\":\"5.99\",\"quantity\":1}]"
+  },
+  "timestamp": "2025-08-28T21:15:08.510Z",
+  "status": "incomplete",
+  "customerInfo": null,
+  "id": "RNSDUY",
+  "createdAt": "2025-08-28T21:15:09.379Z"
+}

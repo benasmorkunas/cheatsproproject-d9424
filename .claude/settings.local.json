@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run dev:*)",
+      "Bash(curl:*)",
+      "Bash(npm install:*)",
+      "Bash(find:*)",
+      "Bash(npm run build:*)",
+      "Bash(git commit:*)",
+      "Bash(if exist .git rmdir /s /q .git)",
+      "Bash(git init:*)",
+      "Read(C:\\Users\\augus\\OneDrive\\Stalinis kompiuteris\\woocommerce-frontend-main-v2\\cheatsproproject/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

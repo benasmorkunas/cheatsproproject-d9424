@@ -1,0 +1,23 @@
+{
+  "amount": 1038,
+  "currency": "usd",
+  "automatic_payment_methods": {
+    "enabled": true
+  },
+  "metadata": {
+    "customer_email": "benasmorkunas@gmail.com",
+    "customer_name": "Benas Morkunas"
+  },
+  "timestamp": "2025-08-28T21:28:29.934Z",
+  "status": "completed",
+  "customerInfo": {
+    "email": "benasmorkunas@gmail.com",
+    "firstName": "Benas",
+    "lastName": "Morkunas"
+  },
+  "id": "P6QXVG",
+  "createdAt": "2025-08-28T21:28:29.949Z",
+  "updatedAt": "2025-08-28T21:31:16.006Z",
+  "paymentIntentId": "pi_3S1DMwDgNZJsmfkI36rJldNB",
+  "completedAt": "2025-08-28T21:31:15.984Z"
+}
