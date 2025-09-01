@@ -1,11 +1,11 @@
-import { Product } from '@/lib/types';
+import { SimpleProduct } from '@/contexts/CartContext';
 import { ProductCard } from './ProductCard';
 import { motion } from 'framer-motion';
 import { Search } from 'lucide-react';
 
 interface ProductGridProps {
-  products: Product[];
-  onAddToCart?: (product: Product) => void;
+  products: SimpleProduct[];
+  onAddToCart?: (product: SimpleProduct) => void;
   loading?: boolean;
 }
 
@@ -19,7 +19,7 @@ export function ProductGrid({ products, onAddToCart, loading }: ProductGridProps
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: i * 0.1 }}
-            className="bg-gray-800/30 rounded-2xl overflow-hidden"
+            className="bg-black/40 rounded-2xl overflow-hidden"
           >
             {/* Image Skeleton */}
             <div className="aspect-square bg-gradient-to-br from-gray-700/50 to-gray-800/50 relative">
@@ -58,7 +58,7 @@ export function ProductGrid({ products, onAddToCart, loading }: ProductGridProps
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-12 text-center"
+        className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-2xl p-12 text-center"
       >
         <div className="w-24 h-24 bg-gray-700/30 rounded-full flex items-center justify-center mx-auto mb-6">
           <Search className="w-12 h-12 text-gray-500" />

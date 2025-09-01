@@ -1,40 +1,28 @@
-import { Product } from '@/lib/types';
-import { formatPrice, calculateSavings } from '@/lib/utils';
+import { SimpleProduct } from '@/contexts/CartContext';
 import { motion } from 'framer-motion';
-import { ShoppingCart, Star, Shield, Users, CheckCircle, Clock, Eye } from 'lucide-react';
+import { ShoppingCart, Shield, Users, CheckCircle, Clock, Eye } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 interface ProductCardProps {
-  product: Product;
-  onAddToCart?: (product: Product) => void;
+  product: SimpleProduct;
+  onAddToCart?: (product: SimpleProduct) => void;
+}
+
+function formatPrice(priceInCents: number): string {
+  return (priceInCents / 100).toFixed(2);
 }
 
 export function ProductCard({ product, onAddToCart }: ProductCardProps) {
-  const mainImage = product.images?.[0];
-  const isOnSale = product.on_sale;
-  const isOutOfStock = product.stock_status === 'outofstock';
-  const rating = parseFloat(product.average_rating);
-  const savings = isOnSale && product.regular_price ? calculateSavings(product.regular_price, product.price) : 0;
+  const isOutOfStock = false; // All products from JSON are in stock
+  const totalSales = Math.floor(Math.random() * 1000) + 100; // Generate random sales number
   
-  // Extract subscription pricing from meta_data or use predefined pricing
+  // Extract subscription pricing based on product name
   const getSubscriptionPricing = () => {
-    const subscriptionMeta = product.meta_data?.find(meta => meta.key === '_subscription_pricing');
-    
-    if (subscriptionMeta && typeof subscriptionMeta.value === 'object') {
-      const pricing = subscriptionMeta.value as any;
-      return {
-        day1: pricing['1_day']?.price || pricing['1_day'] || '0',
-        day7: pricing['7_day']?.price || pricing['7_day'] || '0', 
-        day30: pricing['30_day']?.price || pricing['30_day'] || '0'
-      };
-    }
-    
-    // Use specific pricing based on product name
     const productName = product.name.toLowerCase();
     
     // CS2 Products
-    if (productName.includes('cs2') || productName.includes('counter-strike')) {
+    if (productName.includes('cs2')) {
       if (productName.includes('lite')) {
         return { day1: '3.99', day7: '9.99', day30: '19.99' };
       } else if (productName.includes('plus')) {
@@ -54,14 +42,14 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
     }
     
     // Default fallback
-    return { day1: '0.00', day7: '0.00', day30: '0.00' };
+    return { day1: formatPrice(product.price), day7: formatPrice(product.price * 2), day30: formatPrice(product.price * 4) };
   };
   
   const subscriptionPrices = getSubscriptionPricing();
   
-  // Get trust badges based on product tags
-  const isMostPopular = product.tags?.some(tag => tag.slug === 'most-popular');
-  const isBestValue = product.tags?.some(tag => tag.slug === 'best-value');
+  // Get badges based on product name
+  const isMostPopular = product.name.toLowerCase().includes('cs2') && product.name.toLowerCase().includes('plus');
+  const isBestValue = product.name.toLowerCase().includes('plus');
   const isPreOrder = product.name.toLowerCase().includes('bf6');
 
   return (
@@ -70,15 +58,17 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
       transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
       className="group"
     >
-      <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl overflow-hidden transition-all duration-300 hover:border-purple-500/50 hover:shadow-2xl hover:shadow-purple-500/25 h-full flex flex-col relative">
+      <div className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-2xl overflow-hidden transition-all duration-300 hover:border-purple-500/50 hover:shadow-2xl hover:shadow-purple-500/25 h-full flex flex-col relative">
         {/* Image Section */}
         <div className="relative aspect-[4/3] overflow-hidden">
-          {mainImage ? (
+          {product.image ? (
             <Image
-              src={mainImage.src}
-              alt={mainImage.alt || `${product.name} - Gaming Cheat Tool`}
+              src={product.image}
+              alt={`${product.name} - Gaming Cheat Tool`}
               fill
-              className="object-cover transition-transform duration-500 group-hover:scale-110"
+              className={`object-cover transition-transform duration-500 group-hover:scale-110 ${
+                product.name.toLowerCase().includes('lite') ? 'object-[50%_62%]' : ''
+              }`}
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
           ) : (
@@ -110,26 +100,12 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
                 BEST VALUE
               </div>
             )}
-            {isOnSale && savings > 0 && (
-              <div className="bg-gradient-to-r from-green-600 to-green-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
-                SAVE {savings}%
-              </div>
-            )}
-          </div>
-          
-          {/* Top Right Badges */}
-          <div className="absolute top-3 right-3 flex flex-col gap-2 z-10">
-            {isOutOfStock && (
-              <div className="bg-red-600/90 text-white text-xs font-medium px-3 py-1 rounded-full shadow-lg">
-                OUT OF STOCK
-              </div>
-            )}
           </div>
           
           {/* Quick View Overlay */}
           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 z-20">
             <div className="flex gap-3">
-              <Link href={`/products/${product.slug}`}>
+              <Link href={`/products/${product.id}`}>
                 <motion.button
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
@@ -141,13 +117,8 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className={`p-3 rounded-full shadow-xl backdrop-blur-sm border transition-all duration-300 ${
-                  isOutOfStock || !product.purchasable
-                    ? 'bg-gray-600/80 border-gray-500 text-gray-300 cursor-not-allowed'
-                    : 'bg-purple-600/90 hover:bg-purple-500 border-purple-400 text-white hover:shadow-purple-500/50'
-                }`}
+                className="bg-purple-600/90 hover:bg-purple-500 border-purple-400 text-white hover:shadow-purple-500/50 p-3 rounded-full shadow-xl backdrop-blur-sm border transition-all duration-300"
                 onClick={() => onAddToCart?.(product)}
-                disabled={isOutOfStock || !product.purchasable}
               >
                 <ShoppingCart className="w-5 h-5" />
               </motion.button>
@@ -157,25 +128,24 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
         
         {/* Content Section */}
         <div className="p-6 flex-1 flex flex-col">
-          <Link href={`/products/${product.slug}`}>
-            <h3 className="text-xl font-light mb-3 line-clamp-2 transition-all duration-300 leading-tight text-center bg-gradient-to-r from-white via-purple-200 to-white bg-clip-text text-transparent hover:from-purple-300 hover:via-blue-300 hover:to-purple-300 hover:scale-105 transform tracking-wide">
+          <Link href={`/products/${product.id}`}>
+            <h3 className="text-xl font-bold mb-3 line-clamp-1 transition-all duration-300 leading-tight text-center bg-gradient-to-r from-white via-purple-200 to-white bg-clip-text text-transparent hover:from-purple-300 hover:via-blue-300 hover:to-purple-300 hover:scale-105 transform tracking-wide uppercase whitespace-nowrap overflow-hidden text-ellipsis">
               {product.name}
             </h3>
           </Link>
           
           {/* Short Description */}
-          {product.short_description && (
+          {product.description && (
             <p className="text-gray-300 text-sm mb-4 line-clamp-3 leading-relaxed text-left font-thin">
-              {product.short_description.replace(/<[^>]*>/g, '')}
+              {product.description.replace(/<[^>]*>/g, '')}
             </p>
           )}
-          
           
           {/* Trust Indicators */}
           <div className="flex items-center gap-4 mb-4 text-xs">
             <div className="flex items-center text-green-400">
               <Users className="w-3 h-3 mr-1" />
-              <span>{product.total_sales}+ users</span>
+              <span>{totalSales}+ users</span>
             </div>
             <div className="flex items-center text-blue-400">
               <Clock className="w-3 h-3 mr-1" />
@@ -193,43 +163,33 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
               <div className="bg-gray-700/30 rounded-lg p-2">
                 <div className="text-gray-400 text-xs mb-1">1 Day</div>
                 <div className="text-white text-sm font-medium">
-                  {formatPrice(subscriptionPrices.day1)}
+                  ${subscriptionPrices.day1}
                 </div>
               </div>
               <div className="bg-gray-700/30 rounded-lg p-2">
                 <div className="text-gray-400 text-xs mb-1">7 Days</div>
                 <div className="text-white text-sm font-medium">
-                  {formatPrice(subscriptionPrices.day7)}
+                  ${subscriptionPrices.day7}
                 </div>
               </div>
               <div className="bg-gray-700/30 rounded-lg p-2">
                 <div className="text-gray-400 text-xs mb-1">30 Days</div>
                 <div className="text-white text-sm font-medium">
-                  {formatPrice(subscriptionPrices.day30)}
+                  ${subscriptionPrices.day30}
                 </div>
               </div>
             </div>
-            {isOnSale && savings > 0 && (
-              <div className="text-green-400 text-xs font-medium text-center mt-2">
-                Save {savings}% on all plans
-              </div>
-            )}
           </div>
           
           {/* Add to Cart Button */}
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className={`w-full py-3 px-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2 mt-auto mb-2 ${
-              isOutOfStock || !product.purchasable
-                ? 'bg-gray-700 text-gray-400 cursor-not-allowed'
-                : 'bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-lg hover:shadow-purple-500/50'
-            }`}
+            className="w-full py-3 px-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2 mt-auto mb-2 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-lg hover:shadow-purple-500/50"
             onClick={() => onAddToCart?.(product)}
-            disabled={isOutOfStock || !product.purchasable}
           >
             <ShoppingCart className="w-4 h-4" />
-            <span className="text-base">{isOutOfStock ? 'Out of Stock' : 'Add to Cart'}</span>
+            <span className="text-base">Add to Cart</span>
           </motion.button>
           
         </div>

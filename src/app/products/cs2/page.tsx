@@ -2,23 +2,24 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Product } from '@/lib/types';
-import { SimpleProduct } from '@/lib/products';
+import { SimpleProduct } from '@/contexts/CartContext';
 import { ProductGrid } from '@/components/product/ProductGrid';
 import { ProductFilters, ProductFilters as FiltersType } from '@/components/product/ProductFilters';
 import Header from '@/components/homepage/Header';
 import Footer from '@/components/homepage/Footer';
-import { getCS2Products } from '@/lib/mockProducts';
 import { useCart } from '@/contexts/CartContext';
 import Head from 'next/head';
 import MinimalisticBackground from '@/components/common/MinimalisticBackground';
+import products from '@/data/products.json';
 
 export default function CS2ProductsPage() {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [filteredProducts, setFilteredProducts] = useState<SimpleProduct[]>([]);
   const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState<FiltersType>({
     search: '',
     category: 'cs2',
+    minPrice: '',
+    maxPrice: '',
     featured: false,
     onSale: false,
     inStock: true,
@@ -26,22 +27,8 @@ export default function CS2ProductsPage() {
   
   const { addToCart } = useCart();
 
-  // Convert WooCommerce Product to SimpleProduct for cart
-  const convertProductToSimple = (product: Product): SimpleProduct => {
-    return {
-      id: product.id.toString(),
-      name: product.name,
-      price: Math.round(parseFloat(product.price) * 100), // Convert to cents
-      description: product.short_description || product.description,
-      image: product.images?.[0]?.src || '',
-      stripe_price_id: product.sku || '',
-      currency: 'usd'
-    };
-  };
-
-  const handleAddToCart = (product: Product) => {
-    const simpleProduct = convertProductToSimple(product);
-    addToCart(simpleProduct);
+  const handleAddToCart = (product: SimpleProduct) => {
+    addToCart(product);
   };
 
   useEffect(() => {
@@ -52,14 +39,40 @@ export default function CS2ProductsPage() {
     try {
       setLoading(true);
       
-      // Use our structured product data
-      console.log('Loading CS2 products from local data');
-      const allProducts = getCS2Products();
-      setProducts(allProducts);
+      // Load CS2-specific products from products.json and group them
+      console.log('Loading CS2 products from products.json');
+      
+      // Filter CS2 products and group by base name
+      const cs2Products = products.filter(product => product.id.includes('cs2'));
+      const groupedProducts = new Map<string, SimpleProduct>();
+      
+      cs2Products.forEach(product => {
+        const baseKey = product.id.replace(/-\d+day$/, ''); // Remove -1day, -7day, -30day
+        if (!groupedProducts.has(baseKey)) {
+          // Create a clean product object without duration in name
+          const cleanProduct = {
+            ...product,
+            name: product.name.replace(/ \d+ Day$/, '') // Remove " 1 Day", " 7 Day", " 30 Day" from name
+          } as SimpleProduct;
+          groupedProducts.set(baseKey, cleanProduct);
+        }
+      });
+      
+      let filtered = Array.from(groupedProducts.values());
+      
+      // Apply filters
+      if (filters.search) {
+        filtered = filtered.filter(product => 
+          product.name.toLowerCase().includes(filters.search.toLowerCase()) ||
+          product.description.toLowerCase().replace(/<[^>]*>/g, '').includes(filters.search.toLowerCase())
+        );
+      }
+      
+      setFilteredProducts(filtered);
       
     } catch (error) {
       console.error('Error loading CS2 products:', error);
-      setProducts([]);
+      setFilteredProducts([]);
     } finally {
       setLoading(false);
     }
@@ -110,8 +123,7 @@ export default function CS2ProductsPage() {
                 {/* Filters */}
                 <div className="lg:w-1/4">
                   <ProductFilters 
-                    filters={filters}
-                    onChange={handleFilterChange}
+                    onFiltersChange={handleFilterChange}
                     loading={loading}
                   />
                 </div>
@@ -119,7 +131,7 @@ export default function CS2ProductsPage() {
                 {/* Product Grid */}
                 <div className="lg:w-3/4">
                   <ProductGrid 
-                    products={products}
+                    products={filteredProducts}
                     loading={loading}
                     onAddToCart={handleAddToCart}
                   />

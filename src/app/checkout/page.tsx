@@ -366,13 +366,13 @@ export default function CheckoutPage() {
               {displayItems.map((item) => (
                 <div key={item.product.id} className="flex items-center space-x-4 p-4 bg-gray-700/30 rounded-lg">
                   <img
-                    src={item.product.image}
+                    src={item.product.image || '/images/default-product.png'}
                     alt={item.product.name}
                     className="w-16 h-16 object-cover rounded-lg"
                   />
                   <div className="flex-1">
                     <h3 className="text-white font-semibold">{item.product.name}</h3>
-                    <p className="text-gray-400 text-sm">{item.product.description}</p>
+                    <p className="text-gray-400 text-sm">{item.product.description.replace(/<[^>]*>/g, '')}</p>
                     <div className="flex items-center justify-between mt-2">
                       <span className="text-gray-300">Qty: {item.quantity}</span>
                       <span className="text-white font-semibold">

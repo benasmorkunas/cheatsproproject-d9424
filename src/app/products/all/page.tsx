@@ -2,21 +2,24 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Product } from '@/lib/types';
+import { SimpleProduct } from '@/contexts/CartContext';
 import { ProductGrid } from '@/components/product/ProductGrid';
 import { ProductFilters, ProductFilters as FiltersType } from '@/components/product/ProductFilters';
 import Header from '@/components/homepage/Header';
 import Footer from '@/components/homepage/Footer';
-import { mockProducts } from '@/lib/mockProducts';
 import { useCart } from '@/contexts/CartContext';
 import Head from 'next/head';
+import MinimalisticBackground from '@/components/common/MinimalisticBackground';
+import products from '@/data/products.json';
 
 export default function AllProductsPage() {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [filteredProducts, setFilteredProducts] = useState<SimpleProduct[]>([]);
   const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState<FiltersType>({
     search: '',
     category: 'all',
+    minPrice: '',
+    maxPrice: '',
     featured: false,
     onSale: false,
     inStock: true,
@@ -32,14 +35,45 @@ export default function AllProductsPage() {
     try {
       setLoading(true);
       
-      // Use our structured product data
-      console.log('Loading all products from local data');
-      const allProducts = mockProducts;
-      setProducts(allProducts);
+      // Use products directly from JSON file and group them
+      console.log('Loading all products from products.json');
+      
+      // Group products by base name (remove duration suffix)
+      const groupedProducts = new Map<string, SimpleProduct>();
+      
+      products.forEach(product => {
+        const baseKey = product.id.replace(/-\d+day$/, ''); // Remove -1day, -7day, -30day
+        if (!groupedProducts.has(baseKey)) {
+          // Create a clean product object without duration in name
+          const cleanProduct = {
+            ...product,
+            name: product.name.replace(/ \d+ Day$/, '') // Remove " 1 Day", " 7 Day", " 30 Day" from name
+          } as SimpleProduct;
+          groupedProducts.set(baseKey, cleanProduct);
+        }
+      });
+      
+      let filtered = Array.from(groupedProducts.values());
+      
+      // Apply filters
+      if (filters.search) {
+        filtered = filtered.filter(product => 
+          product.name.toLowerCase().includes(filters.search.toLowerCase()) ||
+          product.description.toLowerCase().replace(/<[^>]*>/g, '').includes(filters.search.toLowerCase())
+        );
+      }
+      
+      if (filters.category !== 'all') {
+        filtered = filtered.filter(product => 
+          product.name.toLowerCase().includes(filters.category)
+        );
+      }
+      
+      setFilteredProducts(filtered);
       
     } catch (error) {
       console.error('Error loading products:', error);
-      setProducts([]);
+      setFilteredProducts([]);
     } finally {
       setLoading(false);
     }
@@ -57,12 +91,12 @@ export default function AllProductsPage() {
         <meta name="keywords" content="gaming cheat, aimbot, ESP, wallhack, CS2 hack, BF6 hack, undetected cheat" />
       </Head>
       
-      <div className="min-h-screen bg-gray-900">
+      <MinimalisticBackground>
         <Header />
         
         <main className="pt-20">
           {/* Hero Section */}
-          <section className="py-20 bg-gradient-to-r from-purple-900/20 via-blue-900/20 to-cyan-900/20">
+          <section className="py-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
@@ -90,8 +124,7 @@ export default function AllProductsPage() {
                 {/* Filters */}
                 <div className="lg:w-1/4">
                   <ProductFilters 
-                    filters={filters}
-                    onChange={handleFilterChange}
+                    onFiltersChange={handleFilterChange}
                     loading={loading}
                   />
                 </div>
@@ -99,7 +132,7 @@ export default function AllProductsPage() {
                 {/* Product Grid */}
                 <div className="lg:w-3/4">
                   <ProductGrid 
-                    products={products}
+                    products={filteredProducts}
                     loading={loading}
                     onAddToCart={addToCart}
                   />
@@ -110,7 +143,7 @@ export default function AllProductsPage() {
         </main>
         
         <Footer />
-      </div>
+      </MinimalisticBackground>
     </>
   );
 }

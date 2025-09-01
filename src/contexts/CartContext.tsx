@@ -1,7 +1,16 @@
 'use client';
 
 import React, { createContext, useContext, useReducer, useEffect } from 'react';
-import { SimpleProduct } from '@/lib/products';
+
+export interface SimpleProduct {
+  id: string;
+  name: string;
+  price: number; // in cents
+  description: string;
+  image: string;
+  stripe_price_id: string;
+  currency: string;
+}
 
 export interface CartItem {
   product: SimpleProduct;
@@ -150,15 +159,15 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     localStorage.setItem('cart', JSON.stringify(state));
   }, [state]);
 
-  const addToCart = (product: Product) => {
+  const addToCart = (product: SimpleProduct) => {
     dispatch({ type: 'ADD_TO_CART', payload: product });
   };
 
-  const removeFromCart = (productId: number) => {
+  const removeFromCart = (productId: string) => {
     dispatch({ type: 'REMOVE_FROM_CART', payload: productId });
   };
 
-  const updateQuantity = (productId: number, quantity: number) => {
+  const updateQuantity = (productId: string, quantity: number) => {
     dispatch({ type: 'UPDATE_QUANTITY', payload: { productId, quantity } });
   };
 

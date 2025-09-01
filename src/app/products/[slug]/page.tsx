@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { Product } from '@/lib/types';
-import { SimpleProduct } from '@/lib/products';
+import { SimpleProduct, convertToWooCommerceFormat } from '@/lib/products';
 import Header from '@/components/homepage/Header';
 import Footer from '@/components/homepage/Footer';
 import { mockProducts } from '@/lib/mockProducts';
@@ -225,16 +225,18 @@ export default function ProductDetailPage() {
       // Add the product with the selected quantity (fallback)
       const simpleProduct = convertProductToSimple(productToAdd);
       if (simpleProduct) {
+        const wooProduct = convertToWooCommerceFormat(simpleProduct) as Product;
         for (let i = 0; i < quantity; i++) {
-          addToCart(simpleProduct);
+          addToCart(wooProduct);
         }
       }
     } else if (product) {
       // Fallback for products without variants
       const simpleProduct = convertProductToSimple(product);
       if (simpleProduct) {
+        const wooProduct = convertToWooCommerceFormat(simpleProduct) as Product;
         for (let i = 0; i < quantity; i++) {
-          addToCart(simpleProduct);
+          addToCart(wooProduct);
         }
       }
     }
@@ -252,10 +254,10 @@ export default function ProductDetailPage() {
             <div className="grid gap-12 lg:grid-cols-2">
               {/* Image Skeleton */}
               <div className="space-y-6">
-                <div className="aspect-square bg-gray-800/50 rounded-2xl animate-pulse"></div>
+                <div className="aspect-square bg-black/40 rounded-2xl animate-pulse"></div>
                 <div className="flex gap-3">
                   {[...Array(3)].map((_, i) => (
-                    <div key={i} className="w-20 h-20 bg-gray-800/50 rounded-lg animate-pulse"></div>
+                    <div key={i} className="w-20 h-20 bg-black/40 rounded-lg animate-pulse"></div>
                   ))}
                 </div>
               </div>
@@ -263,12 +265,12 @@ export default function ProductDetailPage() {
               {/* Content Skeleton */}
               <div className="space-y-6">
                 <div className="space-y-4">
-                  <div className="h-10 bg-gray-800/50 rounded-lg w-3/4 animate-pulse"></div>
-                  <div className="h-6 bg-gray-800/50 rounded-lg w-1/2 animate-pulse"></div>
+                  <div className="h-10 bg-black/40 rounded-lg w-3/4 animate-pulse"></div>
+                  <div className="h-6 bg-black/40 rounded-lg w-1/2 animate-pulse"></div>
                 </div>
-                <div className="h-24 bg-gray-800/50 rounded-lg animate-pulse"></div>
-                <div className="h-16 bg-gray-800/50 rounded-lg animate-pulse"></div>
-                <div className="h-12 bg-gray-800/50 rounded-lg animate-pulse"></div>
+                <div className="h-24 bg-black/40 rounded-lg animate-pulse"></div>
+                <div className="h-16 bg-black/40 rounded-lg animate-pulse"></div>
+                <div className="h-12 bg-black/40 rounded-lg animate-pulse"></div>
               </div>
             </div>
           </div>
@@ -288,7 +290,7 @@ export default function ProductDetailPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-12 text-center"
+              className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-2xl p-12 text-center"
             >
               <div className="w-24 h-24 bg-gray-700/30 rounded-full flex items-center justify-center mx-auto mb-6">
                 <AlertTriangle className="w-12 h-12 text-gray-500" />
@@ -352,7 +354,7 @@ export default function ProductDetailPage() {
                 transition={{ duration: 0.6 }}
                 className="space-y-6"
               >
-                <div className="relative aspect-square overflow-hidden rounded-2xl bg-gray-800/50 border border-gray-700/50">
+                <div className="relative aspect-square overflow-hidden rounded-2xl bg-black/40 border border-gray-600/20">
                   {product.images && product.images.length > 0 ? (
                     <Image
                       src={product.images[selectedImage]?.src || product.images[0].src}
@@ -480,7 +482,7 @@ export default function ProductDetailPage() {
                 )}
 
                 {/* Key Features */}
-                <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-6">
+                <div className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-xl p-6">
                   <h3 className="text-lg font-bold text-white mb-4 flex items-center">
                     <Shield className="w-5 h-5 text-purple-400 mr-2" />
                     Key Features
@@ -526,7 +528,7 @@ export default function ProductDetailPage() {
 
                 {/* Duration Selection (if multiple variants available) */}
                 {availableVariants.length > 1 && (
-                  <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-6">
+                  <div className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-xl p-6">
                     <h3 className="text-lg font-bold text-white mb-4 flex items-center">
                       <Clock className="w-5 h-5 text-blue-400 mr-2" />
                       Choose Duration
@@ -570,7 +572,7 @@ export default function ProductDetailPage() {
                 <div className="space-y-6">
                   <div className="flex items-center gap-4">
                     <span className="text-sm font-medium text-gray-300">Quantity:</span>
-                    <div className="flex items-center bg-gray-800/50 border border-gray-600 rounded-lg">
+                    <div className="flex items-center bg-black/40 border border-gray-600 rounded-lg">
                       <button
                         onClick={() => setQuantity(Math.max(1, quantity - 1))}
                         disabled={quantity <= 1}
@@ -607,7 +609,7 @@ export default function ProductDetailPage() {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="p-4 bg-gray-800/50 border border-gray-600 hover:border-gray-500 text-gray-300 hover:text-white rounded-xl transition-all duration-300"
+                      className="p-4 bg-black/40 border border-gray-600 hover:border-gray-500 text-gray-300 hover:text-white rounded-xl transition-all duration-300"
                     >
                       <Heart className="w-5 h-5" />
                     </motion.button>
@@ -615,7 +617,7 @@ export default function ProductDetailPage() {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="p-4 bg-gray-800/50 border border-gray-600 hover:border-gray-500 text-gray-300 hover:text-white rounded-xl transition-all duration-300"
+                      className="p-4 bg-black/40 border border-gray-600 hover:border-gray-500 text-gray-300 hover:text-white rounded-xl transition-all duration-300"
                     >
                       <Share2 className="w-5 h-5" />
                     </motion.button>
@@ -647,7 +649,7 @@ export default function ProductDetailPage() {
                 transition={{ duration: 0.6 }}
                 className="mt-16"
               >
-                <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8">
+                <div className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-2xl p-8">
                   <h2 className="text-2xl font-bold text-white mb-6">Product Details</h2>
                   <div
                     className="prose prose-invert prose-purple max-w-none"

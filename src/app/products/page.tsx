@@ -148,15 +148,15 @@ export default function CategoriesPage() {
 
                               {/* Stats */}
                               <div className="grid grid-cols-3 gap-4">
-                                <div className="text-center p-4 bg-gray-800/50 backdrop-blur-sm rounded-lg border border-gray-700/50">
+                                <div className="text-center p-4 bg-black/40 backdrop-blur-sm rounded-lg border border-gray-600/20">
                                   <div className="text-2xl font-bold text-white mb-1">{category.stats.products}</div>
                                   <div className="text-xs text-gray-400 uppercase tracking-wide">Products</div>
                                 </div>
-                                <div className="text-center p-4 bg-gray-800/50 backdrop-blur-sm rounded-lg border border-gray-700/50">
+                                <div className="text-center p-4 bg-black/40 backdrop-blur-sm rounded-lg border border-gray-600/20">
                                   <div className="text-2xl font-bold text-blue-400 mb-1">{category.stats.users}</div>
                                   <div className="text-xs text-gray-400 uppercase tracking-wide">Users</div>
                                 </div>
-                                <div className="text-center p-4 bg-gray-800/50 backdrop-blur-sm rounded-lg border border-gray-700/50">
+                                <div className="text-center p-4 bg-black/40 backdrop-blur-sm rounded-lg border border-gray-600/20">
                                   <div className="flex items-center justify-center space-x-1 mb-1">
                                     <span className="text-2xl font-bold text-yellow-400">{category.stats.rating}</span>
                                     <Star className="w-5 h-5 text-yellow-400 fill-current" />
@@ -185,7 +185,7 @@ export default function CategoriesPage() {
 
                             {/* Right Content - Features */}
                             <div className="space-y-6">
-                              <div className="bg-gray-800/30 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50">
+                              <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-6 border border-gray-600/20">
                                 <h3 className="text-xl font-semibold text-white mb-4 flex items-center space-x-2">
                                   <Star className="w-5 h-5 text-purple-400" />
                                   <span>Key Features</span>
@@ -244,7 +244,7 @@ export default function CategoriesPage() {
                 transition={{ duration: 0.8, delay: 0.6 }}
                 className="mt-16 text-center"
               >
-                <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8">
+                <div className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-2xl p-8">
                   <h3 className="text-2xl font-bold text-white mb-4">
                     Need Help Choosing?
                   </h3>

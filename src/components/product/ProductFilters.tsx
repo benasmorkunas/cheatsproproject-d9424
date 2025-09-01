@@ -61,7 +61,7 @@ export function ProductFilters({ onFiltersChange, categories = [], loading, hide
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
     >
-      <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 sticky top-24">
+      <div className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-2xl p-6 sticky top-24">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center space-x-2">

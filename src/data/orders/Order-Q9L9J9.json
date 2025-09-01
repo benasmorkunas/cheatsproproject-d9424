@@ -1,0 +1,31 @@
+{
+  "amount": 1038,
+  "currency": "usd",
+  "automatic_payment_methods": {
+    "enabled": true
+  },
+  "metadata": {
+    "product_id": "cs2-lite-1day",
+    "customer_email": "benasmorkunas@gmail.com",
+    "products": [
+      {
+        "id": "cs2-lite-1day",
+        "name": "CS2 Lite Version",
+        "price": 399,
+        "quantity": 1
+      }
+    ],
+    "isFirstTimePurchase": true,
+    "productCount": 1,
+    "customer_first_name": "Benas",
+    "customer_last_name": "Morkunas",
+    "customer_name": "Benas Morkunas"
+  },
+  "timestamp": "2025-08-31T20:39:13.176Z",
+  "status": "completed",
+  "id": "Q9L9J9",
+  "createdAt": "2025-08-31T20:39:17.882Z",
+  "updatedAt": "2025-08-31T20:39:38.482Z",
+  "paymentIntentId": "pi_3S2I20DgNZJsmfkI2kRNgPvp",
+  "completedAt": "2025-08-31T20:39:38.467Z"
+}

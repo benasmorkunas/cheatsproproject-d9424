@@ -311,7 +311,7 @@ export default function CartPage() {
                       {/* Product Info */}
                       <div className="flex-1">
                         <h3 className="text-xl font-semibold text-white mb-2">{item.product.name}</h3>
-                        <p className="text-gray-300 mb-3 line-clamp-2">{item.product.description}</p>
+                        <p className="text-gray-300 mb-3 line-clamp-2">{item.product.description.replace(/<[^>]*>/g, '')}</p>
                         
                         <div className="flex items-center space-x-4">
                           <span className="text-2xl font-bold text-purple-400">${(item.product.price / 100).toFixed(2)}</span>
