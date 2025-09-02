@@ -76,7 +76,7 @@ export default function WhyJoinUs() {
               <div className={`relative ${
                 benefit.highlight 
                   ? 'bg-gradient-to-br from-green-800/20 to-emerald-800/20 border-green-500/30' 
-                  : 'bg-gray-800/50 border-gray-700/50'
+                  : 'bg-black/40 border-gray-600/20'
               } backdrop-blur-sm border rounded-2xl p-8 h-full transition-all duration-300 hover:border-purple-500/30 hover:shadow-xl ${
                 benefit.highlight ? 'hover:shadow-green-500/10' : 'hover:shadow-purple-500/10'
               }`}>
@@ -161,7 +161,7 @@ export default function WhyJoinUs() {
           transition={{ duration: 0.8, delay: 0.7 }}
           className="text-center mt-16"
         >
-          <div className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8">
+          <div className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-2xl p-8">
             <h3 className="text-2xl font-bold text-white mb-4">
               Ready to Start Earning?
             </h3>

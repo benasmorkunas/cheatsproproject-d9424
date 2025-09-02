@@ -194,14 +194,14 @@ export default function FAQPage() {
                     <motion.div
                       key={faq.id}
                       id={faq.id}
-                      className="bg-gray-800/30 backdrop-blur-sm border border-purple-500/20 rounded-xl overflow-hidden"
+                      className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-xl overflow-hidden"
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.4, delay: index * 0.05 }}
                     >
                       <button
                         onClick={() => handleQuestionClick(faq.id)}
-                        className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-700/30 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:ring-inset group"
+                        className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-black/30 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:ring-inset group"
                         aria-expanded={openItems.includes(faq.id)}
                         aria-controls={`answer-${faq.id}`}
                       >
@@ -228,7 +228,7 @@ export default function FAQPage() {
                             className="overflow-hidden"
                           >
                             <div className="px-6 pb-6">
-                              <div className="border-t border-purple-500/20 pt-4">
+                              <div className="border-t border-gray-600/20 pt-4">
                                 <p className="text-gray-300 leading-relaxed mb-4 text-base">
                                   {faq.answer}
                                 </p>
@@ -268,7 +268,7 @@ export default function FAQPage() {
           </div>
         </section>
 
-        <section className="py-16 border-t border-purple-500/20">
+        <section className="py-16 border-t border-gray-600/20">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div 
               className="text-center mb-12"
@@ -288,7 +288,7 @@ export default function FAQPage() {
               {trustBadges.map((badge, index) => (
                 <motion.div
                   key={index}
-                  className="text-center p-6 bg-gray-800/30 backdrop-blur-sm border border-purple-500/20 rounded-xl"
+                  className="text-center p-6 bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-xl"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -300,7 +300,7 @@ export default function FAQPage() {
             </div>
 
             <motion.div 
-              className="text-center bg-gradient-to-r from-purple-600/20 to-blue-600/20 backdrop-blur-sm border border-purple-500/30 rounded-2xl p-8"
+              className="text-center bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-2xl p-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -339,7 +339,7 @@ export default function FAQPage() {
 
         <div className="fixed bottom-4 left-4 right-4 md:hidden z-50">
           <motion.div 
-            className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl p-4 shadow-2xl border border-purple-500/30"
+            className="bg-black/40 backdrop-blur-sm rounded-xl p-4 shadow-2xl border border-gray-600/20"
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 1 }}

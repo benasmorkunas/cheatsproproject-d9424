@@ -1,9 +1,36 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { DollarSign, Users, Headphones, TrendingUp } from 'lucide-react';
 
+interface AnimatedElement {
+  id: number;
+  x: number;
+  y: number;
+  left: string;
+  top: string;
+  duration: number;
+  delay: number;
+}
+
 export default function HeroSection() {
+  const [animatedElements, setAnimatedElements] = useState<AnimatedElement[]>([]);
+
+  useEffect(() => {
+    // Generate animated elements on client side only
+    const elements = [...Array(25)].map((_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      duration: Math.random() * 8 + 8,
+      delay: Math.random() * 5,
+    }));
+    setAnimatedElements(elements);
+  }, []);
+
   const stats = [
     {
       icon: <DollarSign className="w-6 h-6" />,
@@ -28,23 +55,23 @@ export default function HeroSection() {
 
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(25)].map((_, i) => (
+        {animatedElements.map((element) => (
           <motion.div
-            key={i}
+            key={element.id}
             className="absolute w-1 h-1 bg-green-400/40 rounded-full"
             animate={{
-              x: [0, Math.random() * 100, 0],
-              y: [0, Math.random() * 100, 0],
+              x: [0, element.x, 0],
+              y: [0, element.y, 0],
               opacity: [0, 1, 0],
             }}
             transition={{
-              duration: Math.random() * 8 + 8,
+              duration: element.duration,
               repeat: Infinity,
-              delay: Math.random() * 5,
+              delay: element.delay,
             }}
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              left: element.left,
+              top: element.top,
             }}
           />
         ))}
@@ -92,7 +119,7 @@ export default function HeroSection() {
                 className={`${
                   stat.highlight 
                     ? 'bg-gradient-to-br from-green-800/30 to-emerald-800/30 border-green-500/30' 
-                    : 'bg-gray-800/50 border-gray-700/50'
+                    : 'bg-black/40 border-gray-600/20'
                 } backdrop-blur-sm border rounded-xl p-4 md:p-6 min-w-[140px] md:min-w-[180px]`}
               >
                 <div className="flex items-center justify-center space-x-2 mb-2">
@@ -146,15 +173,6 @@ export default function HeroSection() {
             </motion.button>
           </motion.div>
 
-          {/* Additional Info */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1 }}
-            className="text-gray-400 text-sm max-w-2xl mx-auto"
-          >
-            No minimum traffic requirements • Weekly payouts • Professional marketing materials included
-          </motion.div>
 
           {/* Scroll Indicator */}
           <motion.div

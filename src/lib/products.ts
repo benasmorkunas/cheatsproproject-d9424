@@ -322,8 +322,8 @@ export function convertToWooCommerceFormat(product: SimpleProduct) {
 
 // Get product categories with counts
 export function getProductCategories() {
-  const bf6Count = getProductsByGame('bf6').length;
-  const cs2Count = getProductsByGame('cs2').length;
+  const bf6Count = getProductGroupsByGame('bf6').length;
+  const cs2Count = getProductGroupsByGame('cs2').length;
   
   return [
     {

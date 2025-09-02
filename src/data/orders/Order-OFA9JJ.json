@@ -1,0 +1,24 @@
+{
+  "amount": 879,
+  "currency": "usd",
+  "automatic_payment_methods": {
+    "enabled": false
+  },
+  "payment_method_types": [
+    "card"
+  ],
+  "selected_payment_method": "card",
+  "metadata": {
+    "product_id": "cs2-pro-1day",
+    "customer_email": "",
+    "payment_method": "card",
+    "products": [],
+    "isFirstTimePurchase": true,
+    "productCount": 0
+  },
+  "timestamp": "2025-09-01T20:20:42.844Z",
+  "status": "incomplete",
+  "customerInfo": null,
+  "id": "OFA9JJ",
+  "createdAt": "2025-09-01T20:20:43.411Z"
+}

@@ -86,17 +86,17 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
           {/* Top Badges */}
           <div className="absolute top-3 left-3 flex flex-col gap-2 z-10">
             {isPreOrder && (
-              <div className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+              <div className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg text-center flex items-center justify-center">
                 PRE-ORDER
               </div>
             )}
             {isMostPopular && (
-              <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+              <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg text-center flex items-center justify-center">
                 MOST POPULAR
               </div>
             )}
             {isBestValue && (
-              <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+              <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg text-center flex items-center justify-center">
                 BEST VALUE
               </div>
             )}

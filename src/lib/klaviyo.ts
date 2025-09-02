@@ -89,7 +89,7 @@ export async function trackEvent(
           ...properties,
           timestamp: new Date().toISOString(),
         },
-        time: new Date().toISOString(),
+        time: new Date(),
       },
     };
 

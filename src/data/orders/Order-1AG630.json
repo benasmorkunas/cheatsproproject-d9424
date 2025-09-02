@@ -1,0 +1,31 @@
+{
+  "amount": 603,
+  "currency": "usd",
+  "automatic_payment_methods": {
+    "enabled": false
+  },
+  "payment_method_types": [
+    "link"
+  ],
+  "selected_payment_method": "link",
+  "metadata": {
+    "product_id": 21,
+    "customer_email": "",
+    "payment_method": "link",
+    "products": [
+      {
+        "id": 21,
+        "name": "CS2 LITE VERSION",
+        "price": "3.99",
+        "quantity": 1
+      }
+    ],
+    "isFirstTimePurchase": true,
+    "productCount": 1
+  },
+  "timestamp": "2025-09-01T19:56:19.069Z",
+  "status": "incomplete",
+  "customerInfo": null,
+  "id": "1AG630",
+  "createdAt": "2025-09-01T19:56:19.318Z"
+}

@@ -123,6 +123,14 @@ export default function StripeCheckoutForm({
 
   const paymentElementOptions = {
     layout: 'tabs' as const,
+    defaultValues: {
+      billingDetails: {
+        email: customerInfo.email,
+        name: `${customerInfo.firstName} ${customerInfo.lastName}`.trim(),
+      }
+    },
+    // Allow payment method auto-fill in development
+    allowRedisplay: 'always' as const,
   };
 
   return (
@@ -197,6 +205,13 @@ export default function StripeCheckoutForm({
         {/* Payment Information */}
         <div className="space-y-4">
           <h3 className="text-lg font-semibold text-white mb-4">Payment Information</h3>
+          {process.env.NODE_ENV === 'development' && (
+            <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-3 mb-4">
+              <p className="text-blue-400 text-sm">
+                <strong>Development Mode:</strong> Use test card: 4242 4242 4242 4242, any future date, any CVC
+              </p>
+            </div>
+          )}
           <div className="bg-gray-700/30 rounded-lg p-4">
             <PaymentElement 
               options={paymentElementOptions}

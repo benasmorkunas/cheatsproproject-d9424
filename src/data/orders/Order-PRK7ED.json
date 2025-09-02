@@ -1,0 +1,24 @@
+{
+  "amount": 439,
+  "currency": "usd",
+  "automatic_payment_methods": {
+    "enabled": false
+  },
+  "payment_method_types": [
+    "google_pay"
+  ],
+  "selected_payment_method": "google_pay",
+  "metadata": {
+    "product_id": "cs2-lite-1day",
+    "customer_email": "",
+    "payment_method": "google_pay",
+    "products": [],
+    "isFirstTimePurchase": true,
+    "productCount": 0
+  },
+  "timestamp": "2025-09-01T20:37:12.407Z",
+  "status": "incomplete",
+  "customerInfo": null,
+  "id": "PRK7ED",
+  "createdAt": "2025-09-01T20:37:14.266Z"
+}

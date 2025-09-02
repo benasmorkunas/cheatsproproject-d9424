@@ -1,0 +1,35 @@
+{
+  "amount": 1038,
+  "currency": "usd",
+  "automatic_payment_methods": {
+    "enabled": true,
+    "allow_redirects": "never"
+  },
+  "payment_method_types": [
+    "card",
+    "link",
+    "apple_pay",
+    "google_pay",
+    "paypal",
+    "klarna"
+  ],
+  "metadata": {
+    "product_id": "cs2-lite-1day",
+    "customer_email": "",
+    "products": [
+      {
+        "id": "cs2-lite-1day",
+        "name": "CS2 Lite Version",
+        "price": 399,
+        "quantity": 1
+      }
+    ],
+    "isFirstTimePurchase": true,
+    "productCount": 1
+  },
+  "timestamp": "2025-09-01T15:21:07.233Z",
+  "status": "incomplete",
+  "customerInfo": null,
+  "id": "AVX2T5",
+  "createdAt": "2025-09-01T15:21:08.556Z"
+}

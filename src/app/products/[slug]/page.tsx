@@ -225,18 +225,16 @@ export default function ProductDetailPage() {
       // Add the product with the selected quantity (fallback)
       const simpleProduct = convertProductToSimple(productToAdd);
       if (simpleProduct) {
-        const wooProduct = convertToWooCommerceFormat(simpleProduct) as Product;
         for (let i = 0; i < quantity; i++) {
-          addToCart(wooProduct);
+          addToCart(simpleProduct);
         }
       }
     } else if (product) {
       // Fallback for products without variants
       const simpleProduct = convertProductToSimple(product);
       if (simpleProduct) {
-        const wooProduct = convertToWooCommerceFormat(simpleProduct) as Product;
         for (let i = 0; i < quantity; i++) {
-          addToCart(wooProduct);
+          addToCart(simpleProduct);
         }
       }
     }

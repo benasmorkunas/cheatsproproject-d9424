@@ -154,7 +154,7 @@ export default function ApplicationForm() {
                 type="text"
                 value={formData.name}
                 onChange={(e) => updateFormData('name', e.target.value)}
-                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                className="w-full px-4 py-3 bg-black/30 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                 placeholder="Enter your full name"
               />
               {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name}</p>}
@@ -168,7 +168,7 @@ export default function ApplicationForm() {
                 type="email"
                 value={formData.email}
                 onChange={(e) => updateFormData('email', e.target.value)}
-                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                className="w-full px-4 py-3 bg-black/30 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                 placeholder="your.email@example.com"
               />
               {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
@@ -182,7 +182,7 @@ export default function ApplicationForm() {
                 type="text"
                 value={formData.country}
                 onChange={(e) => updateFormData('country', e.target.value)}
-                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                className="w-full px-4 py-3 bg-black/30 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                 placeholder="e.g., United States, Canada, Germany"
               />
             </div>
@@ -195,7 +195,7 @@ export default function ApplicationForm() {
                 type="url"
                 value={formData.website}
                 onChange={(e) => updateFormData('website', e.target.value)}
-                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                className="w-full px-4 py-3 bg-black/30 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                 placeholder="https://yourwebsite.com"
               />
             </div>
@@ -208,7 +208,7 @@ export default function ApplicationForm() {
                 value={formData.socialHandles}
                 onChange={(e) => updateFormData('socialHandles', e.target.value)}
                 rows={3}
-                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                className="w-full px-4 py-3 bg-black/30 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                 placeholder="List your social media profiles (YouTube, Twitch, Instagram, etc.)"
               />
             </div>
@@ -231,7 +231,7 @@ export default function ApplicationForm() {
                     className={`px-4 py-3 rounded-lg border text-left font-medium transition-all duration-300 ${
                       formData.trafficSources.includes(source)
                         ? 'bg-purple-600 border-purple-500 text-white'
-                        : 'bg-gray-700/50 border-gray-600 text-gray-300 hover:border-purple-500'
+                        : 'bg-black/30 border-gray-600 text-gray-300 hover:border-purple-500'
                     }`}
                   >
                     {source}
@@ -248,7 +248,7 @@ export default function ApplicationForm() {
               <select
                 value={formData.monthlyReach}
                 onChange={(e) => updateFormData('monthlyReach', e.target.value)}
-                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                className="w-full px-4 py-3 bg-black/30 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
               >
                 <option value="">Select your reach</option>
                 <option value="under-1k">Under 1,000</option>
@@ -269,7 +269,7 @@ export default function ApplicationForm() {
                 value={formData.affiliateExperience}
                 onChange={(e) => updateFormData('affiliateExperience', e.target.value)}
                 rows={3}
-                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                className="w-full px-4 py-3 bg-black/30 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                 placeholder="Describe any previous affiliate marketing experience..."
               />
             </div>
@@ -282,7 +282,7 @@ export default function ApplicationForm() {
                 value={formData.contentExperience}
                 onChange={(e) => updateFormData('contentExperience', e.target.value)}
                 rows={3}
-                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                className="w-full px-4 py-3 bg-black/30 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                 placeholder="Tell us about your content creation background..."
               />
             </div>
@@ -300,7 +300,7 @@ export default function ApplicationForm() {
                 value={formData.promotionPlan}
                 onChange={(e) => updateFormData('promotionPlan', e.target.value)}
                 rows={4}
-                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                className="w-full px-4 py-3 bg-black/30 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                 placeholder="Describe your promotion strategy and approach..."
               />
               {errors.promotionPlan && <p className="text-red-400 text-sm mt-1">{errors.promotionPlan}</p>}
@@ -314,7 +314,7 @@ export default function ApplicationForm() {
                 type="text"
                 value={formData.targetAudience}
                 onChange={(e) => updateFormData('targetAudience', e.target.value)}
-                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                className="w-full px-4 py-3 bg-black/30 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                 placeholder="e.g., CS:GO players, FPS enthusiasts, competitive gamers"
               />
             </div>
@@ -332,7 +332,7 @@ export default function ApplicationForm() {
                     className={`px-4 py-3 rounded-lg border text-left font-medium transition-all duration-300 ${
                       formData.contentTypes.includes(type)
                         ? 'bg-purple-600 border-purple-500 text-white'
-                        : 'bg-gray-700/50 border-gray-600 text-gray-300 hover:border-purple-500'
+                        : 'bg-black/30 border-gray-600 text-gray-300 hover:border-purple-500'
                     }`}
                   >
                     {type}
@@ -355,7 +355,7 @@ export default function ApplicationForm() {
                     className={`px-4 py-3 rounded-lg border text-left font-medium transition-all duration-300 ${
                       formData.promotionMethods.includes(method)
                         ? 'bg-purple-600 border-purple-500 text-white'
-                        : 'bg-gray-700/50 border-gray-600 text-gray-300 hover:border-purple-500'
+                        : 'bg-black/30 border-gray-600 text-gray-300 hover:border-purple-500'
                     }`}
                   >
                     {method}
@@ -377,7 +377,7 @@ export default function ApplicationForm() {
                 value={formData.motivation}
                 onChange={(e) => updateFormData('motivation', e.target.value)}
                 rows={4}
-                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                className="w-full px-4 py-3 bg-black/30 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                 placeholder="Tell us what interests you about our affiliate program..."
               />
               {errors.motivation && <p className="text-red-400 text-sm mt-1">{errors.motivation}</p>}
@@ -390,7 +390,7 @@ export default function ApplicationForm() {
               <select
                 value={formData.monthlyVolume}
                 onChange={(e) => updateFormData('monthlyVolume', e.target.value)}
-                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                className="w-full px-4 py-3 bg-black/30 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
               >
                 <option value="">Select expected volume</option>
                 <option value="low">Low (1-10 referrals/month)</option>
@@ -407,7 +407,7 @@ export default function ApplicationForm() {
               <select
                 value={formData.paymentMethod}
                 onChange={(e) => updateFormData('paymentMethod', e.target.value)}
-                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                className="w-full px-4 py-3 bg-black/30 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
               >
                 <option value="">Select payment method</option>
                 <option value="paypal">PayPal</option>
@@ -426,7 +426,7 @@ export default function ApplicationForm() {
                 value={formData.additionalInfo}
                 onChange={(e) => updateFormData('additionalInfo', e.target.value)}
                 rows={3}
-                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                className="w-full px-4 py-3 bg-black/30 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                 placeholder="Any questions or additional information you'd like to share..."
               />
             </div>
@@ -459,7 +459,7 @@ export default function ApplicationForm() {
           </p>
         </motion.div>
 
-        <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8">
+        <div className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-2xl p-8">
           {/* Progress Steps */}
           <div className="flex items-center justify-between mb-8">
             {steps.map((step, index) => (
@@ -493,7 +493,7 @@ export default function ApplicationForm() {
           </div>
 
           {/* Progress Bar */}
-          <div className="w-full bg-gray-700 rounded-full h-2 mb-8">
+          <div className="w-full bg-black/30 rounded-full h-2 mb-8">
             <motion.div
               className="bg-gradient-to-r from-purple-600 to-blue-600 h-2 rounded-full"
               initial={{ width: '25%' }}
@@ -522,7 +522,7 @@ export default function ApplicationForm() {
               whileTap={{ scale: 0.95 }}
               onClick={prevStep}
               disabled={currentStep === 1}
-              className="flex items-center space-x-2 px-6 py-3 bg-gray-700 text-gray-300 rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
+              className="flex items-center space-x-2 px-6 py-3 bg-black/30 text-gray-300 rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
             >
               <ChevronLeft className="w-4 h-4" />
               <span>Previous</span>

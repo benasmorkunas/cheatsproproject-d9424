@@ -60,7 +60,7 @@ export default function WhyJoinUs() {
               whileHover={{ y: -5 }}
               className="group"
             >
-              <div className="relative bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 h-full transition-all duration-300 hover:border-purple-500/30 hover:shadow-xl hover:shadow-purple-500/10">
+              <div className="relative bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-2xl p-8 h-full transition-all duration-300 hover:border-purple-500/30 hover:shadow-xl hover:shadow-purple-500/10">
                 {/* Icon */}
                 <div className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${feature.gradient} mb-6 group-hover:scale-110 transition-transform duration-300`}>
                   <div className="text-white">
@@ -93,7 +93,7 @@ export default function WhyJoinUs() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="text-center mt-16"
         >
-          <div className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8">
+          <div className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-2xl p-8">
             <h3 className="text-2xl font-bold text-white mb-4">
               Ready to Build Something Amazing?
             </h3>

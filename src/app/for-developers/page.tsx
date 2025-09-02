@@ -6,8 +6,7 @@ import {
   HeroSection,
   WhyJoinUs,
   WhoWereLookingFor,
-  ApplicationForm,
-  SocialProof
+  ApplicationForm
 } from '@/components/DeveloperPage';
 
 export const metadata: Metadata = {
@@ -35,7 +34,6 @@ export default function ForDevelopersPage() {
         <HeroSection />
         <WhyJoinUs />
         <WhoWereLookingFor />
-        <SocialProof />
         <ApplicationForm />
       </main>
       

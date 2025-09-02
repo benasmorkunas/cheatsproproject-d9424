@@ -85,11 +85,11 @@ export default function WhoWereLookingFor() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group"
             >
-              <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl overflow-hidden hover:border-purple-500/30 transition-all duration-300">
+              <div className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-2xl overflow-hidden hover:border-purple-500/30 transition-all duration-300">
                 {/* Card Header */}
                 <button
                   onClick={() => setExpandedCard(expandedCard === index ? null : index)}
-                  className="w-full p-6 text-left hover:bg-gray-700/30 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-inset"
+                  className="w-full p-6 text-left hover:bg-black/20 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-inset"
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-4">
@@ -128,7 +128,7 @@ export default function WhoWereLookingFor() {
                       className="overflow-hidden"
                     >
                       <div className="p-6 pt-0">
-                        <div className="bg-gray-700/30 rounded-xl p-6">
+                        <div className="bg-black/20 rounded-xl p-6">
                           <ul className="space-y-3">
                             {req.details.map((detail, detailIndex) => (
                               <motion.li
@@ -161,7 +161,7 @@ export default function WhoWereLookingFor() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="text-center mt-12"
         >
-          <div className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6">
+          <div className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-2xl p-6">
             <p className="text-lg text-gray-300">
               <span className="text-purple-400 font-semibold">Don't see yourself fitting perfectly?</span> 
               {' '}We value passion and potential over perfect matches. 

@@ -123,7 +123,7 @@ export default function StatusPage() {
               Real-time status of Cheats-Pro Undetected Cheats Shop products
             </p>
 
-            <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl p-4 inline-block">
+            <div className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-xl p-4 inline-block">
               <div className="flex items-center space-x-2">
                 <Activity className="w-5 h-5 text-green-400" />
                 <span className="text-green-400 font-semibold">All Systems Operational</span>
@@ -143,7 +143,7 @@ export default function StatusPage() {
             {cheats.map((cheat, index) => (
               <motion.div
                 key={cheat.id}
-                className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 hover:border-green-500/50 transition-all duration-300"
+                className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-2xl p-8 hover:border-green-500/50 transition-all duration-300"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -181,7 +181,7 @@ export default function StatusPage() {
                 </div>
 
                 {/* Status Details */}
-                <div className="bg-gray-900/50 rounded-xl p-4 mb-6">
+                <div className="bg-black/30 rounded-xl p-4 mb-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
                     <div>
                       <span className="text-gray-400">Version:</span>
@@ -229,7 +229,7 @@ export default function StatusPage() {
                   <div>
                     {/* Pricing Boxes */}
                     <div className="grid grid-cols-3 gap-2 mb-3">
-                      <div className="bg-gray-700/30 rounded-lg px-3 py-2 text-center">
+                      <div className="bg-black/20 rounded-lg px-3 py-2 text-center">
                         <div className="text-xs flex justify-center items-center space-x-2">
                           <span className="text-gray-400">1 Day</span>
                           <span className="text-white font-medium">
@@ -237,7 +237,7 @@ export default function StatusPage() {
                           </span>
                         </div>
                       </div>
-                      <div className="bg-gray-700/30 rounded-lg px-3 py-2 text-center">
+                      <div className="bg-black/20 rounded-lg px-3 py-2 text-center">
                         <div className="text-xs flex justify-center items-center space-x-2">
                           <span className="text-gray-400">7 Days</span>
                           <span className="text-white font-medium">
@@ -245,7 +245,7 @@ export default function StatusPage() {
                           </span>
                         </div>
                       </div>
-                      <div className="bg-gray-700/30 rounded-lg px-3 py-2 text-center">
+                      <div className="bg-black/20 rounded-lg px-3 py-2 text-center">
                         <div className="text-xs flex justify-center items-center space-x-2">
                           <span className="text-gray-400">30 Days</span>
                           <span className="text-white font-medium">
@@ -275,7 +275,7 @@ export default function StatusPage() {
         <section className="mb-16">
 
           <motion.div
-            className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8"
+            className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-2xl p-8"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -285,7 +285,7 @@ export default function StatusPage() {
               {systemStatus.map((system, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-between py-4 px-6 bg-gray-900/50 rounded-xl hover:bg-gray-900/70 transition-colors duration-300"
+                  className="flex items-center justify-between py-4 px-6 bg-black/30 rounded-xl hover:bg-black/40 transition-colors duration-300"
                 >
                   <div className="flex items-center space-x-4">
                     <Server className="w-5 h-5 text-gray-400" />
@@ -318,17 +318,17 @@ export default function StatusPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-xl p-6 text-center">
+            <div className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-xl p-6 text-center">
               <div className="text-3xl font-bold text-green-400 mb-2">99.98%</div>
               <div className="text-gray-400">Overall Uptime</div>
             </div>
             
-            <div className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-xl p-6 text-center">
+            <div className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-xl p-6 text-center">
               <div className="text-3xl font-bold text-blue-400 mb-2">47ms</div>
               <div className="text-gray-400">Avg Response Time</div>
             </div>
             
-            <div className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-xl p-6 text-center">
+            <div className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-xl p-6 text-center">
               <div className="text-3xl font-bold text-purple-400 mb-2">0</div>
               <div className="text-gray-400">Detections This Month</div>
             </div>
@@ -339,7 +339,7 @@ export default function StatusPage() {
         {/* Status History */}
         <section className="mt-16">
           <motion.div
-            className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 text-center"
+            className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-2xl p-8 text-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}

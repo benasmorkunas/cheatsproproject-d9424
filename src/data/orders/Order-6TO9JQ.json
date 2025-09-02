@@ -1,0 +1,29 @@
+{
+  "amount": 1038,
+  "currency": "usd",
+  "automatic_payment_methods": {
+    "enabled": false
+  },
+  "payment_method_types": [
+    "card"
+  ],
+  "metadata": {
+    "product_id": "cs2-lite-1day",
+    "customer_email": "",
+    "products": [
+      {
+        "id": "cs2-lite-1day",
+        "name": "CS2 Lite Version",
+        "price": 399,
+        "quantity": 1
+      }
+    ],
+    "isFirstTimePurchase": true,
+    "productCount": 1
+  },
+  "timestamp": "2025-09-01T16:04:05.431Z",
+  "status": "incomplete",
+  "customerInfo": null,
+  "id": "6TO9JQ",
+  "createdAt": "2025-09-01T16:04:05.693Z"
+}

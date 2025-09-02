@@ -1,0 +1,33 @@
+{
+  "amount": 1038,
+  "currency": "usd",
+  "automatic_payment_methods": {
+    "enabled": false
+  },
+  "payment_method_types": [
+    "klarna"
+  ],
+  "selected_payment_methods": [
+    "klarna"
+  ],
+  "metadata": {
+    "product_id": "cs2-lite-1day",
+    "customer_email": "",
+    "payment_methods": "klarna",
+    "products": [
+      {
+        "id": "cs2-lite-1day",
+        "name": "CS2 Lite Version",
+        "price": 399,
+        "quantity": 1
+      }
+    ],
+    "isFirstTimePurchase": true,
+    "productCount": 1
+  },
+  "timestamp": "2025-09-01T16:18:56.272Z",
+  "status": "incomplete",
+  "customerInfo": null,
+  "id": "USZCHR",
+  "createdAt": "2025-09-01T16:18:57.411Z"
+}

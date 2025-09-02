@@ -151,10 +151,6 @@ export default function Header() {
                     onMouseLeave={() => setIsCartDropdownOpen(false)}
                   >
                     <div className="p-4">
-                      <div className="flex items-center justify-between mb-4">
-                        <h3 className="text-lg font-bold text-white">Shopping Cart</h3>
-                        <span className="text-sm text-gray-400">{itemCount} {itemCount === 1 ? 'item' : 'items'}</span>
-                      </div>
 
                       {items.length === 0 ? (
                         <div className="py-8 text-center">
@@ -171,8 +167,8 @@ export default function Header() {
                         <>
                           <div className="max-h-64 overflow-y-auto space-y-3 mb-4">
                             {items.map((item) => (
-                              <div key={item.product.id} className="flex items-center space-x-3 p-3 bg-gray-800/30 rounded-lg">
-                                <div className="w-12 h-12 bg-gray-700 rounded-lg flex items-center justify-center">
+                              <div key={item.product.id} className="flex items-center space-x-3 p-3 bg-black/20 rounded-lg">
+                                <div className="w-12 h-12 bg-black/30 rounded-lg flex items-center justify-center">
                                   <Image
                                     src={item.product.image || '/images/default-product.png'}
                                     alt={item.product.name}
@@ -188,14 +184,14 @@ export default function Header() {
                                 <div className="flex items-center space-x-2">
                                   <button
                                     onClick={() => updateQuantity(item.product.id, Math.max(0, item.quantity - 1))}
-                                    className="w-6 h-6 bg-gray-600 hover:bg-gray-500 text-white rounded flex items-center justify-center transition-colors duration-200"
+                                    className="w-6 h-6 bg-black/30 hover:bg-black/40 text-white rounded flex items-center justify-center transition-colors duration-200"
                                   >
                                     <Minus className="w-3 h-3" />
                                   </button>
                                   <span className="text-white text-sm w-6 text-center">{item.quantity}</span>
                                   <button
                                     onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
-                                    className="w-6 h-6 bg-gray-600 hover:bg-gray-500 text-white rounded flex items-center justify-center transition-colors duration-200"
+                                    className="w-6 h-6 bg-black/30 hover:bg-black/40 text-white rounded flex items-center justify-center transition-colors duration-200"
                                   >
                                     <Plus className="w-3 h-3" />
                                   </button>

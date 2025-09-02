@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Eye, Target, Bomb, Check } from 'lucide-react';
 import Image from 'next/image';
+import BeforeAfterSlider from '@/components/common/BeforeAfterSlider';
 
 export default function FeaturesSection() {
   const features = [

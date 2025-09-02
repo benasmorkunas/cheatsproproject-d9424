@@ -22,7 +22,6 @@ interface CartState {
   total: number;
   subtotal: number;
   tax: number;
-  shipping: number;
   itemCount: number;
 }
 
@@ -43,20 +42,16 @@ interface CartContextType extends CartState {
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 const TAX_RATE = 0.1; // 10% tax
-const SHIPPING_COST = 5.99;
-const FREE_SHIPPING_THRESHOLD = 50;
 
 function calculateTotals(items: CartItem[]): Omit<CartState, 'items'> {
   const subtotal = items.reduce((sum, item) => sum + ((item.product.price / 100) * item.quantity), 0);
   const tax = subtotal * TAX_RATE;
-  const shipping = subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_COST;
-  const total = subtotal + tax + shipping;
+  const total = subtotal + tax; // No shipping costs for digital products
   const itemCount = items.reduce((sum, item) => sum + item.quantity, 0);
 
   return {
     subtotal: parseFloat(subtotal.toFixed(2)),
     tax: parseFloat(tax.toFixed(2)),
-    shipping: parseFloat(shipping.toFixed(2)),
     total: parseFloat(total.toFixed(2)),
     itemCount
   };
@@ -115,7 +110,6 @@ function cartReducer(state: CartState, action: CartAction): CartState {
         total: 0,
         subtotal: 0,
         tax: 0,
-        shipping: 0,
         itemCount: 0
       };
     }
@@ -134,7 +128,6 @@ const initialState: CartState = {
   total: 0,
   subtotal: 0,
   tax: 0,
-  shipping: 0,
   itemCount: 0
 };
 

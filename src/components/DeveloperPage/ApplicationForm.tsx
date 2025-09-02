@@ -142,7 +142,7 @@ export default function ApplicationForm() {
                 type="text"
                 value={formData.name}
                 onChange={(e) => updateFormData('name', e.target.value)}
-                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                className="w-full px-4 py-3 bg-black/30 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                 placeholder="Enter your full name"
               />
               {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name}</p>}
@@ -156,7 +156,7 @@ export default function ApplicationForm() {
                 type="email"
                 value={formData.email}
                 onChange={(e) => updateFormData('email', e.target.value)}
-                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                className="w-full px-4 py-3 bg-black/30 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                 placeholder="your.email@example.com"
               />
               {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
@@ -170,7 +170,7 @@ export default function ApplicationForm() {
                 type="text"
                 value={formData.location}
                 onChange={(e) => updateFormData('location', e.target.value)}
-                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                className="w-full px-4 py-3 bg-black/30 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                 placeholder="e.g., EST, GMT+2, New York"
               />
             </div>
@@ -183,7 +183,7 @@ export default function ApplicationForm() {
                 type="url"
                 value={formData.portfolio}
                 onChange={(e) => updateFormData('portfolio', e.target.value)}
-                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                className="w-full px-4 py-3 bg-black/30 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                 placeholder="https://github.com/yourprofile"
               />
             </div>
@@ -200,7 +200,7 @@ export default function ApplicationForm() {
               <select
                 value={formData.experience}
                 onChange={(e) => updateFormData('experience', e.target.value)}
-                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                className="w-full px-4 py-3 bg-black/30 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
               >
                 <option value="">Select experience level</option>
                 <option value="1-2">1-2 years</option>
@@ -224,7 +224,7 @@ export default function ApplicationForm() {
                     className={`px-4 py-2 rounded-lg border text-sm font-medium transition-all duration-300 ${
                       formData.languages.includes(lang)
                         ? 'bg-purple-600 border-purple-500 text-white'
-                        : 'bg-gray-700/50 border-gray-600 text-gray-300 hover:border-purple-500'
+                        : 'bg-black/30 border-gray-600 text-gray-300 hover:border-purple-500'
                     }`}
                   >
                     {lang}
@@ -242,7 +242,7 @@ export default function ApplicationForm() {
                 value={formData.gameDevExperience}
                 onChange={(e) => updateFormData('gameDevExperience', e.target.value)}
                 rows={3}
-                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                className="w-full px-4 py-3 bg-black/30 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                 placeholder="Describe any game development or modding experience..."
               />
             </div>
@@ -254,7 +254,7 @@ export default function ApplicationForm() {
               <select
                 value={formData.availableHours}
                 onChange={(e) => updateFormData('availableHours', e.target.value)}
-                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                className="w-full px-4 py-3 bg-black/30 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
               >
                 <option value="">Select availability</option>
                 <option value="10-20">10-20 hours</option>
@@ -283,7 +283,7 @@ export default function ApplicationForm() {
                     className={`px-4 py-3 rounded-lg border text-left font-medium transition-all duration-300 ${
                       formData.interests.includes(spec)
                         ? 'bg-purple-600 border-purple-500 text-white'
-                        : 'bg-gray-700/50 border-gray-600 text-gray-300 hover:border-purple-500'
+                        : 'bg-black/30 border-gray-600 text-gray-300 hover:border-purple-500'
                     }`}
                   >
                     {spec}
@@ -301,7 +301,7 @@ export default function ApplicationForm() {
                 type="text"
                 value={formData.favoriteGames}
                 onChange={(e) => updateFormData('favoriteGames', e.target.value)}
-                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                className="w-full px-4 py-3 bg-black/30 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                 placeholder="e.g., CS:GO, Valorant, Apex Legends"
               />
             </div>
@@ -314,7 +314,7 @@ export default function ApplicationForm() {
                 value={formData.cheatExperience}
                 onChange={(e) => updateFormData('cheatExperience', e.target.value)}
                 rows={4}
-                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                className="w-full px-4 py-3 bg-black/30 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                 placeholder="Describe any previous experience with game modifications, cheats, or related tools..."
               />
             </div>
@@ -332,7 +332,7 @@ export default function ApplicationForm() {
                 value={formData.motivation}
                 onChange={(e) => updateFormData('motivation', e.target.value)}
                 rows={4}
-                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                className="w-full px-4 py-3 bg-black/30 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                 placeholder="Share your motivation and what excites you about this opportunity..."
               />
               {errors.motivation && <p className="text-red-400 text-sm mt-1">{errors.motivation}</p>}
@@ -345,7 +345,7 @@ export default function ApplicationForm() {
               <select
                 value={formData.availability}
                 onChange={(e) => updateFormData('availability', e.target.value)}
-                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                className="w-full px-4 py-3 bg-black/30 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
               >
                 <option value="">Select availability</option>
                 <option value="immediately">Immediately</option>
@@ -364,7 +364,7 @@ export default function ApplicationForm() {
                 type="text"
                 value={formData.compensation}
                 onChange={(e) => updateFormData('compensation', e.target.value)}
-                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                className="w-full px-4 py-3 bg-black/30 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                 placeholder="e.g., $50/hour, $5000/month, negotiable"
               />
             </div>
@@ -397,7 +397,7 @@ export default function ApplicationForm() {
           </p>
         </motion.div>
 
-        <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8">
+        <div className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-2xl p-8">
           {/* Progress Steps */}
           <div className="flex items-center justify-between mb-8">
             {steps.map((step, index) => (
@@ -431,7 +431,7 @@ export default function ApplicationForm() {
           </div>
 
           {/* Progress Bar */}
-          <div className="w-full bg-gray-700 rounded-full h-2 mb-8">
+          <div className="w-full bg-black/30 rounded-full h-2 mb-8">
             <motion.div
               className="bg-gradient-to-r from-purple-600 to-blue-600 h-2 rounded-full"
               initial={{ width: '25%' }}
@@ -460,7 +460,7 @@ export default function ApplicationForm() {
               whileTap={{ scale: 0.95 }}
               onClick={prevStep}
               disabled={currentStep === 1}
-              className="flex items-center space-x-2 px-6 py-3 bg-gray-700 text-gray-300 rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
+              className="flex items-center space-x-2 px-6 py-3 bg-black/30 text-gray-300 rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
             >
               <ChevronLeft className="w-4 h-4" />
               <span>Previous</span>

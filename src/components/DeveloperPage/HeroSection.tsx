@@ -1,9 +1,35 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Code, Users, DollarSign, MapPin } from 'lucide-react';
 
+interface AnimatedElement {
+  id: number;
+  x: number;
+  y: number;
+  left: string;
+  top: string;
+  duration: number;
+  delay: number;
+}
+
 export default function HeroSection() {
+  const [animatedElements, setAnimatedElements] = useState<AnimatedElement[]>([]);
+
+  useEffect(() => {
+    // Generate animated elements on client side only
+    const elements = [...Array(20)].map((_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      duration: Math.random() * 10 + 10,
+      delay: Math.random() * 5,
+    }));
+    setAnimatedElements(elements);
+  }, []);
   const stats = [
     {
       icon: <Users className="w-6 h-6" />,
@@ -27,23 +53,23 @@ export default function HeroSection() {
 
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(20)].map((_, i) => (
+        {animatedElements.map((element) => (
           <motion.div
-            key={i}
+            key={element.id}
             className="absolute w-2 h-2 bg-purple-400/30 rounded-full"
             animate={{
-              x: [0, Math.random() * 100, 0],
-              y: [0, Math.random() * 100, 0],
+              x: [0, element.x, 0],
+              y: [0, element.y, 0],
               opacity: [0, 1, 0],
             }}
             transition={{
-              duration: Math.random() * 10 + 10,
+              duration: element.duration,
               repeat: Infinity,
-              delay: Math.random() * 5,
+              delay: element.delay,
             }}
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              left: element.left,
+              top: element.top,
             }}
           />
         ))}
@@ -88,7 +114,7 @@ export default function HeroSection() {
               <motion.div
                 key={index}
                 whileHover={{ scale: 1.05 }}
-                className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-4 md:p-6 min-w-[140px] md:min-w-[180px]"
+                className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-xl p-4 md:p-6 min-w-[140px] md:min-w-[180px]"
               >
                 <div className="flex items-center justify-center space-x-2 mb-2">
                   <div className="text-purple-400">

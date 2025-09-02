@@ -1,0 +1,38 @@
+{
+  "amount": 1038,
+  "currency": "usd",
+  "automatic_payment_methods": {
+    "enabled": false
+  },
+  "payment_method_types": [
+    "card"
+  ],
+  "metadata": {
+    "product_id": "cs2-lite-1day",
+    "customer_email": "customer@example.com",
+    "products": [
+      {
+        "id": "cs2-lite-1day",
+        "name": "CS2 Lite Version",
+        "price": 399,
+        "quantity": 1
+      }
+    ],
+    "isFirstTimePurchase": true,
+    "productCount": 1,
+    "customer_first_name": "Customer",
+    "customer_last_name": "Name",
+    "customer_name": "Customer Name"
+  },
+  "timestamp": "2025-09-01T15:59:57.119Z",
+  "status": "processing",
+  "customerInfo": {
+    "email": "customer@example.com",
+    "firstName": "Customer",
+    "lastName": "Name",
+    "phone": "+1234567890"
+  },
+  "id": "OX7NS4",
+  "createdAt": "2025-09-01T15:59:57.324Z",
+  "updatedAt": "2025-09-01T16:01:45.104Z"
+}

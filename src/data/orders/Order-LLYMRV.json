@@ -1,0 +1,39 @@
+{
+  "amount": 1038,
+  "currency": "usd",
+  "automatic_payment_methods": {
+    "enabled": true
+  },
+  "metadata": {
+    "product_id": "cs2-lite-1day",
+    "customer_email": "benasmorkunas@gmail.com",
+    "customer_name": "Benas Morkunas",
+    "products": [
+      {
+        "id": "cs2-lite-1day",
+        "name": "CS2 Lite Version",
+        "price": 399,
+        "quantity": 1
+      }
+    ],
+    "isFirstTimePurchase": false,
+    "productCount": 1
+  },
+  "customerInfo": {
+    "email": "benasmorkunas@gmail.com",
+    "firstName": "Benas",
+    "lastName": "Morkunas",
+    "address": {
+      "line1": "Miško g. 10",
+      "line2": "asdasd",
+      "city": "Avižieniai",
+      "state": "Lithuania",
+      "postalCode": "1418",
+      "country": "UK"
+    }
+  },
+  "timestamp": "2025-09-01T15:47:41.986Z",
+  "status": "completed",
+  "id": "LLYMRV",
+  "createdAt": "2025-09-01T15:47:43.890Z"
+}

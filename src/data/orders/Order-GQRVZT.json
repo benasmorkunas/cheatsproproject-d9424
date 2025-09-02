@@ -1,0 +1,31 @@
+{
+  "amount": 1038,
+  "currency": "usd",
+  "automatic_payment_methods": {
+    "enabled": false
+  },
+  "payment_method_types": [
+    "apple_pay"
+  ],
+  "selected_payment_method": "apple_pay",
+  "metadata": {
+    "product_id": "cs2-lite-1day",
+    "customer_email": "",
+    "payment_method": "apple_pay",
+    "products": [
+      {
+        "id": "cs2-lite-1day",
+        "name": "CS2 Lite Version",
+        "price": 399,
+        "quantity": 1
+      }
+    ],
+    "isFirstTimePurchase": true,
+    "productCount": 1
+  },
+  "timestamp": "2025-09-01T16:36:57.972Z",
+  "status": "incomplete",
+  "customerInfo": null,
+  "id": "GQRVZT",
+  "createdAt": "2025-09-01T16:36:59.938Z"
+}

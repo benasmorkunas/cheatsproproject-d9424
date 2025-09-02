@@ -6,8 +6,7 @@ import {
   HeroSection,
   WhyJoinUs,
   WhoWereLookingFor,
-  ApplicationForm,
-  SocialProof
+  ApplicationForm
 } from '@/components/AffiliatePage';
 
 export const metadata: Metadata = {
@@ -91,7 +90,6 @@ export default function AffiliateProgram() {
         <HeroSection />
         <WhyJoinUs />
         <WhoWereLookingFor />
-        <SocialProof />
         <ApplicationForm />
       </main>
       

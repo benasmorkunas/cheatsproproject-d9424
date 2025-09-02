@@ -1,0 +1,17 @@
+{
+  "amount": 1000,
+  "currency": "usd",
+  "metadata": {
+    "products": [],
+    "isFirstTimePurchase": true,
+    "productCount": 0
+  },
+  "status": "incomplete",
+  "customerInfo": {
+    "email": "test@example.com",
+    "firstName": "Test",
+    "lastName": "User"
+  },
+  "id": "JAZ9T2",
+  "createdAt": "2025-09-01T19:55:49.921Z"
+}
