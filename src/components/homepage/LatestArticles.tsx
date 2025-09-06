@@ -34,7 +34,8 @@ export default function LatestArticles() {
       {/* Background Effects */}
       <div className="absolute inset-0">
         <motion.div
-          className="absolute bottom-20 left-20 w-64 h-64 bg-green-500/10 rounded-full blur-3xl"
+          className="absolute bottom-20 left-20 w-64 h-64 rounded-full blur-3xl"
+          style={{background: '#6B8A7A20'}}
           animate={{
             x: [0, -30, 0],
             y: [0, 30, 0],
@@ -58,7 +59,7 @@ export default function LatestArticles() {
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="text-white">Latest</span>{' '}
-            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-green-400 bg-clip-text text-transparent">
+            <span className="bg-clip-text text-transparent" style={{backgroundImage: 'linear-gradient(to right, #825D8D, #6B7A9A, #6B8A7A)'}}>
               Guides
             </span>
           </h2>
@@ -79,9 +80,18 @@ export default function LatestArticles() {
               viewport={{ once: true }}
               whileHover={{ y: -10 }}
             >
-              <div className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-2xl overflow-hidden hover:border-purple-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/10">
+              <div className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-2xl"
+                style={{'--hover-border': '#825D8D50', '--hover-shadow': '#825D8D10'}}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = '#825D8D50';
+                  e.currentTarget.style.boxShadow = '0 25px 50px -12px #825D8D10';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = '';
+                  e.currentTarget.style.boxShadow = '';
+                }}>
                 {/* Image/Thumbnail */}
-                <div className="relative aspect-video bg-gradient-to-br from-purple-600/20 to-blue-600/20 flex items-center justify-center overflow-hidden">
+                <div className="relative aspect-video flex items-center justify-center overflow-hidden" style={{background: 'linear-gradient(to bottom right, #825D8D20, #6B7A9A20)'}}>
                   <motion.div
                     className="text-6xl"
                     whileHover={{ scale: 1.2, rotate: 10 }}
@@ -103,7 +113,7 @@ export default function LatestArticles() {
                   {/* Trending Badge */}
                   {article.trending && (
                     <div className="absolute top-4 left-4">
-                      <div className="bg-gradient-to-r from-red-500 to-orange-500 text-white px-3 py-1 rounded-full flex items-center space-x-1 text-sm font-semibold">
+                      <div className="text-white px-3 py-1 rounded-full flex items-center space-x-1 text-sm font-semibold" style={{background: 'linear-gradient(to right, #8A5B6A, #9A8A6B)'}}>
                         <TrendingUp className="w-4 h-4" />
                         <span>Trending</span>
                       </div>
@@ -120,7 +130,10 @@ export default function LatestArticles() {
 
                 {/* Content */}
                 <div className="p-8">
-                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-purple-300 transition-colors duration-300 line-clamp-2">
+                  <h3 className="text-2xl font-bold text-white mb-4 transition-colors duration-300 line-clamp-2"
+                    style={{'--hover-color': '#B28DAD'}}
+                    onMouseEnter={(e) => e.currentTarget.style.color = '#B28DAD'}
+                    onMouseLeave={(e) => e.currentTarget.style.color = 'white'}>
                     {article.title}
                   </h3>
 
@@ -142,7 +155,10 @@ export default function LatestArticles() {
                     </div>
 
                     <motion.div
-                      className="flex items-center space-x-2 text-purple-400 group-hover:text-purple-300 transition-colors duration-300"
+                      className="flex items-center space-x-2 transition-colors duration-300"
+                      style={{color: '#825D8D', '--hover-color': '#925D9D'}}
+                      onMouseEnter={(e) => e.currentTarget.style.color = '#925D9D'}
+                      onMouseLeave={(e) => e.currentTarget.style.color = '#825D8D'}
                       whileHover={{ x: 5 }}
                     >
                       <span className="font-medium">Read More</span>
@@ -164,7 +180,16 @@ export default function LatestArticles() {
           viewport={{ once: true }}
         >
           <motion.button
-            className="bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-600 hover:to-gray-700 border border-gray-600 hover:border-gray-500 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300"
+            className="text-white px-8 py-4 rounded-xl font-semibold text-lg border border-gray-600 transition-all duration-300"
+            style={{background: 'linear-gradient(to right, #6B6B7A, #5A5A6A)', borderColor: '#6B6B6B'}}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'linear-gradient(to right, #5B5B6A, #4A4A5A)';
+              e.currentTarget.style.borderColor = '#7A7A7A';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'linear-gradient(to right, #6B6B7A, #5A5A6A)';
+              e.currentTarget.style.borderColor = '#6B6B6B';
+            }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -174,7 +199,8 @@ export default function LatestArticles() {
 
         {/* Newsletter Signup */}
         <motion.div
-          className="mt-20 bg-gradient-to-r from-purple-600/20 to-blue-600/20 border border-purple-500/30 rounded-2xl p-8 text-center"
+          className="mt-20 rounded-2xl p-8 text-center"
+          style={{background: 'linear-gradient(to right, #825D8D20, #6B7A9A20)', border: '1px solid #825D8D30'}}
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
@@ -191,11 +217,17 @@ export default function LatestArticles() {
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 bg-gray-800/50 border border-gray-600 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 transition-colors duration-300"
+              className="flex-1 bg-gray-800/50 border border-gray-600 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:outline-none transition-colors duration-300"
+              style={{'--focus-border': '#825D8D'}}
+              onFocus={(e) => e.currentTarget.style.borderColor = '#825D8D'}
+              onBlur={(e) => e.currentTarget.style.borderColor = '#6b7280'}
               suppressHydrationWarning
             />
             <motion.button
-              className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-6 py-3 rounded-xl font-semibold whitespace-nowrap transition-all duration-300"
+              className="text-white px-6 py-3 rounded-xl font-semibold whitespace-nowrap transition-all duration-300"
+              style={{background: 'linear-gradient(to right, #825D8D, #6B7A9A)'}}
+              onMouseEnter={(e) => e.currentTarget.style.background = 'linear-gradient(to right, #714D7D, #5A6A8A)'}
+              onMouseLeave={(e) => e.currentTarget.style.background = 'linear-gradient(to right, #825D8D, #6B7A9A)'}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

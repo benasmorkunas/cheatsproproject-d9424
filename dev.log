@@ -1,0 +1,139 @@
+
+> woocommerce-frontend@0.1.0 dev
+> next dev
+
+ ⚠ Port 3000 is in use by process 142484, using available port 3002 instead.
+   ▲ Next.js 15.5.0
+   - Local:        http://localhost:3002
+   - Network:      http://10.5.0.2:3002
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 2.7s
+ ⚠ Your project has `@next/font` installed as a dependency, please use the built-in `next/font` instead. The `@next/font` package will be removed in Next.js 14. You can migrate by running `npx @next/codemod@latest built-in-next-font .`. Read more: https://nextjs.org/docs/messages/built-in-next-font
+ ○ Compiling /cart ...
+ ✓ Compiled /cart in 4s (1556 modules)
+ GET /cart 200 in 4760ms
+ ○ Compiling /products ...
+ ✓ Compiled /products in 2.1s (1571 modules)
+ GET /products 200 in 2710ms
+ ✓ Compiled /_not-found in 399ms (1562 modules)
+ GET /images/cs2-category.jpg 404 in 562ms
+ GET /images/bf6-category.jpg 404 in 606ms
+ ⨯ The requested resource isn't a valid image for /images/cs2-category.jpg received null
+ ⨯ The requested resource isn't a valid image for /images/bf6-category.jpg received null
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 859ms (881 modules)
+ GET /favicon.ico 200 in 1096ms
+ ○ Compiling /products/cs2 ...
+ ✓ Compiled /products/cs2 in 1092ms (1610 modules)
+ GET /products/cs2 200 in 1413ms
+ GET /cart 200 in 42ms
+ ○ Compiling /api/orders ...
+ ✓ Compiled /api/orders in 1682ms (3298 modules)
+ POST /api/orders 200 in 2479ms
+ ○ Compiling /api/create-payment-intent ...
+ ✓ Compiled /api/create-payment-intent in 1378ms (3475 modules)
+ GET /cart 200 in 121ms
+ POST /api/create-payment-intent 200 in 1916ms
+ ✓ Compiled in 1865ms (3475 modules)
+ GET /cart 200 in 95ms
+ ✓ Compiled in 1055ms (3475 modules)
+ GET /cart 200 in 120ms
+ ✓ Compiled in 950ms (3475 modules)
+ GET /cart 200 in 113ms
+ ✓ Compiled in 793ms (3468 modules)
+ GET /cart 200 in 89ms
+ ✓ Compiled in 840ms (3468 modules)
+ GET /cart 200 in 91ms
+ ✓ Compiled in 774ms (1603 modules)
+ GET /cart 200 in 225ms
+ ⨯ ./src/app/cart/page.tsx
+Error:   [31mx[0m Expected '</', got '}'
+     ,-[[36;1;4mC:\Users\augus\OneDrive\Stalinis kompiuteris\woocommerce-frontend-main-v2\cheatsproproject\src\app\cart\page.tsx[0m:471:1]
+ [2m468[0m |                   </motion.div>
+ [2m469[0m |                 ))}
+ [2m470[0m |                   </div>
+ [2m471[0m |                 )}
+     : [35;1m                 ^[0m
+ [2m472[0m |               </div>
+ [2m473[0m | 
+ [2m474[0m |               {/* Checkout Sidebar */}
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/cart/page.tsx
+ ○ Compiling /_error ...
+ ⨯ ./src/app/cart/page.tsx
+Error:   [31mx[0m Expected '</', got '}'
+     ,-[[36;1;4mC:\Users\augus\OneDrive\Stalinis kompiuteris\woocommerce-frontend-main-v2\cheatsproproject\src\app\cart\page.tsx[0m:471:1]
+ [2m468[0m |                   </motion.div>
+ [2m469[0m |                 ))}
+ [2m470[0m |                   </div>
+ [2m471[0m |                 )}
+     : [35;1m                 ^[0m
+ [2m472[0m |               </div>
+ [2m473[0m | 
+ [2m474[0m |               {/* Checkout Sidebar */}
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/cart/page.tsx
+ GET /cart 500 in 1906ms
+ GET /cart 500 in 34ms
+ GET /cart 500 in 34ms
+ GET /cart 500 in 18ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled /_error in 1289ms (1943 modules)
+ GET /cart 200 in 235ms
+ ⨯ SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>) {
+  page: '/cart'
+}
+ GET /cart 200 in 307ms
+ ✓ Compiled /favicon.ico in 191ms (1085 modules)
+ GET /favicon.ico 200 in 351ms
+ ✓ Compiled in 948ms (875 modules)
+ ✓ Compiled in 840ms (875 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\augus\OneDrive\Stalinis kompiuteris\woocommerce-frontend-main-v2\cheatsproproject\.next\cache\webpack\client-development\13.pack.gz_' -> 'C:\Users\augus\OneDrive\Stalinis kompiuteris\woocommerce-frontend-main-v2\cheatsproproject\.next\cache\webpack\client-development\13.pack.gz'
+ ✓ Compiled in 2.4s (1851 modules)
+ ✓ Compiled in 1291ms (1851 modules)
+ ✓ Compiled in 993ms (1847 modules)
+ ✓ Compiled in 992ms (1847 modules)
+ ✓ Compiled in 1374ms (1847 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\augus\OneDrive\Stalinis kompiuteris\woocommerce-frontend-main-v2\cheatsproproject\.next\cache\webpack\client-development\0.pack.gz_' -> 'C:\Users\augus\OneDrive\Stalinis kompiuteris\woocommerce-frontend-main-v2\cheatsproproject\.next\cache\webpack\client-development\0.pack.gz'
+ ✓ Compiled in 3s (1847 modules)
+ ✓ Compiled in 843ms (1847 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\augus\OneDrive\Stalinis kompiuteris\woocommerce-frontend-main-v2\cheatsproproject\.next\cache\webpack\client-development\0.pack.gz_' -> 'C:\Users\augus\OneDrive\Stalinis kompiuteris\woocommerce-frontend-main-v2\cheatsproproject\.next\cache\webpack\client-development\0.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\augus\OneDrive\Stalinis kompiuteris\woocommerce-frontend-main-v2\cheatsproproject\.next\cache\webpack\server-development\6.pack.gz_' -> 'C:\Users\augus\OneDrive\Stalinis kompiuteris\woocommerce-frontend-main-v2\cheatsproproject\.next\cache\webpack\server-development\6.pack.gz'
+ ✓ Compiled in 502ms (873 modules)
+ ✓ Compiled in 2.1s (1847 modules)
+ ✓ Compiled in 1009ms (1847 modules)
+ ✓ Compiled in 384ms (873 modules)
+ ✓ Compiled in 426ms (873 modules)
+ ✓ Compiled in 724ms (1847 modules)
+ ✓ Compiled in 856ms (1847 modules)
+ ✓ Compiled in 570ms (873 modules)
+ ✓ Compiled in 481ms (873 modules)
+ ✓ Compiled in 421ms (873 modules)
+ ✓ Compiled in 487ms (873 modules)
+ ✓ Compiled in 1078ms (1847 modules)
+ ✓ Compiled in 2.2s (1847 modules)
+ ✓ Compiled in 1182ms (1847 modules)
+ ✓ Compiled in 765ms (1847 modules)
+ ✓ Compiled in 436ms (873 modules)
+ ✓ Compiled in 651ms (873 modules)
+ ✓ Compiled in 555ms (873 modules)
+ ✓ Compiled in 484ms (873 modules)
+ ✓ Compiled in 1490ms (1847 modules)
+ ✓ Compiled in 771ms (1847 modules)
+ ✓ Compiled in 783ms (1847 modules)
+ ✓ Compiled in 416ms (873 modules)
+[?25h

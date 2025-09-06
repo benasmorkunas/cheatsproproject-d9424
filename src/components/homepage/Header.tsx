@@ -102,7 +102,7 @@ export default function Header() {
                 href={item.href}
                 className={`transition-colors duration-200 relative group flex items-center space-x-1 font-semibold ${
                   item.highlight 
-                    ? 'text-green-400 hover:text-green-300' 
+                    ? 'hover:text-gray-200' 
                     : 'text-gray-300 hover:text-white'
                 }`}
               >

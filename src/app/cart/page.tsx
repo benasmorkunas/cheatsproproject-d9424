@@ -64,7 +64,7 @@ export default function CartPage() {
                 <p className="text-gray-400 mb-8">Add some awesome gaming tools to get started!</p>
                 <Link
                   href="/products"
-                  className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
+                  className="inline-flex items-center space-x-2 bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
                 >
                   <ArrowLeft className="w-4 h-4" />
                   <span>Browse Products</span>
@@ -199,7 +199,7 @@ export default function CartPage() {
               {isCheckoutMode && (
                 <button
                   onClick={handleBackToCart}
-                  className="flex items-center space-x-2 text-purple-400 hover:text-purple-300 transition-colors duration-200"
+                  className="flex items-center space-x-2 text-gray-400 hover:text-gray-300 transition-colors duration-200"
                 >
                   <ArrowLeft className="w-4 h-4" />
                   <span>Back to Cart</span>
@@ -313,7 +313,7 @@ export default function CartPage() {
 
                               {/* Price */}
                               <div className="text-right">
-                                <div className="text-2xl font-bold text-purple-400">
+                                <div className="text-2xl font-bold text-gray-400">
                                   ${((item.product.price / 100) * item.quantity).toFixed(2)}
                                 </div>
                                 {item.quantity > 1 && (
@@ -337,7 +337,7 @@ export default function CartPage() {
                         className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-2xl p-6"
                       >
                         <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
-                          <CreditCard className="w-5 h-5 mr-3 text-purple-400" />
+                          <CreditCard className="w-5 h-5 mr-3 text-gray-400" />
                           Select Payment Method
                         </h3>
                         
@@ -347,7 +347,7 @@ export default function CartPage() {
                               key={method.id}
                               className={`flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all duration-200 ${
                                 selectedPaymentMethod === method.id
-                                  ? 'border-purple-500 bg-purple-500/10'
+                                  ? 'border-gray-500 bg-gray-500/10'
                                   : 'border-gray-600 hover:border-gray-500 bg-black/20'
                               }`}
                             >
@@ -361,7 +361,7 @@ export default function CartPage() {
                               />
                               <div className={`w-5 h-5 rounded-full border-2 mr-4 flex items-center justify-center ${
                                 selectedPaymentMethod === method.id
-                                  ? 'border-purple-500 bg-purple-500'
+                                  ? 'border-gray-500 bg-gray-500'
                                   : 'border-gray-400'
                               }`}>
                                 {selectedPaymentMethod === method.id && (
@@ -376,7 +376,7 @@ export default function CartPage() {
                                 </div>
                               </div>
                               {selectedPaymentMethod === method.id && (
-                                <CheckCircle className="w-5 h-5 text-purple-400 ml-auto" />
+                                <CheckCircle className="w-5 h-5 text-gray-400 ml-auto" />
                               )}
                             </label>
                           ))}
@@ -387,7 +387,7 @@ export default function CartPage() {
                           <button
                             onClick={handleProceedToCheckout}
                             disabled={isCreatingOrder || items.length === 0}
-                            className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 disabled:from-gray-600 disabled:to-gray-700 text-white py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 disabled:cursor-not-allowed"
+                            className="w-full bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 disabled:from-gray-600 disabled:to-gray-700 text-white py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 disabled:cursor-not-allowed"
                           >
                             {isCreatingOrder ? (
                               <div className="flex items-center justify-center space-x-2">

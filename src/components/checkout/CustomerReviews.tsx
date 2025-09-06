@@ -51,7 +51,7 @@ export default function CustomerReviews() {
           >
             <div className="flex items-center justify-between mb-2">
               <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">
+                <div className="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center">
                   <span className="text-white text-sm font-semibold">
                     {testimonial.name.charAt(0)}
                   </span>

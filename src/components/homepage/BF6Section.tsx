@@ -45,7 +45,7 @@ export default function BF6Section() {
       {/* Background Effects */}
       <div className="absolute inset-0">
         <motion.div
-          className="absolute top-10 right-10 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl"
+          className="absolute top-10 right-10 w-64 h-64 rounded-full blur-3xl" style={{background: '#8A6B5A20'}}
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.6, 0.3],
@@ -69,15 +69,15 @@ export default function BF6Section() {
             viewport={{ once: true }}
           >
             <div>
-              <div className="inline-flex items-center space-x-2 bg-orange-500/20 border border-orange-500/30 rounded-full px-4 py-2 mb-4">
-                <span className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></span>
-                <span className="text-orange-300 text-sm font-medium">NEW RELEASE</span>
+              <div className="inline-flex items-center space-x-2 rounded-full px-4 py-2 mb-4" style={{background: '#8A6B5A30', border: '1px solid #8A6B5A50'}}>
+                <span className="w-2 h-2 rounded-full animate-pulse" style={{background: '#8A6B5A'}}></span>
+                <span className="text-sm font-medium" style={{color: '#9A7B6A'}}>NEW RELEASE</span>
               </div>
               
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-white">Now Available for</span>
                 <br />
-                <span className="bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
+                <span className="bg-clip-text text-transparent" style={{backgroundImage: 'linear-gradient(to right, #8A6B5A, #8A5B6A)'}}>
                   Battlefield 6
                 </span>
               </h2>
@@ -94,7 +94,10 @@ export default function BF6Section() {
               {bf6Features.map((feature, index) => (
                 <motion.div
                   key={index}
-                  className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-xl p-4 hover:border-orange-500/50 transition-all duration-300"
+                  className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-xl p-4 transition-all duration-300"
+                  style={{'--hover-border': '#8A6B5A80'}}
+                  onMouseEnter={(e) => e.currentTarget.style.borderColor = '#8A6B5A80'}
+                  onMouseLeave={(e) => e.currentTarget.style.borderColor = ''}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -102,7 +105,7 @@ export default function BF6Section() {
                   whileHover={{ scale: 1.02 }}
                 >
                   <div className="flex items-start space-x-3">
-                    <div className="text-orange-400 mt-1">
+                    <div className="mt-1" style={{color: '#8A6B5A'}}>
                       {feature.icon}
                     </div>
                     <div>
@@ -120,17 +123,17 @@ export default function BF6Section() {
 
             {/* Trust Element */}
             <motion.div
-              className="bg-green-500/20 border border-green-500/30 rounded-xl p-4"
+              className="rounded-xl p-4" style={{background: '#6B8A7A20', border: '1px solid #6B8A7A30'}}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
             >
               <div className="flex items-center space-x-3">
-                <Shield className="w-6 h-6 text-green-400" />
+                <Shield className="w-6 h-6" style={{color: '#6B8A7A'}} />
                 <div>
                   <h4 className="text-white font-semibold">Tested & Undetected</h4>
-                  <p className="text-green-300 text-sm">
+                  <p className="text-sm" style={{color: '#6B8A7A'}}>
                     Extensively tested on BF6 servers • Zero ban reports
                   </p>
                 </div>
@@ -146,7 +149,10 @@ export default function BF6Section() {
               viewport={{ once: true }}
             >
               <motion.button
-                className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl"
+                className="text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl"
+                style={{background: 'linear-gradient(to right, #7A5B4A, #7A4B5A)', transition: 'all 0.3s'}}
+                onMouseEnter={(e) => e.currentTarget.style.background = 'linear-gradient(to right, #6A4B3A, #6A3B4A)'}
+                onMouseLeave={(e) => e.currentTarget.style.background = 'linear-gradient(to right, #7A5B4A, #7A4B5A)'}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -164,11 +170,11 @@ export default function BF6Section() {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="relative bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-2xl border border-orange-500/30 overflow-hidden">
+            <div className="relative rounded-2xl overflow-hidden" style={{background: 'linear-gradient(135deg, #8A6B5A20, #8A5B6A20)', border: '1px solid #8A6B5A30'}}>
               {/* Demo Screenshot Placeholder */}
               <div className="aspect-video bg-gray-800/50 flex items-center justify-center">
                 <div className="text-center">
-                  <div className="text-6xl text-orange-400 mb-4">🎮</div>
+                  <div className="text-6xl mb-4" style={{color: '#8A6B5A'}}>🎮</div>
                   <div className="text-white text-xl font-semibold mb-2">
                     BF6 ESP in Action
                   </div>
@@ -182,7 +188,7 @@ export default function BF6Section() {
               <div className="absolute top-4 left-4">
                 <div className="bg-black/70 backdrop-blur-sm rounded-lg px-3 py-2">
                   <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                    <div className="w-2 h-2 rounded-full animate-pulse" style={{background: '#6B8A7A'}}></div>
                     <span className="text-white text-sm font-medium">ESP Active</span>
                   </div>
                 </div>
@@ -190,7 +196,7 @@ export default function BF6Section() {
 
               <div className="absolute top-4 right-4">
                 <div className="bg-black/70 backdrop-blur-sm rounded-lg px-3 py-2">
-                  <span className="text-orange-300 text-sm font-medium">64 Players Visible</span>
+                  <span className="text-sm font-medium" style={{color: '#9A7B6A'}}>64 Players Visible</span>
                 </div>
               </div>
 
@@ -199,7 +205,7 @@ export default function BF6Section() {
                   <div className="flex justify-between items-center text-sm">
                     <span className="text-gray-300">Aimbot: ON</span>
                     <span className="text-gray-300">ESP: ON</span>
-                    <span className="text-green-400">Status: Undetected</span>
+                    <span style={{color: '#6B8A7A'}}>Status: Undetected</span>
                   </div>
                 </div>
               </div>
@@ -218,7 +224,7 @@ export default function BF6Section() {
                 >
                   <div className="flex items-start space-x-3">
                     <div className="flex-shrink-0">
-                      <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center text-white font-bold">
+                      <div className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold" style={{background: 'linear-gradient(135deg, #7A5B4A, #7A4B5A)'}}>
                         {testimonial.author[0]}
                       </div>
                     </div>

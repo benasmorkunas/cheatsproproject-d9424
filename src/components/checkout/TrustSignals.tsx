@@ -26,13 +26,13 @@ const trustBadges = [
     icon: Lock,
     title: 'Privacy Protected',
     description: 'GDPR compliant',
-    color: 'text-blue-400'
+    color: 'text-gray-400'
   },
   {
     icon: CreditCard,
     title: 'Secure Payment',
     description: 'PCI DSS certified',
-    color: 'text-purple-400'
+    color: 'text-gray-400'
   },
   {
     icon: Award,
@@ -59,7 +59,7 @@ const features = [
     icon: RefreshCw,
     title: 'Lifetime Updates',
     description: 'Free updates for all future game versions',
-    color: 'text-blue-400'
+    color: 'text-gray-400'
   },
   {
     icon: Headphones,
@@ -146,10 +146,10 @@ export default function TrustSignals() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 1.0 }}
-        className="bg-gradient-to-r from-purple-600/10 to-blue-600/10 border border-purple-500/20 rounded-2xl p-6"
+        className="bg-gradient-to-r from-gray-600/10 to-gray-700/10 border border-gray-500/20 rounded-2xl p-6"
       >
         <div className="text-center">
-          <Clock className="w-8 h-8 text-purple-400 mx-auto mb-3" />
+          <Clock className="w-8 h-8 text-gray-400 mx-auto mb-3" />
           <h3 className="text-lg font-semibold text-white mb-2">Need Help?</h3>
           <p className="text-gray-300 text-sm mb-4">
             Our expert support team is available 24/7 to assist you with any questions or issues.

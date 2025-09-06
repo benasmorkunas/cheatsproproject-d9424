@@ -1,5 +1,6 @@
 import Header from '@/components/homepage/Header';
-import Hero from '@/components/homepage/Hero';
+import LandingPageSlider from '@/components/slider/LandingPageSlider';
+import SectionTransition from '@/components/common/SectionTransition';
 import FeaturesSection from '@/components/homepage/FeaturesSection';
 import BF6Section from '@/components/homepage/BF6Section';
 import PricingSection from '@/components/homepage/PricingSection';
@@ -14,7 +15,7 @@ export default function HomePage() {
     <MinimalisticBackground>
       <Header />
       <main className="pt-0">
-        <Hero />
+        <LandingPageSlider />
         <TrustElements />
         <FeaturesSection />
         <BF6Section />

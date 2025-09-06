@@ -72,8 +72,12 @@ export function ProductGrid({ products, onAddToCart, loading }: ProductGridProps
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white rounded-lg font-semibold transition-all duration-300"
-            onClick={() => window.location.reload()}
+            className="px-6 py-3 bg-gradient-to-r from-[#9045A4] to-[#B855C7] hover:from-[#7C3A8A] hover:to-[#A855C7] text-white rounded-lg font-semibold transition-all duration-300"
+            onClick={() => {
+              if (typeof window !== 'undefined') {
+                window.location.reload();
+              }
+            }}
           >
             Browse All Products
           </motion.button>
@@ -81,7 +85,11 @@ export function ProductGrid({ products, onAddToCart, loading }: ProductGridProps
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="px-6 py-3 bg-gray-700/50 border border-gray-600 hover:border-gray-500 text-gray-300 hover:text-white rounded-lg font-semibold transition-all duration-300"
-            onClick={() => window.history.back()}
+            onClick={() => {
+              if (typeof window !== 'undefined') {
+                window.history.back();
+              }
+            }}
           >
             Go Back
           </motion.button>

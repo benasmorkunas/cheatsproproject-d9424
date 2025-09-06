@@ -31,12 +31,12 @@ export default function Footer() {
   ];
 
   const paymentMethods = [
-    { name: 'PayPal', icon: '💳', color: 'text-blue-400' },
-    { name: 'Visa', icon: '💳', color: 'text-blue-600' },
-    { name: 'Mastercard', icon: '💳', color: 'text-red-500' },
-    { name: 'Bitcoin', icon: '₿', color: 'text-orange-400' },
-    { name: 'Ethereum', icon: 'Ξ', color: 'text-purple-400' },
-    { name: 'USDT', icon: '₮', color: 'text-green-400' },
+    { name: 'PayPal', icon: '💳', color: '#6B7A9A' },
+    { name: 'Visa', icon: '💳', color: '#6B7A9A' },
+    { name: 'Mastercard', icon: '💳', color: '#8A5B6A' },
+    { name: 'Bitcoin', icon: '₿', color: '#9A8A6B' },
+    { name: 'Ethereum', icon: 'Ξ', color: '#825D8D' },
+    { name: 'USDT', icon: '₮', color: '#6B8A7A' },
   ];
 
   const securityBadges = [
@@ -77,15 +77,15 @@ export default function Footer() {
               {/* Contact Info */}
               <div className="space-y-3 text-gray-400">
                 <div className="flex items-center space-x-3">
-                  <Mail className="w-5 h-5 text-purple-400" />
+                  <Mail className="w-5 h-5" style={{color: '#825D8D'}} />
                   <span>support@cheats-pro.com</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Users className="w-5 h-5 text-blue-400" />
+                  <Users className="w-5 h-5" style={{color: '#6B7A9A'}} />
                   <span>2,847 Discord Members Online</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Clock className="w-5 h-5 text-green-400" />
+                  <Clock className="w-5 h-5" style={{color: '#6B8A7A'}} />
                   <span>24/7 Customer Support</span>
                 </div>
               </div>
@@ -94,7 +94,10 @@ export default function Footer() {
               <div className="flex space-x-4 mt-6">
                 <motion.a
                   href="https://discord.gg/cheats-pro"
-                  className="w-10 h-10 bg-gray-800 hover:bg-purple-600 rounded-full flex items-center justify-center transition-colors duration-300"
+                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center transition-colors duration-300"
+                  style={{'--hover-bg': '#825D8D'}}
+                  onMouseEnter={(e) => e.currentTarget.style.background = '#825D8D'}
+                  onMouseLeave={(e) => e.currentTarget.style.background = '#1f2937'}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -102,7 +105,10 @@ export default function Footer() {
                 </motion.a>
                 <motion.a
                   href="#"
-                  className="w-10 h-10 bg-gray-800 hover:bg-blue-600 rounded-full flex items-center justify-center transition-colors duration-300"
+                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center transition-colors duration-300"
+                  style={{'--hover-bg': '#6B7A9A'}}
+                  onMouseEnter={(e) => e.currentTarget.style.background = '#6B7A9A'}
+                  onMouseLeave={(e) => e.currentTarget.style.background = '#1f2937'}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -110,7 +116,10 @@ export default function Footer() {
                 </motion.a>
                 <motion.a
                   href="#"
-                  className="w-10 h-10 bg-gray-800 hover:bg-red-600 rounded-full flex items-center justify-center transition-colors duration-300"
+                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center transition-colors duration-300"
+                  style={{'--hover-bg': '#8A5B6A'}}
+                  onMouseEnter={(e) => e.currentTarget.style.background = '#8A5B6A'}
+                  onMouseLeave={(e) => e.currentTarget.style.background = '#1f2937'}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >

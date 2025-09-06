@@ -29,7 +29,7 @@ export default function Hero() {
                 key={badge}
                 className="flex items-center space-x-2 bg-gray-800/50 backdrop-blur-sm border border-gray-700 px-4 py-2 rounded-full"
               >
-                <Shield className="w-4 h-4 text-green-400" />
+                <Shield className="w-4 h-4" style={{color: '#6B8A7A'}} />
                 <span className="text-sm text-gray-300">{badge}</span>
               </div>
             ))}
@@ -42,11 +42,11 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <span className="bg-gradient-to-r from-white via-purple-200 to-blue-200 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-white via-gray-300 to-gray-400 bg-clip-text text-transparent" style={{backgroundImage: 'linear-gradient(to right, white, #9B8A9E, #7A8B9C)'}}>
               Undetected CS2 Hacks &
             </span>
             <br />
-            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-green-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r bg-clip-text text-transparent" style={{backgroundImage: 'linear-gradient(to right, #825D8D, #6B7A9A, #6B8A7A)'}}>
               BF6 Cheats
             </span>
             <br />
@@ -63,8 +63,8 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.5 }}
           >
             Premium cheats with{' '}
-            <span className="text-purple-400 font-semibold">AI-based technology</span> and{' '}
-            <span className="text-blue-400 font-semibold">instant activation</span>
+            <span className="font-semibold" style={{color: '#825D8D'}}>AI-based technology</span> and{' '}
+            <span className="font-semibold" style={{color: '#6B7A9A'}}>instant activation</span>
           </motion.p>
 
           {/* Value propositions */}
@@ -81,7 +81,7 @@ export default function Hero() {
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="text-green-400">{prop.icon}</div>
+                <div style={{color: '#6B8A7A'}}>{prop.icon}</div>
                 <span className="text-white font-medium">{prop.text}</span>
               </motion.div>
             ))}
@@ -95,11 +95,14 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.9 }}
           >
             <motion.button
-              className="bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 hover:from-purple-700 hover:via-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-2xl relative overflow-hidden group"
+              className="text-white px-8 py-4 rounded-xl font-bold text-lg shadow-2xl relative overflow-hidden group"
+              style={{background: 'linear-gradient(to right, #6B5B7A, #5A6B8A, #6B5B7A)', transition: 'all 0.3s'}}
+              onMouseEnter={(e) => e.currentTarget.style.background = 'linear-gradient(to right, #5A4B6A, #4A5B7A, #5A4B6A)'}
+              onMouseLeave={(e) => e.currentTarget.style.background = 'linear-gradient(to right, #6B5B7A, #5A6B8A, #6B5B7A)'}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-blue-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300" style={{background: 'linear-gradient(to right, #825D8D, #6B7A9A)'}}></div>
               <span className="relative z-10 flex items-center space-x-2">
                 <span>Get Instant Access</span>
                 <Zap className="w-5 h-5" />
@@ -119,19 +122,19 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 1.1 }}
           >
             <div className="text-center">
-              <div className="text-3xl font-bold text-purple-400">1K+</div>
+              <div className="text-3xl font-bold" style={{color: '#825D8D'}}>1K+</div>
               <div className="text-gray-400 text-sm">Active Users</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-blue-400">99.9%</div>
+              <div className="text-3xl font-bold" style={{color: '#6B7A9A'}}>99.9%</div>
               <div className="text-gray-400 text-sm">Uptime</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-green-400">24/7</div>
+              <div className="text-3xl font-bold" style={{color: '#6B8A7A'}}>24/7</div>
               <div className="text-gray-400 text-sm">Support</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-yellow-400">5★</div>
+              <div className="text-3xl font-bold" style={{color: '#9A8A6B'}}>5★</div>
               <div className="text-gray-400 text-sm">Rating</div>
             </div>
           </motion.div>

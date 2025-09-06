@@ -65,7 +65,7 @@ export default function PricingSection() {
         'Custom Configurations'
       ],
       buttonText: 'Get PLUS (Most Popular)',
-      color: 'purple',
+      color: 'grayPurple',
       savings: '40%'
     },
     {
@@ -86,7 +86,7 @@ export default function PricingSection() {
         'Custom Cheat Loader'
       ],
       buttonText: 'Unlock PRO Access',
-      color: 'gold',
+      color: 'grayGold',
       savings: '40%'
     }
   ];
@@ -99,17 +99,17 @@ export default function PricingSection() {
         button: 'from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800',
         accent: 'text-gray-400'
       },
-      purple: {
-        border: 'border-purple-500',
-        bg: 'from-purple-600/20 to-purple-900/20',
-        button: 'from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800',
-        accent: 'text-purple-400'
+      grayPurple: {
+        border: 'border-gray-600',
+        bg: 'from-gray-800/20 to-gray-900/20',
+        button: 'custom-gray-purple',
+        accent: 'custom-gray-purple-accent'
       },
-      gold: {
-        border: 'border-yellow-500',
-        bg: 'from-yellow-600/20 to-yellow-900/20',
-        button: 'from-yellow-600 to-yellow-700 hover:from-yellow-700 hover:to-yellow-800',
-        accent: 'text-yellow-400'
+      grayGold: {
+        border: 'border-gray-600',
+        bg: 'from-gray-800/20 to-gray-900/20',
+        button: 'custom-gray-gold',
+        accent: 'custom-gray-gold-accent'
       }
     };
     return colors[color as keyof typeof colors];
@@ -128,7 +128,7 @@ export default function PricingSection() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-green-400 bg-clip-text text-transparent">
+            <span className="bg-clip-text text-transparent" style={{backgroundImage: 'linear-gradient(to right, #825D8D, #6B7A9A, #9A8A6B)'}}>
               Choose Your Plan
             </span>
           </h2>
@@ -139,33 +139,33 @@ export default function PricingSection() {
 
         {/* Urgency Banner */}
         <motion.div
-          className="bg-gradient-to-r from-red-600/20 to-orange-600/20 border border-red-500/30 rounded-2xl p-6 mb-12 text-center"
+          className="rounded-2xl p-6 mb-12 text-center" style={{background: 'linear-gradient(135deg, #8A5B6A20, #8A6B5A20)', border: '1px solid #8A5B6A30'}}
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
           <div className="flex items-center justify-center space-x-2 mb-4">
-            <Zap className="w-6 h-6 text-red-400" />
+            <Zap className="w-6 h-6" style={{color: '#8A5B6A'}} />
             <h3 className="text-2xl font-bold text-white">
               Black Friday Special: 40% Off – Limited Time
             </h3>
-            <Zap className="w-6 h-6 text-red-400" />
+            <Zap className="w-6 h-6" style={{color: '#8A5B6A'}} />
           </div>
           
           <div className="flex justify-center items-center space-x-6 text-2xl font-bold">
             <div className="text-center">
-              <div className="text-red-400">{String(timeLeft.hours).padStart(2, '0')}</div>
+              <div style={{color: '#8A5B6A'}}>{String(timeLeft.hours).padStart(2, '0')}</div>
               <div className="text-gray-400 text-xs">HOURS</div>
             </div>
-            <div className="text-red-400">:</div>
+            <div style={{color: '#8A5B6A'}}>:</div>
             <div className="text-center">
-              <div className="text-red-400">{String(timeLeft.minutes).padStart(2, '0')}</div>
+              <div style={{color: '#8A5B6A'}}>{String(timeLeft.minutes).padStart(2, '0')}</div>
               <div className="text-gray-400 text-xs">MINS</div>
             </div>
-            <div className="text-red-400">:</div>
+            <div style={{color: '#8A5B6A'}}>:</div>
             <div className="text-center">
-              <div className="text-red-400">{String(timeLeft.seconds).padStart(2, '0')}</div>
+              <div style={{color: '#8A5B6A'}}>{String(timeLeft.seconds).padStart(2, '0')}</div>
               <div className="text-gray-400 text-xs">SECS</div>
             </div>
           </div>
@@ -175,6 +175,17 @@ export default function PricingSection() {
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {plans.map((plan, index) => {
             const colors = getColorClasses(plan.color, plan.popular);
+            
+            const getCustomPlanStyle = (color: string) => {
+              const styles = {
+                grayPurple: { accent: '#825D8D', button: '#6B5B7A' },
+                grayGold: { accent: '#9A8A6B', button: '#7A6B5A' },
+                gray: { accent: '#8A8A8A', button: '#6A6A6A' }
+              };
+              return styles[color as keyof typeof styles] || styles.gray;
+            };
+            
+            const customStyle = getCustomPlanStyle(plan.color);
             
             return (
               <motion.div
@@ -191,7 +202,7 @@ export default function PricingSection() {
                 {/* Popular Badge */}
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-2 rounded-full flex items-center space-x-2">
+                    <div className="text-white px-6 py-2 rounded-full flex items-center space-x-2" style={{background: 'linear-gradient(135deg, #6B5B7A, #5A6B8A)'}}>
                       <Star className="w-4 h-4" />
                       <span className="font-bold text-sm">MOST POPULAR</span>
                     </div>
@@ -200,7 +211,7 @@ export default function PricingSection() {
 
                 {/* Savings Badge */}
                 <div className="absolute top-4 right-4">
-                  <div className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                  <div className="text-white px-3 py-1 rounded-full text-sm font-bold" style={{background: '#7A4B5A'}}>
                     Save {plan.savings}
                   </div>
                 </div>
@@ -213,7 +224,7 @@ export default function PricingSection() {
                       <span className="text-gray-400 line-through text-lg">
                         ${plan.originalPrice}
                       </span>
-                      <span className={`text-4xl font-bold ${colors.accent}`}>
+                      <span className="text-4xl font-bold" style={{color: customStyle.accent}}>
                         ${plan.price}
                       </span>
                       <span className="text-gray-400">{plan.period}</span>
@@ -221,7 +232,7 @@ export default function PricingSection() {
                   </div>
                   
                   {plan.name === 'PRO' && (
-                    <div className="flex items-center justify-center space-x-1 text-yellow-400 mb-4">
+                    <div className="flex items-center justify-center space-x-1 mb-4" style={{color: '#9A8A6B'}}>
                       <Crown className="w-5 h-5" />
                       <span className="font-semibold">Premium Tier</span>
                     </div>
@@ -232,7 +243,7 @@ export default function PricingSection() {
                 <ul className="space-y-4 mb-8">
                   {plan.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start space-x-3">
-                      <Check className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                      <Check className="w-5 h-5 flex-shrink-0 mt-0.5" style={{color: '#6B8A7A'}} />
                       <span className="text-gray-300">{feature}</span>
                     </li>
                   ))}
@@ -240,9 +251,12 @@ export default function PricingSection() {
 
                 {/* CTA Button */}
                 <motion.button
-                  className={`w-full bg-gradient-to-r ${colors.button} text-white py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300`}
+                  className="w-full text-white py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300"
+                  style={{background: `linear-gradient(135deg, ${customStyle.button}, ${customStyle.button}DD)`}}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
+                  onMouseEnter={(e) => e.currentTarget.style.background = `linear-gradient(135deg, ${customStyle.button}CC, ${customStyle.button}AA)`}
+                  onMouseLeave={(e) => e.currentTarget.style.background = `linear-gradient(135deg, ${customStyle.button}, ${customStyle.button}DD)`}
                 >
                   {plan.buttonText}
                 </motion.button>
@@ -266,19 +280,19 @@ export default function PricingSection() {
           
           <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-gray-500">
             <div className="flex items-center space-x-2">
-              <Check className="w-4 h-4 text-green-400" />
+              <Check className="w-4 h-4" style={{color: '#6B8A7A'}} />
               <span>Instant activation</span>
             </div>
             <div className="flex items-center space-x-2">
-              <Check className="w-4 h-4 text-green-400" />
+              <Check className="w-4 h-4" style={{color: '#6B8A7A'}} />
               <span>Cancel anytime</span>
             </div>
             <div className="flex items-center space-x-2">
-              <Check className="w-4 h-4 text-green-400" />
+              <Check className="w-4 h-4" style={{color: '#6B8A7A'}} />
               <span>24/7 support</span>
             </div>
             <div className="flex items-center space-x-2">
-              <Check className="w-4 h-4 text-green-400" />
+              <Check className="w-4 h-4" style={{color: '#6B8A7A'}} />
               <span>Secure payments</span>
             </div>
           </div>

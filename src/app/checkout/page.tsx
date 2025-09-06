@@ -179,7 +179,7 @@ function CheckoutContent() {
           <p className="text-gray-400 mb-8">Add some products to your cart before checking out.</p>
           <button
             onClick={() => router.push('/products')}
-            className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-purple-700 hover:to-blue-700 transition-all duration-300"
+            className="bg-gradient-to-r from-gray-600 to-gray-700 text-white px-8 py-3 rounded-lg font-semibold hover:from-gray-700 hover:to-gray-800 transition-all duration-300"
           >
             Continue Shopping
           </button>
@@ -208,7 +208,7 @@ function CheckoutContent() {
                   type="email"
                   value={customerInfo.email}
                   onChange={(e) => setCustomerInfo({...customerInfo, email: e.target.value})}
-                  className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                  className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-300"
                   placeholder="your@email.com"
                 />
                 {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
@@ -224,7 +224,7 @@ function CheckoutContent() {
                     type="text"
                     value={customerInfo.firstName}
                     onChange={(e) => setCustomerInfo({...customerInfo, firstName: e.target.value})}
-                    className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                    className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-300"
                     placeholder="First Name"
                   />
                   {errors.firstName && <p className="text-red-400 text-sm mt-1">{errors.firstName}</p>}
@@ -237,7 +237,7 @@ function CheckoutContent() {
                     type="text"
                     value={customerInfo.lastName}
                     onChange={(e) => setCustomerInfo({...customerInfo, lastName: e.target.value})}
-                    className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                    className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-300"
                     placeholder="Last Name"
                   />
                   {errors.lastName && <p className="text-red-400 text-sm mt-1">{errors.lastName}</p>}
@@ -259,7 +259,7 @@ function CheckoutContent() {
                       ...customerInfo,
                       address: {...customerInfo.address, line1: e.target.value}
                     })}
-                    className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                    className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-300"
                     placeholder="123 Main Street"
                   />
                   {errors.addressLine1 && <p className="text-red-400 text-sm mt-1">{errors.addressLine1}</p>}
@@ -276,7 +276,7 @@ function CheckoutContent() {
                       ...customerInfo,
                       address: {...customerInfo.address, line2: e.target.value}
                     })}
-                    className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                    className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-300"
                     placeholder="Apartment, suite, etc. (optional)"
                   />
                 </div>
@@ -293,7 +293,7 @@ function CheckoutContent() {
                         ...customerInfo,
                         address: {...customerInfo.address, city: e.target.value}
                       })}
-                      className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                      className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-300"
                       placeholder="City"
                     />
                     {errors.city && <p className="text-red-400 text-sm mt-1">{errors.city}</p>}
@@ -309,7 +309,7 @@ function CheckoutContent() {
                         ...customerInfo,
                         address: {...customerInfo.address, state: e.target.value}
                       })}
-                      className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                      className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-300"
                       placeholder="State"
                     />
                     {errors.state && <p className="text-red-400 text-sm mt-1">{errors.state}</p>}
@@ -328,7 +328,7 @@ function CheckoutContent() {
                         ...customerInfo,
                         address: {...customerInfo.address, postalCode: e.target.value}
                       })}
-                      className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                      className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-300"
                       placeholder="12345"
                     />
                     {errors.postalCode && <p className="text-red-400 text-sm mt-1">{errors.postalCode}</p>}
@@ -343,7 +343,7 @@ function CheckoutContent() {
                         ...customerInfo,
                         address: {...customerInfo.address, country: e.target.value}
                       })}
-                      className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                      className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-300"
                     >
                       <option value="US">United States</option>
                       <option value="CA">Canada</option>
@@ -402,7 +402,7 @@ function CheckoutContent() {
             <button
               onClick={handleSubmit}
               disabled={isProcessing || displayItems.length === 0}
-              className="w-full mt-8 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 disabled:from-gray-600 disabled:to-gray-700 text-white py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 disabled:hover:scale-100 disabled:cursor-not-allowed"
+              className="w-full mt-8 bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 disabled:from-gray-600 disabled:to-gray-700 text-white py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 disabled:hover:scale-100 disabled:cursor-not-allowed"
             >
               {isProcessing ? (
                 <div className="flex items-center justify-center space-x-2">

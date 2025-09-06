@@ -231,7 +231,7 @@ export default function CheckoutForm({
               <React.Fragment key={progressStep.number}>
                 <div className="flex flex-col items-center">
                   <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
-                    isCompleted ? 'bg-green-600' : isActive ? 'bg-purple-600' : 'bg-gray-600'
+                    isCompleted ? 'bg-green-600' : isActive ? 'bg-gray-600' : 'bg-gray-600'
                   }`}>
                     {isCompleted ? (
                       <Check className="w-5 h-5 text-white" />
@@ -240,7 +240,7 @@ export default function CheckoutForm({
                     )}
                   </div>
                   <span className={`text-xs mt-2 transition-colors duration-300 ${
-                    isActive ? 'text-purple-400' : isCompleted ? 'text-green-400' : 'text-gray-400'
+                    isActive ? 'text-gray-400' : isCompleted ? 'text-green-400' : 'text-gray-400'
                   }`}>
                     {progressStep.title}
                   </span>
@@ -271,7 +271,7 @@ export default function CheckoutForm({
               className="space-y-6"
             >
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center">
+                <div className="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center">
                   <User className="w-5 h-5 text-white" />
                 </div>
                 <div>
@@ -290,7 +290,7 @@ export default function CheckoutForm({
                     id="firstName"
                     value={customerInfo.firstName}
                     onChange={(e) => handleCustomerInfoChange('firstName', e.target.value)}
-                    className={`w-full px-4 py-3 bg-black/30 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-colors ${
+                    className={`w-full px-4 py-3 bg-black/30 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors ${
                       errors.firstName ? 'border-red-500' : 'border-gray-600'
                     }`}
                     placeholder="Enter your first name"
@@ -309,7 +309,7 @@ export default function CheckoutForm({
                     id="lastName"
                     value={customerInfo.lastName}
                     onChange={(e) => handleCustomerInfoChange('lastName', e.target.value)}
-                    className={`w-full px-4 py-3 bg-black/30 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-colors ${
+                    className={`w-full px-4 py-3 bg-black/30 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors ${
                       errors.lastName ? 'border-red-500' : 'border-gray-600'
                     }`}
                     placeholder="Enter your last name"
@@ -331,7 +331,7 @@ export default function CheckoutForm({
                     id="email"
                     value={customerInfo.email}
                     onChange={(e) => handleCustomerInfoChange('email', e.target.value)}
-                    className={`w-full pl-12 pr-4 py-3 bg-black/30 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-colors ${
+                    className={`w-full pl-12 pr-4 py-3 bg-black/30 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors ${
                       errors.email ? 'border-red-500' : 'border-gray-600'
                     }`}
                     placeholder="your@email.com"
@@ -350,7 +350,7 @@ export default function CheckoutForm({
                   disabled={!canProceed}
                   whileHover={{ scale: canProceed ? 1.02 : 1 }}
                   whileTap={{ scale: canProceed ? 0.98 : 1 }}
-                  className="flex items-center space-x-2 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 disabled:from-gray-600 disabled:to-gray-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 disabled:cursor-not-allowed"
+                  className="flex items-center space-x-2 bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 disabled:from-gray-600 disabled:to-gray-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 disabled:cursor-not-allowed"
                 >
                   <span>Continue to Payment</span>
                   <ArrowRight className="w-4 h-4" />
@@ -371,7 +371,7 @@ export default function CheckoutForm({
               className="space-y-6"
             >
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center">
+                <div className="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center">
                   <CreditCard className="w-5 h-5 text-white" />
                 </div>
                 <div>

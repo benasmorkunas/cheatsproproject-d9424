@@ -17,6 +17,31 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
   const isOutOfStock = false; // All products from JSON are in stock
   const totalSales = Math.floor(Math.random() * 1000) + 100; // Generate random sales number
   
+  // Map old product IDs to new enhanced product page URLs
+  const getProductURL = (productId: string) => {
+    // Remove duration suffix and map to new product pages
+    const baseId = productId.replace(/-\d+day$/, '');
+    
+    // Map to the new enhanced product pages
+    switch (baseId) {
+      case 'cs2-lite':
+        return '/products/cs2-lite';
+      case 'cs2-plus':
+        return '/products/cs2-plus';
+      case 'cs2-pro':
+        return '/products/cs2-pro';
+      case 'bf6-plus':
+        return '/products/bf6-plus';
+      case 'bf6-pro':
+        return '/products/bf6-pro';
+      default:
+        // Fallback to original product ID for unknown products
+        return `/products/${productId}`;
+    }
+  };
+  
+  const productURL = getProductURL(product.id);
+  
   // Extract subscription pricing based on product name
   const getSubscriptionPricing = () => {
     const productName = product.name.toLowerCase();
@@ -105,7 +130,7 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
           {/* Quick View Overlay */}
           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 z-20">
             <div className="flex gap-3">
-              <Link href={`/products/${product.id}`}>
+              <Link href={productURL}>
                 <motion.button
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
@@ -128,7 +153,7 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
         
         {/* Content Section */}
         <div className="p-6 flex-1 flex flex-col">
-          <Link href={`/products/${product.id}`}>
+          <Link href={productURL}>
             <h3 className="text-xl font-bold mb-3 line-clamp-1 transition-all duration-300 leading-tight text-center bg-gradient-to-r from-white via-purple-200 to-white bg-clip-text text-transparent hover:from-purple-300 hover:via-blue-300 hover:to-purple-300 hover:scale-105 transform tracking-wide uppercase whitespace-nowrap overflow-hidden text-ellipsis">
               {product.name}
             </h3>

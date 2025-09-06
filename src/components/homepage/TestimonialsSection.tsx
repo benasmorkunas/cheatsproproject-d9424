@@ -91,7 +91,8 @@ export default function TestimonialsSection() {
       {/* Background Effects */}
       <div className="absolute inset-0">
         <motion.div
-          className="absolute top-40 right-20 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"
+          className="absolute top-40 right-20 w-72 h-72 rounded-full blur-3xl"
+          style={{background: '#6B7A9A20'}}
           animate={{
             x: [0, 50, 0],
             y: [0, -30, 0],
@@ -115,7 +116,7 @@ export default function TestimonialsSection() {
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="text-white">People Who</span>{' '}
-            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-green-400 bg-clip-text text-transparent">
+            <span className="bg-clip-text text-transparent" style={{backgroundImage: 'linear-gradient(to right, #825D8D, #6B7A9A, #6B8A7A)'}}>
               Liked Our Product
             </span>
           </h2>
@@ -153,8 +154,10 @@ export default function TestimonialsSection() {
                 onClick={() => setCurrentIndex(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === currentIndex
-                    ? 'bg-purple-500'
+                    ? 'bg-gray-600 hover:bg-gray-500'
                     : 'bg-gray-600 hover:bg-gray-500'
+                }"
+                style={index === currentIndex ? {background: '#825D8D'} : {}}
                 }`}
               />
             ))}
@@ -176,7 +179,10 @@ export default function TestimonialsSection() {
             {getVisibleTestimonials().map((testimonial, index) => (
               <motion.div
                 key={`${testimonial.id}-${currentIndex}`}
-                className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 relative hover:border-purple-500/50 transition-all duration-300"
+                className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 relative transition-all duration-300"
+                style={{'--hover-border': '#825D8D80'}}
+                onMouseEnter={(e) => e.currentTarget.style.borderColor = '#825D8D80'}
+                onMouseLeave={(e) => e.currentTarget.style.borderColor = ''}
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -50 }}
@@ -184,7 +190,7 @@ export default function TestimonialsSection() {
                 whileHover={{ scale: 1.02 }}
               >
                 {/* Quote Icon */}
-                <Quote className="absolute top-6 right-6 w-8 h-8 text-purple-400/20" />
+                <Quote className="absolute top-6 right-6 w-8 h-8" style={{color: '#825D8D40'}} />
 
                 {/* Rating */}
                 <div className="flex items-center space-x-1 mb-6">
@@ -201,7 +207,7 @@ export default function TestimonialsSection() {
                 {/* Author Info */}
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center text-2xl">
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center text-2xl" style={{background: 'linear-gradient(to right, #825D8D, #6B7A9A)'}}>
                       {testimonial.avatar}
                     </div>
                     <div>
@@ -210,7 +216,7 @@ export default function TestimonialsSection() {
                           {testimonial.author}
                         </span>
                         {testimonial.verified && (
-                          <div className="w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center">
+                          <div className="w-5 h-5 rounded-full flex items-center justify-center" style={{background: '#6B7A9A'}}>
                             <span className="text-white text-xs">✓</span>
                           </div>
                         )}
@@ -235,19 +241,19 @@ export default function TestimonialsSection() {
           viewport={{ once: true }}
         >
           <div className="text-center">
-            <div className="text-3xl font-bold text-purple-400 mb-2">50K+</div>
+            <div className="text-3xl font-bold mb-2" style={{color: '#825D8D'}}>50K+</div>
             <div className="text-gray-400">Happy Gamers</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-blue-400 mb-2">1.2M+</div>
+            <div className="text-3xl font-bold mb-2" style={{color: '#6B7A9A'}}>1.2M+</div>
             <div className="text-gray-400">Matches Won</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-green-400 mb-2">99.2%</div>
+            <div className="text-3xl font-bold mb-2" style={{color: '#6B8A7A'}}>99.2%</div>
             <div className="text-gray-400">Satisfaction Rate</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-yellow-400 mb-2">24/7</div>
+            <div className="text-3xl font-bold mb-2" style={{color: '#9A8A6B'}}>24/7</div>
             <div className="text-gray-400">Support Available</div>
           </div>
         </motion.div>
@@ -264,7 +270,10 @@ export default function TestimonialsSection() {
             Ready to join the winning team?
           </h3>
           <motion.button
-            className="bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 hover:from-purple-700 hover:via-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl"
+            className="text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl"
+            style={{background: 'linear-gradient(to right, #825D8D, #6B7A9A, #825D8D)', transition: 'all 0.3s'}}
+            onMouseEnter={(e) => e.currentTarget.style.background = 'linear-gradient(to right, #714D7D, #5A6A8A, #714D7D)'}
+            onMouseLeave={(e) => e.currentTarget.style.background = 'linear-gradient(to right, #825D8D, #6B7A9A, #825D8D)'}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

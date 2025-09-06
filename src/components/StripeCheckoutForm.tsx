@@ -153,7 +153,7 @@ export default function StripeCheckoutForm({
               type="email"
               value={customerInfo.email}
               onChange={(e) => setCustomerInfo({...customerInfo, email: e.target.value})}
-              className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+              className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-300"
               placeholder="your@email.com"
               required
             />
@@ -168,7 +168,7 @@ export default function StripeCheckoutForm({
                 type="text"
                 value={customerInfo.firstName}
                 onChange={(e) => setCustomerInfo({...customerInfo, firstName: e.target.value})}
-                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-300"
                 placeholder="First Name"
                 required
               />
@@ -181,7 +181,7 @@ export default function StripeCheckoutForm({
                 type="text"
                 value={customerInfo.lastName}
                 onChange={(e) => setCustomerInfo({...customerInfo, lastName: e.target.value})}
-                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-300"
                 placeholder="Last Name"
                 required
               />
@@ -206,8 +206,8 @@ export default function StripeCheckoutForm({
         <div className="space-y-4">
           <h3 className="text-lg font-semibold text-white mb-4">Payment Information</h3>
           {process.env.NODE_ENV === 'development' && (
-            <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-3 mb-4">
-              <p className="text-blue-400 text-sm">
+            <div className="bg-gray-500/10 border border-gray-500/20 rounded-lg p-3 mb-4">
+              <p className="text-gray-400 text-sm">
                 <strong>Development Mode:</strong> Use test card: 4242 4242 4242 4242, any future date, any CVC
               </p>
             </div>
@@ -222,7 +222,7 @@ export default function StripeCheckoutForm({
         {/* Submit Button */}
         <button
           disabled={isLoading || !stripe || !elements}
-          className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 disabled:from-gray-600 disabled:to-gray-700 text-white py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 disabled:hover:scale-100 disabled:cursor-not-allowed"
+          className="w-full bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 disabled:from-gray-600 disabled:to-gray-700 text-white py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 disabled:hover:scale-100 disabled:cursor-not-allowed"
         >
           {isLoading ? (
             <div className="flex items-center justify-center space-x-2">

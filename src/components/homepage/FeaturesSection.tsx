@@ -13,10 +13,10 @@ export default function FeaturesSection() {
       title: 'Best CS2 Wallhack (Undetected)',
       description: 'See through walls and gain the ultimate advantage',
       features: [
-        { icon: <Check className="w-4 h-4 text-green-400" />, text: 'ESP & Player Outlines' },
-        { icon: <Check className="w-4 h-4 text-green-400" />, text: 'Custom Colors & Styles' },
-        { icon: <Check className="w-4 h-4 text-green-400" />, text: 'Health & Armor Indicators' },
-        { icon: <Check className="w-4 h-4 text-green-400" />, text: 'Distance & Name Tags' }
+        { icon: <Check className="w-4 h-4" style={{color: '#6B8A7A'}} />, text: 'ESP & Player Outlines' },
+        { icon: <Check className="w-4 h-4" style={{color: '#6B8A7A'}} />, text: 'Custom Colors & Styles' },
+        { icon: <Check className="w-4 h-4" style={{color: '#6B8A7A'}} />, text: 'Health & Armor Indicators' },
+        { icon: <Check className="w-4 h-4" style={{color: '#6B8A7A'}} />, text: 'Distance & Name Tags' }
       ],
       ctaText: 'Get Wallhack Now',
       color: 'purple',
@@ -28,10 +28,10 @@ export default function FeaturesSection() {
       title: 'Professional CS2 Aimbot',
       description: 'Precision targeting with natural movement',
       features: [
-        { icon: <Check className="w-4 h-4 text-green-400" />, text: 'Smooth Human-like Aim' },
-        { icon: <Check className="w-4 h-4 text-green-400" />, text: 'Customizable FOV Circle' },
-        { icon: <Check className="w-4 h-4 text-green-400" />, text: 'Bone Selection (Head/Body)' },
-        { icon: <Check className="w-4 h-4 text-green-400" />, text: 'Recoil Compensation' }
+        { icon: <Check className="w-4 h-4" style={{color: '#6B8A7A'}} />, text: 'Smooth Human-like Aim' },
+        { icon: <Check className="w-4 h-4" style={{color: '#6B8A7A'}} />, text: 'Customizable FOV Circle' },
+        { icon: <Check className="w-4 h-4" style={{color: '#6B8A7A'}} />, text: 'Bone Selection (Head/Body)' },
+        { icon: <Check className="w-4 h-4" style={{color: '#6B8A7A'}} />, text: 'Recoil Compensation' }
       ],
       ctaText: 'Unlock Aimbot Access',
       color: 'blue',
@@ -43,10 +43,10 @@ export default function FeaturesSection() {
       title: 'CS2 Grenade Hack / Helper Tool',
       description: 'Master every smoke, flash, and nade throw',
       features: [
-        { icon: <Check className="w-4 h-4 text-green-400" />, text: 'Trajectory Preview Lines' },
-        { icon: <Check className="w-4 h-4 text-green-400" />, text: 'Damage Area Overlay' },
-        { icon: <Check className="w-4 h-4 text-green-400" />, text: 'Perfect Lineup Spots' },
-        { icon: <Check className="w-4 h-4 text-green-400" />, text: 'One-Way Smoke Helper' }
+        { icon: <Check className="w-4 h-4" style={{color: '#6B8A7A'}} />, text: 'Trajectory Preview Lines' },
+        { icon: <Check className="w-4 h-4" style={{color: '#6B8A7A'}} />, text: 'Damage Area Overlay' },
+        { icon: <Check className="w-4 h-4" style={{color: '#6B8A7A'}} />, text: 'Perfect Lineup Spots' },
+        { icon: <Check className="w-4 h-4" style={{color: '#6B8A7A'}} />, text: 'One-Way Smoke Helper' }
       ],
       ctaText: '💣 Get Grenade Helper',
       color: 'green',
@@ -59,20 +59,20 @@ export default function FeaturesSection() {
       purple: {
         bg: 'from-gray-900/50 to-gray-800/30',
         border: 'border-gray-700/50 hover:border-gray-600/70',
-        button: 'from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800',
-        icon: 'text-purple-400'
+        button: 'custom-purple-gradient',
+        icon: 'custom-purple-icon'
       },
       blue: {
         bg: 'from-gray-900/50 to-gray-800/30',
         border: 'border-gray-700/50 hover:border-gray-600/70',
-        button: 'from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800',
-        icon: 'text-blue-400'
+        button: 'custom-blue-gradient',
+        icon: 'custom-blue-icon'
       },
       green: {
         bg: 'from-gray-900/50 to-gray-800/30',
         border: 'border-gray-700/50 hover:border-gray-600/70',
-        button: 'from-green-600 to-green-700 hover:from-green-700 hover:to-green-800',
-        icon: 'text-green-400'
+        button: 'custom-green-gradient',
+        icon: 'custom-green-icon'
       }
     };
     return gradients[color as keyof typeof gradients];
@@ -89,7 +89,7 @@ export default function FeaturesSection() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-green-400 bg-clip-text text-transparent">
+            <span className="bg-clip-text text-transparent" style={{backgroundImage: 'linear-gradient(to right, #825D8D, #6B7A9A, #6B8A7A)'}}>
               Premium Features
             </span>
           </h2>
@@ -103,6 +103,17 @@ export default function FeaturesSection() {
             const isEven = index % 2 === 0;
             const gradients = getGradientClasses(feature.color);
 
+            const getCustomStyle = (color: string) => {
+              const styles = {
+                purple: { bg: '#6B5B7A', icon: '#825D8D' },
+                blue: { bg: '#5A6B8A', icon: '#6B7A9A' },
+                green: { bg: '#5A7A6B', icon: '#6B8A7A' }
+              };
+              return styles[color as keyof typeof styles] || styles.purple;
+            };
+            
+            const customStyle = getCustomStyle(feature.color);
+
             return (
               <motion.div
                 key={feature.id}
@@ -115,7 +126,7 @@ export default function FeaturesSection() {
                 {/* Content */}
                 <div className="flex-1 space-y-6">
                   <div className="flex items-center space-x-4">
-                    <div className={`p-3 rounded-xl bg-gradient-to-r ${gradients.bg} border ${gradients.border.split(' ')[0]} ${gradients.icon}`}>
+                    <div className="p-3 rounded-xl border border-gray-700/50 hover:border-gray-600/70" style={{background: `linear-gradient(135deg, ${customStyle.bg}, ${customStyle.bg}90)`, color: customStyle.icon}}>
                       {feature.icon}
                     </div>
                     <div>
@@ -143,9 +154,12 @@ export default function FeaturesSection() {
                   </div>
 
                   <motion.button
-                    className={`bg-gradient-to-r ${gradients.button} text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300`}
+                    className="text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                    style={{background: `linear-gradient(135deg, ${customStyle.bg}, ${customStyle.bg}CC)`}}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
+                    onMouseEnter={(e) => e.currentTarget.style.background = `linear-gradient(135deg, ${customStyle.bg}DD, ${customStyle.bg}AA)`}
+                    onMouseLeave={(e) => e.currentTarget.style.background = `linear-gradient(135deg, ${customStyle.bg}, ${customStyle.bg}CC)`}
                   >
                     {feature.ctaText}
                   </motion.button>
@@ -206,7 +220,10 @@ export default function FeaturesSection() {
             Don't choose between features. Get everything you need to dominate CS2 with our comprehensive cheat package.
           </p>
           <motion.button
-            className="bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 hover:from-purple-700 hover:via-blue-700 hover:to-green-700 text-white px-12 py-4 rounded-xl font-bold text-xl shadow-2xl"
+            className="text-white px-12 py-4 rounded-xl font-bold text-xl shadow-2xl"
+            style={{background: 'linear-gradient(to right, #6B5B7A, #5A6B8A, #5A7A6B)', transition: 'all 0.3s'}}
+            onMouseEnter={(e) => e.currentTarget.style.background = 'linear-gradient(to right, #5A4B6A, #4A5B7A, #4A6A5B)'}
+            onMouseLeave={(e) => e.currentTarget.style.background = 'linear-gradient(to right, #6B5B7A, #5A6B8A, #5A7A6B)'}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

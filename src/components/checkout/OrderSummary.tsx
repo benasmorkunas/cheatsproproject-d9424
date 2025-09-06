@@ -102,12 +102,12 @@ export default function OrderSummary({ items, isCheckoutMode = false }: OrderSum
       >
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <ShoppingBag className="w-6 h-6 text-purple-400" />
+            <ShoppingBag className="w-6 h-6 text-gray-400" />
             <h2 className="text-xl font-bold text-white">Order Summary</h2>
           </div>
           
           <div className="flex items-center space-x-2">
-            <span className="text-lg font-semibold text-purple-400">
+            <span className="text-lg font-semibold text-gray-400">
               ${finalTotal.toFixed(2)}
             </span>
             <ChevronDown 
@@ -221,7 +221,7 @@ export default function OrderSummary({ items, isCheckoutMode = false }: OrderSum
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     onClick={() => setShowPromoCode(true)}
-                    className="flex items-center space-x-2 text-purple-400 hover:text-purple-300 transition-colors duration-200 text-sm"
+                    className="flex items-center space-x-2 text-gray-400 hover:text-gray-300 transition-colors duration-200 text-sm"
                   >
                     <Tag className="w-4 h-4" />
                     <span>Add promo code</span>
@@ -245,7 +245,7 @@ export default function OrderSummary({ items, isCheckoutMode = false }: OrderSum
                             setPromoError('');
                           }}
                           placeholder="Enter promo code"
-                          className="w-full px-3 py-2 bg-black/30 border border-gray-600 rounded-lg text-white text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                          className="w-full px-3 py-2 bg-black/30 border border-gray-600 rounded-lg text-white text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent"
                           onKeyPress={(e) => e.key === 'Enter' && handleApplyPromoCode()}
                         />
                         <Gift className="absolute right-3 top-2.5 w-4 h-4 text-gray-400" />
@@ -254,7 +254,7 @@ export default function OrderSummary({ items, isCheckoutMode = false }: OrderSum
                       <button
                         onClick={handleApplyPromoCode}
                         disabled={isApplyingPromo || !promoCode.trim()}
-                        className="px-4 py-2 bg-purple-600 hover:bg-purple-700 disabled:bg-black/40 text-white text-sm rounded-lg font-medium transition-colors duration-200 disabled:cursor-not-allowed"
+                        className="px-4 py-2 bg-gray-600 hover:bg-gray-700 disabled:bg-black/40 text-white text-sm rounded-lg font-medium transition-colors duration-200 disabled:cursor-not-allowed"
                       >
                         {isApplyingPromo ? (
                           <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
@@ -337,7 +337,7 @@ export default function OrderSummary({ items, isCheckoutMode = false }: OrderSum
               
               <div className="flex justify-between text-xl font-bold text-white">
                 <span>Total</span>
-                <span className="text-purple-400">${finalTotal.toFixed(2)}</span>
+                <span className="text-gray-400">${finalTotal.toFixed(2)}</span>
               </div>
               
               {discount > 0 && (

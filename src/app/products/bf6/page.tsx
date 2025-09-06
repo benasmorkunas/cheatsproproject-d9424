@@ -10,7 +10,7 @@ import Footer from '@/components/homepage/Footer';
 import { useCart } from '@/contexts/CartContext';
 import Head from 'next/head';
 import MinimalisticBackground from '@/components/common/MinimalisticBackground';
-import products from '@/data/products.json';
+import { getProductGroupsByGame } from '@/lib/products';
 
 export default function BF6ProductsPage() {
   const [filteredProducts, setFilteredProducts] = useState<SimpleProduct[]>([]);
@@ -39,26 +39,21 @@ export default function BF6ProductsPage() {
     try {
       setLoading(true);
       
-      // Load BF6-specific products from products.json and group them
-      console.log('Loading BF6 products from products.json');
+      // Load BF6 product groups 
+      const productGroups = getProductGroupsByGame('bf6');
       
-      // Filter BF6 products and group by base name
-      const bf6Products = products.filter(product => product.id.includes('bf6'));
-      const groupedProducts = new Map<string, SimpleProduct>();
+      // Convert product groups to individual products for display
+      const products = productGroups.map(group => ({
+        id: group.id,
+        name: group.name,
+        price: group.variants[0].price, // Use first variant's price for display
+        description: group.baseDescription,
+        image: group.image,
+        stripe_price_id: group.variants[0].stripe_price_id,
+        currency: group.variants[0].currency
+      })) as SimpleProduct[];
       
-      bf6Products.forEach(product => {
-        const baseKey = product.id.replace(/-\d+day$/, ''); // Remove -1day, -7day, -30day
-        if (!groupedProducts.has(baseKey)) {
-          // Create a clean product object without duration in name
-          const cleanProduct = {
-            ...product,
-            name: product.name.replace(/ \d+ Day$/, '') // Remove " 1 Day", " 7 Day", " 30 Day" from name
-          } as SimpleProduct;
-          groupedProducts.set(baseKey, cleanProduct);
-        }
-      });
-      
-      let filtered = Array.from(groupedProducts.values());
+      let filtered = products;
       
       // Apply filters
       if (filters.search) {
@@ -67,7 +62,6 @@ export default function BF6ProductsPage() {
           product.description.toLowerCase().replace(/<[^>]*>/g, '').includes(filters.search.toLowerCase())
         );
       }
-      
       setFilteredProducts(filtered);
       
     } catch (error) {

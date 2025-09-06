@@ -10,7 +10,12 @@
       "Bash(if exist .git rmdir /s /q .git)",
       "Bash(git init:*)",
       "Read(C:\\Users\\augus\\OneDrive\\Stalinis kompiuteris\\woocommerce-frontend-main-v2\\cheatsproproject/**)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(npx @next/codemod@latest:*)",
+      "Bash(cat:*)",
+      "Bash(node:*)",
+      "Bash(npm --version)",
+      "Bash(rm:*)"
     ],
     "deny": [],
     "ask": []
