@@ -5,6 +5,7 @@ import { Check, Target, Shield, Star, Download } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useCart } from '@/contexts/CartContext';
+import Image from 'next/image';
 import './slider.css';
 
 export default function LandingPageSlider() {
@@ -229,75 +230,37 @@ export default function LandingPageSlider() {
             className="relative flex items-center justify-center h-full min-h-[600px] lg:min-h-[700px] overflow-visible"
             style={{ paddingRight: '2rem' }}
           >
-            {/* Floating Product Box */}
+            {/* Large Product Image */}
             <motion.div
-              className="relative z-20 product-box-3d"
+              className="relative z-20 w-full h-full max-w-2xl max-h-[80vh]"
               animate={{
-                y: [0, -20, 0],
-                rotateY: [0, 5, -5, 0],
+                y: [0, -15, 0],
               }}
               transition={{
                 y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-                rotateY: { duration: 8, repeat: Infinity, ease: "easeInOut" },
               }}
             >
-              {/* 3D Product Box */}
-              <div className="relative w-56 h-72 md:w-64 md:h-80 lg:w-72 lg:h-96 transform-gpu perspective-1000 product-shadow">
-                {/* Main Box */}
-                <div className="relative w-full h-full bg-gradient-to-br from-gray-800 via-gray-900 to-black rounded-2xl shadow-2xl border border-gray-700/50 overflow-hidden glass-card glow-box">
-                  {/* Gloss Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent rounded-2xl"></div>
-                  
-                  {/* Content */}
-                  <div className="relative z-10 p-4 md:p-6 h-full flex flex-col justify-between">
-                    {/* Top Badge */}
-                    <div className="bg-gradient-to-r from-gray-600 to-gray-700 text-white text-xs font-bold px-3 py-1 rounded-full self-start premium-button">
-                      PRO VERSION
-                    </div>
-                    
-                    {/* Center Logo/Icon */}
-                    <div className="flex-1 flex items-center justify-center">
-                      <motion.div 
-                        className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 bg-gradient-to-br from-gray-500 to-gray-600 rounded-2xl flex items-center justify-center shadow-lg glow-box"
-                        animate={{
-                          scale: [1, 1.05, 1],
-                          rotateZ: [0, 2, -2, 0],
-                        }}
-                        transition={{
-                          duration: 3,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                        }}
-                      >
-                        <Target className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 text-white" />
-                      </motion.div>
-                    </div>
-                    
-                    {/* Bottom Text */}
-                    <div className="text-center">
-                      <h3 className="text-white font-bold text-base md:text-lg lg:text-xl mb-1 bg-gradient-to-r from-gray-300 to-gray-400 bg-clip-text text-transparent">
-                        {slides[currentSlide].title}
-                      </h3>
-                      <p className="text-gray-400 text-xs md:text-sm">Premium Edition</p>
-                    </div>
-                  </div>
-                  
-                  {/* Side Panel Effect */}
-                  <div className="absolute -right-2 top-4 w-2 h-64 md:h-72 lg:h-80 bg-gradient-to-b from-gray-700 via-gray-800 to-gray-900 rounded-r transform skew-y-1"></div>
-                  
-                  {/* Bottom Panel Effect */}
-                  <div className="absolute -bottom-1 left-4 right-4 h-1 bg-gradient-to-r from-gray-700 via-gray-600 to-gray-700 rounded transform skew-x-1"></div>
-                </div>
-              </div>
+              <motion.div
+                key={slides[currentSlide].product.id}
+                className="w-full h-full relative"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8 }}
+              >
+                <Image
+                  src={slides[currentSlide].product.image}
+                  alt={slides[currentSlide].product.name}
+                  fill
+                  className="object-contain transition-all duration-500"
+                  sizes="(max-width: 768px) 90vw, (max-width: 1024px) 50vw, 40vw"
+                  priority
+                />
+              </motion.div>
             </motion.div>
 
 
 
 
-            {/* Glow Effect Behind Product */}
-            <div className="absolute inset-0 flex items-center justify-center overflow-visible" style={{ left: '-4rem', right: '-4rem', width: 'calc(100% + 8rem)' }}>
-              <div className="w-[30rem] h-[30rem] bg-gradient-to-r from-gray-500/20 via-gray-400/20 to-gray-600/20 rounded-full blur-3xl"></div>
-            </div>
           </motion.div>
         </div>
       </div>
