@@ -113,7 +113,7 @@ export default function StatusPage() {
             <div className="flex items-center justify-center mb-6">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold">
                 <span className="text-white">SYSTEM</span>{' '}
-                <span className="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-gray-400 to-gray-300 bg-clip-text text-transparent">
                   STATUS
                 </span>
               </h1>
@@ -259,7 +259,7 @@ export default function StatusPage() {
                     <motion.button
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-4 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2"
+                      className="w-full bg-gradient-to-r from-gray-600 to-gray-500 hover:from-gray-700 hover:to-gray-600 text-white px-4 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2"
                     >
                       <ShoppingCart className="w-4 h-4" />
                       <span>Purchase Now</span>
@@ -324,12 +324,12 @@ export default function StatusPage() {
             </div>
             
             <div className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-xl p-6 text-center">
-              <div className="text-3xl font-bold text-blue-400 mb-2">47ms</div>
+              <div className="text-3xl font-bold text-gray-300 mb-2">47ms</div>
               <div className="text-gray-400">Avg Response Time</div>
             </div>
             
             <div className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-xl p-6 text-center">
-              <div className="text-3xl font-bold text-purple-400 mb-2">0</div>
+              <div className="text-3xl font-bold text-gray-300 mb-2">0</div>
               <div className="text-gray-400">Detections This Month</div>
             </div>
             
@@ -354,7 +354,7 @@ export default function StatusPage() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.button
-                className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300"
+                className="bg-gradient-to-r from-gray-600 to-gray-500 hover:from-gray-700 hover:to-gray-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
