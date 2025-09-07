@@ -1,9 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Configure for Netlify deployment
+  // Configure for Netlify deployment with Next.js runtime
   trailingSlash: true,
+  
+  // Configure images for Netlify
   images: {
     unoptimized: true,
+    domains: ['localhost'],
   },
   
   // Reduce worker threads to prevent Jest worker issues

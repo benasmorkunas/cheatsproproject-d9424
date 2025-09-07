@@ -1,29 +1,29 @@
 [build]
-  # Build command for Next.js on Netlify
+  # Build command for Next.js with Netlify runtime
   command = "npm run build"
   
-  # Output directory for Next.js
+  # Output directory for Next.js with Netlify runtime
   publish = ".next"
   
   # Node.js version and environment variables
   [build.environment]
     NODE_VERSION = "18"
-    NODE_OPTIONS = "--max-old-space-size=4096"
+    NODE_OPTIONS = "--max-old-space-size=8192"
     NEXT_TELEMETRY_DISABLED = "1"
 
-# Enable Netlify's Next.js runtime
-[functions]
-  external_node_modules = ["sharp"]
+# Enable Next.js runtime on Netlify
+[context.production.environment]
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
 
-# Configure redirects for Next.js routing
+# Configure redirects and rewrites
 [[redirects]]
-  from = "/_next/static/*"
-  to = "/_next/static/:splat"
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
   status = 200
 
 [[redirects]]
   from = "/*"
-  to = "/404.html"
+  to = "/404"
   status = 404
 
 # Headers for better performance and security
