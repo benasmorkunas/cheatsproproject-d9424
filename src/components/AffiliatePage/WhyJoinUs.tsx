@@ -77,8 +77,8 @@ export default function WhyJoinUs() {
                 benefit.highlight 
                   ? 'bg-gradient-to-br from-green-800/20 to-emerald-800/20 border-green-500/30' 
                   : 'bg-black/40 border-gray-600/20'
-              } backdrop-blur-sm border rounded-2xl p-8 h-full transition-all duration-300 hover:border-purple-500/30 hover:shadow-xl ${
-                benefit.highlight ? 'hover:shadow-green-500/10' : 'hover:shadow-purple-500/10'
+              } backdrop-blur-sm border rounded-2xl p-8 h-full transition-all duration-300 hover:border-gray-500/30 hover:shadow-xl ${
+                benefit.highlight ? 'hover:shadow-green-500/10' : 'hover:shadow-gray-500/10'
               }`}>
                 {/* Icon */}
                 <div className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${benefit.gradient} mb-6 group-hover:scale-110 transition-transform duration-300`}>
@@ -91,7 +91,7 @@ export default function WhyJoinUs() {
                 <div className="space-y-4">
                   <h3 className={`text-xl font-bold ${
                     benefit.highlight ? 'text-green-300' : 'text-white'
-                  } group-hover:text-purple-300 transition-colors duration-300`}>
+                  } group-hover:text-gray-300 transition-colors duration-300`}>
                     {benefit.title}
                   </h3>
                   <p className="text-gray-400 leading-relaxed">
@@ -172,7 +172,7 @@ export default function WhyJoinUs() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 shadow-lg shadow-purple-500/25"
+              className="bg-gradient-to-r from-gray-600 to-gray-500 hover:from-gray-700 hover:to-gray-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 shadow-lg shadow-gray-500/25"
               onClick={() => document.getElementById('application-form')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Start Your Application

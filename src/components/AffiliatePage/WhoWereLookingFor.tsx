@@ -100,11 +100,11 @@ export default function WhoWereLookingFor() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group"
             >
-              <div className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-2xl overflow-hidden hover:border-purple-500/30 transition-all duration-300">
+              <div className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-2xl overflow-hidden hover:border-gray-500/30 transition-all duration-300">
                 {/* Card Header */}
                 <button
                   onClick={() => setExpandedCard(expandedCard === index ? null : index)}
-                  className="w-full p-6 text-left hover:bg-black/20 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-inset"
+                  className="w-full p-6 text-left hover:bg-black/20 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-inset"
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-4">
@@ -114,7 +114,7 @@ export default function WhoWereLookingFor() {
                         </div>
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors duration-300">
+                        <h3 className="text-xl font-bold text-white group-hover:text-gray-300 transition-colors duration-300">
                           {req.title}
                         </h3>
                         <p className="text-gray-400">
@@ -153,7 +153,7 @@ export default function WhoWereLookingFor() {
                                 transition={{ duration: 0.3, delay: detailIndex * 0.1 }}
                                 className="flex items-start space-x-3"
                               >
-                                <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                                <div className="w-2 h-2 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
                                 <span className="text-gray-300">{detail}</span>
                               </motion.li>
                             ))}
@@ -205,7 +205,7 @@ export default function WhoWereLookingFor() {
         >
           <div className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-2xl p-6">
             <p className="text-lg text-gray-300">
-              <span className="text-purple-400 font-semibold">New to affiliate marketing?</span> 
+              <span className="text-gray-400 font-semibold">New to affiliate marketing?</span> 
               {' '}No problem! We provide comprehensive training, marketing materials, 
               and ongoing support to help you succeed. Quality and passion matter more than experience.
             </p>

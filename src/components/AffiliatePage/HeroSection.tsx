@@ -123,7 +123,7 @@ export default function HeroSection() {
                 } backdrop-blur-sm border rounded-xl p-4 md:p-6 min-w-[140px] md:min-w-[180px]`}
               >
                 <div className="flex items-center justify-center space-x-2 mb-2">
-                  <div className={`${stat.highlight ? 'text-green-400' : 'text-purple-400'}`}>
+                  <div className={`${stat.highlight ? 'text-green-400' : 'text-gray-400'}`}>
                     {stat.icon}
                   </div>
                   <div className={`text-lg md:text-xl font-bold ${
@@ -165,7 +165,7 @@ export default function HeroSection() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform shadow-lg shadow-purple-500/25 flex items-center space-x-2 mx-auto"
+              className="bg-gradient-to-r from-gray-600 to-gray-500 hover:from-gray-700 hover:to-gray-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform shadow-lg shadow-gray-500/25 flex items-center space-x-2 mx-auto"
               onClick={() => document.getElementById('application-form')?.scrollIntoView({ behavior: 'smooth' })}
             >
               <DollarSign className="w-5 h-5" />
@@ -184,9 +184,9 @@ export default function HeroSection() {
             <motion.div
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
-              className="w-6 h-10 border-2 border-purple-400 rounded-full flex justify-center"
+              className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center"
             >
-              <div className="w-1 h-3 bg-purple-400 rounded-full mt-2"></div>
+              <div className="w-1 h-3 bg-gray-400 rounded-full mt-2"></div>
             </motion.div>
           </motion.div>
         </div>

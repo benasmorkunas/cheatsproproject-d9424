@@ -56,7 +56,7 @@ export default function HeroSection() {
         {animatedElements.map((element) => (
           <motion.div
             key={element.id}
-            className="absolute w-2 h-2 bg-purple-400/30 rounded-full"
+            className="absolute w-2 h-2 bg-gray-400/30 rounded-full"
             animate={{
               x: [0, element.x, 0],
               y: [0, element.y, 0],
@@ -85,10 +85,10 @@ export default function HeroSection() {
             className="space-y-4"
           >
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold">
-              <span className="block bg-gradient-to-r from-white via-purple-200 to-blue-200 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-white via-gray-200 to-gray-100 bg-clip-text text-transparent">
                 Join the Cheats-Pro
               </span>
-              <span className="block bg-gradient-to-r from-purple-400 via-blue-400 to-green-400 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-gray-400 to-gray-300 bg-clip-text text-transparent">
                 Development Team
               </span>
             </h1>
@@ -117,7 +117,7 @@ export default function HeroSection() {
                 className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-xl p-4 md:p-6 min-w-[140px] md:min-w-[180px]"
               >
                 <div className="flex items-center justify-center space-x-2 mb-2">
-                  <div className="text-purple-400">
+                  <div className="text-gray-400">
                     {stat.icon}
                   </div>
                   <div className="text-lg md:text-xl font-bold text-white">
@@ -141,7 +141,7 @@ export default function HeroSection() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform shadow-lg shadow-purple-500/25 flex items-center space-x-2 mx-auto"
+              className="bg-gradient-to-r from-gray-600 to-gray-500 hover:from-gray-700 hover:to-gray-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform shadow-lg shadow-gray-500/25 flex items-center space-x-2 mx-auto"
               onClick={() => document.getElementById('application-form')?.scrollIntoView({ behavior: 'smooth' })}
             >
               <Code className="w-5 h-5" />
@@ -159,9 +159,9 @@ export default function HeroSection() {
             <motion.div
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
-              className="w-6 h-10 border-2 border-purple-400 rounded-full flex justify-center"
+              className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center"
             >
-              <div className="w-1 h-3 bg-purple-400 rounded-full mt-2"></div>
+              <div className="w-1 h-3 bg-gray-400 rounded-full mt-2"></div>
             </motion.div>
           </motion.div>
         </div>

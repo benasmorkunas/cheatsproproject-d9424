@@ -9,19 +9,19 @@ export default function WhyJoinUs() {
       icon: <Clock className="w-8 h-8" />,
       title: 'Flexible Remote Work',
       description: 'Set your own schedule with our results-focused culture. Work from anywhere in the world while maintaining work-life balance.',
-      gradient: 'from-purple-500 to-blue-500'
+      gradient: 'from-gray-500 to-gray-400'
     },
     {
       icon: <DollarSign className="w-8 h-8" />,
       title: 'Revenue Share Model',
       description: 'Earn competitive rates plus project bonuses. Share in our success with performance-based compensation and growth incentives.',
-      gradient: 'from-green-500 to-emerald-500'
+      gradient: 'from-gray-600 to-gray-500'
     },
     {
       icon: <TrendingUp className="w-8 h-8" />,
       title: 'Growth Opportunities',
       description: 'Lead projects and shape our technical direction. Advance your career while working on challenging, impactful projects.',
-      gradient: 'from-orange-500 to-red-500'
+      gradient: 'from-gray-700 to-gray-600'
     }
   ];
 
@@ -38,7 +38,7 @@ export default function WhyJoinUs() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-green-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-gray-400 to-gray-300 bg-clip-text text-transparent">
               Why Join Our Team?
             </span>
           </h2>
@@ -60,7 +60,7 @@ export default function WhyJoinUs() {
               whileHover={{ y: -5 }}
               className="group"
             >
-              <div className="relative bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-2xl p-8 h-full transition-all duration-300 hover:border-purple-500/30 hover:shadow-xl hover:shadow-purple-500/10">
+              <div className="relative bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-2xl p-8 h-full transition-all duration-300 hover:border-gray-500/30 hover:shadow-xl hover:shadow-gray-500/10">
                 {/* Icon */}
                 <div className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${feature.gradient} mb-6 group-hover:scale-110 transition-transform duration-300`}>
                   <div className="text-white">
@@ -70,7 +70,7 @@ export default function WhyJoinUs() {
 
                 {/* Content */}
                 <div className="space-y-4">
-                  <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-white group-hover:text-gray-300 transition-colors duration-300">
                     {feature.title}
                   </h3>
                   <p className="text-gray-400 leading-relaxed">
@@ -79,7 +79,7 @@ export default function WhyJoinUs() {
                 </div>
 
                 {/* Hover Effect Border */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-500/0 via-blue-500/0 to-green-500/0 group-hover:from-purple-500/20 group-hover:via-blue-500/20 group-hover:to-green-500/20 transition-all duration-300 pointer-events-none"></div>
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-gray-500/0 via-gray-400/0 to-gray-300/0 group-hover:from-gray-500/20 group-hover:via-gray-400/20 group-hover:to-gray-300/20 transition-all duration-300 pointer-events-none"></div>
               </div>
             </motion.div>
           ))}
@@ -103,7 +103,7 @@ export default function WhyJoinUs() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 shadow-lg shadow-purple-500/25"
+              className="bg-gradient-to-r from-gray-600 to-gray-500 hover:from-gray-700 hover:to-gray-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 shadow-lg shadow-gray-500/25"
               onClick={() => document.getElementById('application-form')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Start Your Application

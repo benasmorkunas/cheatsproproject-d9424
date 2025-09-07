@@ -25,7 +25,10 @@
       "WebFetch(domain:helpful-hummingbird-9f3b61.netlify.app)",
       "Bash(npx netlify open:site:*)",
       "Bash(git push:*)",
-      "Bash(dir \"C:\\Users\\augus\\OneDrive\\Stalinis kompiuteris\\woocommerce-frontend-main-v2\\cheatsproproject\\public\\images\\productimages\")"
+      "Bash(dir \"C:\\Users\\augus\\OneDrive\\Stalinis kompiuteris\\woocommerce-frontend-main-v2\\cheatsproproject\\public\\images\\productimages\")",
+      "Bash(for file in *.tsx)",
+      "Bash(do sed -i 's/bg-purple-400/bg-gray-400/g; s/border-purple-400/border-gray-400/g; s/focus:ring-purple-500/focus:ring-gray-500/g; s/hover:border-purple-500/hover:border-gray-500/g; s/group-hover:text-purple-300/group-hover:text-gray-300/g; s/shadow-purple-500/shadow-gray-500/g' \"$file\")",
+      "Bash(done)"
     ],
     "deny": [],
     "ask": []
