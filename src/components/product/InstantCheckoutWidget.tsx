@@ -51,13 +51,13 @@ export default function InstantCheckoutWidget({ productGroup, onClose, colors }:
   const [urgencyTimer, setUrgencyTimer] = useState(300); // 5 minutes
   const { addToCart } = useCart();
   
-  // Default colors if not provided (BF6 colors as fallback)
+  // Default colors if not provided (Grey theme)
   const defaultColors = {
-    primary: '#EB7E60',
-    secondary: '#F59E7B',
-    light: '#FBB896',
-    dark: '#D15D40',
-    darker: '#B84A2F'
+    primary: '#6B7280',
+    secondary: '#9CA3AF',
+    light: '#D1D5DB',
+    dark: '#4B5563',
+    darker: '#374151'
   };
   
   const activeColors = colors || defaultColors;
@@ -150,8 +150,8 @@ export default function InstantCheckoutWidget({ productGroup, onClose, colors }:
           Your download link has been sent to <strong>{customerInfo.email}</strong>
         </p>
         
-        <div className="text-white/10 border border-[#9045A4]/20 rounded-lg p-4 mb-6">
-          <p className="text-[#B855C7] text-sm">
+        <div className="text-white/10 border border-gray-500/20 rounded-lg p-4 mb-6">
+          <p className="text-gray-300 text-sm">
             <strong>Setup Instructions:</strong> Check your email within 2-3 minutes for download and installation guide.
           </p>
         </div>
@@ -251,8 +251,8 @@ export default function InstantCheckoutWidget({ productGroup, onClose, colors }:
                     onClick={() => setSelectedVariant(variant)}
                     className={`w-full p-4 rounded-xl border-2 transition-all duration-300 relative ${
                       isSelected
-                        ? 'border-[#9045A4] text-white/20 scale-105'
-                        : 'border-white/20 bg-black/20 hover:border-[#9045A4]/50'
+                        ? 'border-gray-500 text-white/20 scale-105'
+                        : 'border-white/20 bg-black/20 hover:border-gray-500/50'
                     }`}
                     whileHover={{ scale: isSelected ? 1.05 : 1.02 }}
                     initial={{ opacity: 0, y: 20 }}
@@ -283,7 +283,7 @@ export default function InstantCheckoutWidget({ productGroup, onClose, colors }:
                           <span className="text-white font-bold text-lg">
                             {getDurationLabel(variant.id)}
                           </span>
-                          {isSelected && <CheckCircle className="w-4 h-4 text-[#B855C7]" />}
+                          {isSelected && <CheckCircle className="w-4 h-4 text-gray-300" />}
                           {days === 30 && <Crown className="w-4 h-4 text-yellow-400" />}
                         </div>
                         <div className="text-gray-400 text-sm">
@@ -321,7 +321,7 @@ export default function InstantCheckoutWidget({ productGroup, onClose, colors }:
                     type="email"
                     value={customerInfo.email}
                     onChange={(e) => setCustomerInfo({...customerInfo, email: e.target.value})}
-                    className="w-full pl-10 pr-4 py-3 bg-black/20 backdrop-blur-lg border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#9045A4]"
+                    className="w-full pl-10 pr-4 py-3 bg-black/20 backdrop-blur-lg border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500"
                     placeholder="your@email.com"
                     required
                   />
@@ -339,7 +339,7 @@ export default function InstantCheckoutWidget({ productGroup, onClose, colors }:
                       type="text"
                       value={customerInfo.firstName}
                       onChange={(e) => setCustomerInfo({...customerInfo, firstName: e.target.value})}
-                      className="w-full pl-10 pr-4 py-3 bg-black/20 backdrop-blur-lg border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#9045A4]"
+                      className="w-full pl-10 pr-4 py-3 bg-black/20 backdrop-blur-lg border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500"
                       placeholder="John"
                       required
                     />
@@ -354,7 +354,7 @@ export default function InstantCheckoutWidget({ productGroup, onClose, colors }:
                     type="text"
                     value={customerInfo.lastName}
                     onChange={(e) => setCustomerInfo({...customerInfo, lastName: e.target.value})}
-                    className="w-full px-4 py-3 bg-black/20 backdrop-blur-lg border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#9045A4]"
+                    className="w-full px-4 py-3 bg-black/20 backdrop-blur-lg border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500"
                     placeholder="Doe"
                     required
                   />
@@ -409,7 +409,7 @@ export default function InstantCheckoutWidget({ productGroup, onClose, colors }:
                   <span className="text-xs px-2 py-1 bg-green-600/20 text-green-300 rounded-full border border-green-500/30">
                     Undetected
                   </span>
-                  <span className="text-xs px-2 py-1 text-white/20 text-[#B855C7] rounded-full border border-[#9045A4]/30">
+                  <span className="text-xs px-2 py-1 text-white/20 text-gray-300 rounded-full border border-gray-500/30">
                     24/7 Support
                   </span>
                 </div>
@@ -425,8 +425,8 @@ export default function InstantCheckoutWidget({ productGroup, onClose, colors }:
           </div>
 
           {/* Development Notice */}
-          <div className="text-white/10 border border-[#9045A4]/20 rounded-lg p-4">
-            <p className="text-[#B855C7] text-sm">
+          <div className="text-white/10 border border-gray-500/20 rounded-lg p-4">
+            <p className="text-gray-300 text-sm">
               <strong>Development Mode:</strong> This is a demo. No actual payment will be processed.
             </p>
           </div>

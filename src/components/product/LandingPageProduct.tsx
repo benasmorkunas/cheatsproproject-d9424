@@ -62,20 +62,20 @@ export default function LandingPageProduct({ productGroup, selectedVariant }: La
   const tierType = currentVariant.id.includes('pro') ? 'Pro' : 
                    currentVariant.id.includes('plus') ? 'Plus' : 'Lite';
   
-  // Color scheme based on game type
+  // Color scheme based on game type - Grey gradient theme
   const isCS2 = currentVariant.id.includes('cs2');
   const colors = isCS2 ? {
-    primary: '#825D8D',
-    secondary: '#9D7BA8',
-    light: '#B394BF',
-    dark: '#6B4C73',
-    darker: '#5A3E61'
+    primary: '#6B7280',
+    secondary: '#9CA3AF',
+    light: '#D1D5DB',
+    dark: '#4B5563',
+    darker: '#374151'
   } : {
-    primary: '#EB7E60',
-    secondary: '#F59E7B', 
-    light: '#FBB896',
-    dark: '#D15D40',
-    darker: '#B84A2F'
+    primary: '#6B7280',
+    secondary: '#9CA3AF', 
+    light: '#D1D5DB',
+    dark: '#4B5563',
+    darker: '#374151'
   };
 
   function getDurationDays(productId: string): number {

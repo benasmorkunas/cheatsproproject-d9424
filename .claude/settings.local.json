@@ -23,7 +23,9 @@
       "Bash(npx netlify sites:create:*)",
       "Bash(npx netlify link:*)",
       "WebFetch(domain:helpful-hummingbird-9f3b61.netlify.app)",
-      "Bash(npx netlify open:site:*)"
+      "Bash(npx netlify open:site:*)",
+      "Bash(git push:*)",
+      "Bash(dir \"C:\\Users\\augus\\OneDrive\\Stalinis kompiuteris\\woocommerce-frontend-main-v2\\cheatsproproject\\public\\images\\productimages\")"
     ],
     "deny": [],
     "ask": []

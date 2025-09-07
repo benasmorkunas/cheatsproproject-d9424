@@ -65,7 +65,7 @@ export function ProductFilters({ onFiltersChange, categories = [], loading, hide
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center space-x-2">
-            <Filter className="w-5 h-5 text-[#B855C7]" />
+            <Filter className="w-5 h-5 text-gray-400" />
             <h3 className="text-lg font-bold text-white">Filters</h3>
           </div>
           <motion.button
@@ -83,7 +83,7 @@ export function ProductFilters({ onFiltersChange, categories = [], loading, hide
           {/* Search */}
           <div>
             <div className="flex items-center space-x-2 mb-3">
-              <Search className="w-4 h-4 text-[#B855C7]" />
+              <Search className="w-4 h-4 text-gray-400" />
               <label className="text-sm font-medium text-gray-300">Search Products</label>
             </div>
             <div className="relative">
@@ -102,7 +102,7 @@ export function ProductFilters({ onFiltersChange, categories = [], loading, hide
           {/* Price Range */}
           <div>
             <div className="flex items-center space-x-2 mb-3">
-              <DollarSign className="w-4 h-4 text-[#B855C7]" />
+              <DollarSign className="w-4 h-4 text-gray-400" />
               <label className="text-sm font-medium text-gray-300">Price Range</label>
             </div>
             <div className="grid grid-cols-2 gap-3">
@@ -130,7 +130,7 @@ export function ProductFilters({ onFiltersChange, categories = [], loading, hide
           {/* Filter Options */}
           <div>
             <div className="flex items-center space-x-2 mb-3">
-              <Star className="w-4 h-4 text-[#B855C7]" />
+              <Star className="w-4 h-4 text-gray-400" />
               <label className="text-sm font-medium text-gray-300">Product Options</label>
             </div>
             <div className="space-y-3">
