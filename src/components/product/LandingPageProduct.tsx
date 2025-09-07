@@ -139,10 +139,10 @@ export default function LandingPageProduct({ productGroup, selectedVariant }: La
       <MinimalisticBackground>
         <Header />
         
-        <main className="relative pt-20">
+        <main className="relative pt-2">
 
             {/* Hero Section */}
-            <section className="py-16">
+            <section className="py-2">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                   {/* Product Showcase */}

@@ -83,7 +83,7 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
       transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
       className="group"
     >
-      <div className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-2xl overflow-hidden transition-all duration-300 hover:border-purple-500/50 hover:shadow-2xl hover:shadow-purple-500/25 h-full flex flex-col relative">
+      <div className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-2xl overflow-hidden transition-all duration-300 hover:border-gray-400/60 hover:shadow-2xl hover:shadow-gray-400/25 h-full flex flex-col relative">
         {/* Image Section */}
         <div className="relative aspect-[4/3] overflow-hidden">
           {product.image ? (
@@ -91,8 +91,10 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
               src={product.image}
               alt={`${product.name} - Gaming Cheat Tool`}
               fill
-              className={`object-cover transition-transform duration-500 group-hover:scale-110 ${
-                product.name.toLowerCase().includes('lite') ? 'object-[50%_62%]' : ''
+              className={`object-contain transition-transform duration-500 ${
+                product.name.toLowerCase().includes('lite') ? 'scale-[1.35] group-hover:scale-[1.6] object-[50%_62%]' :
+                product.name.toLowerCase().includes('bf6') ? 'scale-[1.2] group-hover:scale-[1.45]' :
+                'scale-[1.35] group-hover:scale-[1.6]'
               }`}
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
@@ -142,7 +144,7 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-purple-600/90 hover:bg-purple-500 border-purple-400 text-white hover:shadow-purple-500/50 p-3 rounded-full shadow-xl backdrop-blur-sm border transition-all duration-300"
+                className="bg-slate-700/90 hover:bg-slate-600 border-gray-400 text-white hover:shadow-gray-400/50 p-3 rounded-full shadow-xl backdrop-blur-sm border transition-all duration-300"
                 onClick={() => onAddToCart?.(product)}
               >
                 <ShoppingCart className="w-5 h-5" />
@@ -154,7 +156,7 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
         {/* Content Section */}
         <div className="p-6 flex-1 flex flex-col">
           <Link href={productURL}>
-            <h3 className="text-xl font-bold mb-3 line-clamp-1 transition-all duration-300 leading-tight text-center bg-gradient-to-r from-white via-purple-200 to-white bg-clip-text text-transparent hover:from-purple-300 hover:via-blue-300 hover:to-purple-300 hover:scale-105 transform tracking-wide uppercase whitespace-nowrap overflow-hidden text-ellipsis">
+            <h3 className="text-xl font-bold mb-3 line-clamp-1 transition-all duration-300 leading-tight text-center bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent hover:from-gray-300 hover:via-slate-300 hover:to-gray-300 hover:scale-105 transform tracking-wide uppercase whitespace-nowrap overflow-hidden text-ellipsis">
               {product.name}
             </h3>
           </Link>
@@ -176,7 +178,7 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
               <Clock className="w-3 h-3 mr-1" />
               <span>24/7 Support</span>
             </div>
-            <div className="flex items-center text-purple-400">
+            <div className="flex items-center text-gray-400">
               <CheckCircle className="w-3 h-3 mr-1" />
               <span>Instant Access</span>
             </div>
@@ -210,7 +212,7 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full py-3 px-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2 mt-auto mb-2 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-lg hover:shadow-purple-500/50"
+            className="w-full py-3 px-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2 mt-auto mb-2 bg-gradient-to-r from-slate-700 via-gray-600 to-slate-700 hover:from-slate-600 hover:via-gray-500 hover:to-slate-600 text-white shadow-lg hover:shadow-gray-400/50 backdrop-blur-sm border border-gray-500/30"
             onClick={() => onAddToCart?.(product)}
           >
             <ShoppingCart className="w-4 h-4" />
@@ -220,7 +222,7 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
         </div>
         
         {/* Enhanced Hover Glow */}
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-500/0 via-blue-500/0 to-purple-500/0 group-hover:from-purple-500/10 group-hover:via-blue-500/5 group-hover:to-purple-500/10 transition-all duration-500 pointer-events-none"></div>
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-gray-500/0 via-slate-500/0 to-gray-500/0 group-hover:from-gray-500/10 group-hover:via-slate-500/5 group-hover:to-gray-500/10 transition-all duration-500 pointer-events-none"></div>
       </div>
     </motion.div>
   );

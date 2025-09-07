@@ -92,7 +92,7 @@ export default function ProductDetailPage() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300"
+                className="bg-gradient-to-r from-slate-700 via-gray-600 to-slate-700 hover:from-slate-600 hover:via-gray-500 hover:to-slate-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 shadow-lg backdrop-blur-sm border border-gray-500/30"
                 onClick={() => {
                   if (typeof window !== 'undefined') {
                     window.history.back();

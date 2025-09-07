@@ -132,7 +132,7 @@ export default function FAQPage() {
               transition={{ duration: 0.6 }}
             >
               Frequently Asked{' '}
-              <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-gray-400 to-gray-300 bg-clip-text text-transparent">
                 Questions
               </span>
             </motion.h1>
@@ -155,17 +155,17 @@ export default function FAQPage() {
               transition={{ duration: 0.6, delay: 0.3 }}
             >
               <div className="flex items-center space-x-2">
-                <HelpCircle className="w-4 h-4 text-purple-400" />
+                <HelpCircle className="w-4 h-4 text-gray-400" />
                 <span>{totalQuestions} Questions</span>
               </div>
               <span>•</span>
               <div className="flex items-center space-x-2">
-                <Calendar className="w-4 h-4 text-blue-400" />
+                <Calendar className="w-4 h-4 text-gray-400" />
                 <span>Updated Daily</span>
               </div>
               <span>•</span>
               <div className="flex items-center space-x-2">
-                <Zap className="w-4 h-4 text-yellow-400" />
+                <Zap className="w-4 h-4 text-gray-400" />
                 <span>Instant Answers</span>
               </div>
             </motion.div>
@@ -183,7 +183,7 @@ export default function FAQPage() {
                 transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
               >
                 <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
-                  <span className="w-8 h-8 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center text-sm font-bold mr-3">
+                  <span className="w-8 h-8 bg-gradient-to-r from-gray-600 to-gray-500 rounded-full flex items-center justify-center text-sm font-bold mr-3">
                     {category.questions.length}
                   </span>
                   {category.category}
@@ -201,11 +201,11 @@ export default function FAQPage() {
                     >
                       <button
                         onClick={() => handleQuestionClick(faq.id)}
-                        className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-black/30 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:ring-inset group"
+                        className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-black/30 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500/50 focus:ring-inset group"
                         aria-expanded={openItems.includes(faq.id)}
                         aria-controls={`answer-${faq.id}`}
                       >
-                        <h3 className="text-lg font-semibold text-white pr-4 group-hover:text-purple-300 transition-colors">
+                        <h3 className="text-lg font-semibold text-white pr-4 group-hover:text-gray-300 transition-colors">
                           {faq.question}
                         </h3>
                         <motion.div
@@ -213,7 +213,7 @@ export default function FAQPage() {
                           transition={{ duration: 0.2 }}
                           className="flex-shrink-0"
                         >
-                          <ChevronDown className="w-5 h-5 text-purple-400" />
+                          <ChevronDown className="w-5 h-5 text-gray-400" />
                         </motion.div>
                       </button>
                       
@@ -238,7 +238,7 @@ export default function FAQPage() {
                                     <Link href={faq.ctaLink}>
                                       <Button 
                                         size="sm" 
-                                        className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
+                                        className="bg-gradient-to-r from-slate-700 via-gray-600 to-slate-700 hover:from-slate-600 hover:via-gray-500 hover:to-slate-600 shadow-lg shadow-gray-500/20 border border-gray-400/20 backdrop-blur-sm"
                                       >
                                         {faq.ctaText}
                                         <ExternalLink className="w-4 h-4 ml-2" />
@@ -293,7 +293,7 @@ export default function FAQPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
-                  <badge.icon className="w-8 h-8 text-purple-400 mx-auto mb-3" />
+                  <badge.icon className="w-8 h-8 text-gray-400 mx-auto mb-3" />
                   <p className="text-sm font-semibold text-white">{badge.text}</p>
                 </motion.div>
               ))}
@@ -327,7 +327,7 @@ export default function FAQPage() {
                 <Link href="/products">
                   <Button 
                     size="lg"
-                    className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 px-8 py-3"
+                    className="bg-gradient-to-r from-slate-700 via-gray-600 to-slate-700 hover:from-slate-600 hover:via-gray-500 hover:to-slate-600 px-8 py-3 shadow-lg shadow-gray-500/20 border border-gray-400/20 backdrop-blur-sm"
                   >
                     Shop CS2 Cheats
                   </Button>
@@ -347,7 +347,7 @@ export default function FAQPage() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-white font-semibold text-sm">Ready to get started?</p>
-                <p className="text-purple-200 text-xs">Join 50,000+ users today</p>
+                <p className="text-gray-200 text-xs">Join 50,000+ users today</p>
               </div>
               <Link href="/products">
                 <Button size="sm" variant="outline" className="bg-white/20 border-white/30 text-white hover:bg-white/30">

@@ -139,13 +139,20 @@ export default function HeroSection() {
             className="pt-4"
           >
             <motion.button
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, boxShadow: "0 25px 50px -12px rgba(107, 114, 128, 0.4)" }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-gray-600 to-gray-500 hover:from-gray-700 hover:to-gray-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform shadow-lg shadow-gray-500/25 flex items-center space-x-2 mx-auto"
+              className="relative bg-gradient-to-r from-slate-700 via-gray-600 to-slate-700 hover:from-slate-600 hover:via-gray-500 hover:to-slate-600 text-white px-10 py-4 rounded-xl text-lg font-bold transition-all duration-300 transform shadow-2xl shadow-gray-500/30 flex items-center space-x-2 mx-auto border border-gray-400/20 backdrop-blur-sm overflow-hidden group"
               onClick={() => document.getElementById('application-form')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              <Code className="w-5 h-5" />
-              <span>Apply Now</span>
+              {/* Animated background overlay */}
+              <div className="absolute inset-0 bg-gradient-to-r from-white/5 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              
+              {/* Shimmer effect */}
+              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12"></div>
+              
+              {/* Button content */}
+              <Code className="w-5 h-5 relative z-10" />
+              <span className="relative z-10">Apply Now</span>
             </motion.button>
           </motion.div>
 

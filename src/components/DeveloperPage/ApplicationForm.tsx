@@ -223,8 +223,8 @@ export default function ApplicationForm() {
                     onClick={() => toggleArrayValue('languages', lang)}
                     className={`px-4 py-2 rounded-lg border text-sm font-medium transition-all duration-300 ${
                       formData.languages.includes(lang)
-                        ? 'bg-purple-600 border-purple-500 text-white'
-                        : 'bg-black/30 border-gray-600 text-gray-300 hover:border-purple-500'
+                        ? 'bg-gray-600 border-gray-500 text-white'
+                        : 'bg-black/30 border-gray-600 text-gray-300 hover:border-gray-500'
                     }`}
                   >
                     {lang}
@@ -282,8 +282,8 @@ export default function ApplicationForm() {
                     onClick={() => toggleArrayValue('interests', spec)}
                     className={`px-4 py-3 rounded-lg border text-left font-medium transition-all duration-300 ${
                       formData.interests.includes(spec)
-                        ? 'bg-purple-600 border-purple-500 text-white'
-                        : 'bg-black/30 border-gray-600 text-gray-300 hover:border-purple-500'
+                        ? 'bg-gray-600 border-gray-500 text-white'
+                        : 'bg-black/30 border-gray-600 text-gray-300 hover:border-gray-500'
                     }`}
                   >
                     {spec}
@@ -388,7 +388,7 @@ export default function ApplicationForm() {
           className="text-center mb-12"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-green-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-gray-400 to-gray-300 bg-clip-text text-transparent">
               Apply Now
             </span>
           </h2>
@@ -406,7 +406,7 @@ export default function ApplicationForm() {
                   currentStep > step.number
                     ? 'bg-green-500 border-green-500 text-white'
                     : currentStep === step.number
-                    ? 'bg-purple-600 border-purple-500 text-white'
+                    ? 'bg-gray-600 border-gray-500 text-white'
                     : 'border-gray-600 text-gray-400'
                 }`}>
                   {currentStep > step.number ? <Check className="w-6 h-6" /> : step.icon}
@@ -433,7 +433,7 @@ export default function ApplicationForm() {
           {/* Progress Bar */}
           <div className="w-full bg-black/30 rounded-full h-2 mb-8">
             <motion.div
-              className="bg-gradient-to-r from-purple-600 to-blue-600 h-2 rounded-full"
+              className="bg-gradient-to-r from-gray-600 to-gray-500 h-2 rounded-full"
               initial={{ width: '25%' }}
               animate={{ width: `${(currentStep / 4) * 100}%` }}
               transition={{ duration: 0.5 }}
@@ -471,7 +471,7 @@ export default function ApplicationForm() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={nextStep}
-                className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white rounded-lg font-medium transition-all duration-300"
+                className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-slate-700 via-gray-600 to-slate-700 hover:from-slate-600 hover:via-gray-500 hover:to-slate-600 text-white rounded-lg font-medium transition-all duration-300 shadow-lg shadow-gray-500/20 border border-gray-400/20 backdrop-blur-sm"
               >
                 <span>Next</span>
                 <ChevronRight className="w-4 h-4" />

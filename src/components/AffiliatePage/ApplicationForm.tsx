@@ -230,7 +230,7 @@ export default function ApplicationForm() {
                     onClick={() => toggleArrayValue('trafficSources', source)}
                     className={`px-4 py-3 rounded-lg border text-left font-medium transition-all duration-300 ${
                       formData.trafficSources.includes(source)
-                        ? 'bg-purple-600 border-purple-500 text-white'
+                        ? 'bg-gray-600 border-gray-500 text-white'
                         : 'bg-black/30 border-gray-600 text-gray-300 hover:border-gray-500'
                     }`}
                   >
@@ -331,7 +331,7 @@ export default function ApplicationForm() {
                     onClick={() => toggleArrayValue('contentTypes', type)}
                     className={`px-4 py-3 rounded-lg border text-left font-medium transition-all duration-300 ${
                       formData.contentTypes.includes(type)
-                        ? 'bg-purple-600 border-purple-500 text-white'
+                        ? 'bg-gray-600 border-gray-500 text-white'
                         : 'bg-black/30 border-gray-600 text-gray-300 hover:border-gray-500'
                     }`}
                   >
@@ -354,7 +354,7 @@ export default function ApplicationForm() {
                     onClick={() => toggleArrayValue('promotionMethods', method)}
                     className={`px-4 py-3 rounded-lg border text-left font-medium transition-all duration-300 ${
                       formData.promotionMethods.includes(method)
-                        ? 'bg-purple-600 border-purple-500 text-white'
+                        ? 'bg-gray-600 border-gray-500 text-white'
                         : 'bg-black/30 border-gray-600 text-gray-300 hover:border-gray-500'
                     }`}
                   >
@@ -450,7 +450,7 @@ export default function ApplicationForm() {
           className="text-center mb-12"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-purple-400 via-green-400 to-blue-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-gray-400 to-gray-300 bg-clip-text text-transparent">
               Apply for Partnership
             </span>
           </h2>
@@ -468,7 +468,7 @@ export default function ApplicationForm() {
                   currentStep > step.number
                     ? 'bg-green-500 border-green-500 text-white'
                     : currentStep === step.number
-                    ? 'bg-purple-600 border-purple-500 text-white'
+                    ? 'bg-gray-600 border-gray-500 text-white'
                     : 'border-gray-600 text-gray-400'
                 }`}>
                   {currentStep > step.number ? <Check className="w-6 h-6" /> : step.icon}
@@ -495,7 +495,7 @@ export default function ApplicationForm() {
           {/* Progress Bar */}
           <div className="w-full bg-black/30 rounded-full h-2 mb-8">
             <motion.div
-              className="bg-gradient-to-r from-purple-600 to-blue-600 h-2 rounded-full"
+              className="bg-gradient-to-r from-gray-600 to-gray-500 h-2 rounded-full"
               initial={{ width: '25%' }}
               animate={{ width: `${(currentStep / 4) * 100}%` }}
               transition={{ duration: 0.5 }}

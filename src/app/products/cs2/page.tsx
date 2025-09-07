@@ -90,7 +90,7 @@ export default function CS2ProductsPage() {
         
         <main className="pt-0">
           {/* Hero Section */}
-          <section className="py-20">
+          <section className="py-6">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}

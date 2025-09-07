@@ -5,7 +5,7 @@ const productsData = [
     "name": "BF6 PLUS VERSION",
     "price": 599,
     "description": "Advanced BF6 aimbot with auto aim, target lock, and precision shooting. Undetected Battlefield 6 hack with smooth aim assistance, customizable FOV, and rage mode. Perfect for competitive gaming, ranked matches, and skill improvement.",
-    "image": "/images/bf6-plus.webp",
+    "image": "/images/productimages/bf6-plus.png",
     "stripe_price_id": "price_bf6_plus_1day",
     "currency": "usd"
   },
@@ -14,7 +14,7 @@ const productsData = [
     "name": "BF6 PLUS VERSION",
     "price": 1499,
     "description": "Advanced BF6 aimbot with auto aim, target lock, and precision shooting. Undetected Battlefield 6 hack with smooth aim assistance, customizable FOV, and rage mode. Perfect for competitive gaming, ranked matches, and skill improvement.",
-    "image": "/images/bf6-plus.webp",
+    "image": "/images/productimages/bf6-plus.png",
     "stripe_price_id": "price_bf6_plus_7day",
     "currency": "usd"
   },
@@ -23,7 +23,7 @@ const productsData = [
     "name": "BF6 PLUS VERSION",
     "price": 2999,
     "description": "Advanced BF6 aimbot with auto aim, target lock, and precision shooting. Undetected Battlefield 6 hack with smooth aim assistance, customizable FOV, and rage mode. Perfect for competitive gaming, ranked matches, and skill improvement.",
-    "image": "/images/bf6-plus.webp",
+    "image": "/images/productimages/bf6-plus.png",
     "stripe_price_id": "price_bf6_plus_30day",
     "currency": "usd"
   },
@@ -32,7 +32,7 @@ const productsData = [
     "name": "BF6 PRO VERSION",
     "price": 799,
     "description": "Premium BF6 cheat with aimbot and ESP wallhack combo. Undetected Battlefield 6 hack featuring enemy ESP, player tracking, auto aim, and wall penetration vision. Dominate servers with professional gaming tools and anti-cheat bypass.",
-    "image": "/images/bf6-pro.webp",
+    "image": "/images/productimages/bf6-pro.png",
     "stripe_price_id": "price_bf6_pro_1day",
     "currency": "usd"
   },
@@ -41,7 +41,7 @@ const productsData = [
     "name": "BF6 PRO VERSION",
     "price": 1999,
     "description": "Premium BF6 cheat with aimbot and ESP wallhack combo. Undetected Battlefield 6 hack featuring enemy ESP, player tracking, auto aim, and wall penetration vision. Dominate servers with professional gaming tools and anti-cheat bypass.",
-    "image": "/images/bf6-pro.webp",
+    "image": "/images/productimages/bf6-pro.png",
     "stripe_price_id": "price_bf6_pro_7day",
     "currency": "usd"
   },
@@ -50,7 +50,7 @@ const productsData = [
     "name": "BF6 PRO VERSION",
     "price": 3999,
     "description": "Premium BF6 cheat with aimbot and ESP wallhack combo. Undetected Battlefield 6 hack featuring enemy ESP, player tracking, auto aim, and wall penetration vision. Dominate servers with professional gaming tools and anti-cheat bypass.",
-    "image": "/images/bf6-pro.webp",
+    "image": "/images/productimages/bf6-pro.png",
     "stripe_price_id": "price_bf6_pro_30day",
     "currency": "usd"
   },

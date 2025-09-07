@@ -92,7 +92,7 @@ export default function InteractiveFeatures({ productId, className = '' }: Inter
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: categoryIndex * 0.1 + featureIndex * 0.05 }}
-                  className="group relative bg-black/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:border-purple-400/30 hover:bg-black/30 transition-all duration-300 shadow-xl hover:shadow-purple-500/10 hover:scale-105"
+                  className="group relative bg-black/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:border-gray-400/30 hover:bg-black/30 transition-all duration-300 shadow-xl hover:shadow-gray-500/10 hover:scale-105"
                 >
                   {/* Premium Badge */}
                   {feature.premium && (
@@ -103,7 +103,7 @@ export default function InteractiveFeatures({ productId, className = '' }: Inter
 
                   {/* Highlight Badge */}
                   {feature.highlight && (
-                    <div className="absolute -top-2 -left-2 w-6 h-6 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full flex items-center justify-center">
+                    <div className="absolute -top-2 -left-2 w-6 h-6 bg-gradient-to-r from-gray-400 to-gray-300 rounded-full flex items-center justify-center">
                       <Star className="w-3 h-3 text-white fill-current" />
                     </div>
                   )}
@@ -117,7 +117,7 @@ export default function InteractiveFeatures({ productId, className = '' }: Inter
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center space-x-2 mb-2">
-                        <h5 className="font-bold text-white group-hover:text-purple-300 transition-colors">
+                        <h5 className="font-bold text-white group-hover:text-gray-300 transition-colors">
                           {feature.title}
                         </h5>
                       </div>
@@ -136,7 +136,7 @@ export default function InteractiveFeatures({ productId, className = '' }: Inter
                           </span>
                         )}
                         {feature.highlight && (
-                          <span className="inline-block px-3 py-1 bg-purple-600/20 text-purple-300 text-xs rounded-full border border-purple-500/30">
+                          <span className="inline-block px-3 py-1 bg-gray-600/20 text-purple-300 text-xs rounded-full border border-gray-500/30">
                             Popular
                           </span>
                         )}
@@ -178,7 +178,7 @@ export default function InteractiveFeatures({ productId, className = '' }: Inter
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.3 }}
-        className="bg-gradient-to-r from-purple-500/20 to-blue-500/20 backdrop-blur-lg border border-purple-400/30 rounded-2xl p-6 shadow-xl"
+        className="bg-gradient-to-r from-purple-500/20 to-blue-500/20 backdrop-blur-lg border border-gray-400/30 rounded-2xl p-6 shadow-xl"
       >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
           <div>
@@ -194,7 +194,7 @@ export default function InteractiveFeatures({ productId, className = '' }: Inter
             <div className="text-gray-300 text-sm">Premium Features</div>
           </div>
           <div>
-            <div className="text-2xl font-bold text-purple-400 mb-1">
+            <div className="text-2xl font-bold text-gray-400 mb-1">
               {features.length}
             </div>
             <div className="text-gray-300 text-sm">Categories</div>
@@ -221,7 +221,7 @@ export default function InteractiveFeatures({ productId, className = '' }: Inter
             <Zap className="w-4 h-4" />
             <span className="text-sm">Instant Updates</span>
           </div>
-          <div className="flex items-center space-x-2 text-purple-400">
+          <div className="flex items-center space-x-2 text-gray-400">
             <Crown className="w-4 h-4" />
             <span className="text-sm">Premium Support</span>
           </div>

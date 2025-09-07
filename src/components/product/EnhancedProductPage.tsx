@@ -311,7 +311,7 @@ export default function EnhancedProductPage({ productGroup, selectedVariant }: E
                   {[
                     { icon: Shield, label: 'Undetected', desc: '99.8% success rate', color: 'text-green-400' },
                     { icon: Clock, label: 'Instant', desc: 'Download ready', color: 'text-blue-400' },
-                    { icon: Award, label: 'Premium', desc: 'Professional grade', color: 'text-purple-400' }
+                    { icon: Award, label: 'Premium', desc: 'Professional grade', color: 'text-gray-400' }
                   ].map((badge, index) => (
                     <motion.div
                       key={index}
@@ -355,8 +355,8 @@ export default function EnhancedProductPage({ productGroup, selectedVariant }: E
                           onClick={() => setCurrentVariant(variant)}
                           className={`w-full p-4 rounded-xl border-2 transition-all duration-300 relative overflow-hidden ${
                             isSelected
-                              ? 'border-purple-500 bg-purple-500/20 scale-105'
-                              : 'border-gray-600/50 bg-gray-800/30 hover:border-purple-400/50'
+                              ? 'border-gray-500 bg-purple-500/20 scale-105'
+                              : 'border-gray-600/50 bg-gray-800/30 hover:border-gray-400/50'
                           }`}
                           whileHover={{ scale: isSelected ? 1.05 : 1.02 }}
                           initial={{ opacity: 0, y: 20 }}
@@ -366,7 +366,7 @@ export default function EnhancedProductPage({ productGroup, selectedVariant }: E
                           {/* Popular/Best Value Badge */}
                           {variant.id.includes('7day') && (
                             <div className="absolute -top-2 left-1/2 transform -translate-x-1/2">
-                              <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-1 rounded-full text-xs font-bold">
+                              <div className="bg-gradient-to-r from-slate-700 via-gray-600 to-slate-700 text-white px-4 py-1 rounded-full text-xs font-bold">
                                 MOST POPULAR
                               </div>
                             </div>
@@ -385,7 +385,7 @@ export default function EnhancedProductPage({ productGroup, selectedVariant }: E
                                 <span className="text-white font-bold text-lg">
                                   {days === 1 ? '1 Day' : days === 7 ? '7 Days' : '30 Days'}
                                 </span>
-                                {isSelected && <CheckCircle className="w-5 h-5 text-purple-400" />}
+                                {isSelected && <CheckCircle className="w-5 h-5 text-gray-400" />}
                               </div>
                               <div className="text-gray-400 text-sm">
                                 ${dailyPrice}/day • Total: ${formatPrice(variant.price)}
@@ -411,7 +411,7 @@ export default function EnhancedProductPage({ productGroup, selectedVariant }: E
                 {/* Instant Checkout CTA */}
                 <motion.button
                   onClick={handleInstantCheckout}
-                  className="w-full bg-gradient-to-r from-purple-600 via-purple-500 to-blue-600 hover:from-purple-700 hover:via-purple-600 hover:to-blue-700 text-white py-6 rounded-xl font-bold text-xl shadow-2xl shadow-purple-500/25 border border-purple-400/50"
+                  className="w-full bg-gradient-to-r from-purple-600 via-purple-500 to-blue-600 hover:from-slate-600 hover:via-purple-600 hover:via-gray-500 hover:to-slate-600 text-white py-6 rounded-xl font-bold text-xl shadow-2xl shadow-gray-500/25 border border-gray-400/50"
                   whileHover={{ scale: 1.02, y: -2 }}
                   whileTap={{ scale: 0.98 }}
                   initial={{ opacity: 0, y: 20 }}
@@ -523,7 +523,7 @@ export default function EnhancedProductPage({ productGroup, selectedVariant }: E
                     {category.features.map((feature, featureIndex) => (
                       <motion.div
                         key={featureIndex}
-                        className="group bg-black/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:border-purple-400/30 hover:bg-black/30 transition-all duration-300 shadow-xl hover:shadow-purple-500/10 hover:scale-105"
+                        className="group bg-black/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:border-gray-400/30 hover:bg-black/30 transition-all duration-300 shadow-xl hover:shadow-gray-500/10 hover:scale-105"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -537,14 +537,14 @@ export default function EnhancedProductPage({ productGroup, selectedVariant }: E
                             />
                           </div>
                           <div className="flex-1">
-                            <h4 className="font-bold text-white mb-2 group-hover:text-purple-300 transition-colors">
+                            <h4 className="font-bold text-white mb-2 group-hover:text-gray-300 transition-colors">
                               {feature.title}
                             </h4>
                             <p className="text-gray-400 text-sm leading-relaxed mb-3">
                               {feature.description}
                             </p>
                             <div className="flex items-center justify-between">
-                              <span className="inline-block px-3 py-1 bg-purple-600/20 text-purple-300 text-xs rounded-full border border-purple-500/30">
+                              <span className="inline-block px-3 py-1 bg-gray-600/20 text-purple-300 text-xs rounded-full border border-gray-500/30">
                                 {feature.category}
                               </span>
                               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
@@ -564,12 +564,12 @@ export default function EnhancedProductPage({ productGroup, selectedVariant }: E
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="mt-12 bg-gradient-to-r from-purple-500/20 to-blue-500/20 backdrop-blur-lg border border-purple-400/30 rounded-2xl p-8 text-center"
+              className="mt-12 bg-gradient-to-r from-purple-500/20 to-blue-500/20 backdrop-blur-lg border border-gray-400/30 rounded-2xl p-8 text-center"
             >
               <h3 className="text-2xl font-bold text-white mb-4">Complete Feature Suite</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div>
-                  <div className="text-3xl font-bold text-purple-400 mb-2">
+                  <div className="text-3xl font-bold text-gray-400 mb-2">
                     {features.reduce((acc, cat) => acc + cat.features.length, 0)}+
                   </div>
                   <div className="text-gray-300">Total Features</div>

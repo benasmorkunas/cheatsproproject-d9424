@@ -12,7 +12,7 @@ export default function WhoWereLookingFor() {
       icon: <Target className="w-8 h-8" />,
       title: 'Marketing Experience',
       subtitle: 'Content creators and influencers welcome',
-      gradient: 'from-purple-500 to-pink-500',
+      gradient: 'from-gray-600 to-gray-500',
       details: [
         'Social media influencers with engaged gaming audiences',
         'Content creators (YouTube, TikTok, Instagram)',
@@ -26,7 +26,7 @@ export default function WhoWereLookingFor() {
       icon: <Globe className="w-8 h-8" />,
       title: 'Traffic Sources',
       subtitle: 'Multiple channels for maximum reach',
-      gradient: 'from-blue-500 to-cyan-500',
+      gradient: 'from-gray-700 to-gray-600',
       details: [
         'YouTube channels focused on gaming content',
         'Twitch streaming with regular viewership',
@@ -79,7 +79,7 @@ export default function WhoWereLookingFor() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-purple-400 via-green-400 to-blue-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-gray-400 to-gray-300 bg-clip-text text-transparent">
               Who We're Looking For
             </span>
           </h2>

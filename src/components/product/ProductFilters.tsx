@@ -206,8 +206,8 @@ export function ProductFilters({ onFiltersChange, categories = [], loading, hide
                   />
                   <div className={`w-5 h-5 rounded border-2 transition-all duration-300 ${
                     filters.featured 
-                      ? 'bg-purple-500 border-purple-500' 
-                      : 'border-gray-600 group-hover:border-purple-500'
+                      ? 'bg-purple-500 border-gray-500' 
+                      : 'border-gray-600 group-hover:border-gray-500'
                   }`}>
                     {filters.featured && (
                       <svg className="w-3 h-3 text-white absolute top-0.5 left-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -231,7 +231,7 @@ export function ProductFilters({ onFiltersChange, categories = [], loading, hide
             <div className="text-sm text-gray-400 mb-2">Active Filters:</div>
             <div className="flex flex-wrap gap-2">
               {filters.search && (
-                <div className="bg-purple-600/20 border border-purple-500/30 rounded-full px-2 py-1 text-xs text-purple-300">
+                <div className="bg-gray-600/20 border border-gray-500/30 rounded-full px-2 py-1 text-xs text-purple-300">
                   Search: {filters.search}
                 </div>
               )}
@@ -246,7 +246,7 @@ export function ProductFilters({ onFiltersChange, categories = [], loading, hide
                 </div>
               )}
               {filters.featured && (
-                <div className="bg-purple-600/20 border border-purple-500/30 rounded-full px-2 py-1 text-xs text-purple-300">
+                <div className="bg-gray-600/20 border border-gray-500/30 rounded-full px-2 py-1 text-xs text-purple-300">
                   Featured
                 </div>
               )}
