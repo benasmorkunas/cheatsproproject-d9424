@@ -154,39 +154,15 @@ export default function LandingPageProduct({ productGroup, selectedVariant }: La
                   >
                     {/* Product Image/Demo */}
                     <div className="relative">
-                      <div className="aspect-[4/5] bg-transparent rounded-2xl border border-gray-700/30 p-8 flex items-center justify-center">
+                      <div className="aspect-[4/5] bg-transparent rounded-2xl flex items-center justify-center">
                         
                         <Image
                           src={productGroup.image}
-                          alt={`${productGroup.name} Demo`}
+                          alt={`${productGroup.name} Package`}
                           fill
                           className="object-contain"
                           priority
                         />
-
-                        {/* Play Demo Button */}
-                        <motion.button
-                          className="absolute inset-0 flex items-center justify-center group"
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/30 group-hover:bg-white/30 transition-all duration-300">
-                            <Play className="w-8 h-8 text-white ml-1" />
-                          </div>
-                        </motion.button>
-
-                        {/* Live Indicators */}
-                        <div className="absolute top-4 left-4 right-4 flex justify-between">
-                          <div className="bg-black/70 backdrop-blur-sm rounded-lg px-3 py-1">
-                            <div className="flex items-center space-x-2">
-                              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                              <span className="text-white text-sm font-medium">Live Demo</span>
-                            </div>
-                          </div>
-                          <div className="bg-black/70 backdrop-blur-sm rounded-lg px-3 py-1">
-                            <span className="text-green-400 text-sm font-medium">Status: Undetected</span>
-                          </div>
-                        </div>
                       </div>
                     </div>
 

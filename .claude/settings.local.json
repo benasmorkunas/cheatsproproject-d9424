@@ -18,7 +18,12 @@
       "Bash(rm:*)",
       "Bash(dir /B next.config.*)",
       "Bash(npx tsc:*)",
-      "Bash(set NODE_OPTIONS=--max-old-space-size=4096)"
+      "Bash(set NODE_OPTIONS=--max-old-space-size=4096)",
+      "Bash(npx netlify-cli:*)",
+      "Bash(npx netlify sites:create:*)",
+      "Bash(npx netlify link:*)",
+      "WebFetch(domain:helpful-hummingbird-9f3b61.netlify.app)",
+      "Bash(npx netlify open:site:*)"
     ],
     "deny": [],
     "ask": []

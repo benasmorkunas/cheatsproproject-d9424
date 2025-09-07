@@ -3,19 +3,15 @@ import Stripe from 'stripe';
 import { trackPlacedOrder, trackEvent, createOrUpdateProfile } from '@/lib/klaviyo';
 import type { OrderData, ProductItem } from '@/lib/klaviyo';
 
-if (!process.env.STRIPE_SECRET_KEY) {
-  throw new Error('STRIPE_SECRET_KEY environment variable is required');
-}
+// Environment variables - use fallbacks for build time
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY || 'sk_test_default';
+const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET || 'whsec_default';
 
-if (!process.env.STRIPE_WEBHOOK_SECRET) {
-  throw new Error('STRIPE_WEBHOOK_SECRET environment variable is required');
-}
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+const stripe = new Stripe(stripeSecretKey, {
   apiVersion: '2025-08-27.basil',
 });
 
-const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
+const endpointSecret = webhookSecret;
 
 // Helper function to convert Stripe metadata to our order format
 function convertStripeToOrderData(
@@ -67,6 +63,15 @@ function convertStripeToOrderData(
 }
 
 export async function POST(req: NextRequest) {
+  // Runtime validation for required environment variables
+  if (!process.env.STRIPE_SECRET_KEY || process.env.STRIPE_SECRET_KEY === 'sk_test_default') {
+    return NextResponse.json({ error: 'Stripe configuration not available' }, { status: 503 });
+  }
+
+  if (!process.env.STRIPE_WEBHOOK_SECRET || process.env.STRIPE_WEBHOOK_SECRET === 'whsec_default') {
+    return NextResponse.json({ error: 'Webhook configuration not available' }, { status: 503 });
+  }
+
   const body = await req.text();
   const sig = req.headers.get('stripe-signature')!;
 

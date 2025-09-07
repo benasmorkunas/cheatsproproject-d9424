@@ -1,7 +1,8 @@
 import { ApiKeySession, EventsApi, ProfilesApi } from 'klaviyo-api';
 
-// Initialize Klaviyo API client
-const session = new ApiKeySession(process.env.KLAVIYO_API_KEY!);
+// Initialize Klaviyo API client with fallback for build time
+const apiKey = process.env.KLAVIYO_API_KEY || 'klaviyo_default_key';
+const session = new ApiKeySession(apiKey);
 const eventsApi = new EventsApi(session);
 const profilesApi = new ProfilesApi(session);
 
@@ -36,6 +37,12 @@ export interface OrderData {
 
 // Create or update customer profile in Klaviyo
 export async function createOrUpdateProfile(customer: CustomerProfile) {
+  // Skip if Klaviyo is not configured
+  if (!process.env.KLAVIYO_API_KEY || process.env.KLAVIYO_API_KEY === 'klaviyo_default_key') {
+    console.log('Klaviyo not configured, skipping profile creation');
+    return null;
+  }
+
   try {
     const profileData = {
       type: 'profile' as const,
@@ -65,6 +72,12 @@ export async function trackEvent(
   customerEmail: string,
   properties: Record<string, any> = {}
 ) {
+  // Skip if Klaviyo is not configured
+  if (!process.env.KLAVIYO_API_KEY || process.env.KLAVIYO_API_KEY === 'klaviyo_default_key') {
+    console.log('Klaviyo not configured, skipping event tracking');
+    return null;
+  }
+
   try {
     const eventData = {
       type: 'event' as const,
@@ -106,6 +119,12 @@ export async function trackEvent(
 
 // Track "Placed Order" event
 export async function trackPlacedOrder(orderData: OrderData) {
+  // Skip if Klaviyo is not configured
+  if (!process.env.KLAVIYO_API_KEY || process.env.KLAVIYO_API_KEY === 'klaviyo_default_key') {
+    console.log('Klaviyo not configured, skipping order tracking');
+    return null;
+  }
+
   try {
     // First, create/update the customer profile
     await createOrUpdateProfile(orderData.customerInfo);
