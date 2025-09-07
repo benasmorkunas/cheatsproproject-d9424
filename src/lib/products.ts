@@ -86,7 +86,7 @@ const productsData = [
     "name": "CS2 PLUS VERSION",
     "price": 599,
     "description": "CS2 aimbot and ESP combo pack with wallhack and auto aim. Undetected Counter-Strike 2 cheat featuring enemy ESP, smooth aimbot, headshot assistance, and recoil control. Professional CS2 hack for competitive gaming and rank climbing.",
-    "image": "/images/cs2-plus.webp",
+    "image": "/images/productimages/cs2-plus.png",
     "stripe_price_id": "price_cs2_plus_1day",
     "currency": "usd"
   },
@@ -95,7 +95,7 @@ const productsData = [
     "name": "CS2 PLUS VERSION",
     "price": 1499,
     "description": "CS2 aimbot and ESP combo pack with wallhack and auto aim. Undetected Counter-Strike 2 cheat featuring enemy ESP, smooth aimbot, headshot assistance, and recoil control. Professional CS2 hack for competitive gaming and rank climbing.",
-    "image": "/images/cs2-plus.webp",
+    "image": "/images/productimages/cs2-plus.png",
     "stripe_price_id": "price_cs2_plus_7day",
     "currency": "usd"
   },
@@ -104,7 +104,7 @@ const productsData = [
     "name": "CS2 PLUS VERSION",
     "price": 2999,
     "description": "CS2 aimbot and ESP combo pack with wallhack and auto aim. Undetected Counter-Strike 2 cheat featuring enemy ESP, smooth aimbot, headshot assistance, and recoil control. Professional CS2 hack for competitive gaming and rank climbing.",
-    "image": "/images/cs2-plus.webp",
+    "image": "/images/productimages/cs2-plus.png",
     "stripe_price_id": "price_cs2_plus_30day",
     "currency": "usd"
   },
@@ -113,7 +113,7 @@ const productsData = [
     "name": "CS2 PRO VERSION",
     "price": 799,
     "description": "Premium CS2 cheat with aimbot, ESP, grenade helper, and stream-proof features. Undetected Counter-Strike 2 hack with wallhack, auto aim, nade trajectories, bomb timer, and streamer mode. Ultimate CS2 tool for professional gaming and content creation.",
-    "image": "/images/cs2-pro.webp",
+    "image": "/images/productimages/cs2-pro-product.png",
     "stripe_price_id": "price_cs2_pro_1day",
     "currency": "usd"
   },
@@ -122,7 +122,7 @@ const productsData = [
     "name": "CS2 PRO VERSION",
     "price": 1999,
     "description": "Premium CS2 cheat with aimbot, ESP, grenade helper, and stream-proof features. Undetected Counter-Strike 2 hack with wallhack, auto aim, nade trajectories, bomb timer, and streamer mode. Ultimate CS2 tool for professional gaming and content creation.",
-    "image": "/images/cs2-pro.webp",
+    "image": "/images/productimages/cs2-pro-product.png",
     "stripe_price_id": "price_cs2_pro_7day",
     "currency": "usd"
   },
@@ -131,7 +131,7 @@ const productsData = [
     "name": "CS2 PRO VERSION",
     "price": 3999,
     "description": "Premium CS2 cheat with aimbot, ESP, grenade helper, and stream-proof features. Undetected Counter-Strike 2 hack with wallhack, auto aim, nade trajectories, bomb timer, and streamer mode. Ultimate CS2 tool for professional gaming and content creation.",
-    "image": "/images/cs2-pro.webp",
+    "image": "/images/productimages/cs2-pro-product.png",
     "stripe_price_id": "price_cs2_pro_30day",
     "currency": "usd"
   }
