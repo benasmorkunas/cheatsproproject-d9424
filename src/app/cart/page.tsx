@@ -237,9 +237,7 @@ export default function CartPage() {
                           borderRadius: '8px',
                         }
                       },
-                      loader: 'auto',
-                      // Allow payment method auto-fill in development
-                      paymentMethodCreation: 'manual'
+                      loader: 'auto'
                     }}
                   >
                     <CheckoutForm 

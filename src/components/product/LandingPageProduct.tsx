@@ -154,14 +154,13 @@ export default function LandingPageProduct({ productGroup, selectedVariant }: La
                   >
                     {/* Product Image/Demo */}
                     <div className="relative">
-                      <div className="aspect-video bg-gradient-to-br from-gray-800/50 to-black/50 rounded-2xl border border-gray-700/50 overflow-hidden">
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                      <div className="aspect-[4/5] bg-transparent rounded-2xl border border-gray-700/30 p-8 flex items-center justify-center">
                         
                         <Image
                           src={productGroup.image}
                           alt={`${productGroup.name} Demo`}
                           fill
-                          className="object-cover"
+                          className="object-contain"
                           priority
                         />
 

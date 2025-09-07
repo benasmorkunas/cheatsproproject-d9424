@@ -180,7 +180,7 @@ export default function TestimonialsSection() {
               <motion.div
                 key={`${testimonial.id}-${currentIndex}`}
                 className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 relative transition-all duration-300"
-                style={{'--hover-border': '#825D8D80'}}
+                style={{} as React.CSSProperties}
                 onMouseEnter={(e) => e.currentTarget.style.borderColor = '#825D8D80'}
                 onMouseLeave={(e) => e.currentTarget.style.borderColor = ''}
                 initial={{ opacity: 0, y: 50 }}

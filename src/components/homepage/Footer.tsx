@@ -95,7 +95,7 @@ export default function Footer() {
                 <motion.a
                   href="https://discord.gg/cheats-pro"
                   className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center transition-colors duration-300"
-                  style={{'--hover-bg': '#825D8D'}}
+                  style={{} as React.CSSProperties}
                   onMouseEnter={(e) => e.currentTarget.style.background = '#825D8D'}
                   onMouseLeave={(e) => e.currentTarget.style.background = '#1f2937'}
                   whileHover={{ scale: 1.1 }}
@@ -106,7 +106,7 @@ export default function Footer() {
                 <motion.a
                   href="#"
                   className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center transition-colors duration-300"
-                  style={{'--hover-bg': '#6B7A9A'}}
+                  style={{} as React.CSSProperties}
                   onMouseEnter={(e) => e.currentTarget.style.background = '#6B7A9A'}
                   onMouseLeave={(e) => e.currentTarget.style.background = '#1f2937'}
                   whileHover={{ scale: 1.1 }}
@@ -117,7 +117,7 @@ export default function Footer() {
                 <motion.a
                   href="#"
                   className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center transition-colors duration-300"
-                  style={{'--hover-bg': '#8A5B6A'}}
+                  style={{} as React.CSSProperties}
                   onMouseEnter={(e) => e.currentTarget.style.background = '#8A5B6A'}
                   onMouseLeave={(e) => e.currentTarget.style.background = '#1f2937'}
                   whileHover={{ scale: 1.1 }}

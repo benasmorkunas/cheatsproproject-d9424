@@ -95,7 +95,7 @@ export default function BF6Section() {
                 <motion.div
                   key={index}
                   className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-xl p-4 transition-all duration-300"
-                  style={{'--hover-border': '#8A6B5A80'}}
+                  style={{} as React.CSSProperties}
                   onMouseEnter={(e) => e.currentTarget.style.borderColor = '#8A6B5A80'}
                   onMouseLeave={(e) => e.currentTarget.style.borderColor = ''}
                   initial={{ opacity: 0, y: 20 }}

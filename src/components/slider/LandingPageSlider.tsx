@@ -40,7 +40,8 @@ export default function LandingPageSlider() {
         name: 'BF6 PRO VERSION',
         price: 3499, // Price in cents
         image: '/images/productimages/bf6-pro.png',
-        category: 'Gaming Cheats',
+        stripe_price_id: 'price_bf6_pro_30day',
+        currency: 'usd',
         description: 'Premium Battlefield 6 hacks and cheats with undetected aimbot, wallhack ESP, and advanced BF6 mods for competitive gaming advantage.'
       }
     },
@@ -56,7 +57,8 @@ export default function LandingPageSlider() {
         name: 'CS2 PRO VERSION',
         price: 2999, // Price in cents
         image: '/images/productimages/cs2-pro-product.png',
-        category: 'Gaming Cheats',
+        stripe_price_id: 'price_cs2_pro_30day',
+        currency: 'usd',
         description: 'Professional Counter-Strike 2 cheats with AI aimbot, ESP wallhack, and undetected CS2 hacks for ranked gameplay dominance.'
       }
     },
@@ -72,7 +74,8 @@ export default function LandingPageSlider() {
         name: 'CS2 PLUS VERSION',
         price: 2499, // Price in cents
         image: '/images/productimages/cs2-plus.png',
-        category: 'Gaming Cheats',
+        stripe_price_id: 'price_cs2_plus_30day',
+        currency: 'usd',
         description: 'Enhanced Counter-Strike 2 cheats with premium aimbot settings, advanced ESP features, and exclusive CS2 hack tools for pro players.'
       }
     },

@@ -15,7 +15,10 @@
       "Bash(cat:*)",
       "Bash(node:*)",
       "Bash(npm --version)",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "Bash(dir /B next.config.*)",
+      "Bash(npx tsc:*)",
+      "Bash(set NODE_OPTIONS=--max-old-space-size=4096)"
     ],
     "deny": [],
     "ask": []

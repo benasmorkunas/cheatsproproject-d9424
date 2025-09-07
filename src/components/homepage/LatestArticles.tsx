@@ -81,7 +81,7 @@ export default function LatestArticles() {
               whileHover={{ y: -10 }}
             >
               <div className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-2xl"
-                style={{'--hover-border': '#825D8D50', '--hover-shadow': '#825D8D10'}}
+                style={{} as React.CSSProperties}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderColor = '#825D8D50';
                   e.currentTarget.style.boxShadow = '0 25px 50px -12px #825D8D10';
@@ -131,7 +131,7 @@ export default function LatestArticles() {
                 {/* Content */}
                 <div className="p-8">
                   <h3 className="text-2xl font-bold text-white mb-4 transition-colors duration-300 line-clamp-2"
-                    style={{'--hover-color': '#B28DAD'}}
+                    style={{} as React.CSSProperties}
                     onMouseEnter={(e) => e.currentTarget.style.color = '#B28DAD'}
                     onMouseLeave={(e) => e.currentTarget.style.color = 'white'}>
                     {article.title}
@@ -156,7 +156,7 @@ export default function LatestArticles() {
 
                     <motion.div
                       className="flex items-center space-x-2 transition-colors duration-300"
-                      style={{color: '#825D8D', '--hover-color': '#925D9D'}}
+                      style={{color: '#825D8D'} as React.CSSProperties}
                       onMouseEnter={(e) => e.currentTarget.style.color = '#925D9D'}
                       onMouseLeave={(e) => e.currentTarget.style.color = '#825D8D'}
                       whileHover={{ x: 5 }}
@@ -218,7 +218,7 @@ export default function LatestArticles() {
               type="email"
               placeholder="Enter your email"
               className="flex-1 bg-gray-800/50 border border-gray-600 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:outline-none transition-colors duration-300"
-              style={{'--focus-border': '#825D8D'}}
+              style={{} as React.CSSProperties}
               onFocus={(e) => e.currentTarget.style.borderColor = '#825D8D'}
               onBlur={(e) => e.currentTarget.style.borderColor = '#6b7280'}
               suppressHydrationWarning

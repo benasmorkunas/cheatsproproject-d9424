@@ -59,7 +59,7 @@ const productsData = [
     "name": "CS2 LITE VERSION",
     "price": 399,
     "description": "CS2 ESP wallhack with enemy detection and player tracking. Undetected Counter-Strike 2 cheat showing enemy positions, health bars, weapon info, and distance through walls. Entry-level CS2 hack for tactical advantage and map awareness.",
-    "image": "/images/cs2-lite.webp",
+    "image": "/images/productimages/cs2-lite.png",
     "stripe_price_id": "price_cs2_lite_1day",
     "currency": "usd"
   },
@@ -68,7 +68,7 @@ const productsData = [
     "name": "CS2 LITE VERSION",
     "price": 999,
     "description": "CS2 ESP wallhack with enemy detection and player tracking. Undetected Counter-Strike 2 cheat showing enemy positions, health bars, weapon info, and distance through walls. Entry-level CS2 hack for tactical advantage and map awareness.",
-    "image": "/images/cs2-lite.webp",
+    "image": "/images/productimages/cs2-lite.png",
     "stripe_price_id": "price_cs2_lite_7day",
     "currency": "usd"
   },
@@ -77,7 +77,7 @@ const productsData = [
     "name": "CS2 LITE VERSION",
     "price": 1999,
     "description": "CS2 ESP wallhack with enemy detection and player tracking. Undetected Counter-Strike 2 cheat showing enemy positions, health bars, weapon info, and distance through walls. Entry-level CS2 hack for tactical advantage and map awareness.",
-    "image": "/images/cs2-lite.webp",
+    "image": "/images/productimages/cs2-lite.png",
     "stripe_price_id": "price_cs2_lite_30day",
     "currency": "usd"
   },
