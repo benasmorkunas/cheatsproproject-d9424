@@ -12,7 +12,7 @@ export default function BF6Section() {
     },
     {
       icon: <Map className="w-6 h-6" />,
-      title: '3D Radar ESP',
+      title: 'Enhanced ESP',
       description: 'See enemies through walls and terrain'
     },
     {
@@ -30,12 +30,12 @@ export default function BF6Section() {
   const testimonials = [
     {
       text: "BF6 cheats are insane! The ESP works perfectly and I haven't been detected.",
-      author: "ProGamer2024",
+      author: "Zik2024",
       rating: 5
     },
     {
-      text: "Finally, reliable BF6 hacks. The aimbot is smooth and natural-looking.",
-      author: "BattlefieldKing",
+      text: "Finally, reliable BF6 hacks. The aimbot is smooth and natural looking.",
+      author: "*******",
       rating: 5
     }
   ];
@@ -83,9 +83,9 @@ export default function BF6Section() {
               </h2>
               
               <p className="text-xl text-gray-300 leading-relaxed">
-                Dominate the battlefield with our cutting-edge BF6 enhancement suite. 
-                Featuring advanced ESP, precision aimbot, and tactical awareness tools 
-                designed for large-scale warfare.
+                Dominate the battlefield with our undetected BF6 hacks. 
+                Featuring advanced ESP, BF6 aimbot, and wallhack tools 
+                designed for enhanced gaming experience.
               </p>
             </div>
 
@@ -134,7 +134,7 @@ export default function BF6Section() {
                 <div>
                   <h4 className="text-white font-semibold">Tested & Undetected</h4>
                   <p className="text-sm" style={{color: '#6B8A7A'}}>
-                    Extensively tested on BF6 servers • Zero ban reports
+                    Extensively tested on BF6 servers • Zero detection reports
                   </p>
                 </div>
               </div>
@@ -156,7 +156,7 @@ export default function BF6Section() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Get BF6 Cheats
+                Pre-order BF6 Cheats
               </motion.button>
               
             </motion.div>

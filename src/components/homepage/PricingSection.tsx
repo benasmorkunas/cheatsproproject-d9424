@@ -32,62 +32,64 @@ export default function PricingSection() {
   const plans = [
     {
       id: 'lite',
-      name: 'LITE',
-      price: '0.66',
-      originalPrice: '1.10',
+      name: 'CS2 LITE',
+      price: '3.99',
+      originalPrice: '19.99',
       period: '/day',
       popular: false,
       features: [
-        'Basic Wallhack (ESP)',
-        'Simple Aimbot',
-        'Community Support',
-        '1 Game License',
-        'Basic Updates'
+        'CS2 ESP Wallhack',
+        'CS2 Aimbot and Triggerbot',
+        'Health Bars & Weapon Info',
+        'Distance',
+        'Multi-Style ESP Boxes',
+        'Support'
       ],
-      buttonText: 'Start with LITE',
+      buttonText: 'Start with CS2 LITE',
       color: 'gray',
-      savings: '40%'
+      savings: '80%'
     },
     {
       id: 'plus',
-      name: 'PLUS',
-      price: '0.99',
-      originalPrice: '1.65',
+      name: 'CS2 PLUS',
+      price: '5.99',
+      originalPrice: '29.99',
       period: '/day',
       popular: true,
       features: [
-        'Advanced ESP & Wallhack',
-        'Professional Aimbot',
-        'Grenade Helper Tool',
-        'CS2 + BF6 License',
-        'Priority Support',
-        'Exclusive Features',
-        'Custom Configurations'
+        'Everything in LITE',
+        'CS2 Aimbot & ESP Combo',
+        'Smooth Aimbot & Auto Aim',
+        'Headshot Assistance',
+        'Recoil Control System',
+        'Priority Support'
       ],
-      buttonText: 'Get PLUS (Most Popular)',
+      buttonText: 'Get CS2 PLUS (Most Popular)',
       color: 'grayPurple',
-      savings: '40%'
+      savings: '80%'
     },
     {
       id: 'pro',
-      name: 'PRO',
-      price: '1.33',
-      originalPrice: '2.20',
+      name: 'CS2 PRO',
+      price: '7.99',
+      originalPrice: '39.99',
       period: '/day',
       popular: false,
       features: [
         'Everything in PLUS',
-        'Premium ESP Features',
-        'Advanced Aimbot Settings',
-        'Rage Mode Features',
+        'Grenade Helper',
+        'Grenade Recorder',
+        'Stream-Proof Features',
+        'Enhanced ESP',
+        'AI Aimbot',
+        'Ultimate CS2 Tool',
         'VIP Discord Access',
-        '24/7 Premium Support',
-        'Early Access to Updates',
-        'Custom Cheat Loader'
+        '24/7 Support',
+        'Undetected Status'
       ],
-      buttonText: 'Unlock PRO Access',
+      buttonText: 'Unlock CS2 PRO Access',
       color: 'grayGold',
-      savings: '40%'
+      savings: '80%'
     }
   ];
 
@@ -128,8 +130,8 @@ export default function PricingSection() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-clip-text text-transparent" style={{backgroundImage: 'linear-gradient(to right, #825D8D, #6B7A9A, #9A8A6B)'}}>
-              Choose Your Plan
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-300 to-gray-500">
+              CHOOSE YOUR PLAN
             </span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -137,39 +139,6 @@ export default function PricingSection() {
           </p>
         </motion.div>
 
-        {/* Urgency Banner */}
-        <motion.div
-          className="rounded-2xl p-6 mb-12 text-center" style={{background: 'linear-gradient(135deg, #8A5B6A20, #8A6B5A20)', border: '1px solid #8A5B6A30'}}
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <div className="flex items-center justify-center space-x-2 mb-4">
-            <Zap className="w-6 h-6" style={{color: '#8A5B6A'}} />
-            <h3 className="text-2xl font-bold text-white">
-              Black Friday Special: 40% Off – Limited Time
-            </h3>
-            <Zap className="w-6 h-6" style={{color: '#8A5B6A'}} />
-          </div>
-          
-          <div className="flex justify-center items-center space-x-6 text-2xl font-bold">
-            <div className="text-center">
-              <div style={{color: '#8A5B6A'}}>{String(timeLeft.hours).padStart(2, '0')}</div>
-              <div className="text-gray-400 text-xs">HOURS</div>
-            </div>
-            <div style={{color: '#8A5B6A'}}>:</div>
-            <div className="text-center">
-              <div style={{color: '#8A5B6A'}}>{String(timeLeft.minutes).padStart(2, '0')}</div>
-              <div className="text-gray-400 text-xs">MINS</div>
-            </div>
-            <div style={{color: '#8A5B6A'}}>:</div>
-            <div className="text-center">
-              <div style={{color: '#8A5B6A'}}>{String(timeLeft.seconds).padStart(2, '0')}</div>
-              <div className="text-gray-400 text-xs">SECS</div>
-            </div>
-          </div>
-        </motion.div>
 
         {/* Pricing Cards */}
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -274,18 +243,11 @@ export default function PricingSection() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <p className="text-gray-400 mb-6">
-            Not sure which plan to choose? Start with PLUS - you can always upgrade later!
-          </p>
           
           <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-gray-500">
             <div className="flex items-center space-x-2">
               <Check className="w-4 h-4" style={{color: '#6B8A7A'}} />
               <span>Instant activation</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Check className="w-4 h-4" style={{color: '#6B8A7A'}} />
-              <span>Cancel anytime</span>
             </div>
             <div className="flex items-center space-x-2">
               <Check className="w-4 h-4" style={{color: '#6B8A7A'}} />

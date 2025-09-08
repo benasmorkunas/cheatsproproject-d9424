@@ -11,79 +11,86 @@ import './slider.css';
 export default function LandingPageSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const router = useRouter();
   const { addToCart } = useCart();
 
   const handleGetInstantAccess = () => {
-    const currentProduct = slides[currentSlide].product;
-    addToCart(currentProduct);
-    router.push('/cart');
+    if (currentSlide === 0) {
+      router.push('/products/bf6');
+    } else if (currentSlide === 1 || currentSlide === 2) {
+      router.push('/products/cs2');
+    }
   };
 
   useEffect(() => {
     setIsVisible(true);
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % 3);
-    }, 10000);
+    }, isHovered ? 20000 : 10000);
     return () => clearInterval(interval);
-  }, []);
+  }, [isHovered]);
 
   const slides = [
     {
       title: "BF6 PRO VERSION",
-      subtitle: "Military Grade",
-      description: "Premium Battlefield 6 hacks and cheats with undetected aimbot, wallhack ESP, and advanced BF6 mods for competitive gaming advantage.",
-      features: ["Wallhack", "No Recoil", "Speed Hack", "Vehicle ESP"],
+      subtitle: "Premium BF6 Hacks",
+      description: "Premium Battlefield 6 Hacks and Cheats with Undetected Aimbot, Wallhack ESP, and Advanced BF6 Aimbot for Competitive Gaming Advantage.",
+      features: ["Wallhack", "Recoil Control", "PID Controller", "Aimbot"],
       badge: "NEW RELEASE",
-      price: "$34.99",
+      price: "$7.99",
       product: {
         id: 'bf6-pro',
         name: 'BF6 PRO VERSION',
-        price: 3499, // Price in cents
+        price: 799, // Price in cents
         image: '/images/productimages/bf6-pro.png',
         stripe_price_id: 'price_bf6_pro_30day',
         currency: 'usd',
-        description: 'Premium Battlefield 6 hacks and cheats with undetected aimbot, wallhack ESP, and advanced BF6 mods for competitive gaming advantage.'
+        description: 'Premium Battlefield 6 Hacks and Cheats with Undetected Aimbot, Wallhack ESP, and Advanced BF6 Aimbot for Competitive Gaming Advantage.'
       }
     },
     {
       title: "CS2 PRO VERSION",
-      subtitle: "Undetected & Advanced",
-      description: "Professional Counter-Strike 2 cheats with AI aimbot, ESP wallhack, and undetected CS2 hacks for ranked gameplay dominance.",
-      features: ["AI-Enhanced Aimbot", "Advanced ESP", "Grenade Helper", "Radar Hack"],
-      badge: "BEST SELLER",
-      price: "$29.99",
+      subtitle: "Undetected CS2 Aimbot",
+      description: "Undetected Counter-Strike 2 Cheats with AI Aimbot, ESP Wallhack, and Undetected CS2 Hacks for Ranked Gameplay Dominance.",
+      features: ["AI-Enhanced Aimbot", "Grenade Recorder", "Grenade Helper", "Stream-proof"],
+      badge: "ADVANCED",
+      price: "$7.99",
       product: {
         id: 'cs2-pro',
         name: 'CS2 PRO VERSION',
-        price: 2999, // Price in cents
+        price: 799, // Price in cents
         image: '/images/productimages/cs2-pro-product.png',
         stripe_price_id: 'price_cs2_pro_30day',
         currency: 'usd',
-        description: 'Professional Counter-Strike 2 cheats with AI aimbot, ESP wallhack, and undetected CS2 hacks for ranked gameplay dominance.'
+        description: 'Undetected Counter-Strike 2 Cheats with AI Aimbot, ESP Wallhack, and Undetected CS2 Hacks for Ranked Gameplay Dominance.'
       }
     },
     {
       title: "CS2 PLUS VERSION",
-      subtitle: "Enhanced Edition",
-      description: "Enhanced Counter-Strike 2 cheats with premium aimbot settings, advanced ESP features, and exclusive CS2 hack tools for pro players.",
-      features: ["Enhanced Aimbot", "Premium ESP", "Custom Settings", "VIP Support"],
-      badge: "POPULAR",
-      price: "$24.99",
+      subtitle: "Enhanced CS2 Hacks",
+      description: "Enhanced Counter-Strike 2 Cheats with Premium Aimbot Settings, Advanced ESP Features, and Exclusive CS2 Hack Tools for Pro Players.",
+      features: ["Enhanced Aimbot", "Premium ESP", "Undetected", "24/7 Support"],
+      badge: "BEST SELLER",
+      price: "$5.99",
       product: {
         id: 'cs2-plus',
         name: 'CS2 PLUS VERSION',
-        price: 2499, // Price in cents
+        price: 599, // Price in cents
         image: '/images/productimages/cs2-plus.png',
         stripe_price_id: 'price_cs2_plus_30day',
         currency: 'usd',
-        description: 'Enhanced Counter-Strike 2 cheats with premium aimbot settings, advanced ESP features, and exclusive CS2 hack tools for pro players.'
+        description: 'Enhanced Counter-Strike 2 Cheats with Premium Aimbot Settings, Advanced ESP Features, and Exclusive CS2 Hack Tools for Pro Players.'
       }
     },
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center">
+    <section 
+      className="relative min-h-screen flex items-center"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
 
       {/* Main Content Container */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-visible">
@@ -106,6 +113,9 @@ export default function LandingPageSlider() {
               <div className="bg-gradient-to-r from-gray-600/20 to-gray-500/20 backdrop-blur-sm border border-gray-400/30 px-4 py-2 rounded-full">
                 <span className="text-gray-300 text-sm font-semibold flex items-center space-x-2">
                   <Star className="w-4 h-4 fill-current" />
+                  {slides[currentSlide].badge === 'NEW RELEASE' && (
+                    <span className="w-2 h-2 bg-gray-400 rounded-full animate-pulse"></span>
+                  )}
                   <span>{slides[currentSlide].badge}</span>
                 </span>
               </div>
@@ -125,7 +135,11 @@ export default function LandingPageSlider() {
                   {slides[currentSlide].title.split(' ')[0]} {slides[currentSlide].title.split(' ')[1]}
                 </span>
                 <br />
-                <span className="bg-gradient-to-r from-gray-400 via-gray-300 to-gray-200 bg-clip-text text-transparent">
+                <span className={`bg-clip-text text-transparent ${
+                  currentSlide === 0 ? 'bg-gradient-to-r from-[#E2891C] via-[#F5A623] to-[#E2891C]' : // BF6 - shiny orange gradient
+                  currentSlide === 1 ? 'bg-gradient-to-r from-[#CC6150] via-[#E07B6B] to-[#CC6150]' : // CS2 PRO - shiny red gradient
+                  'bg-gradient-to-r from-[#4480A6] via-[#5BA0D1] to-[#4480A6]' // CS2 PLUS - shiny blue gradient
+                }`}>
                   {slides[currentSlide].title.split(' ').slice(2).join(' ')}
                 </span>
               </motion.h1>

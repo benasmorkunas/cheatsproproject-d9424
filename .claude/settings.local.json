@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(for:*)",
-      "Bash(do sed -i 's/from-purple-400 via-green-400 to-blue-400/from-gray-400 to-gray-300/g; s/from-purple-400 via-blue-400 to-green-400/from-gray-400 to-gray-300/g; s/from-purple-400 to-blue-400/from-gray-400 to-gray-300/g; s/text-purple-400/text-gray-400/g; s/border-purple-400/border-gray-400/g; s/focus:ring-purple-500/focus:ring-gray-500/g; s/hover:border-purple-500/hover:border-gray-500/g; s/group-hover:text-purple-300/group-hover:text-gray-300/g; s/shadow-purple-500/shadow-gray-500/g; s/bg-purple-600/bg-gray-600/g; s/border-purple-500/border-gray-500/g; s/hover:from-purple-700/hover:from-slate-600/g; s/hover:to-blue-700/hover:via-gray-500 hover:to-slate-600/g; s/from-purple-600 to-blue-600/from-slate-700 via-gray-600 to-slate-700/g' \"$file\")"
+      "Bash(do sed -i 's/from-purple-400 via-green-400 to-blue-400/from-gray-400 to-gray-300/g; s/from-purple-400 via-blue-400 to-green-400/from-gray-400 to-gray-300/g; s/from-purple-400 to-blue-400/from-gray-400 to-gray-300/g; s/text-purple-400/text-gray-400/g; s/border-purple-400/border-gray-400/g; s/focus:ring-purple-500/focus:ring-gray-500/g; s/hover:border-purple-500/hover:border-gray-500/g; s/group-hover:text-purple-300/group-hover:text-gray-300/g; s/shadow-purple-500/shadow-gray-500/g; s/bg-purple-600/bg-gray-600/g; s/border-purple-500/border-gray-500/g; s/hover:from-purple-700/hover:from-slate-600/g; s/hover:to-blue-700/hover:via-gray-500 hover:to-slate-600/g; s/from-purple-600 to-blue-600/from-slate-700 via-gray-600 to-slate-700/g' \"$file\")",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []
