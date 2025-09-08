@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Check, Crown, Zap, Star } from 'lucide-react';
+import Link from 'next/link';
 
 export default function PricingSection() {
   const [timeLeft, setTimeLeft] = useState({
@@ -64,7 +65,7 @@ export default function PricingSection() {
         'Recoil Control System',
         'Priority Support'
       ],
-      buttonText: 'Get CS2 PLUS (Most Popular)',
+      buttonText: 'Get CS2 PLUS',
       color: 'grayPurple',
       savings: '80%'
     },
@@ -141,51 +142,81 @@ export default function PricingSection() {
 
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto pt-12 items-stretch">
           {plans.map((plan, index) => {
             const colors = getColorClasses(plan.color, plan.popular);
             
-            const getCustomPlanStyle = (color: string) => {
+            const getCustomPlanStyle = (color: string, planId: string) => {
               const styles = {
-                grayPurple: { accent: '#825D8D', button: '#6B5B7A' },
-                grayGold: { accent: '#9A8A6B', button: '#7A6B5A' },
-                gray: { accent: '#8A8A8A', button: '#6A6A6A' }
+                grayPurple: { accent: '#825D8D', button: 'linear-gradient(135deg, #507D99, #3D5F75, #507D99)' }, // PLUS - Blue gradient
+                grayGold: { accent: '#9A8A6B', button: 'linear-gradient(135deg, #B47369, #8F524A, #B47369)' }, // Pro - Red/Pink gradient
+                gray: { accent: '#8A8A8A', button: 'linear-gradient(135deg, #AA9054, #846C3E, #AA9054)' } // Lite - Gold/Brown gradient
               };
               return styles[color as keyof typeof styles] || styles.gray;
             };
             
-            const customStyle = getCustomPlanStyle(plan.color);
+            const customStyle = getCustomPlanStyle(plan.color, plan.id);
             
+            const getProductURL = (planId: string) => {
+              switch (planId) {
+                case 'lite':
+                  return '/products/cs2-lite';
+                case 'plus':
+                  return '/products/cs2-plus';
+                case 'pro':
+                  return '/products/cs2-pro';
+                default:
+                  return '/products';
+              }
+            };
+            
+            const getProductImage = (planId: string) => {
+              const images = {
+                'lite': '/images/productimages/cs2-lite.png',
+                'plus': '/images/productimages/cs2-plus.png',
+                'pro': '/images/productimages/cs2-pro-product.png'
+              };
+              return images[planId as keyof typeof images];
+            };
+
+            const getBackgroundGradient = (planId: string) => {
+              const gradients = {
+                'lite': 'linear-gradient(rgba(255, 193, 7, 0.15), rgba(0, 0, 0, 0.9996))', // Yellow and black
+                'plus': 'linear-gradient(rgba(0, 123, 255, 0.15), rgba(0, 0, 0, 0.9996))', // Blue and black  
+                'pro': 'linear-gradient(rgba(220, 53, 69, 0.15), rgba(0, 0, 0, 0.9996))' // Red and black
+              };
+              return gradients[planId as keyof typeof gradients];
+            };
+
             return (
-              <motion.div
-                key={plan.id}
-                className={`relative bg-gradient-to-b ${colors.bg} backdrop-blur-sm border-2 ${colors.border} rounded-2xl p-8 ${
-                  plan.popular ? 'transform scale-105' : ''
-                }`}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: plan.popular ? 1.05 : 1.02 }}
-              >
-                {/* Popular Badge */}
-                {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <div className="text-white px-6 py-2 rounded-full flex items-center space-x-2" style={{background: 'linear-gradient(135deg, #6B5B7A, #5A6B8A)'}}>
-                      <Star className="w-4 h-4" />
-                      <span className="font-bold text-sm">MOST POPULAR</span>
-                    </div>
-                  </div>
-                )}
+              <div key={plan.id} className="relative h-full flex flex-col">
+                <motion.div
+                  className={`relative overflow-hidden bg-gradient-to-b ${colors.bg} backdrop-blur-sm border-2 ${colors.border} rounded-2xl p-8 flex flex-col flex-1 ${
+                    plan.popular ? 'transform scale-105' : ''
+                  }`}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: plan.popular ? 1.05 : 1.02 }}
+                  style={{
+                    backgroundImage: `${getBackgroundGradient(plan.id)}, url('${getProductImage(plan.id)}')`,
+                    backgroundSize: 'contain',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'center right',
+                  }}
+                >
+                  {/* Black Transparent Cover */}
+                  <div className="absolute inset-0 bg-black/75 rounded-2xl pointer-events-none"></div>
 
                 {/* Savings Badge */}
-                <div className="absolute top-4 right-4">
+                <div className="absolute top-4 right-4 z-10">
                   <div className="text-white px-3 py-1 rounded-full text-sm font-bold" style={{background: '#7A4B5A'}}>
                     Save {plan.savings}
                   </div>
                 </div>
 
-                <div className="text-center mb-8">
+                <div className="text-center mb-8 relative z-10">
                   <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
                   
                   <div className="mb-4">
@@ -209,7 +240,7 @@ export default function PricingSection() {
                 </div>
 
                 {/* Features */}
-                <ul className="space-y-4 mb-8">
+                <ul className="space-y-4 mb-8 relative z-10">
                   {plan.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start space-x-3">
                       <Check className="w-5 h-5 flex-shrink-0 mt-0.5" style={{color: '#6B8A7A'}} />
@@ -218,19 +249,41 @@ export default function PricingSection() {
                   ))}
                 </ul>
 
-                {/* CTA Button */}
-                <motion.button
-                  className="w-full text-white py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300"
-                  style={{background: `linear-gradient(135deg, ${customStyle.button}, ${customStyle.button}DD)`}}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  onMouseEnter={(e) => e.currentTarget.style.background = `linear-gradient(135deg, ${customStyle.button}CC, ${customStyle.button}AA)`}
-                  onMouseLeave={(e) => e.currentTarget.style.background = `linear-gradient(135deg, ${customStyle.button}, ${customStyle.button}DD)`}
-                >
-                  {plan.buttonText}
-                </motion.button>
+                {/* Plan indicators above button */}
+                {plan.popular && (
+                  <div className="text-center mb-3 relative z-10">
+                    <div className="inline-flex items-center gap-1 text-blue-400 text-sm font-medium">
+                      <Zap className="w-4 h-4" />
+                      <span>Most Chosen Plan</span>
+                    </div>
+                  </div>
+                )}
+                {plan.id === 'lite' && (
+                  <div className="text-center mb-3 relative z-10">
+                    <div className="inline-flex items-center gap-1 text-yellow-400 text-sm font-medium">
+                      <Star className="w-4 h-4" />
+                      <span>Great Starting Point</span>
+                    </div>
+                  </div>
+                )}
 
-              </motion.div>
+                {/* CTA Button */}
+                <Link href={getProductURL(plan.id)} className="block mt-auto">
+                  <motion.button
+                    className="w-full text-white py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 relative z-10 overflow-hidden"
+                    style={{
+                      background: customStyle.button,
+                      boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.3), 0 4px 15px rgba(0,0,0,0.3)'
+                    }}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    {plan.buttonText}
+                  </motion.button>
+                </Link>
+
+                </motion.div>
+              </div>
             );
           })}
         </div>

@@ -3,6 +3,7 @@ import LandingPageSlider from '@/components/slider/LandingPageSlider';
 import SectionTransition from '@/components/common/SectionTransition';
 import FeaturesSection from '@/components/homepage/FeaturesSection';
 import BF6Section from '@/components/homepage/BF6Section';
+import CS2CTASection from '@/components/homepage/CS2CTASection';
 import PricingSection from '@/components/homepage/PricingSection';
 import TrustElements from '@/components/homepage/TrustElements';
 import TestimonialsSection from '@/components/homepage/TestimonialsSection';
@@ -18,8 +19,9 @@ export default function HomePage() {
         <LandingPageSlider />
         <TrustElements />
         <FeaturesSection />
-        <BF6Section />
         <PricingSection />
+        <BF6Section />
+        <CS2CTASection />
         <TestimonialsSection />
         <LatestArticles />
       </main>

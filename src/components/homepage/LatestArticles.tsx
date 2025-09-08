@@ -2,19 +2,20 @@
 
 import { motion } from 'framer-motion';
 import { Calendar, Clock, ArrowRight, TrendingUp } from 'lucide-react';
+import Link from 'next/link';
 
 export default function LatestArticles() {
   const articles = [
     {
       id: 1,
-      title: 'Best CS2 Wallhack Settings for Competitive Play 2024',
-      excerpt: 'Master the optimal wallhack configurations for maximum effectiveness while staying undetected in ranked matches.',
+      title: 'Best Legit CS2 Hacks for Ranked Play in 2025',
+      excerpt: 'Discover the most effective legit CS2 cheats with detailed comparisons, detection risk analysis, and undetected private builds for competitive play.',
       image: '🎯',
       category: 'CS2 Guide',
-      readTime: '5 min read',
-      date: 'Dec 15, 2024',
+      readTime: '12 min read',
+      date: 'Jan 15, 2025',
       trending: true,
-      slug: 'best-cs2-wallhack-settings-2024'
+      slug: 'best-legit-cs2-hacks-ranked-2025'
     },
     {
       id: 2,
@@ -58,9 +59,8 @@ export default function LatestArticles() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-white">Latest</span>{' '}
-            <span className="bg-clip-text text-transparent" style={{backgroundImage: 'linear-gradient(to right, #825D8D, #6B7A9A, #6B8A7A)'}}>
-              Guides
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-300 to-gray-500">
+              LATEST GUIDES
             </span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -71,15 +71,15 @@ export default function LatestArticles() {
         {/* Articles Grid */}
         <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
           {articles.map((article, index) => (
-            <motion.article
-              key={article.id}
-              className="group cursor-pointer"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -10 }}
-            >
+            <Link key={article.id} href={`/guides/${article.slug}`}>
+              <motion.article
+                className="group cursor-pointer"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -10 }}
+              >
               <div className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-2xl"
                 style={{} as React.CSSProperties}
                 onMouseEnter={(e) => {
@@ -168,6 +168,7 @@ export default function LatestArticles() {
                 </div>
               </div>
             </motion.article>
+            </Link>
           ))}
         </div>
 

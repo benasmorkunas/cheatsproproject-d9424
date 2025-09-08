@@ -115,9 +115,8 @@ export default function TestimonialsSection() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-white">People Who</span>{' '}
-            <span className="bg-clip-text text-transparent" style={{backgroundImage: 'linear-gradient(to right, #825D8D, #6B7A9A, #6B8A7A)'}}>
-              Liked Our Product
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-300 to-gray-500">
+              PEOPLE WHO LIKED OUR PRODUCT
             </span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -132,7 +131,7 @@ export default function TestimonialsSection() {
               ))}
             </div>
             <div className="text-white text-xl font-semibold">4.9/5</div>
-            <div className="text-gray-400">from 1,247 reviews</div>
+            <div className="text-gray-400">from 250+ reviews</div>
           </div>
         </motion.div>
 
@@ -241,12 +240,8 @@ export default function TestimonialsSection() {
           viewport={{ once: true }}
         >
           <div className="text-center">
-            <div className="text-3xl font-bold mb-2" style={{color: '#825D8D'}}>50K+</div>
+            <div className="text-3xl font-bold mb-2" style={{color: '#825D8D'}}>2.5K+</div>
             <div className="text-gray-400">Happy Gamers</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold mb-2" style={{color: '#6B7A9A'}}>1.2M+</div>
-            <div className="text-gray-400">Matches Won</div>
           </div>
           <div className="text-center">
             <div className="text-3xl font-bold mb-2" style={{color: '#6B8A7A'}}>99.2%</div>
@@ -258,28 +253,6 @@ export default function TestimonialsSection() {
           </div>
         </motion.div>
 
-        {/* CTA */}
-        <motion.div
-          className="text-center mt-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="text-2xl font-bold text-white mb-4">
-            Ready to join the winning team?
-          </h3>
-          <motion.button
-            className="text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl"
-            style={{background: 'linear-gradient(to right, #825D8D, #6B7A9A, #825D8D)', transition: 'all 0.3s'}}
-            onMouseEnter={(e) => e.currentTarget.style.background = 'linear-gradient(to right, #714D7D, #5A6A8A, #714D7D)'}
-            onMouseLeave={(e) => e.currentTarget.style.background = 'linear-gradient(to right, #825D8D, #6B7A9A, #825D8D)'}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Start Dominating Today
-          </motion.button>
-        </motion.div>
       </div>
     </section>
   );

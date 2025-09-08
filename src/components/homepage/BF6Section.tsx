@@ -1,9 +1,41 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Crosshair, Map, Users, Check } from 'lucide-react';
+import { Shield, Crosshair, Map, Users, Check, ChevronLeft, ChevronRight } from 'lucide-react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function BF6Section() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const bf6Products = [
+    {
+      id: 'bf6-plus',
+      name: 'BF6 PLUS',
+      image: '/images/productimages/bf6-plus.png',
+      url: '/products/bf6-plus',
+      price: '$5.99',
+      description: 'Enhanced BF6 experience'
+    },
+    {
+      id: 'bf6-pro',
+      name: 'BF6 PRO',
+      image: '/images/productimages/bf6-pro.png',
+      url: '/products/bf6-pro',
+      price: '$7.99',
+      description: 'Ultimate BF6 package'
+    }
+  ];
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % bf6Products.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + bf6Products.length) % bf6Products.length);
+  };
+
   const bf6Features = [
     {
       icon: <Crosshair className="w-6 h-6" />,
@@ -162,7 +194,7 @@ export default function BF6Section() {
             </motion.div>
           </motion.div>
 
-          {/* Visual/Demo */}
+          {/* Product Slider */}
           <motion.div
             className="relative"
             initial={{ opacity: 0, x: 50 }}
@@ -170,49 +202,44 @@ export default function BF6Section() {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="relative rounded-2xl overflow-hidden" style={{background: 'linear-gradient(135deg, #8A6B5A20, #8A5B6A20)', border: '1px solid #8A6B5A30'}}>
-              {/* Demo Screenshot Placeholder */}
-              <div className="aspect-video bg-gray-800/50 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-6xl mb-4" style={{color: '#8A6B5A'}}>🎮</div>
-                  <div className="text-white text-xl font-semibold mb-2">
-                    BF6 ESP in Action
-                  </div>
-                  <div className="text-gray-400">
-                    Live battlefield awareness
-                  </div>
-                </div>
+            {/* Slider Container */}
+            <div className="relative h-[700px] overflow-hidden">
+              {/* Product Slides */}
+              <div className="flex transition-transform duration-300 ease-in-out h-full" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+                {bf6Products.map((product, index) => (
+                  <Link 
+                    key={product.id}
+                    href={product.url}
+                    className="min-w-full flex items-center justify-center cursor-pointer"
+                  >
+                    <div className="relative w-[550px] h-[400px] rounded-xl overflow-hidden">
+                      <Image
+                        src={product.image}
+                        alt={product.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  </Link>
+                ))}
               </div>
 
-              {/* Overlay UI Elements */}
-              <div className="absolute top-4 left-4">
-                <div className="bg-black/70 backdrop-blur-sm rounded-lg px-3 py-2">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 rounded-full animate-pulse" style={{background: '#6B8A7A'}}></div>
-                    <span className="text-white text-sm font-medium">ESP Active</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="absolute top-4 right-4">
-                <div className="bg-black/70 backdrop-blur-sm rounded-lg px-3 py-2">
-                  <span className="text-sm font-medium" style={{color: '#9A7B6A'}}>64 Players Visible</span>
-                </div>
-              </div>
-
-              <div className="absolute bottom-4 left-4 right-4">
-                <div className="bg-black/70 backdrop-blur-sm rounded-lg p-3">
-                  <div className="flex justify-between items-center text-sm">
-                    <span className="text-gray-300">Aimbot: ON</span>
-                    <span className="text-gray-300">ESP: ON</span>
-                    <span style={{color: '#6B8A7A'}}>Status: Undetected</span>
-                  </div>
-                </div>
+              {/* Navigation Dots */}
+              <div className="absolute bottom-24 left-1/2 -translate-x-1/2 flex space-x-3">
+                {bf6Products.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`w-4 h-4 rounded-full transition-colors ${
+                      index === currentSlide ? 'bg-white' : 'bg-white/40'
+                    }`}
+                  />
+                ))}
               </div>
             </div>
 
             {/* Testimonials */}
-            <div className="mt-8 space-y-4">
+            <div className="mt-4 space-y-4">
               {testimonials.map((testimonial, index) => (
                 <motion.div
                   key={index}

@@ -286,32 +286,6 @@ export default function FeaturesSection() {
             );
           })}
         </div>
-
-        {/* Call to Action Section */}
-        <motion.div
-          className="text-center mt-20 pt-16 border-t border-gray-700"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="text-3xl font-bold mb-4">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-300 to-gray-500">
-              GET ALL PREMIUM CS2 FEATURES IN ONE PACKAGE
-            </span>
-          </h3>
-          <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-            Don't choose between individual CS2 hacks. Get everything you need to dominate Counter-Strike 2 with our comprehensive undetected cheat package featuring aimbot, wallhack ESP, and grenade helper tools.
-          </p>
-          <motion.button
-            className="bg-gradient-to-r from-white via-gray-300 to-gray-500 hover:from-gray-100 hover:via-gray-400 hover:to-gray-600 text-black px-12 py-4 rounded-xl font-bold text-xl shadow-2xl transition-all duration-300"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => router.push('/products/cs2')}
-          >
-            Get Undetected CS2 Hacks
-          </motion.button>
-        </motion.div>
       </div>
     </section>
   );
