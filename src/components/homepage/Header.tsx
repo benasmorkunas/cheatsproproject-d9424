@@ -158,22 +158,22 @@ export default function Header() {
                           <p className="text-gray-400 mb-4">Your cart is empty</p>
                           <Link
                             href="/products/all"
-                            className="inline-block bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-300"
+                            className="inline-block bg-gradient-to-r from-slate-700 via-gray-600 to-slate-700 hover:from-slate-600 hover:via-gray-500 hover:to-slate-600 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-300"
                           >
                             Start Shopping
                           </Link>
                         </div>
                       ) : (
                         <>
-                          <div className="max-h-64 overflow-y-auto space-y-3 mb-4">
+                          <div className="space-y-3 mb-4">
                             {items.map((item) => (
                               <div key={item.product.id} className="flex items-center space-x-3 p-3 bg-black/20 rounded-lg">
-                                <div className="w-12 h-12 bg-black/30 rounded-lg flex items-center justify-center">
+                                <div className={`${item.product.name.toLowerCase().includes('cs2') ? 'w-16 h-16' : 'w-20 h-20'} bg-black/30 rounded-lg flex items-center justify-center`}>
                                   <Image
                                     src={item.product.image || '/images/default-product.png'}
                                     alt={item.product.name}
-                                    width={48}
-                                    height={48}
+                                    width={item.product.name.toLowerCase().includes('cs2') ? 64 : 80}
+                                    height={item.product.name.toLowerCase().includes('cs2') ? 64 : 80}
                                     className="rounded-lg object-cover"
                                   />
                                 </div>
@@ -197,7 +197,7 @@ export default function Header() {
                                   </button>
                                   <button
                                     onClick={() => removeFromCart(item.product.id)}
-                                    className="w-6 h-6 bg-red-600 hover:bg-red-500 text-white rounded flex items-center justify-center transition-colors duration-200 ml-2"
+                                    className="w-6 h-6 bg-gray-600 hover:bg-gray-500 text-white rounded flex items-center justify-center transition-colors duration-200 ml-2"
                                   >
                                     <Trash2 className="w-3 h-3" />
                                   </button>
@@ -215,7 +215,7 @@ export default function Header() {
                             <div className="flex">
                               <Link
                                 href="/cart"
-                                className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white py-2 px-4 rounded-lg font-semibold text-center transition-all duration-300"
+                                className="w-full bg-gradient-to-r from-slate-700 via-gray-600 to-slate-700 hover:from-slate-600 hover:via-gray-500 hover:to-slate-600 text-white py-2 px-4 rounded-lg font-semibold text-center transition-all duration-300"
                               >
                                 Checkout
                               </Link>
