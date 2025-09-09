@@ -73,7 +73,7 @@ export default function FeaturesSection() {
         { icon: <Check className="w-4 h-4" style={{color: '#6B8A7A'}} />, text: 'Perfect CS2 Lineup Spots' },
         { icon: <Check className="w-4 h-4" style={{color: '#6B8A7A'}} />, text: 'One-Way Smoke Helper Tool' }
       ],
-      ctaText: '💣 Get Grenade Helper',
+      ctaText: 'Get Grenade Helper',
       color: 'grenade',
       image: '/features/grenade-demo.jpg'
     }

@@ -100,8 +100,10 @@ export default function BF6ProductsPage() {
                   transition={{ duration: 0.6 }}
                   className="flex-1"
                 >
-                  <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-                    BF6 Premium Tools
+                  <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-300 to-gray-500">
+                      BF6 Premium Tools
+                    </span>
                   </h1>
                   <p className="text-xl text-gray-300 max-w-3xl">
                     Advanced Battlefield 6 enhancements with precision aimbot, ESP wallhack, and professional gaming tools. Dominate every server with confidence.

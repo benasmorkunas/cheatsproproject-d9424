@@ -71,7 +71,7 @@ export default function FloatingParticles({
   if (!isClient) return null;
 
   return (
-    <div className={`absolute -inset-20 -z-35 overflow-visible pointer-events-none ${className}`}>
+    <div className={`absolute inset-0 -z-35 overflow-hidden pointer-events-none ${className}`}>
       {particles.map((particle) => (
         <motion.div
           key={`particle-${particle.id}`}

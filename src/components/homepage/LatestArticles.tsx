@@ -196,74 +196,7 @@ export default function LatestArticles() {
           ))}
         </div>
 
-        {/* View All Button */}
-        <motion.div
-          className="text-center mt-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-        >
-          <motion.button
-            className="text-white px-8 py-4 rounded-xl font-semibold text-lg border border-gray-600 transition-all duration-300"
-            style={{background: 'linear-gradient(to right, #6B6B7A, #5A5A6A)', borderColor: '#6B6B6B'}}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'linear-gradient(to right, #5B5B6A, #4A4A5A)';
-              e.currentTarget.style.borderColor = '#7A7A7A';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = 'linear-gradient(to right, #6B6B7A, #5A5A6A)';
-              e.currentTarget.style.borderColor = '#6B6B6B';
-            }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            View All Guides
-          </motion.button>
-        </motion.div>
 
-        {/* Newsletter Signup */}
-        <motion.div
-          className="mt-20 rounded-2xl p-8 text-center"
-          style={{background: 'linear-gradient(to right, #825D8D20, #6B7A9A20)', border: '1px solid #825D8D30'}}
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="text-2xl font-bold text-white mb-4">
-            Stay Updated with Latest Tips
-          </h3>
-          <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-            Get exclusive gaming guides, cheat updates, and pro tips delivered to your inbox
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 bg-gray-800/50 border border-gray-600 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:outline-none transition-colors duration-300"
-              style={{} as React.CSSProperties}
-              onFocus={(e) => e.currentTarget.style.borderColor = '#825D8D'}
-              onBlur={(e) => e.currentTarget.style.borderColor = '#6b7280'}
-              suppressHydrationWarning
-            />
-            <motion.button
-              className="text-white px-6 py-3 rounded-xl font-semibold whitespace-nowrap transition-all duration-300"
-              style={{background: 'linear-gradient(to right, #825D8D, #6B7A9A)'}}
-              onMouseEnter={(e) => e.currentTarget.style.background = 'linear-gradient(to right, #714D7D, #5A6A8A)'}
-              onMouseLeave={(e) => e.currentTarget.style.background = 'linear-gradient(to right, #825D8D, #6B7A9A)'}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Subscribe
-            </motion.button>
-          </div>
-
-          <p className="text-gray-400 text-sm mt-4">
-            ✓ No spam, unsubscribe anytime
-          </p>
-        </motion.div>
       </div>
     </section>
   );

@@ -107,8 +107,10 @@ export default function AllProductsPage() {
                   transition={{ duration: 0.6 }}
                   className="flex-1"
                 >
-                  <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-                    Premium Gaming Tools
+                  <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-300 to-gray-500">
+                      Premium Gaming Tools
+                    </span>
                   </h1>
                   <p className="text-xl text-gray-300 max-w-3xl">
                     Complete collection of professional gaming enhancements. Advanced aimbot, ESP wallhack, and exclusive features for CS2 and BF6. Trusted by gamers worldwide.

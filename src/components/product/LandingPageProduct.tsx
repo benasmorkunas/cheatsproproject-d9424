@@ -170,8 +170,8 @@ export default function LandingPageProduct({ productGroup, selectedVariant }: La
                     <div className="space-y-4">
                       <div>
                         <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                          <span className="bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
-                            {productGroup.name} {tierType}
+                          <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-300 to-gray-500 uppercase">
+                            {productGroup.name}
                           </span>
                         </h1>
                         <p className="text-xl text-gray-300 leading-relaxed">

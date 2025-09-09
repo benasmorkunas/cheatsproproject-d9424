@@ -226,7 +226,7 @@ export default function PricingSection() {
                       <span className="text-gray-400 line-through text-lg">
                         ${plan.originalPrice}
                       </span>
-                      <span className="text-4xl font-bold" style={{color: customStyle.accent}}>
+                      <span className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-300 to-gray-500">
                         ${plan.price}
                       </span>
                       <span className="text-gray-400">{plan.period}</span>
