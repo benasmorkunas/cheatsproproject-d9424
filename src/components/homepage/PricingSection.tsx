@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Check, Crown, Zap, Star } from 'lucide-react';
 import Link from 'next/link';
+import FloatingParticles from '@/components/common/FloatingParticles';
 
 export default function PricingSection() {
   const [timeLeft, setTimeLeft] = useState({
@@ -119,7 +120,8 @@ export default function PricingSection() {
   };
 
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-20 relative">
+      <FloatingParticles />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}

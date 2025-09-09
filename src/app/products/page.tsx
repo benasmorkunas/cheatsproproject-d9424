@@ -6,7 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Header from '@/components/homepage/Header';
 import Footer from '@/components/homepage/Footer';
-import { ArrowRight, Shield, Users, Star } from 'lucide-react';
+import { ArrowRight, Shield, Users, Star, MessageCircle } from 'lucide-react';
 import { getCategoryStats } from '@/lib/categoryStats';
 import MinimalisticBackground from '@/components/common/MinimalisticBackground';
 
@@ -78,23 +78,48 @@ export default function CategoriesPage() {
       
         <main className="pt-20">
           {/* Hero Section */}
-          <section className="relative py-20 bg-[#0e0e0e] overflow-hidden">
+          <section className="relative pt-20 bg-[#0e0e0e] overflow-hidden">
 
-            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                  <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-green-400 bg-clip-text text-transparent">
-                    CHOOSE YOUR GAME
-                  </span>
-                </h1>
-                <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                  Select your preferred gaming category to explore our premium undetected cheats and enhancement tools
-                </p>
-              </motion.div>
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                  className="flex-1"
+                >
+                  <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                    <span className="bg-gradient-to-r from-gray-400 to-gray-300 bg-clip-text text-transparent">
+                      CHOOSE YOUR GAME
+                    </span>
+                  </h1>
+                  <p className="text-xl text-gray-300 max-w-3xl">
+                    Select your preferred gaming category to explore our premium undetected cheats and enhancement tools
+                  </p>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="lg:max-w-md"
+                >
+                  <div className="bg-gradient-to-r from-gray-800/20 to-slate-800/20 backdrop-blur-sm border border-gray-500/20 rounded-xl p-6 hover:border-gray-400/30 transition-all duration-300">
+                    <div className="flex items-start space-x-3">
+                      <MessageCircle className="w-6 h-6 text-gray-300 mt-1 flex-shrink-0" />
+                      <div>
+                        <h3 className="text-lg font-semibold text-gray-100 mb-2">Need Help Choosing?</h3>
+                        <p className="text-sm text-gray-300 mb-3">
+                          Unable to find the correct plan? Don't hesitate to join our Discord and we will help you choose the perfect package.
+                        </p>
+                        <Link href="https://discord.gg/cheats-pro" className="text-[#5865F2] hover:text-[#4752C4] font-semibold text-sm transition-colors">
+                          Join Discord →
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
             </div>
           </section>
 

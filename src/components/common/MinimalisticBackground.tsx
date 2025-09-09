@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useMemo } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 
 interface MinimalisticBackgroundProps {
   children: React.ReactNode;
@@ -12,6 +12,12 @@ export default function MinimalisticBackground({
   children, 
   className = "" 
 }: MinimalisticBackgroundProps) {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   // Generate consistent random values for server and client
   const smokeData = useMemo(() => {
     const mainDrips = Array.from({ length: 35 }, (_, i) => ({
@@ -45,7 +51,18 @@ export default function MinimalisticBackground({
       endHeight: 35 + Math.abs(Math.sin(i * 2.4)) * 25,
     }));
 
-    return { mainDrips, fineStreams, heavyAreas, bgColumns };
+    // Add floating particles throughout the website - use deterministic values to avoid hydration mismatch
+    const floatingParticles = Array.from({ length: 25 }, (_, i) => ({
+      id: i,
+      left: (Math.sin(i * 2.3) * 0.5 + 0.5) * 100,
+      top: (Math.cos(i * 1.7) * 0.5 + 0.5) * 100,
+      size: 1 + Math.abs(Math.sin(i * 1.1)) * 3,
+      duration: 8 + Math.abs(Math.sin(i * 2.1)) * 12,
+      delay: Math.abs(Math.sin(i * 3.7)) * 10,
+      opacity: 0.1 + Math.abs(Math.sin(i * 1.9)) * 0.3,
+    }));
+
+    return { mainDrips, fineStreams, heavyAreas, bgColumns, floatingParticles };
   }, []);
   return (
     <div className={`relative min-h-screen ${className}`}>
@@ -232,6 +249,38 @@ export default function MinimalisticBackground({
           ))}
         </div>
       </div>
+
+      {/* Floating particles throughout the website */}
+      {isClient && (
+        <div className="absolute inset-0 -z-35 overflow-hidden pointer-events-none">
+          {smokeData.floatingParticles.map((particle) => (
+          <motion.div
+            key={`particle-${particle.id}`}
+            className="absolute rounded-full"
+            style={{
+              left: `${particle.left}%`,
+              top: `${particle.top}%`,
+              width: `${particle.size}px`,
+              height: `${particle.size}px`,
+              background: `radial-gradient(circle, rgba(255,255,255,${particle.opacity}) 0%, rgba(240,240,240,${particle.opacity * 0.7}) 50%, transparent 100%)`,
+            }}
+            animate={{
+              x: [0, Math.sin(particle.id) * 50, 0],
+              y: [0, Math.cos(particle.id) * 30, 0],
+              opacity: [particle.opacity, particle.opacity * 1.5, particle.opacity],
+              scale: [1, 1.3, 1],
+            }}
+            transition={{
+              duration: particle.duration,
+              repeat: Infinity,
+              repeatType: "reverse",
+              ease: "easeInOut",
+              delay: particle.delay,
+            }}
+          />
+        ))}
+        </div>
+      )}
       
       {/* Rainy window blur effect overlay */}
       <div className="absolute inset-0 -z-30 overflow-hidden pointer-events-none">

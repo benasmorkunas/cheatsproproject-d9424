@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
+import FloatingParticles from '@/components/common/FloatingParticles';
 
 export default function TestimonialsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -87,7 +88,8 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-20 relative">
+      <FloatingParticles />
       {/* Background Effects */}
       <div className="absolute inset-0">
         <motion.div
@@ -233,7 +235,7 @@ export default function TestimonialsSection() {
 
         {/* Stats */}
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 pt-16 border-t border-gray-800"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 pt-16 border-t border-gray-800 max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}

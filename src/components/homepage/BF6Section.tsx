@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Shield, Crosshair, Map, Users, Check, ChevronLeft, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import FloatingParticles from '@/components/common/FloatingParticles';
 
 export default function BF6Section() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -73,7 +74,14 @@ export default function BF6Section() {
   ];
 
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-20 relative">
+      <FloatingParticles 
+        count={38}
+        opacity={1}
+        sizeMultiplier={3}
+        speedMultiplier={1}
+        customColors={['#F08A0E', '#FF8C00']}
+      />
       {/* Background Effects */}
       <div className="absolute inset-0">
         <motion.div

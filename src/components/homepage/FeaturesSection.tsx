@@ -6,6 +6,7 @@ import { Eye, Target, Bomb, Check } from 'lucide-react';
 import Image from 'next/image';
 import BeforeAfterSlider from '@/components/common/BeforeAfterSlider';
 import { useRouter } from 'next/navigation';
+import FloatingParticles from '@/components/common/FloatingParticles';
 
 export default function FeaturesSection() {
   const router = useRouter();
@@ -103,7 +104,8 @@ export default function FeaturesSection() {
   };
 
   return (
-    <section className="py-20">
+    <section className="relative py-20">
+      <FloatingParticles />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"

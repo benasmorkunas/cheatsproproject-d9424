@@ -8,8 +8,8 @@ export default function WhyJoinUs() {
     {
       icon: <DollarSign className="w-8 h-8" />,
       title: 'High Commission Rates',
-      description: 'Earn up to 50% commission on all sales with lifetime cookie tracking. The more you promote, the higher your commission tier gets.',
-      gradient: 'from-green-500 to-emerald-500',
+      description: 'Earn up to 50% commission on all sales. The more you promote, the higher your commission tier gets.',
+      gradient: 'from-gray-500 to-slate-500',
       highlight: true
     },
     {
@@ -19,16 +19,10 @@ export default function WhyJoinUs() {
       gradient: 'from-gray-600 to-gray-500'
     },
     {
-      icon: <CreditCard className="w-8 h-8" />,
-      title: 'Reliable Payouts',
-      description: 'Weekly payments via PayPal, cryptocurrency, or bank transfer. No minimum threshold and transparent earnings tracking.',
-      gradient: 'from-gray-700 to-gray-600'
-    },
-    {
       icon: <Headphones className="w-8 h-8" />,
       title: 'Dedicated Support',
       description: 'Personal affiliate manager and 24/7 technical support. Get help with campaigns, optimization, and any questions you have.',
-      gradient: 'from-orange-500 to-red-500'
+      gradient: 'from-gray-600 to-slate-600'
     },
     {
       icon: <TrendingUp className="w-8 h-8" />,
@@ -39,7 +33,7 @@ export default function WhyJoinUs() {
   ];
 
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="pt-64 pb-20 relative overflow-hidden">
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -75,10 +69,10 @@ export default function WhyJoinUs() {
             >
               <div className={`relative ${
                 benefit.highlight 
-                  ? 'bg-gradient-to-br from-green-800/20 to-emerald-800/20 border-green-500/30' 
+                  ? 'bg-gradient-to-br from-gray-800/20 to-slate-800/20 border-gray-500/30' 
                   : 'bg-black/40 border-gray-600/20'
               } backdrop-blur-sm border rounded-2xl p-8 h-full transition-all duration-300 hover:border-gray-500/30 hover:shadow-xl ${
-                benefit.highlight ? 'hover:shadow-green-500/10' : 'hover:shadow-gray-500/10'
+                benefit.highlight ? 'hover:shadow-gray-500/10' : 'hover:shadow-gray-500/10'
               }`}>
                 {/* Icon */}
                 <div className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${benefit.gradient} mb-6 group-hover:scale-110 transition-transform duration-300`}>
@@ -90,7 +84,7 @@ export default function WhyJoinUs() {
                 {/* Content */}
                 <div className="space-y-4">
                   <h3 className={`text-xl font-bold ${
-                    benefit.highlight ? 'text-green-300' : 'text-white'
+                    benefit.highlight ? 'text-gray-200' : 'text-white'
                   } group-hover:text-gray-300 transition-colors duration-300`}>
                     {benefit.title}
                   </h3>
@@ -102,7 +96,7 @@ export default function WhyJoinUs() {
                 {/* Special highlight for commission */}
                 {benefit.highlight && (
                   <div className="absolute top-4 right-4">
-                    <div className="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                    <div className="bg-gray-500 text-white text-xs font-bold px-2 py-1 rounded-full">
                       UP TO 50%
                     </div>
                   </div>
@@ -111,7 +105,7 @@ export default function WhyJoinUs() {
                 {/* Hover Effect Border */}
                 <div className={`absolute inset-0 rounded-2xl ${
                   benefit.highlight
-                    ? 'bg-gradient-to-r from-green-500/0 via-emerald-500/0 to-green-500/0 group-hover:from-green-500/20 group-hover:via-emerald-500/20 group-hover:to-green-500/20'
+                    ? 'bg-gradient-to-r from-gray-500/0 via-slate-500/0 to-gray-500/0 group-hover:from-gray-500/20 group-hover:via-slate-500/20 group-hover:to-gray-500/20'
                     : 'bg-gradient-to-r from-gray-500/0 via-gray-400/0 to-gray-300/0 group-hover:from-gray-500/20 group-hover:via-gray-400/20 group-hover:to-gray-300/20'
                 } transition-all duration-300 pointer-events-none`}></div>
               </div>
@@ -119,39 +113,6 @@ export default function WhyJoinUs() {
           ))}
         </div>
 
-        {/* Commission Tiers Preview */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-16"
-        >
-          <div className="bg-gradient-to-r from-green-800/20 to-emerald-800/20 backdrop-blur-sm border border-green-500/20 rounded-2xl p-8">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-white mb-2">Commission Structure</h3>
-              <p className="text-gray-300">Earn more as you grow your affiliate business</p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-green-400 mb-2">30%</div>
-                <div className="text-white font-semibold mb-1">Starter</div>
-                <div className="text-gray-400 text-sm">0-50 sales/month</div>
-              </div>
-              <div className="text-center border-x border-green-500/20">
-                <div className="text-3xl font-bold text-green-400 mb-2">40%</div>
-                <div className="text-white font-semibold mb-1">Pro</div>
-                <div className="text-gray-400 text-sm">51-100 sales/month</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-green-400 mb-2">50%</div>
-                <div className="text-white font-semibold mb-1">Elite</div>
-                <div className="text-gray-400 text-sm">100+ sales/month</div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
 
         {/* Bottom CTA */}
         <motion.div
@@ -166,8 +127,7 @@ export default function WhyJoinUs() {
               Ready to Start Earning?
             </h3>
             <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-              Join thousands of successful affiliates who are earning premium commissions 
-              promoting the best gaming enhancement tools in the industry.
+              Start earning premium commissions by promoting the best gaming enhancement tools in the industry.
             </p>
             <motion.button
               whileHover={{ scale: 1.05, boxShadow: "0 20px 40px -12px rgba(107, 114, 128, 0.35)" }}

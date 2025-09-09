@@ -17,9 +17,7 @@ export default function WhoWereLookingFor() {
         'Social media influencers with engaged gaming audiences',
         'Content creators (YouTube, TikTok, Instagram)',
         'Gaming community managers and moderators',
-        'Bloggers and website owners in gaming niche',
-        'Email marketing experience preferred',
-        'Understanding of conversion optimization'
+        'Bloggers and website owners in gaming niche'
       ]
     },
     {
@@ -37,24 +35,10 @@ export default function WhoWereLookingFor() {
       ]
     },
     {
-      icon: <Gamepad2 className="w-8 h-8" />,
-      title: 'Gaming Knowledge',
-      subtitle: 'Deep understanding of gaming culture',
-      gradient: 'from-green-500 to-emerald-500',
-      details: [
-        'Understanding of FPS games and competitive gaming',
-        'Knowledge of gaming enhancement tools and their benefits',
-        'Familiarity with streaming and content creation',
-        'Active participation in gaming communities',
-        'Understanding of esports and competitive scenes',
-        'Experience with gaming hardware and software'
-      ]
-    },
-    {
       icon: <Shield className="w-8 h-8" />,
       title: 'Professional Approach',
       subtitle: 'Ethical and quality-focused promotion',
-      gradient: 'from-orange-500 to-red-500',
+      gradient: 'from-gray-600 to-slate-600',
       details: [
         'Reliable and committed to partnership agreements',
         'Ethical promotion practices and honest reviews',
@@ -168,49 +152,7 @@ export default function WhoWereLookingFor() {
           ))}
         </div>
 
-        {/* Minimum Requirements */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-12"
-        >
-          <div className="bg-gradient-to-r from-green-800/20 to-emerald-800/20 backdrop-blur-sm border border-green-500/20 rounded-2xl p-6">
-            <h3 className="text-xl font-bold text-green-400 mb-4 text-center">No Minimum Requirements</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
-              <div>
-                <div className="text-2xl font-bold text-white mb-1">0</div>
-                <div className="text-gray-300 text-sm">Minimum Followers</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-white mb-1">0</div>
-                <div className="text-gray-300 text-sm">Minimum Traffic</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-white mb-1">0</div>
-                <div className="text-gray-300 text-sm">Upfront Costs</div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
 
-        {/* Bottom Message */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.7 }}
-          className="text-center mt-12"
-        >
-          <div className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-2xl p-6">
-            <p className="text-lg text-gray-300">
-              <span className="text-gray-400 font-semibold">New to affiliate marketing?</span> 
-              {' '}No problem! We provide comprehensive training, marketing materials, 
-              and ongoing support to help you succeed. Quality and passion matter more than experience.
-            </p>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

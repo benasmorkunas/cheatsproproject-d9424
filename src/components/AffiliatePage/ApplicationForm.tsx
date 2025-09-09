@@ -466,7 +466,7 @@ export default function ApplicationForm() {
               <div key={step.number} className="flex items-center">
                 <div className={`flex items-center justify-center w-12 h-12 rounded-full border-2 transition-all duration-300 ${
                   currentStep > step.number
-                    ? 'bg-green-500 border-green-500 text-white'
+                    ? 'bg-gray-500 border-gray-500 text-white'
                     : currentStep === step.number
                     ? 'bg-gray-600 border-gray-500 text-white'
                     : 'border-gray-600 text-gray-400'
@@ -544,7 +544,7 @@ export default function ApplicationForm() {
                 whileTap={{ scale: 0.95 }}
                 onClick={handleSubmit}
                 disabled={isSubmitting}
-                className="flex items-center space-x-2 px-8 py-3 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white rounded-lg font-medium disabled:opacity-50 transition-all duration-300"
+                className="flex items-center space-x-2 px-8 py-3 bg-gradient-to-r from-gray-600 to-slate-600 hover:from-gray-700 hover:to-slate-700 text-white rounded-lg font-medium disabled:opacity-50 transition-all duration-300"
               >
                 {isSubmitting ? (
                   <>

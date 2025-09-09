@@ -2,12 +2,14 @@
 
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
+import FloatingParticles from '@/components/common/FloatingParticles';
 
 export default function CS2CTASection() {
   const router = useRouter();
 
   return (
-    <section className="py-20">
+    <section className="relative py-20">
+      <FloatingParticles />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Call to Action Section */}
         <motion.div

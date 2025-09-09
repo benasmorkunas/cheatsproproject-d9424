@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion';
 import { Calendar, Clock, ArrowRight, TrendingUp } from 'lucide-react';
 import Link from 'next/link';
+import FloatingParticles from '@/components/common/FloatingParticles';
+import Image from 'next/image';
 
 export default function LatestArticles() {
   const articles = [
@@ -10,7 +12,7 @@ export default function LatestArticles() {
       id: 1,
       title: 'Best Legit CS2 Hacks for Ranked Play in 2025',
       excerpt: 'Discover the most effective legit CS2 cheats with detailed comparisons, detection risk analysis, and undetected private builds for competitive play.',
-      image: '🎯',
+      image: '/images/cs2-pro.webp',
       category: 'CS2 Guide',
       readTime: '12 min read',
       date: 'Jan 15, 2025',
@@ -19,19 +21,31 @@ export default function LatestArticles() {
     },
     {
       id: 2,
-      title: 'BF6 ESP Guide: Complete Setup and Configuration',
-      excerpt: 'Learn how to configure Battlefield 6 ESP for maximum tactical advantage across all game modes and maps.',
-      image: '🚁',
-      category: 'BF6 Tutorial',
-      readTime: '7 min read',
-      date: 'Dec 12, 2024',
+      title: 'Best CS2 Cheats That Actually Work in 2025',
+      excerpt: 'Discover the most effective working CS2 cheats with detailed safety analysis, private builds comparison, and undetected performance reviews.',
+      image: '/images/cs2-lite.webp',
+      category: 'CS2 Guide',
+      readTime: '8 min read',
+      date: 'Jan 16, 2025',
       trending: false,
-      slug: 'bf6-esp-complete-guide'
+      slug: 'best-cs2-cheats-that-work-2025'
+    },
+    {
+      id: 3,
+      title: 'How CS2 Updates in 2025 Are Changing the Game for Private Cheats',
+      excerpt: 'Discover how frequent CS2 updates in 2025 are affecting private cheats. Learn about protection features, real-time adaptations, and staying ahead of detection.',
+      image: '/images/cs2-plus.webp',
+      category: 'CS2 Updates',
+      readTime: '10 min read',
+      date: 'Jan 17, 2025',
+      trending: true,
+      slug: 'cs2-updates-2025-changing-private-cheats'
     }
   ];
 
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-20 relative">
+      <FloatingParticles />
       {/* Background Effects */}
       <div className="absolute inset-0">
         <motion.div
@@ -60,16 +74,16 @@ export default function LatestArticles() {
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-300 to-gray-500">
-              LATEST GUIDES
+              LATEST ARTICLES
             </span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Stay ahead of the game with our expert tutorials and insider tips
+            Stay informed with our latest insights, reviews, and expert analysis
           </p>
         </motion.div>
 
         {/* Articles Grid */}
-        <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {articles.map((article, index) => (
             <Link key={article.id} href={`/guides/${article.slug}`}>
               <motion.article
@@ -91,13 +105,23 @@ export default function LatestArticles() {
                   e.currentTarget.style.boxShadow = '';
                 }}>
                 {/* Image/Thumbnail */}
-                <div className="relative aspect-video flex items-center justify-center overflow-hidden" style={{background: 'linear-gradient(to bottom right, #825D8D20, #6B7A9A20)'}}>
+                <div className="relative aspect-video overflow-hidden" style={{background: 'linear-gradient(to bottom right, #825D8D20, #6B7A9A20)'}}>
                   <motion.div
-                    className="text-6xl"
-                    whileHover={{ scale: 1.2, rotate: 10 }}
+                    className="relative w-full h-full"
+                    whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.3 }}
                   >
-                    {article.image}
+                    <Image
+                      src={article.image}
+                      alt={article.title}
+                      fill
+                      className="object-cover"
+                      style={{ 
+                        transform: 'scale(1)', 
+                        filter: 'brightness(0.8)',
+                        objectPosition: 'center 45%'
+                      }}
+                    />
                   </motion.div>
 
                   {/* Overlay */}

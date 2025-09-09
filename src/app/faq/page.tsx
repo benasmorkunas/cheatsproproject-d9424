@@ -149,24 +149,20 @@ export default function FAQPage() {
 
 
             <motion.div 
-              className="flex justify-center items-center space-x-8 text-sm text-gray-400 mb-12"
+              className="flex justify-center items-center mb-12"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <div className="flex items-center space-x-2">
-                <HelpCircle className="w-4 h-4 text-gray-400" />
-                <span>{totalQuestions} Questions</span>
-              </div>
-              <span>•</span>
-              <div className="flex items-center space-x-2">
-                <Calendar className="w-4 h-4 text-gray-400" />
-                <span>Updated Daily</span>
-              </div>
-              <span>•</span>
-              <div className="flex items-center space-x-2">
-                <Zap className="w-4 h-4 text-gray-400" />
-                <span>Instant Answers</span>
+              <div className="bg-gradient-to-r from-gray-800/20 to-slate-800/20 backdrop-blur-sm border border-gray-500/20 rounded-xl p-4 hover:border-gray-400/30 transition-all duration-300">
+                <div className="flex items-center space-x-3 text-sm text-gray-200">
+                  <MessageCircle className="w-5 h-5 text-gray-300" />
+                  <span>Can't find your question? Join our</span>
+                  <Link href="https://discord.gg/cheats-pro" className="text-[#5865F2] hover:text-[#4752C4] font-semibold transition-colors">
+                    Discord server
+                  </Link>
+                  <span>for instant support</span>
+                </div>
               </div>
             </motion.div>
           </div>

@@ -51,14 +51,14 @@ export default function HeroSection() {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative flex items-start justify-center overflow-hidden pt-30">
 
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         {animatedElements.map((element) => (
           <motion.div
             key={element.id}
-            className="absolute w-1 h-1 bg-green-400/40 rounded-full"
+            className="absolute w-1 h-1 bg-gray-400/40 rounded-full"
             animate={{
               x: [0, element.x, 0],
               y: [0, element.y, 0],
@@ -77,7 +77,7 @@ export default function HeroSection() {
         ))}
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-8">
           {/* Main Heading */}
           <motion.div
@@ -118,16 +118,16 @@ export default function HeroSection() {
                 whileHover={{ scale: 1.05 }}
                 className={`${
                   stat.highlight 
-                    ? 'bg-gradient-to-br from-green-800/30 to-emerald-800/30 border-green-500/30' 
+                    ? 'bg-gradient-to-br from-gray-800/30 to-slate-800/30 border-gray-500/30' 
                     : 'bg-black/40 border-gray-600/20'
                 } backdrop-blur-sm border rounded-xl p-4 md:p-6 min-w-[140px] md:min-w-[180px]`}
               >
                 <div className="flex items-center justify-center space-x-2 mb-2">
-                  <div className={`${stat.highlight ? 'text-green-400' : 'text-gray-400'}`}>
+                  <div className={`${stat.highlight ? 'text-gray-300' : 'text-gray-400'}`}>
                     {stat.icon}
                   </div>
                   <div className={`text-lg md:text-xl font-bold ${
-                    stat.highlight ? 'text-green-400' : 'text-white'
+                    stat.highlight ? 'text-gray-200' : 'text-white'
                   }`}>
                     {stat.value}
                   </div>
@@ -139,21 +139,6 @@ export default function HeroSection() {
             ))}
           </motion.div>
 
-          {/* Commission Highlight */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="bg-gradient-to-r from-green-800/20 to-emerald-800/20 backdrop-blur-sm border border-green-500/20 rounded-xl p-6 max-w-2xl mx-auto"
-          >
-            <div className="flex items-center justify-center space-x-3 mb-2">
-              <TrendingUp className="w-6 h-6 text-green-400" />
-              <span className="text-xl font-bold text-green-400">Lifetime Cookies</span>
-            </div>
-            <p className="text-gray-300">
-              Earn recurring commissions from every customer you refer with our lifetime cookie tracking
-            </p>
-          </motion.div>
 
           {/* CTA Button */}
           <motion.div
@@ -181,21 +166,6 @@ export default function HeroSection() {
           </motion.div>
 
 
-          {/* Scroll Indicator */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.2 }}
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-          >
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center"
-            >
-              <div className="w-1 h-3 bg-gray-400 rounded-full mt-2"></div>
-            </motion.div>
-          </motion.div>
         </div>
       </div>
     </section>

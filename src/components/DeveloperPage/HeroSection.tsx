@@ -49,7 +49,7 @@ export default function HeroSection() {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative flex items-start justify-center overflow-hidden pt-30">
 
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -75,7 +75,7 @@ export default function HeroSection() {
         ))}
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-8">
           {/* Main Heading */}
           <motion.div
@@ -99,7 +99,7 @@ export default function HeroSection() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed"
             >
-              Build Undetected Gaming Tools That Dominate Every Match
+              Build Undetected Software That Dominates Every Match
             </motion.p>
           </motion.div>
 
@@ -156,21 +156,6 @@ export default function HeroSection() {
             </motion.button>
           </motion.div>
 
-          {/* Scroll Indicator */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1 }}
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-          >
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center"
-            >
-              <div className="w-1 h-3 bg-gray-400 rounded-full mt-2"></div>
-            </motion.div>
-          </motion.div>
         </div>
       </div>
     </section>

@@ -11,6 +11,8 @@ import { useCart } from '@/contexts/CartContext';
 import Head from 'next/head';
 import MinimalisticBackground from '@/components/common/MinimalisticBackground';
 import { getProductGroupsByGame } from '@/lib/products';
+import { MessageCircle } from 'lucide-react';
+import Link from 'next/link';
 
 export default function CS2ProductsPage() {
   const [filteredProducts, setFilteredProducts] = useState<SimpleProduct[]>([]);
@@ -88,26 +90,47 @@ export default function CS2ProductsPage() {
       <MinimalisticBackground>
         <Header />
         
-        <main className="pt-0">
+        <main className="pt-12">
           {/* Hero Section */}
-          <section className="py-6">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="text-4xl md:text-6xl font-bold text-white mb-6"
-              >
-                CS2 Premium Tools
-              </motion.h1>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto"
-              >
-                Professional Counter-Strike 2 enhancements with advanced aimbot, ESP wallhack, and exclusive features. Trusted by competitive gamers worldwide.
-              </motion.p>
+          <section className="pt-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  className="flex-1"
+                >
+                  <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+                    CS2 Premium Tools
+                  </h1>
+                  <p className="text-xl text-gray-300 max-w-3xl">
+                    Professional Counter-Strike 2 enhancements with advanced aimbot, ESP wallhack, and exclusive features. Trusted by competitive gamers worldwide.
+                  </p>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="lg:max-w-md"
+                >
+                  <div className="bg-gradient-to-r from-gray-800/20 to-slate-800/20 backdrop-blur-sm border border-gray-500/20 rounded-xl p-6 hover:border-gray-400/30 transition-all duration-300">
+                    <div className="flex items-start space-x-3">
+                      <MessageCircle className="w-6 h-6 text-gray-300 mt-1 flex-shrink-0" />
+                      <div>
+                        <h3 className="text-lg font-semibold text-gray-100 mb-2">Need Help Choosing?</h3>
+                        <p className="text-sm text-gray-300 mb-3">
+                          Unable to find the correct plan? Don't hesitate to join our Discord and we will help you choose the perfect package.
+                        </p>
+                        <Link href="https://discord.gg/cheats-pro" className="text-[#5865F2] hover:text-[#4752C4] font-semibold text-sm transition-colors">
+                          Join Discord →
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
             </div>
           </section>
 

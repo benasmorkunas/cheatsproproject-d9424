@@ -12,7 +12,7 @@ export default function WhoWereLookingFor() {
       icon: <Code2 className="w-8 h-8" />,
       title: 'Technical Expertise',
       subtitle: 'Strong foundation in core technologies',
-      gradient: 'from-blue-500 to-cyan-500',
+      gradient: 'from-gray-500 to-slate-500',
       details: [
         'C++ for performance-critical game modifications',
         'Python for automation and scripting',
@@ -26,7 +26,7 @@ export default function WhoWereLookingFor() {
       icon: <Gamepad2 className="w-8 h-8" />,
       title: 'Gaming Passion',
       subtitle: 'Deep understanding of gaming ecosystems',
-      gradient: 'from-green-500 to-emerald-500',
+      gradient: 'from-gray-600 to-slate-600',
       details: [
         'FPS games experience (CS2, PUBG, BF, COD, Valorant, Apex)',
         'Anti-cheat system knowledge (VAC, EAC, BattlEye)',
@@ -40,7 +40,7 @@ export default function WhoWereLookingFor() {
       icon: <Shield className="w-8 h-8" />,
       title: 'Professional Ethics',
       subtitle: 'Commitment to quality and responsibility',
-      gradient: 'from-orange-500 to-red-500',
+      gradient: 'from-gray-700 to-slate-700',
       details: [
         'Reliable and committed to deadlines',
         'Discrete and professional in all interactions',
