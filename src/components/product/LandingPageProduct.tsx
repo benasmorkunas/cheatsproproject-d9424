@@ -51,7 +51,7 @@ export default function LandingPageProduct({ productGroup, selectedVariant }: La
   const [socialProof, setSocialProof] = useState({
     onlineUsers: Math.floor(Math.random() * 500) + 2500,
     recentPurchases: Math.floor(Math.random() * 20) + 45,
-    totalUsers: Math.floor(Math.random() * 10000) + 50000
+    totalUsers: Math.floor(Math.random() * 200) + 800
   });
   
   const { addToCart } = useCart();
@@ -139,10 +139,10 @@ export default function LandingPageProduct({ productGroup, selectedVariant }: La
       <MinimalisticBackground>
         <Header />
         
-        <main className="relative pt-2">
+        <main className="relative -mt-20">
 
             {/* Hero Section */}
-            <section className="py-2">
+            <section className="py-0">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                   {/* Product Showcase */}
@@ -152,10 +152,10 @@ export default function LandingPageProduct({ productGroup, selectedVariant }: La
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8 }}
                   >
-                    {/* Product Image/Demo */}
+                    {/* Product Image/Demo with Title */}
                     <div className="relative">
+                      {/* Image Container */}
                       <div className="aspect-[4/5] bg-transparent rounded-2xl flex items-center justify-center">
-                        
                         <Image
                           src={productGroup.image}
                           alt={`${productGroup.name} Package`}
@@ -164,21 +164,19 @@ export default function LandingPageProduct({ productGroup, selectedVariant }: La
                           priority
                         />
                       </div>
-                    </div>
-
-                    {/* Product Title & Rating */}
-                    <div className="space-y-4">
-                      <div>
-                        <h1 className="text-4xl md:text-5xl font-bold mb-4">
+                      
+                      {/* Product Title */}
+                      <div className="text-center mt-2">
+                        <h1 className="text-4xl md:text-5xl font-bold">
                           <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-300 to-gray-500 uppercase">
                             {productGroup.name}
                           </span>
                         </h1>
-                        <p className="text-xl text-gray-300 leading-relaxed">
-                          {productGroup.baseDescription}
-                        </p>
                       </div>
+                    </div>
 
+                    {/* Rating & Social Proof */}
+                    <div className="space-y-4">
                       {/* Rating & Social Proof */}
                       <div className="flex items-center space-x-6">
                         <div className="flex items-center space-x-2">
@@ -188,7 +186,7 @@ export default function LandingPageProduct({ productGroup, selectedVariant }: La
                             ))}
                           </div>
                           <span className="text-white font-semibold">4.9</span>
-                          <span className="text-gray-400">(2,847 reviews)</span>
+                          <span className="text-gray-400">(100+ reviews)</span>
                         </div>
                         <div className="flex items-center space-x-2">
                           <Users className="w-5 h-5" style={{ color: colors.secondary }} />
@@ -200,7 +198,7 @@ export default function LandingPageProduct({ productGroup, selectedVariant }: La
                     {/* Trust Badges */}
                     <div className="grid grid-cols-3 gap-4">
                       {[
-                        { icon: Shield, label: 'Undetected', desc: '99.8% success rate', color: '#10B981' },
+                        { icon: Shield, label: 'Undetected', desc: 'Safe to use', color: '#10B981' },
                         { icon: Download, label: 'Instant', desc: 'Download ready', color: '#3B82F6' },
                         { icon: Award, label: 'Premium', desc: 'Professional grade', color: colors.secondary }
                       ].map((badge, index) => (
@@ -276,16 +274,9 @@ export default function LandingPageProduct({ productGroup, selectedVariant }: La
                                 >
                                   {/* Popular/Best Value Badge */}
                                   {variant.id.includes('7day') && (
-                                    <div className="absolute -top-2 left-1/2 transform -translate-x-1/2">
+                                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
                                       <div className="text-white px-4 py-1 rounded-full text-xs font-bold" style={{ background: `linear-gradient(to right, ${colors.primary}, ${colors.secondary})` }}>
                                         MOST POPULAR
-                                      </div>
-                                    </div>
-                                  )}
-                                  {variant.id.includes('30day') && savings > 0 && (
-                                    <div className="absolute -top-2 right-4">
-                                      <div className="bg-gradient-to-r from-[#10B981] to-[#059669] text-white px-3 py-1 rounded-full text-xs font-bold">
-                                        SAVE {savings}%
                                       </div>
                                     </div>
                                   )}
@@ -352,64 +343,39 @@ export default function LandingPageProduct({ productGroup, selectedVariant }: La
                         </motion.button>
 
                         {/* Secondary Actions */}
-                        <div className="flex gap-4">
-                          <motion.button
-                            onClick={() => addToCart(currentVariant)}
-                            className="flex-1 bg-black/30 backdrop-blur-lg border border-white/20 hover:border-white/30 text-white py-3 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center space-x-2"
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
-                          >
-                            <ShoppingCart className="w-5 h-5" />
-                            <span>Add to Cart</span>
-                          </motion.button>
-                          
-                          <motion.button
-                            className="p-3 bg-black/30 backdrop-blur-lg border border-white/20 hover:border-white/30 text-gray-300 hover:text-white rounded-xl transition-all duration-300"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                          >
-                            <Heart className="w-5 h-5" />
-                          </motion.button>
-                          
-                          <motion.button
-                            className="p-3 bg-black/30 backdrop-blur-lg border border-white/20 hover:border-white/30 text-gray-300 hover:text-white rounded-xl transition-all duration-300"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                          >
-                            <Share2 className="w-5 h-5" />
-                          </motion.button>
-                        </div>
+                        <motion.button
+                          onClick={() => addToCart(currentVariant)}
+                          className="w-full bg-black/30 backdrop-blur-lg border border-white/20 hover:border-white/30 text-white py-3 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center space-x-2"
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                        >
+                          <ShoppingCart className="w-5 h-5" />
+                          <span>Add to Cart</span>
+                        </motion.button>
 
                         {/* Payment Methods */}
-                        <div className="text-center space-y-3">
+                        <div className="text-center">
                           <div className="text-gray-400 text-sm">Secure payment powered by Stripe</div>
-                          <div className="flex justify-center space-x-4">
-                            {['💳', '🍎', '🅿️', '₿'].map((icon, index) => (
-                              <div key={index} className="w-10 h-10 bg-black/30 backdrop-blur-lg rounded-lg flex items-center justify-center border border-white/20">
-                                <span className="text-lg">{icon}</span>
-                              </div>
-                            ))}
-                          </div>
                         </div>
 
                         {/* Urgency Elements */}
                         <motion.div
-                          className="bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-lg border border-orange-400/30 rounded-xl p-4 shadow-xl"
+                          className="bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-lg border border-orange-400/30 rounded-xl p-2 shadow-xl max-w-xs mx-auto"
                           initial={{ opacity: 0, scale: 0.95 }}
                           animate={{ opacity: 1, scale: 1 }}
                           transition={{ duration: 0.6, delay: 0.6 }}
                         >
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center space-x-3">
-                              <AlertCircle className="w-5 h-5 text-orange-400" />
-                              <div>
-                                <div className="text-white font-semibold text-sm">Limited Time Offer</div>
-                                <div className="text-orange-300 text-xs">47 daily licenses remaining</div>
-                              </div>
-                            </div>
-                            <div className="text-right">
-                              <div className="text-red-400 font-mono font-bold">23:45:12</div>
-                              <div className="text-gray-400 text-xs">expires in</div>
+                          <div className="flex items-center space-x-3">
+                            <AlertCircle className="w-5 h-5 text-orange-400" />
+                            <div>
+                              <div className="text-white font-semibold text-sm">Limited Time Offer</div>
+                              <div className="text-orange-300 text-xs">{(() => {
+                                const today = Math.floor(Date.now() / (1000 * 60 * 60 * 24));
+                                const productOffset = currentVariant.id.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0) % 10; // 0-9 offset based on product ID
+                                const daysSinceStart = (today + productOffset) % 12; // 12-day cycle with product-specific offset
+                                const licenses = Math.max(15, 50 - (daysSinceStart * 3));
+                                return licenses === 15 ? 50 : licenses;
+                              })()} licenses remaining</div>
                             </div>
                           </div>
                         </motion.div>
@@ -421,7 +387,7 @@ export default function LandingPageProduct({ productGroup, selectedVariant }: La
             </section>
 
             {/* Interactive Features Section */}
-            <section className="py-16 border-t border-gray-800/50">
+            <section className="py-16">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <InteractiveFeatures productId={currentVariant.id} />
               </div>

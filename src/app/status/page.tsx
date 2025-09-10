@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Shield, CheckCircle, AlertTriangle, Clock, Activity, Server, ShoppingCart } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import Header from '@/components/homepage/Header';
 import { formatPrice } from '@/lib/utils';
 import MinimalisticBackground from '@/components/common/MinimalisticBackground';
@@ -256,14 +257,16 @@ export default function StatusPage() {
                     </div>
                     
                     {/* Purchase Button */}
-                    <motion.button
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="w-full bg-gradient-to-r from-gray-600 to-gray-500 hover:from-gray-700 hover:to-gray-600 text-white px-4 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2"
-                    >
-                      <ShoppingCart className="w-4 h-4" />
-                      <span>Purchase Now</span>
-                    </motion.button>
+                    <Link href={`/products/${cheat.id}`} className="block w-full">
+                      <motion.button
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="w-full bg-gradient-to-r from-gray-600 to-gray-500 hover:from-gray-700 hover:to-gray-600 text-white px-4 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2"
+                      >
+                        <ShoppingCart className="w-4 h-4" />
+                        <span>Purchase Now</span>
+                      </motion.button>
+                    </Link>
                   </div>
                 </div>
               </motion.div>

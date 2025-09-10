@@ -309,7 +309,7 @@ export default function EnhancedProductPage({ productGroup, selectedVariant }: E
                 {/* Trust Badges */}
                 <div className="grid grid-cols-3 gap-4">
                   {[
-                    { icon: Shield, label: 'Undetected', desc: '99.8% success rate', color: 'text-green-400' },
+                    { icon: Shield, label: 'Undetected', desc: 'Safe to use', color: 'text-green-400' },
                     { icon: Clock, label: 'Instant', desc: 'Download ready', color: 'text-blue-400' },
                     { icon: Award, label: 'Premium', desc: 'Professional grade', color: 'text-gray-400' }
                   ].map((badge, index) => (
@@ -447,17 +447,17 @@ export default function EnhancedProductPage({ productGroup, selectedVariant }: E
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: 0.6 }}
                 >
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-3">
-                      <AlertCircle className="w-5 h-5 text-orange-400" />
-                      <div>
-                        <div className="text-white font-semibold text-sm">Limited Time Offer</div>
-                        <div className="text-orange-300 text-xs">47 daily licenses remaining</div>
-                      </div>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-red-400 font-mono font-bold">23:45:12</div>
-                      <div className="text-gray-400 text-xs">expires in</div>
+                  <div className="flex items-center space-x-3">
+                    <AlertCircle className="w-5 h-5 text-orange-400" />
+                    <div>
+                      <div className="text-white font-semibold text-sm">Limited Time Offer</div>
+                      <div className="text-orange-300 text-xs">{(() => {
+                        const today = Math.floor(Date.now() / (1000 * 60 * 60 * 24));
+                        const productOffset = currentVariant.id.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0) % 10; // 0-9 offset based on product ID
+                        const daysSinceStart = (today + productOffset) % 12; // 12-day cycle with product-specific offset
+                        const licenses = Math.max(15, 50 - (daysSinceStart * 3));
+                        return licenses === 15 ? 50 : licenses;
+                      })()} licenses remaining</div>
                     </div>
                   </div>
                 </motion.div>
