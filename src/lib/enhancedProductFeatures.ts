@@ -27,7 +27,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
       id: 'aimbot',
       name: 'Advanced Aimbot System',
       icon: '🎯',
-      description: 'Professional-grade targeting with AI-powered precision',
+      description: 'Professional CS2 aimbot with human-like precision, anti-detection smoothing & teammate protection',
       tierRequired: 'plus',
       features: [
         {
@@ -36,7 +36,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Teammate Targeting Control',
           description: 'Smart detection to prevent friendly fire incidents',
           category: 'Safety',
-          details: ['Toggle teammate targeting', 'Prevents accidents', 'Smart recognition'],
+          details: ['Advanced CS2 aimbot teammate protection system automatically detects friendly players to prevent accidental team kills using smart recognition algorithms. This undetected Counter-Strike 2 cheat ensures your CS2 hack maintains tactical advantage while avoiding suspicious friendly fire incidents in competitive gameplay.'],
           tier: 'plus'
         },
         {
@@ -45,7 +45,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Visibility-Only Aiming',
           description: 'Only targets visible enemies for natural gameplay',
           category: 'Smart Targeting',
-          details: ['Reduces suspicious behavior', 'Natural patterns', 'Line of sight detection'],
+          details: ['Professional CS2 aimbot with visibility-only targeting creates natural gameplay patterns by only activating when enemies are actually visible using advanced line of sight detection. This premium Counter-Strike 2 cheat mimics human reaction patterns, making your CS2 hack completely undetected by VAC and other anti-cheat systems.'],
           tier: 'plus',
           highlight: true
         },
@@ -55,7 +55,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Human-Like Smoothing',
           description: 'Advanced smoothing algorithms mimic natural mouse movement',
           category: 'Anti-Detection',
-          details: ['Multiple smoothness levels', 'Anti-cheat evasion', 'Customizable curves'],
+          details: ['Elite CS2 aimbot smoothing technology uses advanced algorithms to mimic natural human mouse movement patterns with multiple smoothness levels and customizable curves. This undetected Counter-Strike 2 cheat ensures your CS2 hack remains completely invisible to VAC while maintaining deadly accuracy in competitive matches.'],
           tier: 'plus',
           premium: true
         },
@@ -65,7 +65,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Precision FOV Control',
           description: 'Adjustable field of view for perfect targeting accuracy',
           category: 'Customization',
-          details: ['Custom FOV radius', 'Pixel-perfect targeting', 'Dynamic adjustment'],
+          details: ['Advanced CS2 aimbot FOV control system with customizable radius settings allows precise targeting accuracy and pixel-perfect crosshair placement for maximum competitive advantage. This professional Counter-Strike 2 cheat features dynamic field of view adjustment technology that ensures your CS2 hack remains undetected while delivering tactical supremacy in competitive gameplay.'],
           tier: 'plus'
         }
       ]
@@ -74,7 +74,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
       id: 'triggerbot',
       name: 'Smart Triggerbot',
       icon: '⚡',
-      description: 'Intelligent auto-firing with human reaction delays',
+      description: 'Intelligent auto-firing system with customizable delays and advanced reaction timing control',
       tierRequired: 'plus',
       features: [
         {
@@ -83,7 +83,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Custom Hotkey System',
           description: 'Bind activation to any key combination',
           category: 'Controls',
-          details: ['Any key binding', 'Toggle or hold modes', 'Multiple hotkeys'],
+          details: ['Professional CS2 triggerbot hotkey system supports unlimited custom key bindings with flexible toggle and hold mode activation options for ultimate gaming control. This undetected Counter-Strike 2 cheat allows multiple hotkey configurations, ensuring your CS2 hack provides seamless activation without interfering with competitive gameplay performance and anti-cheat detection.'],
           tier: 'plus'
         },
         {
@@ -92,7 +92,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Human Reaction Delay',
           description: 'Adjustable delay mimics real human reaction time',
           category: 'Realism',
-          details: ['1-500ms range', 'Randomization', 'Realistic timing'],
+          details: ['Elite CS2 triggerbot human reaction delay system features customizable 1-500ms timing range with advanced randomization algorithms that perfectly mimic natural human response patterns. This undetected Counter-Strike 2 cheat ensures your CS2 hack maintains realistic shooting timing, providing tactical advantage while remaining completely invisible to VAC and competitive anti-cheat systems.'],
           tier: 'plus',
           highlight: true
         }
@@ -102,7 +102,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
       id: 'visuals',
       name: 'Premium Visual Suite',
       icon: '👁️',
-      description: 'Complete enemy detection and information system',
+      description: 'Complete CS2 ESP wallhack system with enemy detection, health bars & tactical information display',
       tierRequired: 'lite',
       features: [
         {
@@ -111,7 +111,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Multi-Style ESP Boxes',
           description: 'Various box styles for enemy highlighting',
           category: 'ESP',
-          details: ['Standard boxes', 'Filled boxes', 'Gradient boxes', 'Custom colors'],
+          details: ['Premium CS2 ESP wallhack system featuring multiple visual box styles including standard outlines, filled boxes, and gradient-filled options with custom color selection for crystal-clear enemy visualization. This undetected Counter-Strike 2 cheat helps you track enemy positions and movement patterns through walls, providing maximum competitive advantage and superior map awareness.'],
           tier: 'all'
         },
         {
@@ -120,7 +120,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Skeleton ESP',
           description: 'Bone structure visualization through walls',
           category: 'ESP',
-          details: ['Full skeleton display', 'Pose detection', 'Color customization'],
+          details: ['Advanced CS2 ESP wallhack skeleton system displays complete enemy bone structure through walls with intelligent pose detection and full color customization options for crystal-clear enemy visualization. This premium Counter-Strike 2 cheat provides undetected skeleton tracking that helps you monitor enemy movement patterns and positioning, giving you maximum tactical advantage in competitive matches.'],
           tier: 'all'
         },
         {
@@ -129,7 +129,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Head Dot Markers',
           description: 'Precise head position indicators for targeting',
           category: 'Targeting',
-          details: ['Headshot assistance', 'Size adjustment', 'Color options'],
+          details: ['Professional CS2 ESP wallhack head dot targeting system provides precise headshot assistance with fully adjustable size and color customization for optimal enemy head position visualization. This undetected Counter-Strike 2 cheat enhances your CS2 hack accuracy by highlighting exact head locations through walls, ensuring perfect headshot placement and competitive dominance.'],
           tier: 'all'
         },
         {
@@ -138,7 +138,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Player Name Display',
           description: 'Show enemy usernames and team colors',
           category: 'Information',
-          details: ['Username display', 'Team identification', 'Distance info'],
+          details: ['Premium CS2 ESP wallhack player name display system shows enemy usernames with intelligent team identification colors and real-time distance calculation for complete battlefield awareness. This undetected Counter-Strike 2 cheat provides essential tactical information through your CS2 hack, helping you identify threats and coordinate strategic gameplay in competitive matches.'],
           tier: 'all'
         },
         {
@@ -147,7 +147,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Dynamic Health Bars',
           description: 'Real-time health visualization in multiple formats',
           category: 'Health Info',
-          details: ['Normal bars', 'Dynamic bars', 'Numerical display', 'Color coding'],
+          details: ['Advanced CS2 ESP wallhack health bar system features multiple display modes including normal bars, dynamic bars, numerical display, and intelligent color coding for instant enemy health assessment. This professional Counter-Strike 2 cheat provides real-time health visualization through your CS2 hack, enabling tactical decision-making and strategic advantage in competitive gameplay scenarios.'],
           tier: 'all',
           highlight: true
         },
@@ -157,7 +157,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Status Flag System',
           description: 'Real-time player status and activity indicators',
           category: 'Status',
-          details: ['Money indicator', 'Defusing status', 'Immunity flags', 'Flash indicators'],
+          details: ['Elite CS2 ESP wallhack status flag system displays critical player information including money indicators, defusing status, immunity flags, and flash indicators for complete battlefield intelligence. This undetected Counter-Strike 2 cheat provides comprehensive tactical awareness through your CS2 hack, ensuring you have all necessary information for strategic decision-making and competitive dominance.'],
           tier: 'all'
         },
         {
@@ -166,7 +166,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Weapon & Distance Info',
           description: 'Complete weapon and positioning data',
           category: 'Intel',
-          details: ['Current weapon', 'Distance calculation', 'Spotted ESP', 'Movement tracking'],
+          details: ['Professional CS2 ESP wallhack weapon and distance system displays current enemy weapons with precise distance calculations, spotted ESP indicators, and advanced movement tracking capabilities. This premium Counter-Strike 2 cheat provides complete enemy intelligence through your CS2 hack, helping you assess threats and plan tactical approaches for maximum competitive advantage.'],
           tier: 'all'
         }
       ]
@@ -175,7 +175,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
       id: 'grenades',
       name: 'Grenade Helper Pro',
       icon: '💣',
-      description: 'Professional grenade trajectory assistance',
+      description: 'Advanced trajectory assistance for perfect smoke lineups and tactical grenade placement',
       tierRequired: 'pro',
       features: [
         {
@@ -184,7 +184,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Smart Trajectory Lines',
           description: 'Perfect smoke and flash trajectories every time',
           category: 'Trajectories',
-          details: ['Landing predictions', 'Arc visualization', 'Bounce calculations'],
+          details: ['Advanced CS2 grenade helper trajectory system features precise landing predictions with visual arc display and intelligent bounce calculations for perfect smoke and flash lineups every time. This professional Counter-Strike 2 cheat provides undetected trajectory assistance through your CS2 hack, ensuring tactical grenade placement and strategic advantage in competitive gameplay scenarios.'],
           tier: 'pro',
           premium: true
         },
@@ -194,7 +194,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Custom Lineup System',
           description: 'Record and save your personal grenade lineups',
           category: 'Custom Setup',
-          details: ['Personal database', 'Quick access', 'Map-specific lineups'],
+          details: ['Elite CS2 grenade helper custom lineup system allows you to record and save personal grenade trajectories in a comprehensive database with quick access and map-specific organization. This premium Counter-Strike 2 cheat stores your favorite lineups through your CS2 hack, providing instant access to proven smoke and flash strategies for competitive dominance.'],
           tier: 'pro',
           premium: true
         }
@@ -204,7 +204,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
       id: 'security',
       name: 'Professional Security',
       icon: '🛡️',
-      description: 'Elite anti-detection and streaming protection',
+      description: 'Elite anti-detection technology with stream-proof mode and secure cloud configuration sync',
       tierRequired: 'pro',
       features: [
         {
@@ -213,7 +213,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Full Stream Protection',
           description: 'Completely undetectable during streaming',
           category: 'Streaming',
-          details: ['OBS compatibility', 'Screen capture protection', 'Zero visibility'],
+          details: ['Professional CS2 hack stream protection system ensures complete invisibility during live streaming with full OBS compatibility and advanced screen capture protection technology. This elite Counter-Strike 2 cheat provides zero-visibility streaming mode for your CS2 hack, allowing content creators to maintain their reputation while enjoying undetected competitive advantages.'],
           tier: 'pro',
           premium: true,
           highlight: true
@@ -224,7 +224,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Cloud Configuration',
           description: 'Secure cloud-based settings storage',
           category: 'Configuration',
-          details: ['Cross-device sync', 'Automatic backups', 'Secure encryption'],
+          details: ['Advanced CS2 hack cloud configuration system provides secure cross-device synchronization with automatic backups and military-grade encryption for your settings and profiles. This professional Counter-Strike 2 cheat ensures your CS2 hack configurations are safely stored and accessible from any device, maintaining consistency and security across all gaming setups.'],
           tier: 'all'
         }
       ]
@@ -237,7 +237,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
       id: 'aimbot',
       name: 'Advanced Aimbot System',
       icon: '🎯',
-      description: 'Professional targeting assistance with smart controls',
+      description: 'Professional CS2 aimbot with human-like precision, anti-detection smoothing & teammate protection',
       tierRequired: 'plus',
       features: [
         {
@@ -246,7 +246,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Teammate Targeting Control',
           description: 'Smart detection to prevent friendly fire incidents',
           category: 'Safety',
-          details: ['Toggle teammate targeting', 'Prevents accidents'],
+          details: ['Advanced CS2 aimbot teammate protection system automatically detects friendly players to prevent accidental team kills using smart recognition algorithms. This undetected Counter-Strike 2 cheat ensures your CS2 hack maintains tactical advantage while avoiding suspicious friendly fire incidents in competitive gameplay.'],
           tier: 'plus'
         },
         {
@@ -255,7 +255,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Visibility-Only Aiming',
           description: 'Only targets visible enemies for natural gameplay',
           category: 'Smart Targeting',
-          details: ['Reduces suspicious behavior', 'Natural patterns'],
+          details: ['Professional CS2 aimbot with visibility-only targeting creates natural gameplay patterns by only activating when enemies are actually visible using advanced line of sight detection. This premium Counter-Strike 2 cheat mimics human reaction patterns, making your CS2 hack completely undetected by VAC and other anti-cheat systems.'],
           tier: 'plus'
         },
         {
@@ -264,7 +264,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Human-Like Smoothing',
           description: 'Advanced smoothing algorithms mimic natural movement',
           category: 'Anti-Detection',
-          details: ['Multiple smoothness levels', 'Anti-cheat evasion'],
+          details: ['Elite CS2 aimbot smoothing technology uses advanced algorithms to mimic natural human mouse movement patterns with multiple smoothness levels and customizable curves. This undetected Counter-Strike 2 cheat ensures your CS2 hack remains completely invisible to VAC while maintaining deadly accuracy in competitive matches.'],
           tier: 'plus'
         },
         {
@@ -273,7 +273,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Precision FOV Control',
           description: 'Adjustable field of view for targeting accuracy',
           category: 'Customization',
-          details: ['Custom FOV radius', 'Pixel-perfect targeting'],
+          details: ['Advanced CS2 aimbot FOV control system with customizable radius settings allows precise targeting accuracy and pixel-perfect crosshair placement for maximum competitive advantage. This professional Counter-Strike 2 cheat features dynamic field of view adjustment technology that ensures your CS2 hack remains undetected while delivering tactical supremacy.'],
           tier: 'plus'
         }
       ]
@@ -291,7 +291,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Custom Hotkey System',
           description: 'Bind activation to any key combination',
           category: 'Controls',
-          details: ['Any key binding', 'Toggle or hold modes'],
+          details: ['Professional CS2 triggerbot hotkey system supports unlimited custom key bindings with flexible toggle and hold mode activation options for ultimate gaming control. This undetected Counter-Strike 2 cheat allows multiple hotkey configurations, ensuring your CS2 hack provides seamless activation without interfering with competitive gameplay performance.'],
           tier: 'plus'
         },
         {
@@ -300,7 +300,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Human Reaction Delay',
           description: 'Adjustable delay mimics human reaction time',
           category: 'Realism',
-          details: ['1-500ms range', 'Randomization'],
+          details: ['Elite CS2 triggerbot human reaction delay system features customizable 1-500ms timing range with advanced randomization algorithms that perfectly mimic natural human response patterns. This undetected Counter-Strike 2 cheat ensures your CS2 hack maintains realistic shooting timing, providing tactical advantage while remaining invisible to anti-cheat systems.'],
           tier: 'plus'
         }
       ]
@@ -309,7 +309,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
       id: 'visuals',
       name: 'Premium Visual Suite',
       icon: '👁️',
-      description: 'Complete enemy detection system',
+      description: 'Complete CS2 ESP wallhack system with enemy detection, health bars & tactical information display',
       tierRequired: 'lite',
       features: [
         {
@@ -318,7 +318,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Multi-Style ESP Boxes',
           description: 'Various box styles for enemy highlighting',
           category: 'ESP',
-          details: ['Standard boxes', 'Filled boxes', 'Gradient boxes'],
+          details: ['Premium CS2 ESP wallhack system featuring multiple visual box styles including standard outlines, filled boxes, and gradient-filled options with custom color selection for crystal-clear enemy visualization. This undetected Counter-Strike 2 cheat helps you track enemy positions and movement patterns through walls, providing maximum competitive advantage and superior map awareness.'],
           tier: 'all'
         },
         {
@@ -327,7 +327,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Skeleton ESP',
           description: 'Bone structure visualization',
           category: 'ESP',
-          details: ['Full skeleton display', 'Color customization'],
+          details: ['Advanced CS2 ESP wallhack skeleton system displays complete enemy bone structure through walls with intelligent pose detection and full color customization options for crystal-clear enemy visualization. This premium Counter-Strike 2 cheat provides undetected skeleton tracking that helps you monitor enemy movement patterns and positioning for tactical advantage.'],
           tier: 'all'
         },
         {
@@ -336,7 +336,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Head Dot Markers',
           description: 'Precise head position indicators',
           category: 'Targeting',
-          details: ['Headshot assistance', 'Size adjustment'],
+          details: ['Professional CS2 ESP wallhack head dot targeting system provides precise headshot assistance with fully adjustable size and color customization for optimal enemy head position visualization. This undetected Counter-Strike 2 cheat enhances your CS2 hack accuracy by highlighting exact head locations through walls, ensuring perfect headshot placement and competitive dominance.'],
           tier: 'all'
         },
         {
@@ -345,7 +345,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Player Name Display',
           description: 'Show enemy usernames and info',
           category: 'Information',
-          details: ['Username display', 'Team colors'],
+          details: ['Premium CS2 ESP wallhack player name display system shows enemy usernames with intelligent team identification colors and real-time distance calculation for complete battlefield awareness. This undetected Counter-Strike 2 cheat provides essential tactical information through your CS2 hack, helping you identify threats and coordinate strategic gameplay in competitive matches.'],
           tier: 'all'
         },
         {
@@ -354,7 +354,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Dynamic Health Bars',
           description: 'Real-time health visualization',
           category: 'Health Info',
-          details: ['Multiple formats', 'Color coding'],
+          details: ['Advanced CS2 ESP wallhack health bar system features multiple display modes including normal bars, dynamic bars, numerical display, and intelligent color coding for instant enemy health assessment. This professional Counter-Strike 2 cheat provides real-time health visualization through your CS2 hack, enabling tactical decision-making and strategic advantage in competitive gameplay.'],
           tier: 'all'
         },
         {
@@ -363,7 +363,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Status Flag System',
           description: 'Player status indicators',
           category: 'Status',
-          details: ['Money, defusing, immunity, flash status'],
+          details: ['Elite CS2 ESP wallhack status flag system displays critical player information including money indicators, defusing status, immunity flags, and flash indicators for complete battlefield intelligence. This undetected Counter-Strike 2 cheat provides comprehensive tactical awareness through your CS2 hack, ensuring you have all necessary information for strategic decision-making and competitive dominance.'],
           tier: 'all'
         },
         {
@@ -372,7 +372,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Weapon & Distance Info',
           description: 'Weapon and positioning data',
           category: 'Intel',
-          details: ['Weapon display', 'Distance info', 'Movement tracking'],
+          details: ['Professional CS2 ESP wallhack weapon and distance system displays current enemy weapons with precise distance calculations, spotted ESP indicators, and advanced movement tracking capabilities. This premium Counter-Strike 2 cheat provides complete enemy intelligence through your CS2 hack, helping you assess threats and plan tactical approaches for maximum competitive advantage.'],
           tier: 'all'
         }
       ]
@@ -381,7 +381,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
       id: 'config',
       name: 'Configuration System',
       icon: '⚙️',
-      description: 'Advanced settings management',
+      description: 'Elite anti-detection technology with stream-proof mode and secure cloud configuration sync',
       tierRequired: 'lite',
       features: [
         {
@@ -390,7 +390,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Save Configuration',
           description: 'Store your perfect settings',
           category: 'Settings',
-          details: ['Multiple profiles', 'Quick switching'],
+          details: ['Advanced CS2 hack configuration management system allows multiple profile creation with instant switching capabilities for different game modes and competitive scenarios. This professional Counter-Strike 2 cheat provides seamless configuration control for your CS2 hack, ensuring optimal settings adaptation for various gameplay situations and tactical requirements.'],
           tier: 'all'
         },
         {
@@ -399,7 +399,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Cloud Storage',
           description: 'Access configs from any device',
           category: 'Cloud Features',
-          details: ['Cross-device sync', 'Automatic backups'],
+          details: ['Premium CS2 hack cloud storage system provides secure cross-device synchronization with automatic backup functionality for your settings and profiles across all gaming devices. This undetected Counter-Strike 2 cheat ensures your CS2 hack configurations remain consistent and accessible, maintaining optimal performance and tactical advantage regardless of your gaming setup.'],
           tier: 'all'
         }
       ]
@@ -412,7 +412,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
       id: 'visuals',
       name: 'Essential Visual Suite',
       icon: '👁️',
-      description: 'Core enemy detection features',
+      description: 'Complete CS2 ESP wallhack system with enemy detection, health bars & tactical information display',
       tierRequired: 'lite',
       features: [
         {
@@ -421,7 +421,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Multi-Style ESP Boxes',
           description: 'Various box styles for enemy highlighting',
           category: 'ESP',
-          details: ['Standard boxes', 'Filled boxes', 'Gradient boxes'],
+          details: ['Essential CS2 ESP wallhack system featuring multiple visual box styles including standard outlines, filled boxes, and gradient-filled options for clear enemy detection and visualization. This undetected Counter-Strike 2 cheat provides basic yet effective enemy highlighting through walls, giving you essential tactical advantage for improved competitive performance and map awareness.'],
           tier: 'all'
         },
         {
@@ -430,7 +430,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Skeleton ESP',
           description: 'Bone structure visualization',
           category: 'ESP',
-          details: ['Full skeleton display'],
+          details: ['Basic CS2 ESP wallhack skeleton system displays enemy bone structure through walls for clear visualization of player poses and positioning patterns. This undetected Counter-Strike 2 cheat provides essential skeleton tracking that helps you monitor enemy movement and body positioning, ensuring tactical awareness in competitive gameplay.'],
           tier: 'all'
         },
         {
@@ -439,7 +439,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Head Dot Markers',
           description: 'Head position indicators',
           category: 'Targeting',
-          details: ['Headshot assistance'],
+          details: ['Essential CS2 ESP wallhack head dot targeting system provides basic headshot assistance by highlighting enemy head positions for improved targeting accuracy. This undetected Counter-Strike 2 cheat enhances your CS2 hack precision by marking exact head locations through walls, helping you achieve better headshot performance in competitive matches.'],
           tier: 'all'
         },
         {
@@ -448,7 +448,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Player Name Display',
           description: 'Show enemy usernames',
           category: 'Information',
-          details: ['Username display'],
+          details: ['Basic CS2 ESP wallhack player name display system shows enemy usernames for essential player identification and team recognition during competitive gameplay. This undetected Counter-Strike 2 cheat provides fundamental tactical information through your CS2 hack, helping you identify opponents and track enemy players across different rounds.'],
           tier: 'all'
         },
         {
@@ -457,7 +457,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Health Bars',
           description: 'Real-time health visualization',
           category: 'Health Info',
-          details: ['Multiple display modes'],
+          details: ['Essential CS2 ESP wallhack health bar system features multiple display modes for real-time enemy health monitoring and tactical assessment during competitive gameplay. This undetected Counter-Strike 2 cheat provides basic health visualization through your CS2 hack, enabling better decision-making and strategic advantage when engaging opponents.'],
           tier: 'all'
         },
         {
@@ -466,7 +466,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Status Flags',
           description: 'Player status indicators',
           category: 'Status',
-          details: ['Money, defusing, immunity, flash status'],
+          details: ['Basic CS2 ESP wallhack status flag system displays essential player information including money, defusing status, immunity, and flash indicators for fundamental battlefield awareness. This undetected Counter-Strike 2 cheat provides core tactical information through your CS2 hack, ensuring you have basic situational awareness for competitive decision-making.'],
           tier: 'all'
         },
         {
@@ -475,7 +475,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Weapon & Distance Info',
           description: 'Basic weapon and distance data',
           category: 'Intel',
-          details: ['Weapon display', 'Distance calculation'],
+          details: ['Essential CS2 ESP wallhack weapon and distance system displays basic enemy weapon information with distance calculations for fundamental tactical intelligence. This undetected Counter-Strike 2 cheat provides core enemy intelligence through your CS2 hack, helping you assess basic threat levels and plan engagement strategies in competitive matches.'],
           tier: 'all'
         }
       ]
@@ -484,7 +484,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
       id: 'config',
       name: 'Configuration System',
       icon: '⚙️',
-      description: 'Basic settings management',
+      description: 'Elite anti-detection technology with stream-proof mode and secure cloud configuration sync',
       tierRequired: 'lite',
       features: [
         {
@@ -493,7 +493,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Save Configuration',
           description: 'Store your settings',
           category: 'Settings',
-          details: ['Profile saving'],
+          details: ['Basic CS2 hack configuration system allows profile saving functionality to store your preferred settings and maintain consistent gameplay experience across different sessions. This undetected Counter-Strike 2 cheat provides essential configuration management for your CS2 hack, ensuring your basic settings are preserved and easily accessible for competitive gaming.'],
           tier: 'all'
         },
         {
@@ -502,7 +502,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Cloud Storage',
           description: 'Cloud-based configuration',
           category: 'Cloud Features',
-          details: ['Basic cloud sync'],
+          details: ['Essential CS2 hack cloud storage system provides basic synchronization functionality to access your configuration settings from different devices and gaming setups. This undetected Counter-Strike 2 cheat ensures your CS2 hack settings remain available across platforms, providing consistent performance and tactical advantage regardless of your gaming location.'],
           tier: 'all'
         }
       ]
@@ -515,7 +515,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
       id: 'ai-aimbot',
       name: 'AI-Powered Aimbot',
       icon: '🤖',
-      description: 'Machine learning powered targeting system',
+      description: 'Machine learning aimbot with target prediction, PID controller & advanced movement algorithms',
       tierRequired: 'plus',
       features: [
         {
@@ -524,7 +524,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Advanced Hotkey System',
           description: 'Aimstop key and customizable controls',
           category: 'Controls',
-          details: ['Aimstop emergency key', 'Custom hotkey binding', 'Multiple modes'],
+          details: ['Advanced BF6 aimbot hotkey system features emergency aimstop functionality with unlimited custom key binding options and multiple activation modes for ultimate control during intense Battlefield 6 combat scenarios. This undetected Battlefield 6 cheat provides professional hotkey management for your BF6 hack, ensuring seamless aimbot control without interfering with competitive gameplay performance and anti-cheat detection.'],
           tier: 'plus'
         },
         {
@@ -533,7 +533,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Smart Target Selection',
           description: 'AI-powered aim priority system',
           category: 'AI Targeting',
-          details: ['Head priority', 'Chest targeting', 'Pelvis option', 'X-Axis mode'],
+          details: ['Professional BF6 aimbot AI targeting system features intelligent head priority selection, chest targeting options, pelvis targeting modes, and advanced X-Axis aiming for maximum versatility in combat situations. This elite Battlefield 6 cheat uses machine learning algorithms in your BF6 hack to automatically select optimal target zones, ensuring deadly accuracy and tactical superiority in competitive matches.'],
           tier: 'plus',
           premium: true
         },
@@ -543,7 +543,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Package Chance System',
           description: 'Advanced smoothing for natural movement',
           category: 'Anti-Detection',
-          details: ['Probability-based smoothing', 'Human-like patterns', 'Customizable levels'],
+          details: ['Elite BF6 aimbot package chance system uses advanced probability-based smoothing algorithms to create authentic human-like movement patterns with fully customizable smoothness levels. This undetected Battlefield 6 cheat ensures your BF6 hack maintains natural aiming behavior that perfectly mimics human players, providing maximum accuracy while remaining completely invisible to anti-cheat systems.'],
           tier: 'plus'
         },
         {
@@ -552,7 +552,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'PID Controller',
           description: 'Professional-grade mouse movement smoothing',
           category: 'Advanced Control',
-          details: ['Advanced algorithms', 'Undetectable movement', 'Professional tuning'],
+          details: ['Professional BF6 aimbot PID controller system utilizes advanced mathematical algorithms for undetectable mouse movement with professional-grade tuning capabilities for perfect aim smoothing. This elite Battlefield 6 cheat provides industry-leading movement control through your BF6 hack, ensuring flawless targeting precision while maintaining complete invisibility from anti-cheat detection systems.'],
           tier: 'plus',
           premium: true,
           highlight: true
@@ -563,7 +563,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Target Prediction AI',
           description: 'Predict enemy movement when out of sight',
           category: 'AI Features',
-          details: ['Movement prediction', 'Behavioral analysis', 'Advanced algorithms'],
+          details: ['Advanced BF6 aimbot target prediction AI uses machine learning to analyze enemy movement patterns and predict player positions when targets move out of sight or behind cover. This professional Battlefield 6 cheat provides predictive targeting through your BF6 hack, giving you tactical advantage by anticipating enemy movements and maintaining accuracy in dynamic combat scenarios.'],
           tier: 'plus',
           premium: true
         }
@@ -573,7 +573,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
       id: 'rcs',
       name: 'Recoil Control System',
       icon: '📊',
-      description: 'Advanced recoil compensation technology',
+      description: 'Advanced weapon stabilization with visual patterns and 8 optimized weapon profile systems',
       tierRequired: 'plus',
       features: [
         {
@@ -582,7 +582,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Visual Recoil Patterns',
           description: 'Real-time recoil pattern visualization',
           category: 'Visual Aid',
-          details: ['Pattern display', 'Real-time feedback', 'Learning tool'],
+          details: ['Advanced BF6 recoil control system features visual pattern display with real-time feedback mechanisms and integrated learning tools for mastering weapon recoil patterns across all Battlefield 6 weapons. This professional Battlefield 6 cheat provides comprehensive recoil visualization through your BF6 hack, helping you understand and control weapon spray patterns for maximum accuracy and competitive advantage.'],
           tier: 'plus'
         },
         {
@@ -591,7 +591,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Eight Weapon Profiles',
           description: 'Optimized profiles for all weapon types',
           category: 'Weapons',
-          details: ['8 weapon profiles', 'Auto-detection', 'Custom per weapon'],
+          details: ['Elite BF6 recoil control system includes eight optimized weapon profiles with automatic weapon detection technology and custom per-weapon settings for every firearm in Battlefield 6. This professional Battlefield 6 cheat provides intelligent weapon recognition through your BF6 hack, automatically adjusting recoil compensation based on your current weapon for perfect spray control and tactical superiority.'],
           tier: 'plus',
           highlight: true
         },
@@ -601,7 +601,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Intensity Control',
           description: 'Fine-tune recoil compensation strength',
           category: 'Customization',
-          details: ['0-100% intensity', 'Real-time adjustment', 'Per-weapon settings'],
+          details: ['Professional BF6 recoil control intensity system offers complete 0-100% compensation control with real-time adjustment capabilities and individual per-weapon settings for ultimate customization. This advanced Battlefield 6 cheat provides precise recoil management through your BF6 hack, allowing fine-tuned control over compensation strength to match your playstyle and weapon preferences.'],
           tier: 'plus'
         }
       ]
@@ -610,7 +610,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
       id: 'visuals',
       name: 'Elite Visual System',
       icon: '👁️',
-      description: 'Professional enemy detection suite',
+      description: 'Professional BF6 ESP features with bone structure visualization and enemy detection through walls',
       tierRequired: 'plus',
       features: [
         {
@@ -619,7 +619,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Advanced ESP Boxes',
           description: 'Multiple box styles for enemy detection',
           category: 'ESP',
-          details: ['Box ESP', 'Filled boxes', 'Gradient boxes'],
+          details: ['Advanced BF6 ESP wallhack system features multiple box styles including standard outlines, filled boxes, and gradient-filled options for crystal-clear enemy detection and visualization through walls and cover. This professional Battlefield 6 cheat provides comprehensive enemy highlighting through your BF6 hack, ensuring maximum battlefield awareness and tactical advantage in competitive Battlefield 6 matches.'],
           tier: 'plus'
         },
         {
@@ -628,7 +628,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Skeleton ESP',
           description: 'Bone structure visualization',
           category: 'ESP',
-          details: ['Full skeleton', 'Color customization'],
+          details: ['Elite BF6 ESP wallhack skeleton system displays complete enemy bone structure through walls and obstacles with full color customization options for optimal enemy visualization and pose detection. This professional Battlefield 6 cheat provides advanced skeleton tracking through your BF6 hack, helping you monitor enemy movement patterns and positioning for tactical advantage in combat scenarios.'],
           tier: 'plus'
         },
         {
@@ -637,7 +637,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Head Dot Targeting',
           description: 'Precise head targeting indicators',
           category: 'Targeting',
-          details: ['Headshot assistance', 'Size adjustable'],
+          details: ['Professional BF6 ESP wallhack head dot targeting system provides precise headshot assistance with fully adjustable size settings for optimal enemy head position visualization and targeting accuracy. This undetected Battlefield 6 cheat enhances your BF6 hack precision by highlighting exact head locations through walls, ensuring perfect headshot placement and competitive dominance in Battlefield 6 matches.'],
           tier: 'plus'
         }
       ]
@@ -646,7 +646,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
       id: 'security',
       name: 'Professional Security',
       icon: '🛡️',
-      description: 'Elite protection and configuration',
+      description: 'Elite security suite with stream protection, cloud sync and professional configuration management',
       tierRequired: 'pro',
       features: [
         {
@@ -655,7 +655,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Full Stream Protection',
           description: 'Completely undetectable during streaming',
           category: 'Streaming',
-          details: ['OBS compatibility', 'Screen capture protection'],
+          details: ['Professional BF6 hack stream protection system ensures complete invisibility during live streaming with full OBS compatibility and advanced screen capture protection technology for content creators. This elite Battlefield 6 cheat provides zero-visibility streaming mode for your BF6 hack, allowing streamers to maintain their reputation while enjoying undetected competitive advantages in Battlefield 6.'],
           tier: 'pro',
           premium: true
         },
@@ -665,7 +665,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Advanced Config Management',
           description: 'Professional configuration system',
           category: 'Configuration',
-          details: ['Multiple profiles', 'Quick switching', 'Scene-based configs'],
+          details: ['Advanced BF6 hack configuration management system provides multiple profile creation with instant switching capabilities and scene-based configurations for different game modes and combat scenarios. This professional Battlefield 6 cheat offers comprehensive settings control for your BF6 hack, ensuring optimal configuration adaptation for various battlefield situations and tactical requirements.'],
           tier: 'plus'
         },
         {
@@ -674,7 +674,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Cloud Configuration',
           description: 'Secure cloud-based settings',
           category: 'Cloud Features',
-          details: ['Cross-device access', 'Automatic backups', 'Secure encryption'],
+          details: ['Elite BF6 hack cloud configuration system provides secure cross-device access with automatic backup functionality and military-grade encryption for your settings and profiles across all gaming devices. This professional Battlefield 6 cheat ensures your BF6 hack configurations remain safely stored and accessible from any platform, maintaining consistency and security across all gaming setups.'],
           tier: 'plus'
         }
       ]
@@ -687,7 +687,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
       id: 'ai-aimbot',
       name: 'AI-Powered Aimbot',
       icon: '🤖',
-      description: 'Smart targeting assistance system',
+      description: 'Professional CS2 aimbot with human-like precision, anti-detection smoothing & teammate protection',
       tierRequired: 'plus',
       features: [
         {
@@ -696,7 +696,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Advanced Hotkey System',
           description: 'Aimstop key and customizable controls',
           category: 'Controls',
-          details: ['Aimstop emergency key', 'Custom hotkeys'],
+          details: ['Advanced BF6 aimbot hotkey system features emergency aimstop functionality with unlimited custom key binding options for ultimate control during intense Battlefield 6 combat scenarios. This undetected Battlefield 6 cheat provides professional hotkey management for your BF6 hack, ensuring seamless aimbot control without interfering with competitive gameplay performance.'],
           tier: 'plus'
         },
         {
@@ -705,7 +705,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Multi-Position Targeting',
           description: 'Head, chest, and pelvis targeting options',
           category: 'Targeting',
-          details: ['Head priority', 'Chest targeting', 'Pelvis option'],
+          details: ['Professional BF6 aimbot multi-position targeting system features intelligent head priority selection, chest targeting options, and pelvis targeting modes for maximum versatility in combat situations. This elite Battlefield 6 cheat provides versatile target selection through your BF6 hack, ensuring optimal targeting zones for different combat scenarios and enemy positions.'],
           tier: 'plus'
         },
         {
@@ -714,7 +714,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Package Chance Control',
           description: 'Adjustable aim assistance probability',
           category: 'Control',
-          details: ['Probability settings', 'Natural patterns'],
+          details: ['Elite BF6 aimbot package chance control system uses advanced probability settings to create authentic natural aiming patterns that perfectly mimic human player behavior. This undetected Battlefield 6 cheat ensures your BF6 hack maintains realistic aiming behavior with customizable probability levels, providing accuracy while remaining invisible to anti-cheat systems.'],
           tier: 'plus'
         },
         {
@@ -723,7 +723,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'PID Controller System',
           description: 'Professional mouse movement smoothing',
           category: 'Advanced Control',
-          details: ['Smooth movement', 'Professional algorithms'],
+          details: ['Professional BF6 aimbot PID controller system utilizes advanced mathematical algorithms for smooth mouse movement and professional-grade aiming control with industry-leading precision. This elite Battlefield 6 cheat provides superior movement control through your BF6 hack, ensuring flawless targeting accuracy while maintaining complete invisibility from anti-cheat detection.'],
           tier: 'plus'
         },
         {
@@ -732,7 +732,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Target Prediction Algorithm',
           description: 'Intelligent movement prediction',
           category: 'AI Features',
-          details: ['Movement analysis', 'Predictive targeting'],
+          details: ['Advanced BF6 aimbot target prediction algorithm uses intelligent movement analysis to predict enemy positions and provide predictive targeting capabilities for enhanced combat performance. This professional Battlefield 6 cheat offers predictive aiming through your BF6 hack, giving you tactical advantage by anticipating enemy movements in dynamic combat scenarios.'],
           tier: 'plus'
         }
       ]
@@ -741,7 +741,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
       id: 'rcs',
       name: 'Recoil Control System',
       icon: '📊',
-      description: 'Advanced recoil management',
+      description: 'Advanced weapon stabilization with visual patterns and 8 optimized weapon profile systems',
       tierRequired: 'plus',
       features: [
         {
@@ -750,7 +750,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Visual Recoil Patterns',
           description: 'Real-time pattern visualization',
           category: 'Visual Aid',
-          details: ['Pattern display', 'Real-time feedback'],
+          details: ['Advanced BF6 recoil control system features visual pattern display with real-time feedback mechanisms for mastering weapon recoil patterns across all Battlefield 6 weapons. This professional Battlefield 6 cheat provides comprehensive recoil visualization through your BF6 hack, helping you control weapon spray patterns for maximum accuracy.'],
           tier: 'plus'
         },
         {
@@ -759,7 +759,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Eight Weapon Profiles',
           description: 'Optimized for all weapon types',
           category: 'Weapons',
-          details: ['8 weapon profiles', 'Auto-detection'],
+          details: ['Elite BF6 recoil control system includes eight optimized weapon profiles with automatic weapon detection technology for every firearm type in Battlefield 6. This professional Battlefield 6 cheat provides intelligent weapon recognition through your BF6 hack, automatically adjusting recoil compensation based on your current weapon for perfect spray control.'],
           tier: 'plus'
         },
         {
@@ -768,7 +768,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Adjustable Intensity',
           description: 'Fine-tune compensation strength',
           category: 'Customization',
-          details: ['0-100% intensity', 'Real-time adjustment'],
+          details: ['Professional BF6 recoil control intensity system offers complete 0-100% compensation control with real-time adjustment capabilities for ultimate recoil management customization. This advanced Battlefield 6 cheat provides precise recoil control through your BF6 hack, allowing fine-tuned compensation strength to match your playstyle and weapon preferences.'],
           tier: 'plus'
         }
       ]
@@ -777,7 +777,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
       id: 'config',
       name: 'Configuration System',
       icon: '⚙️',
-      description: 'Advanced settings management',
+      description: 'Elite anti-detection technology with stream-proof mode and secure cloud configuration sync',
       tierRequired: 'plus',
       features: [
         {
@@ -786,7 +786,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Save Configuration',
           description: 'Store and manage settings',
           category: 'Configuration',
-          details: ['Multiple profiles', 'Quick switching'],
+          details: ['Advanced BF6 hack configuration management system provides multiple profile creation with instant switching capabilities for different game modes and competitive scenarios. This professional Battlefield 6 cheat offers comprehensive settings control for your BF6 hack, ensuring optimal configuration adaptation for various battlefield situations and tactical requirements.'],
           tier: 'plus'
         },
         {
@@ -795,7 +795,7 @@ export const comprehensiveFeatures: Record<string, FeatureCategory[]> = {
           title: 'Cloud Storage',
           description: 'Cloud-based configuration system',
           category: 'Cloud Features',
-          details: ['Access anywhere', 'Automatic backups'],
+          details: ['Premium BF6 hack cloud storage system provides secure access from anywhere with automatic backup functionality for your settings and profiles across all gaming devices. This undetected Battlefield 6 cheat ensures your BF6 hack configurations remain consistent and accessible, maintaining optimal performance and tactical advantage regardless of your gaming setup.'],
           tier: 'plus'
         }
       ]

@@ -45,6 +45,21 @@ export default function InteractiveFeatures({ productId, className = '' }: Inter
     return iconMap[iconName.toLowerCase()] || CheckCircle;
   };
 
+  // Product-specific descriptions
+  const getProductDescription = (productId: string): string => {
+    const productType = productId.replace(/-\d+day$/, '');
+    
+    const descriptions: { [key: string]: string } = {
+      'cs2-lite': 'Discover your CS2 cheats starter pack! You will find essential Counter-Strike 2 hacks with multi-style ESP boxes, skeleton display, head dot markers, player names, health bars & weapon info. Perfect entry-level CS2 hacks for tactical awareness!',
+      'cs2-plus': 'Unlock advanced CS2 hacks! Inside: premium Counter-Strike 2 hacks with undetected aimbot, AI triggerbot, undetected ESP wallhacks, CS2 Aimbot, player tracking & cloud config. Your CS2 cheat arsenal for domination!',
+      'cs2-pro': 'Open the ultimate CS2 vault! Inside: professional Counter-Strike 2 hacks with AI aimbot, smart triggerbot, undetected ESP, grenade helper, stream-proof technology & cloud sync. The best CS2 cheats for legendary performance!',
+      'bf6-plus': 'Get Battlefield 6 hacks! In the product you will find advanced BF6 hacks with AI-powered aimbot, recoil control system, target prediction, PID controller & cloud storage. Your professional Battlefield Cheats toolkit awaits!',
+      'bf6-pro': 'Crack open BF6 mastery! Inside: elite Battlefield 6 hacks with AI aimbot, advanced recoil system, visual patterns, 8 weapon profiles, stream-proof mode & premium support. The ultimate BF6 cheat collection for legends!'
+    };
+
+    return descriptions[productType] || 'Professional-grade gaming enhancement features for competitive advantage';
+  };
+
   return (
     <div className={`space-y-6 ${className}`}>
       {/* Modern Features Header */}
@@ -61,7 +76,7 @@ export default function InteractiveFeatures({ productId, className = '' }: Inter
             </span>
           </h3>
           <p className="text-base text-gray-300">
-            CS2 ESP wallhack with enemy detection and player tracking. Undetected Counter-Strike 2 cheat showing enemy positions, health bars, weapon info, and distance through walls. Entry-level CS2 hack for tactical advantage and map awareness.
+            {getProductDescription(productId)}
           </p>
         </motion.div>
 
@@ -112,25 +127,9 @@ export default function InteractiveFeatures({ productId, className = '' }: Inter
                 animate={{ scale: 1 }}
                 transition={{ duration: 0.5, delay: categoryIndex * 0.1 + 0.2 }}
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-gray-400/20 to-gray-600/20 rounded-full flex items-center justify-center mb-2">
-                  {(() => {
-                    const IconComponent = getFeatureIcon(category.icon);
-                    return <IconComponent className="w-8 h-8 text-gray-300" />;
-                  })()} 
-                </div>
                 <div className="text-center">
                   <h4 className="text-2xl font-bold text-white mb-2">{category.name}</h4>
                   <p className="text-gray-400 text-sm max-w-md mx-auto">{category.description}</p>
-                  <div className="flex items-center justify-center space-x-3 mt-3">
-                    <span className="text-sm text-gray-300 font-medium bg-black/30 px-3 py-1 rounded-full">
-                      {category.features.length} features
-                    </span>
-                    {category.tierRequired && (
-                      <span className="text-xs px-3 py-1 rounded-full border border-gray-400/30 bg-gray-400/10 text-gray-300 font-semibold">
-                        {category.tierRequired.toUpperCase()}
-                      </span>
-                    )}
-                  </div>
                 </div>
               </motion.div>
             </div>
@@ -171,12 +170,9 @@ export default function InteractiveFeatures({ productId, className = '' }: Inter
                     {/* Feature Details */}
                     {feature.details && feature.details.length > 0 && (
                       <div className="mb-2">
-                        {feature.details.slice(0, 1).map((detail, index) => (
-                          <div key={index} className="flex items-center space-x-1 text-xs text-gray-300">
-                            <CheckCircle className="w-2.5 h-2.5 text-green-400 flex-shrink-0" />
-                            <span className="truncate text-xs">{detail}</span>
-                          </div>
-                        ))}
+                        <p className="text-xs text-gray-300 leading-relaxed">
+                          {feature.details[0]}
+                        </p>
                       </div>
                     )}
 
@@ -209,35 +205,6 @@ export default function InteractiveFeatures({ productId, className = '' }: Inter
         ))}
       </div>
 
-      {/* Feature Summary Stats */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.3 }}
-        className="bg-gradient-to-r from-gray-600/20 to-gray-400/20 backdrop-blur-sm border border-gray-500/30 rounded-lg p-4"
-      >
-        <div className="grid grid-cols-3 gap-4 text-center">
-          <div>
-            <div className="text-xl font-bold text-white mb-0.5">
-              {features.reduce((acc, cat) => acc + cat.features.length, 0)}
-            </div>
-            <div className="text-gray-300 text-xs font-medium">Total Features</div>
-          </div>
-          <div>
-            <div className="text-xl font-bold text-yellow-400 mb-0.5">
-              {features.reduce((acc, cat) => acc + cat.features.filter(f => f.premium).length, 0)}
-            </div>
-            <div className="text-gray-300 text-xs font-medium">Premium</div>
-          </div>
-          <div>
-            <div className="text-xl font-bold text-gray-300 mb-0.5">
-              {features.length}
-            </div>
-            <div className="text-gray-300 text-xs font-medium">Categories</div>
-          </div>
-        </div>
-      </motion.div>
-
       {/* Call to Action */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -245,9 +212,6 @@ export default function InteractiveFeatures({ productId, className = '' }: Inter
         transition={{ duration: 0.6, delay: 0.4 }}
         className="text-center"
       >
-        <p className="text-gray-300 mb-4 text-sm">
-          All features included • Updated regularly
-        </p>
         <div className="flex flex-wrap justify-center gap-3">
           <div className="flex items-center space-x-1.5 bg-black/30 px-3 py-1.5 rounded-full border border-gray-600/30">
             <Shield className="w-3.5 h-3.5 text-green-400" />

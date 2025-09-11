@@ -15,6 +15,9 @@ const nextConfig = {
     cpus: 1
   },
   
+  // Disable SWC minifier to prevent worker issues
+  swcMinify: false,
+  
   // Add webpack configuration for better performance
   webpack: (config, { dev, isServer }) => {
     if (dev) {
@@ -22,6 +25,16 @@ const nextConfig = {
       config.optimization = {
         ...config.optimization,
         minimize: false,
+      };
+      
+      // Exclude test files from processing
+      config.watchOptions = {
+        ignored: [
+          '**/node_modules/**',
+          '**/__tests__/**',
+          '**/*.test.*',
+          '**/*.spec.*'
+        ]
       };
     }
     
