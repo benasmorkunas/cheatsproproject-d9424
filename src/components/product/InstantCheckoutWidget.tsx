@@ -686,6 +686,7 @@ export default function InstantCheckoutWidget({ productGroup, selectedVariant: i
                   onPaymentComplete={handlePaymentComplete}
                   isProcessing={isProcessing}
                   price={selectedVariant.price}
+                  customerInfo={customerInfo}
                   activeColors={activeColors}
                 />
               </Elements>
