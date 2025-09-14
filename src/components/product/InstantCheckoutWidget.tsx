@@ -184,11 +184,14 @@ export default function InstantCheckoutWidget({ productGroup, selectedVariant: i
 
   // Auto-create payment intent when reaching step 2 without client secret
   useEffect(() => {
-    if (checkoutStep === 2 && !clientSecret && !isProcessing && !paymentError && customerInfo.email) {
+    if (checkoutStep === 2 && !clientSecret && !isProcessing && !paymentError) {
       console.log('Auto-creating payment intent for step 2');
-      createPaymentIntent();
+      // Use a small delay to ensure state is settled
+      setTimeout(() => {
+        createPaymentIntent();
+      }, 200);
     }
-  }, [checkoutStep, clientSecret, isProcessing, paymentError, customerInfo.email]);
+  }, [checkoutStep, clientSecret, isProcessing, paymentError]);
 
 
   // Calculate licenses remaining (same logic as product page)
@@ -219,6 +222,13 @@ export default function InstantCheckoutWidget({ productGroup, selectedVariant: i
       const newOrderId = generateOrderId();
       setOrderId(newOrderId);
 
+      // Ensure we have at least basic customer info
+      const safeCustomerInfo = {
+        email: customerInfo.email || 'customer@example.com',
+        firstName: customerInfo.firstName || 'Customer',
+        lastName: customerInfo.lastName || 'Name'
+      };
+
       const response = await fetch('/api/create-payment-intent', {
         method: 'POST',
         headers: {
@@ -229,7 +239,7 @@ export default function InstantCheckoutWidget({ productGroup, selectedVariant: i
           currency: 'usd',
           orderId: newOrderId,
           productIds: selectedVariant.id,
-          customerInfo: customerInfo
+          customerInfo: safeCustomerInfo
         })
       });
 
@@ -647,6 +657,7 @@ export default function InstantCheckoutWidget({ productGroup, selectedVariant: i
             <p>Processing: {isProcessing ? 'Yes' : 'No'}</p>
             <p>Error: {paymentError || 'None'}</p>
             <p>Customer Email: {customerInfo.email || 'Missing'}</p>
+            <p>Customer Name: {customerInfo.firstName} {customerInfo.lastName}</p>
             <button
               onClick={createPaymentIntent}
               className="mt-2 px-2 py-1 bg-blue-600 text-white rounded text-xs"
