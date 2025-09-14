@@ -185,7 +185,6 @@ export default function InstantCheckoutWidget({ productGroup, selectedVariant: i
   // Auto-create payment intent when reaching step 2 without client secret
   useEffect(() => {
     if (checkoutStep === 2 && !clientSecret && !isProcessing && !paymentError) {
-      console.log('Auto-creating payment intent for step 2');
       // Use a small delay to ensure state is settled
       setTimeout(() => {
         createPaymentIntent();
@@ -650,21 +649,6 @@ export default function InstantCheckoutWidget({ productGroup, selectedVariant: i
           </div>
 
 
-          {/* Debug Info (temporary) */}
-          <div className="text-xs text-gray-500 p-2 bg-black/20 rounded mb-4">
-            <p>Step: {checkoutStep}</p>
-            <p>Client Secret: {clientSecret ? 'Available' : 'Missing'}</p>
-            <p>Processing: {isProcessing ? 'Yes' : 'No'}</p>
-            <p>Error: {paymentError || 'None'}</p>
-            <p>Customer Email: {customerInfo.email || 'Missing'}</p>
-            <p>Customer Name: {customerInfo.firstName} {customerInfo.lastName}</p>
-            <button
-              onClick={createPaymentIntent}
-              className="mt-2 px-2 py-1 bg-blue-600 text-white rounded text-xs"
-            >
-              Manual Create
-            </button>
-          </div>
 
           {/* Stripe Payment Form */}
           {clientSecret && (
@@ -687,7 +671,6 @@ export default function InstantCheckoutWidget({ productGroup, selectedVariant: i
             <div className="text-center py-8">
               <div className="animate-spin rounded-full h-8 w-8 border-2 border-gray-400 border-t-transparent mx-auto mb-4"></div>
               <p className="text-gray-400">Loading payment form...</p>
-              <p className="text-xs text-gray-500 mt-2">If this persists, try the manual button above</p>
             </div>
           )}
 
