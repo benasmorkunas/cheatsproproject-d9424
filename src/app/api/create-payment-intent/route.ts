@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
-if (!process.env.STRIPE_SECRET_KEY || process.env.STRIPE_SECRET_KEY.startsWith('sk_test_51234567890abcdef')) {
+if (!process.env.STRIPE_SECRET_KEY || process.env.STRIPE_SECRET_KEY === 'sk_test_51234567890abcdef') {
   console.warn('Stripe is not configured with valid keys. Using mock mode.');
 }
 
-const stripe = process.env.STRIPE_SECRET_KEY && !process.env.STRIPE_SECRET_KEY.startsWith('sk_test_51234567890abcdef') 
+const stripe = process.env.STRIPE_SECRET_KEY && process.env.STRIPE_SECRET_KEY !== 'sk_test_51234567890abcdef'
   ? new Stripe(process.env.STRIPE_SECRET_KEY, {
       apiVersion: '2025-08-27.basil',
     })
