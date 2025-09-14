@@ -29,6 +29,11 @@ interface StripePaymentFormProps {
   onPaymentComplete: () => void;
   isProcessing: boolean;
   price: number;
+  customerInfo: {
+    email: string;
+    firstName: string;
+    lastName: string;
+  };
   activeColors: {
     primary: string;
     secondary: string;
@@ -38,7 +43,7 @@ interface StripePaymentFormProps {
   };
 }
 
-function StripePaymentForm({ clientSecret, onPaymentComplete, isProcessing, price, activeColors }: StripePaymentFormProps) {
+function StripePaymentForm({ clientSecret, onPaymentComplete, isProcessing, price, customerInfo, activeColors }: StripePaymentFormProps) {
   const stripe = useStripe();
   const elements = useElements();
   const [cardError, setCardError] = useState<string | null>(null);
@@ -64,6 +69,10 @@ function StripePaymentForm({ clientSecret, onPaymentComplete, isProcessing, pric
     const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
         card: cardElement,
+        billing_details: {
+          name: `${customerInfo.firstName} ${customerInfo.lastName}`.trim(),
+          email: customerInfo.email,
+        }
       }
     });
 
@@ -89,7 +98,7 @@ function StripePaymentForm({ clientSecret, onPaymentComplete, isProcessing, pric
       },
     },
     hidePostalCode: false,
-    disableLink: true, // Disable Link for development
+    disableLink: false, // Enable Link integration
   };
 
   return (
@@ -222,11 +231,11 @@ export default function InstantCheckoutWidget({ productGroup, selectedVariant: i
       const newOrderId = generateOrderId();
       setOrderId(newOrderId);
 
-      // Ensure we have at least basic customer info
-      const safeCustomerInfo = {
-        email: customerInfo.email || 'customer@example.com',
-        firstName: customerInfo.firstName || 'Customer',
-        lastName: customerInfo.lastName || 'Name'
+      // Use the actual customer info collected in step 1
+      const actualCustomerInfo = {
+        email: customerInfo.email || '',
+        firstName: customerInfo.firstName || '',
+        lastName: customerInfo.lastName || ''
       };
 
       const response = await fetch('/api/create-payment-intent', {
@@ -239,7 +248,7 @@ export default function InstantCheckoutWidget({ productGroup, selectedVariant: i
           currency: 'usd',
           orderId: newOrderId,
           productIds: selectedVariant.id,
-          customerInfo: safeCustomerInfo
+          customerInfo: actualCustomerInfo
         })
       });
 
@@ -405,7 +414,7 @@ export default function InstantCheckoutWidget({ productGroup, selectedVariant: i
       {/* Progress Indicator */}
       <div className="w-full mb-6">
         <div className="flex items-center mb-2">
-          {[1, 2, 3].map((step, index) => (
+          {[1, 2].map((step, index) => (
             <React.Fragment key={step}>
               <div className="flex flex-col items-center">
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
@@ -414,11 +423,10 @@ export default function InstantCheckoutWidget({ productGroup, selectedVariant: i
                   {step < checkoutStep ? <Check className="w-4 h-4" /> : step}
                 </div>
                 <span className={`text-xs mt-2 ${checkoutStep >= step ? 'text-gray-300' : 'text-gray-500'}`}>
-                  {step === 1 ? (initialSelectedVariant ? 'Plan Selected' : 'Choose Plan') :
-                   step === 2 ? 'Customer Info' : 'Payment'}
+                  {step === 1 ? 'Plan & Info' : 'Payment'}
                 </span>
               </div>
-              {index < 2 && (
+              {index < 1 && (
                 <div className={`flex-1 h-1 mx-4 ${
                   step < checkoutStep ? 'bg-gray-500' : 'bg-gray-700'
                 }`} />
@@ -667,7 +675,10 @@ export default function InstantCheckoutWidget({ productGroup, selectedVariant: i
                       colorText: '#ffffff',
                       colorDanger: '#EF4444'
                     }
-                  }
+                  },
+                  ...(customerInfo.email && {
+                    customerEmail: customerInfo.email
+                  })
                 }}
               >
                 <StripePaymentForm

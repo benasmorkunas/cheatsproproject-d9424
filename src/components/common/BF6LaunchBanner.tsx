@@ -63,107 +63,106 @@ export default function BF6LaunchBanner() {
         }
       `}</style>
       <div className="relative overflow-hidden bg-gradient-to-r from-orange-900/30 via-orange-800/40 to-orange-900/30 border-t-2 border-t-orange-500/70 border-b border-orange-700/50 backdrop-blur-sm">
-      {/* Animated background effect */}
-      <div className="absolute inset-0 opacity-20">
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-500/20 to-transparent"
-          animate={{ x: [-100, 1200] }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-        />
-      </div>
+        {/* Animated background effect */}
+        <div className="absolute inset-0 opacity-20">
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-500/20 to-transparent"
+            animate={{ x: [-100, 1200] }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+          />
+        </div>
 
-      <div className="relative z-10 py-3">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
-            {/* Icon */}
-            <div className="flex-shrink-0 mr-4">
-              <div className="w-12 h-12 relative">
-                <Image
-                  src="/images/bf6-cheats-status-logo.webp"
-                  alt="BF6 Logo"
-                  fill
-                  className="object-contain"
-                  sizes="48px"
-                />
+        <div className="relative z-10 py-3">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between">
+              {/* Icon */}
+              <div className="flex-shrink-0 mr-4">
+                <div className="w-12 h-12 relative">
+                  <Image
+                    src="/images/bf6-cheats-status-logo.webp"
+                    alt="BF6 Logo"
+                    fill
+                    className="object-contain"
+                    sizes="48px"
+                  />
+                </div>
               </div>
-            </div>
 
-            {/* Running message */}
-            <div className="flex-1 overflow-hidden relative h-8 flex items-center mr-4">
-              <div
-                className="flex items-center whitespace-nowrap space-x-16 absolute top-1/2 transform -translate-y-1/2 animate-marquee"
+              {/* Running message */}
+              <div className="flex-1 overflow-hidden relative h-8 flex items-center mr-4">
+                <div
+                  className="flex items-center whitespace-nowrap space-x-16 absolute top-1/2 transform -translate-y-1/2 animate-marquee"
+                  style={{
+                    width: "max-content",
+                    animation: "marquee 30s linear infinite"
+                  }}
+                >
+                  <span className="text-sm md:text-base font-semibold text-white flex items-center space-x-2">
+                    <Calendar className="w-4 h-4 text-orange-400" />
+                    <span>BATTLEFIELD 6 LAUNCH - {isLaunched ? 'NOW AVAILABLE!' : `Coming ${formatDate(launchDate)}`}</span>
+                  </span>
+
+                  <span className="text-sm text-orange-200">
+                    BF6 PLUS: Advanced Aimbot + Auto Aim + Target Lock
+                  </span>
+
+                  <span className="text-sm text-orange-200">
+                    BF6 PRO: Complete Package + ESP Wallhack + Player Tracking
+                  </span>
+
+                  <span className="text-sm text-orange-200">
+                    Undetected BF6 Cheats for Competitive Gaming
+                  </span>
+
+                  <span className="text-sm font-semibold text-white">
+                    {isLaunched ? 'GET BF6 CHEATS NOW' : 'PRE-ORDER BF6 CHEATS'}
+                  </span>
+
+                  {/* Duplicate content to eliminate gaps */}
+                  <span className="text-sm md:text-base font-semibold text-white flex items-center space-x-2">
+                    <Calendar className="w-4 h-4 text-orange-400" />
+                    <span>BATTLEFIELD 6 LAUNCH - {isLaunched ? 'NOW AVAILABLE!' : `Coming ${formatDate(launchDate)}`}</span>
+                  </span>
+
+                  <span className="text-sm text-orange-200">
+                    BF6 PLUS: Advanced Aimbot + Auto Aim + Target Lock
+                  </span>
+
+                  <span className="text-sm text-orange-200">
+                    BF6 PRO: Complete Package + ESP Wallhack + Player Tracking
+                  </span>
+
+                  <span className="text-sm text-orange-200">
+                    Undetected BF6 Cheats for Competitive Gaming
+                  </span>
+
+                  <span className="text-sm font-semibold text-white">
+                    {isLaunched ? 'GET BF6 CHEATS NOW' : 'PRE-ORDER BF6 CHEATS'}
+                  </span>
+                </div>
+              </div>
+
+              {/* CTA Button */}
+              <motion.button
+                onClick={handlePreOrderClick}
+                className="flex-shrink-0 bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-400 hover:via-orange-300 hover:to-orange-400 text-white px-4 py-2 rounded-lg text-sm font-bold transition-all duration-300 shadow-lg hover:shadow-xl border border-orange-400/30 hover:border-orange-300/50"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 style={{
-                  width: "max-content",
-                  animation: "marquee 30s linear infinite"
+                  background: 'linear-gradient(135deg, #f97316, #fb923c, #fdba74, #fb923c, #f97316)',
+                  boxShadow: '0 4px 15px rgba(249, 115, 22, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
                 }}
               >
-                <span className="text-sm md:text-base font-semibold text-white flex items-center space-x-2">
-                  <Calendar className="w-4 h-4 text-orange-400" />
-                  <span>BATTLEFIELD 6 LAUNCH - {isLaunched ? 'NOW AVAILABLE!' : `Coming ${formatDate(launchDate)}`}</span>
-                </span>
-
-                <span className="text-sm text-orange-200">
-                  BF6 PLUS: Advanced Aimbot + Auto Aim + Target Lock
-                </span>
-
-                <span className="text-sm text-orange-200">
-                  BF6 PRO: Complete Package + ESP Wallhack + Player Tracking
-                </span>
-
-                <span className="text-sm text-orange-200">
-                  Undetected BF6 Cheats for Competitive Gaming
-                </span>
-
-                <span className="text-sm font-semibold text-white">
-                  {isLaunched ? 'GET BF6 CHEATS NOW' : 'PRE-ORDER BF6 CHEATS'}
-                </span>
-
-                {/* Duplicate content to eliminate gaps */}
-                <span className="text-sm md:text-base font-semibold text-white flex items-center space-x-2">
-                  <Calendar className="w-4 h-4 text-orange-400" />
-                  <span>BATTLEFIELD 6 LAUNCH - {isLaunched ? 'NOW AVAILABLE!' : `Coming ${formatDate(launchDate)}`}</span>
-                </span>
-
-                <span className="text-sm text-orange-200">
-                  BF6 PLUS: Advanced Aimbot + Auto Aim + Target Lock
-                </span>
-
-                <span className="text-sm text-orange-200">
-                  BF6 PRO: Complete Package + ESP Wallhack + Player Tracking
-                </span>
-
-                <span className="text-sm text-orange-200">
-                  Undetected BF6 Cheats for Competitive Gaming
-                </span>
-
-                <span className="text-sm font-semibold text-white">
-                  {isLaunched ? 'GET BF6 CHEATS NOW' : 'PRE-ORDER BF6 CHEATS'}
-                </span>
-              </div>
+                {isLaunched ? 'Get Now' : 'Pre-Order'}
+              </motion.button>
             </div>
-
-            {/* CTA Button */}
-            <motion.button
-              onClick={handlePreOrderClick}
-              className="flex-shrink-0 bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 hover:from-orange-400 hover:via-orange-300 hover:to-orange-400 text-white px-4 py-2 rounded-lg text-sm font-bold transition-all duration-300 shadow-lg hover:shadow-xl border border-orange-400/30 hover:border-orange-300/50"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              style={{
-                background: 'linear-gradient(135deg, #f97316, #fb923c, #fdba74, #fb923c, #f97316)',
-                boxShadow: '0 4px 15px rgba(249, 115, 22, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
-              }}
-            >
-              {isLaunched ? 'Get Now' : 'Pre-Order'}
-            </motion.button>
           </div>
         </div>
       </div>
-
-    </div>
     </>
   );
 }
