@@ -1,7 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
+import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { stripePromise } from '@/lib/stripe';
 import { 
   ShoppingCart,
   CreditCard,
@@ -19,6 +22,119 @@ import {
 } from 'lucide-react';
 import { SimpleProduct } from '@/lib/products';
 import { useCart } from '@/contexts/CartContext';
+
+// Stripe Payment Form Component
+interface StripePaymentFormProps {
+  clientSecret: string;
+  onPaymentComplete: () => void;
+  isProcessing: boolean;
+  price: number;
+  activeColors: {
+    primary: string;
+    secondary: string;
+    light: string;
+    dark: string;
+    darker: string;
+  };
+}
+
+function StripePaymentForm({ clientSecret, onPaymentComplete, isProcessing, price, activeColors }: StripePaymentFormProps) {
+  const stripe = useStripe();
+  const elements = useElements();
+  const [cardError, setCardError] = useState<string | null>(null);
+
+  const formatPrice = (priceInCents: number): string => {
+    return (priceInCents / 100).toFixed(2);
+  };
+
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+
+    if (!stripe || !elements) {
+      return;
+    }
+
+    const cardElement = elements.getElement(CardElement);
+    if (!cardElement) {
+      return;
+    }
+
+    setCardError(null);
+
+    const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: cardElement,
+      }
+    });
+
+    if (error) {
+      setCardError(error.message || 'Payment failed');
+    } else if (paymentIntent && paymentIntent.status === 'succeeded') {
+      onPaymentComplete();
+    }
+  };
+
+  const cardElementOptions = {
+    style: {
+      base: {
+        fontSize: '16px',
+        color: '#ffffff',
+        '::placeholder': {
+          color: '#9CA3AF',
+        },
+        backgroundColor: 'transparent',
+      },
+      invalid: {
+        color: '#EF4444',
+      },
+    },
+    hidePostalCode: false,
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4">
+      {/* Card Element */}
+      <div className="bg-black/20 backdrop-blur-lg border border-white/20 rounded-lg p-4">
+        <label className="block text-sm font-medium text-gray-300 mb-2">
+          Card Details
+        </label>
+        <CardElement options={cardElementOptions} />
+      </div>
+
+      {/* Error Display */}
+      {cardError && (
+        <div className="bg-red-500/20 border border-red-500/30 rounded-lg p-3">
+          <div className="flex items-center space-x-2">
+            <AlertCircle className="w-4 h-4 text-red-400" />
+            <span className="text-red-300 text-sm">{cardError}</span>
+          </div>
+        </div>
+      )}
+
+      {/* Submit Button */}
+      <button
+        type="submit"
+        disabled={!stripe || isProcessing}
+        className="w-full text-white py-4 rounded-lg font-bold text-lg transition-all duration-300 disabled:cursor-not-allowed"
+        style={{
+          background: isProcessing ? '#6B7280' : `linear-gradient(to right, ${activeColors.primary}, ${activeColors.secondary})`
+        }}
+      >
+        {isProcessing ? (
+          <div className="flex items-center justify-center space-x-2">
+            <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+            <span>Processing Payment...</span>
+          </div>
+        ) : (
+          <div className="flex items-center justify-center space-x-2">
+            <CreditCard className="w-5 h-5" />
+            <span>Complete Purchase - ${formatPrice(price)}</span>
+          </div>
+        )}
+      </button>
+    </form>
+  );
+}
 
 interface InstantCheckoutWidgetProps {
   productGroup: {
@@ -49,6 +165,10 @@ export default function InstantCheckoutWidget({ productGroup, selectedVariant: i
   });
   const [isProcessing, setIsProcessing] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [paymentIntentId, setPaymentIntentId] = useState<string | null>(null);
+  const [clientSecret, setClientSecret] = useState<string | null>(null);
+  const [orderId, setOrderId] = useState<string | null>(null);
+  const [paymentError, setPaymentError] = useState<string | null>(null);
   const { addToCart } = useCart();
   
   // Default colors if not provided (Grey theme)
@@ -62,6 +182,7 @@ export default function InstantCheckoutWidget({ productGroup, selectedVariant: i
   
   const activeColors = colors || defaultColors;
 
+
   // Calculate licenses remaining (same logic as product page)
   const calculateLicensesRemaining = () => {
     const today = Math.floor(Date.now() / (1000 * 60 * 60 * 24));
@@ -72,6 +193,56 @@ export default function InstantCheckoutWidget({ productGroup, selectedVariant: i
   };
 
   const licensesRemaining = calculateLicensesRemaining();
+
+  // Generate unique order ID
+  const generateOrderId = () => {
+    const timestamp = Date.now().toString(36);
+    const random = Math.random().toString(36).substring(2, 8);
+    const productPrefix = selectedVariant.id.includes('cs2') ? 'CS2' : 'BF6';
+    return `${productPrefix}-${timestamp}-${random}`.toUpperCase();
+  };
+
+  // Create payment intent
+  const createPaymentIntent = async () => {
+    try {
+      setIsProcessing(true);
+      setPaymentError(null);
+
+      const newOrderId = generateOrderId();
+      setOrderId(newOrderId);
+
+      const response = await fetch('/api/create-payment-intent', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          amount: selectedVariant.price, // Amount in cents
+          currency: 'usd',
+          orderId: newOrderId,
+          productIds: selectedVariant.id,
+          customerInfo: customerInfo
+        })
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setClientSecret(data.clientSecret);
+        setPaymentIntentId(data.paymentIntentId);
+        return true;
+      } else {
+        setPaymentError(data.message || 'Failed to create payment intent');
+        return false;
+      }
+    } catch (error) {
+      console.error('Error creating payment intent:', error);
+      setPaymentError('Network error. Please try again.');
+      return false;
+    } finally {
+      setIsProcessing(false);
+    }
+  };
 
 
   const getDurationLabel = (variantId: string): string => {
@@ -105,9 +276,15 @@ export default function InstantCheckoutWidget({ productGroup, selectedVariant: i
     return (priceInCents / 100).toFixed(2);
   };
 
-  const handleCustomerInfoSubmit = () => {
+  const handleCustomerInfoSubmit = async () => {
     if (customerInfo.email && customerInfo.firstName && customerInfo.lastName) {
-      setCheckoutStep(2);
+      // Create payment intent before moving to payment step
+      const success = await createPaymentIntent();
+      if (success) {
+        setCheckoutStep(2);
+      }
+      // If payment intent creation fails, stay on current step
+      // Error message is already set in createPaymentIntent function
     }
   };
 
@@ -209,15 +386,15 @@ export default function InstantCheckoutWidget({ productGroup, selectedVariant: i
       <div className="w-full mb-6">
         <div className="flex items-center mb-2">
           {[1, 2, 3].map((step, index) => (
-            <>
-              <div key={step} className="flex flex-col items-center">
+            <React.Fragment key={step}>
+              <div className="flex flex-col items-center">
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
                   step <= checkoutStep ? 'bg-gray-500 text-white' : 'bg-gray-700 text-gray-400'
                 }`}>
                   {step < checkoutStep ? <Check className="w-4 h-4" /> : step}
                 </div>
                 <span className={`text-xs mt-2 ${checkoutStep >= step ? 'text-gray-300' : 'text-gray-500'}`}>
-                  {step === 1 ? (initialSelectedVariant ? 'Plan Selected' : 'Choose Plan') : 
+                  {step === 1 ? (initialSelectedVariant ? 'Plan Selected' : 'Choose Plan') :
                    step === 2 ? 'Customer Info' : 'Payment'}
                 </span>
               </div>
@@ -226,7 +403,7 @@ export default function InstantCheckoutWidget({ productGroup, selectedVariant: i
                   step < checkoutStep ? 'bg-gray-500' : 'bg-gray-700'
                 }`} />
               )}
-            </>
+            </React.Fragment>
           ))}
         </div>
       </div>
@@ -366,9 +543,19 @@ export default function InstantCheckoutWidget({ productGroup, selectedVariant: i
             </div>
           </div>
 
+          {/* Error Message */}
+          {paymentError && (
+            <div className="bg-red-500/20 border border-red-500/30 rounded-lg p-3">
+              <div className="flex items-center space-x-2">
+                <AlertCircle className="w-4 h-4 text-red-400" />
+                <span className="text-red-300 text-sm">{paymentError}</span>
+              </div>
+            </div>
+          )}
+
           <button
             onClick={handleCustomerInfoSubmit}
-            disabled={!customerInfo.email || !customerInfo.firstName || !customerInfo.lastName}
+            disabled={!customerInfo.email || !customerInfo.firstName || !customerInfo.lastName || isProcessing}
             className="w-full text-white py-4 rounded-lg font-semibold transition-all duration-300 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
             style={{
               background: isProcessing ? '#6B7280' : `linear-gradient(to right, ${activeColors.primary}, ${activeColors.secondary})`
@@ -384,8 +571,17 @@ export default function InstantCheckoutWidget({ productGroup, selectedVariant: i
               }
             }}
           >
-            <span>Continue to Payment</span>
-            <ArrowRight className="w-4 h-4" />
+            {isProcessing ? (
+              <>
+                <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent"></div>
+                <span>Creating Payment...</span>
+              </>
+            ) : (
+              <>
+                <span>Continue to Payment</span>
+                <ArrowRight className="w-4 h-4" />
+              </>
+            )}
           </button>
         </motion.div>
       )}
@@ -400,8 +596,14 @@ export default function InstantCheckoutWidget({ productGroup, selectedVariant: i
           {/* Order Summary */}
           <div className="bg-black/30 rounded-xl p-4">
             <div className="flex items-start space-x-4 mb-4">
-              <div className="text-2xl">
-                {selectedVariant.id.includes('cs2') ? '🎯' : '🚁'}
+              <div className="w-16 h-16 relative flex-shrink-0">
+                <Image
+                  src={productGroup.image}
+                  alt={productGroup.name}
+                  fill
+                  className="object-contain rounded-lg"
+                  sizes="64px"
+                />
               </div>
               <div className="flex-1">
                 <h4 className="font-semibold text-white">{selectedVariant.name}</h4>
@@ -427,15 +629,52 @@ export default function InstantCheckoutWidget({ productGroup, selectedVariant: i
             </div>
           </div>
 
-          {/* Development Notice */}
-          <div className="text-white/10 border border-gray-500/20 rounded-lg p-4">
-            <p className="text-gray-300 text-sm">
-              <strong>Development Mode:</strong> This is a demo. No actual payment will be processed.
-            </p>
-          </div>
+
+          {/* Stripe Payment Form */}
+          {clientSecret && (
+            <div>
+              <p className="text-green-400 text-sm mb-4">✓ Payment form ready</p>
+              <Elements stripe={stripePromise} options={{ clientSecret }}>
+                <StripePaymentForm
+                  clientSecret={clientSecret}
+                  onPaymentComplete={handlePaymentComplete}
+                  isProcessing={isProcessing}
+                  price={selectedVariant.price}
+                  activeColors={activeColors}
+                />
+              </Elements>
+            </div>
+          )}
+
+          {/* Loading State */}
+          {!clientSecret && !paymentError && (
+            <div className="text-center py-8">
+              <div className="animate-spin rounded-full h-8 w-8 border-2 border-gray-400 border-t-transparent mx-auto mb-4"></div>
+              <p className="text-gray-400">Loading payment form...</p>
+            </div>
+          )}
+
+          {/* Error State */}
+          {paymentError && (
+            <div className="bg-red-500/20 border border-red-500/30 rounded-lg p-4">
+              <div className="flex items-center space-x-2">
+                <AlertCircle className="w-4 h-4 text-red-400" />
+                <span className="text-red-300">{paymentError}</span>
+              </div>
+              <button
+                onClick={() => {
+                  setPaymentError(null);
+                  setCheckoutStep(1);
+                }}
+                className="mt-2 text-sm text-red-300 underline"
+              >
+                Try again
+              </button>
+            </div>
+          )}
 
           {/* Payment Security */}
-          <div className="flex items-center justify-center space-x-4 text-sm text-gray-400 mb-4">
+          <div className="flex items-center justify-center space-x-4 text-sm text-gray-400">
             <div className="flex items-center space-x-1">
               <Lock className="w-4 h-4" />
               <span>256-bit SSL</span>
@@ -445,25 +684,6 @@ export default function InstantCheckoutWidget({ productGroup, selectedVariant: i
             <div>•</div>
             <div>Money-back Guarantee</div>
           </div>
-
-          {/* Payment Button */}
-          <button
-            onClick={handlePaymentComplete}
-            disabled={isProcessing}
-            className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 disabled:from-gray-600 disabled:to-gray-700 text-white py-4 rounded-lg font-bold text-lg transition-all duration-300 disabled:cursor-not-allowed"
-          >
-            {isProcessing ? (
-              <div className="flex items-center justify-center space-x-2">
-                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                <span>Processing Payment...</span>
-              </div>
-            ) : (
-              <div className="flex items-center justify-center space-x-2">
-                <CreditCard className="w-5 h-5" />
-                <span>Complete Purchase - ${formatPrice(selectedVariant.price)}</span>
-              </div>
-            )}
-          </button>
 
         </motion.div>
       )}
