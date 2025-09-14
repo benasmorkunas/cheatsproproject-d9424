@@ -5,10 +5,12 @@ import { motion } from 'framer-motion';
 import { Shield, Crosshair, Map, Users, Check, ChevronLeft, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import FloatingParticles from '@/components/common/FloatingParticles';
 
 export default function BF6Section() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const router = useRouter();
 
   const bf6Products = [
     {
@@ -195,6 +197,7 @@ export default function BF6Section() {
                 onMouseLeave={(e) => e.currentTarget.style.background = 'linear-gradient(to right, #7A5B4A, #7A4B5A)'}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => router.push('/products/bf6')}
               >
                 Pre-order BF6 Cheats
               </motion.button>

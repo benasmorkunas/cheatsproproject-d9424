@@ -1,4 +1,5 @@
 import Header from '@/components/homepage/Header';
+import BF6LaunchBanner from '@/components/common/BF6LaunchBanner';
 import LandingPageSlider from '@/components/slider/LandingPageSlider';
 import SectionTransition from '@/components/common/SectionTransition';
 import FeaturesSection from '@/components/homepage/FeaturesSection';
@@ -15,6 +16,7 @@ export default function HomePage() {
   return (
     <MinimalisticBackground>
       <Header />
+      <BF6LaunchBanner />
       <main className="pt-0">
         <LandingPageSlider />
         <TrustElements />

@@ -147,34 +147,25 @@ export default function InteractiveFeatures({ productId, className = '' }: Inter
                     className="group relative bg-black/30 backdrop-blur-sm border border-gray-600/20 rounded-lg p-3 hover:border-gray-400/40 hover:bg-black/40 transition-all duration-300 hover:scale-[1.02]"
                   >
                     {/* Feature Header */}
-                    <div className="flex items-start space-x-2 mb-2">
+                    <div className="flex items-center space-x-2 mb-2">
                       <div className="w-7 h-7 bg-gradient-to-br from-gray-500/20 to-gray-700/20 rounded-md flex items-center justify-center flex-shrink-0">
                         <FeatureIcon className="w-4 h-4 text-gray-300" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h5 className="font-semibold text-white text-xs group-hover:text-gray-200 transition-colors truncate">
-                          {feature.title}
-                        </h5>
-                        <div className="flex items-center gap-1 mt-0.5">
-                          {feature.premium && <Crown className="w-2.5 h-2.5 text-yellow-400" />}
-                          {feature.highlight && <Star className="w-2.5 h-2.5 text-gray-400" />}
+                        <div className="flex items-center gap-1">
+                          <h5 className="font-semibold text-white text-xs group-hover:text-gray-200 transition-colors truncate">
+                            {feature.title}
+                          </h5>
+                          {feature.premium && <Crown className="w-2.5 h-2.5 text-yellow-400 flex-shrink-0" />}
+                          {feature.highlight && <Star className="w-2.5 h-2.5 text-gray-400 flex-shrink-0" />}
                         </div>
                       </div>
                     </div>
 
                     {/* Feature Description */}
-                    <p className="text-gray-400 text-xs leading-tight mb-2 line-clamp-2">
+                    <p className="text-gray-400 text-xs leading-tight mb-2 line-clamp-3">
                       {feature.description}
                     </p>
-
-                    {/* Feature Details */}
-                    {feature.details && feature.details.length > 0 && (
-                      <div className="mb-2">
-                        <p className="text-xs text-gray-300 leading-relaxed">
-                          {feature.details[0]}
-                        </p>
-                      </div>
-                    )}
 
                     {/* Status Badge */}
                     <div className="flex items-center justify-between pt-2 border-t border-gray-700/50">
@@ -205,28 +196,6 @@ export default function InteractiveFeatures({ productId, className = '' }: Inter
         ))}
       </div>
 
-      {/* Call to Action */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-        className="text-center"
-      >
-        <div className="flex flex-wrap justify-center gap-3">
-          <div className="flex items-center space-x-1.5 bg-black/30 px-3 py-1.5 rounded-full border border-gray-600/30">
-            <Shield className="w-3.5 h-3.5 text-green-400" />
-            <span className="text-xs text-green-400 font-medium">Undetected</span>
-          </div>
-          <div className="flex items-center space-x-1.5 bg-black/30 px-3 py-1.5 rounded-full border border-gray-600/30">
-            <Zap className="w-3.5 h-3.5 text-blue-400" />
-            <span className="text-xs text-blue-400 font-medium">Updates</span>
-          </div>
-          <div className="flex items-center space-x-1.5 bg-black/30 px-3 py-1.5 rounded-full border border-gray-600/30">
-            <Crown className="w-3.5 h-3.5 text-yellow-400" />
-            <span className="text-xs text-yellow-400 font-medium">Support</span>
-          </div>
-        </div>
-      </motion.div>
     </div>
   );
 }

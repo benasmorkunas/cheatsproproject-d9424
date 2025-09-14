@@ -344,6 +344,7 @@ function CheckoutContent() {
                         address: {...customerInfo.address, country: e.target.value}
                       })}
                       className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-300"
+                      size={1}
                     >
                       <option value="US">United States</option>
                       <option value="CA">Canada</option>

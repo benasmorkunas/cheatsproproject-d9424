@@ -328,10 +328,6 @@ export default function OrderSummary({ items, isCheckoutMode = false }: OrderSum
                 </div>
               )}
               
-              <div className="flex justify-between text-gray-300">
-                <span>Tax</span>
-                <span>${tax.toFixed(2)}</span>
-              </div>
               
               <hr className="border-gray-600" />
               

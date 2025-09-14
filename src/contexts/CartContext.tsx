@@ -41,12 +41,12 @@ interface CartContextType extends CartState {
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
-const TAX_RATE = 0.1; // 10% tax
+// No tax for digital products
 
 function calculateTotals(items: CartItem[]): Omit<CartState, 'items'> {
   const subtotal = items.reduce((sum, item) => sum + ((item.product.price / 100) * item.quantity), 0);
-  const tax = subtotal * TAX_RATE;
-  const total = subtotal + tax; // No shipping costs for digital products
+  const tax = 0; // Digital products don't require tax
+  const total = subtotal; // No tax or shipping costs for digital products
   const itemCount = items.reduce((sum, item) => sum + item.quantity, 0);
 
   return {

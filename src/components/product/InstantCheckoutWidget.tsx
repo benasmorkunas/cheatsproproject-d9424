@@ -28,6 +28,7 @@ interface InstantCheckoutWidgetProps {
     image: string;
     variants: SimpleProduct[];
   };
+  selectedVariant?: SimpleProduct;
   onClose?: () => void;
   colors?: {
     primary: string;
@@ -38,9 +39,9 @@ interface InstantCheckoutWidgetProps {
   };
 }
 
-export default function InstantCheckoutWidget({ productGroup, onClose, colors }: InstantCheckoutWidgetProps) {
-  const [selectedVariant, setSelectedVariant] = useState(productGroup.variants[0]);
-  const [checkoutStep, setCheckoutStep] = useState(1);
+export default function InstantCheckoutWidget({ productGroup, selectedVariant: initialSelectedVariant, onClose, colors }: InstantCheckoutWidgetProps) {
+  const [selectedVariant, setSelectedVariant] = useState(initialSelectedVariant || productGroup.variants[0]);
+  const [checkoutStep, setCheckoutStep] = useState(initialSelectedVariant ? 2 : 1);
   const [customerInfo, setCustomerInfo] = useState({
     email: '',
     firstName: '',
@@ -48,7 +49,6 @@ export default function InstantCheckoutWidget({ productGroup, onClose, colors }:
   });
   const [isProcessing, setIsProcessing] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
-  const [urgencyTimer, setUrgencyTimer] = useState(300); // 5 minutes
   const { addToCart } = useCart();
   
   // Default colors if not provided (Grey theme)
@@ -62,19 +62,17 @@ export default function InstantCheckoutWidget({ productGroup, onClose, colors }:
   
   const activeColors = colors || defaultColors;
 
-  // Timer effect for urgency
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setUrgencyTimer((prev) => (prev > 0 ? prev - 1 : 0));
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const formatTime = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins}:${secs.toString().padStart(2, '0')}`;
+  // Calculate licenses remaining (same logic as product page)
+  const calculateLicensesRemaining = () => {
+    const today = Math.floor(Date.now() / (1000 * 60 * 60 * 24));
+    const productOffset = selectedVariant.id.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0) % 10;
+    const daysSinceStart = (today + productOffset) % 12;
+    const licenses = Math.max(15, 50 - (daysSinceStart * 3));
+    return licenses === 15 ? 50 : licenses;
   };
+
+  const licensesRemaining = calculateLicensesRemaining();
+
 
   const getDurationLabel = (variantId: string): string => {
     if (variantId.includes('1day')) return '1 Day';
@@ -179,10 +177,7 @@ export default function InstantCheckoutWidget({ productGroup, onClose, colors }:
     <div className="bg-black/30 backdrop-blur-xl border border-white/10 rounded-2xl p-6 max-w-md w-full shadow-2xl">
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
-        <h3 className="text-xl font-bold text-white flex items-center space-x-2">
-          <Zap className="w-5 h-5 text-yellow-400" />
-          <span>Instant Checkout</span>
-        </h3>
+        <div></div>
         {onClose && (
           <button
             onClick={onClose}
@@ -202,30 +197,38 @@ export default function InstantCheckoutWidget({ productGroup, onClose, colors }:
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <AlertCircle className="w-4 h-4 text-orange-400" />
-            <span className="text-orange-300 text-sm font-medium">Limited Time Offer</span>
+            <span className="text-orange-300 text-sm font-medium">Limited Licenses Available</span>
           </div>
           <div className="text-red-400 font-mono font-bold">
-            {formatTime(urgencyTimer)}
+            {licensesRemaining} left
           </div>
         </div>
       </motion.div>
 
       {/* Progress Indicator */}
-      <div className="flex items-center mb-6">
-        {[1, 2].map((step) => (
-          <div key={step} className="flex items-center flex-1">
-            <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
-              step <= checkoutStep ? 'text-white text-white' : 'bg-gray-700 text-gray-400'
-            }`}>
-              {step < checkoutStep ? <Check className="w-4 h-4" /> : step}
-            </div>
-            {step < 2 && (
-              <div className={`flex-1 h-1 mx-2 ${
-                step < checkoutStep ? 'text-white' : 'bg-gray-700'
-              }`} />
-            )}
-          </div>
-        ))}
+      <div className="w-full mb-6">
+        <div className="flex items-center mb-2">
+          {[1, 2, 3].map((step, index) => (
+            <>
+              <div key={step} className="flex flex-col items-center">
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
+                  step <= checkoutStep ? 'bg-gray-500 text-white' : 'bg-gray-700 text-gray-400'
+                }`}>
+                  {step < checkoutStep ? <Check className="w-4 h-4" /> : step}
+                </div>
+                <span className={`text-xs mt-2 ${checkoutStep >= step ? 'text-gray-300' : 'text-gray-500'}`}>
+                  {step === 1 ? (initialSelectedVariant ? 'Plan Selected' : 'Choose Plan') : 
+                   step === 2 ? 'Customer Info' : 'Payment'}
+                </span>
+              </div>
+              {index < 2 && (
+                <div className={`flex-1 h-1 mx-4 ${
+                  step < checkoutStep ? 'bg-gray-500' : 'bg-gray-700'
+                }`} />
+              )}
+            </>
+          ))}
+        </div>
       </div>
 
       {/* Step 1: Plan Selection & Customer Info */}
@@ -462,13 +465,6 @@ export default function InstantCheckoutWidget({ productGroup, onClose, colors }:
             )}
           </button>
 
-          {/* Go Back */}
-          <button
-            onClick={() => setCheckoutStep(1)}
-            className="w-full text-gray-400 hover:text-white py-2 text-sm transition-colors"
-          >
-            ← Go Back
-          </button>
         </motion.div>
       )}
     </div>

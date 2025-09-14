@@ -23,11 +23,11 @@ export default function FeaturesSection() {
 
   const handleFeatureClick = (featureId: string) => {
     if (featureId === 'wallhack') {
-      router.push('/products/cs2'); // CS2 Lite
+      router.push('/products/cs2-lite'); // CS2 Lite
     } else if (featureId === 'aimbot') {
-      router.push('/products/cs2'); // CS2 Plus  
+      router.push('/products/cs2-plus'); // CS2 Plus
     } else if (featureId === 'grenade') {
-      router.push('/products/cs2'); // CS2 Pro
+      router.push('/products/cs2-pro'); // CS2 Pro
     }
   };
 

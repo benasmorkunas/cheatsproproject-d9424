@@ -85,8 +85,7 @@ const faqData = [
 const trustBadges = [
   { icon: Shield, text: '256-bit SSL Encryption' },
   { icon: Clock, text: '24/7 Customer Support' },
-  { icon: Users, text: '50,000+ Happy Customers' },
-  { icon: Star, text: '4.9/5 Average Rating' }
+  { icon: Users, text: '1000+ Happy Customers' }
 ];
 
 export default function FAQPage() {
@@ -123,60 +122,166 @@ export default function FAQPage() {
   return (
     <MinimalisticBackground>
       <Header />
-        <section className="py-20 text-center pt-24">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.h1 
-              className="text-5xl md:text-6xl font-bold text-white mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              Frequently Asked{' '}
-              <span className="bg-gradient-to-r from-gray-400 to-gray-300 bg-clip-text text-transparent">
-                Questions
-              </span>
-            </motion.h1>
-            
-            <motion.p 
-              className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              Find quick answers to common questions about our CS2 cheats, installation, safety, and more. 
-              Can't find what you're looking for? Join our Discord for instant support.
-            </motion.p>
-
-
-            <motion.div 
-              className="flex justify-center items-center mb-12"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              <div className="bg-gradient-to-r from-gray-800/20 to-slate-800/20 backdrop-blur-sm border border-gray-500/20 rounded-xl p-4 hover:border-gray-400/30 transition-all duration-300">
-                <div className="flex items-center space-x-3 text-sm text-gray-200">
-                  <MessageCircle className="w-5 h-5 text-gray-300" />
-                  <span>Can't find your question? Join our</span>
-                  <Link href="https://discord.gg/cheats-pro" className="text-[#5865F2] hover:text-[#4752C4] font-semibold transition-colors">
-                    Discord server
-                  </Link>
-                  <span>for instant support</span>
-                </div>
+        <section className="py-20 pt-24">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Left side - Title and Description */}
+              <div className="text-left">
+                <motion.h1 
+                  className="text-5xl md:text-6xl font-bold text-white mb-6"
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  Frequently Asked{' '}
+                  <span className="bg-gradient-to-r from-gray-400 to-gray-300 bg-clip-text text-transparent">
+                    Questions
+                  </span>
+                </motion.h1>
+                
+                <motion.p 
+                  className="text-xl text-gray-300 mb-8 max-w-2xl"
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                >
+                  Find quick answers to common questions about our CS2 cheats, installation, safety, and more. 
+                  Can't find what you're looking for? Join our Discord for instant support.
+                </motion.p>
               </div>
-            </motion.div>
+
+              {/* Right side - Discord Invitation */}
+              <motion.div 
+                className="flex justify-center lg:justify-end items-center"
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <div className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-xl p-6 hover:border-gray-400/30 transition-all duration-300 max-w-md">
+                  <div className="text-center space-y-4">
+                    <MessageCircle className="w-8 h-8 text-gray-400 mx-auto" />
+                    <div>
+                      <h3 className="text-lg font-semibold text-white mb-2">Need Help?</h3>
+                      <p className="text-sm text-gray-400 mb-4">
+                        Can't find your question? Join our Discord server for instant support from our team.
+                      </p>
+                      <Link href="https://discord.gg/cheats-pro" className="inline-flex items-center justify-center w-full bg-[#5865F2] hover:bg-[#4752C4] text-white px-4 py-3 rounded-lg font-semibold transition-colors shadow-lg">
+                        Join Discord Support
+                        <ExternalLink className="w-4 h-4 ml-2" />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </section>
 
         <section className="pb-20">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            {faqData.map((category, categoryIndex) => (
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* First two categories in two columns */}
+            <div className="grid lg:grid-cols-2 gap-8 mb-12">
+              {faqData.slice(0, 2).map((category, categoryIndex) => (
+                <motion.div 
+                  key={category.category}
+                  className="space-y-6"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
+                >
+                  <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
+                    <span className="w-8 h-8 bg-gradient-to-r from-gray-600 to-gray-500 rounded-full flex items-center justify-center text-sm font-bold mr-3 leading-none">
+                      {category.questions.length}
+                    </span>
+                    {category.category}
+                  </h2>
+                  
+                  <div className="space-y-4">
+                    {category.questions.map((faq, index) => (
+                      <motion.div
+                        key={faq.id}
+                        id={faq.id}
+                        className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-xl overflow-hidden"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay: index * 0.05 }}
+                      >
+                        <button
+                          onClick={() => handleQuestionClick(faq.id)}
+                          className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-black/30 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500/50 focus:ring-inset group"
+                          aria-expanded={openItems.includes(faq.id)}
+                          aria-controls={`answer-${faq.id}`}
+                        >
+                          <h3 className="text-lg font-semibold text-white pr-4 group-hover:text-gray-300 transition-colors">
+                            {faq.question}
+                          </h3>
+                          <motion.div
+                            animate={{ rotate: openItems.includes(faq.id) ? 180 : 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="flex-shrink-0"
+                          >
+                            <ChevronDown className="w-5 h-5 text-gray-400" />
+                          </motion.div>
+                        </button>
+                        
+                        <AnimatePresence>
+                          {openItems.includes(faq.id) && (
+                            <motion.div
+                              id={`answer-${faq.id}`}
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: 'auto', opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.3 }}
+                              className="overflow-hidden"
+                            >
+                              <div className="px-6 pb-6">
+                                <div className="border-t border-gray-600/20 pt-4">
+                                  <p className="text-gray-300 leading-relaxed mb-4 text-base">
+                                    {faq.answer}
+                                  </p>
+                                  
+                                  {faq.ctaText && faq.ctaLink && (
+                                    <div className="flex flex-wrap gap-3">
+                                      <Link href={faq.ctaLink}>
+                                        <Button 
+                                          size="sm" 
+                                          className="bg-gradient-to-r from-slate-700 via-gray-600 to-slate-700 hover:from-slate-600 hover:via-gray-500 hover:to-slate-600 shadow-lg shadow-gray-500/20 border border-gray-400/20 backdrop-blur-sm"
+                                        >
+                                          {faq.ctaText}
+                                          <ExternalLink className="w-4 h-4 ml-2" />
+                                        </Button>
+                                      </Link>
+                                      
+                                      {faq.id === 'safety' && (
+                                        <Link href="/status">
+                                          <Button variant="outline" size="sm">
+                                            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse mr-2"></span>
+                                            Check Live Status
+                                          </Button>
+                                        </Link>
+                                      )}
+                                    </div>
+                                  )}
+                                </div>
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Third category in full width */}
+            {faqData.slice(2).map((category, categoryIndex) => (
               <motion.div 
                 key={category.category}
                 className="mb-12"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
+                transition={{ duration: 0.6, delay: (categoryIndex + 2) * 0.1 }}
               >
                 <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
                   <span className="w-8 h-8 bg-gradient-to-r from-gray-600 to-gray-500 rounded-full flex items-center justify-center text-sm font-bold mr-3">
@@ -280,7 +385,7 @@ export default function FAQPage() {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
               {trustBadges.map((badge, index) => (
                 <motion.div
                   key={index}
@@ -295,41 +400,6 @@ export default function FAQPage() {
               ))}
             </div>
 
-            <motion.div 
-              className="text-center bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-2xl p-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <h3 className="text-2xl font-bold text-white mb-4">
-                Still Have Questions?
-              </h3>
-              <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-                Join our Discord community for instant support from our team and other users. 
-                Get real-time help with installation, troubleshooting, and general questions.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="https://discord.gg/cheats-pro">
-                  <Button 
-                    size="lg"
-                    className="bg-[#5865F2] hover:bg-[#4752C4] text-white px-8 py-3"
-                  >
-                    <MessageCircle className="w-5 h-5 mr-2" />
-                    Join Discord Support
-                  </Button>
-                </Link>
-                
-                <Link href="/products">
-                  <Button 
-                    size="lg"
-                    className="bg-gradient-to-r from-slate-700 via-gray-600 to-slate-700 hover:from-slate-600 hover:via-gray-500 hover:to-slate-600 px-8 py-3 shadow-lg shadow-gray-500/20 border border-gray-400/20 backdrop-blur-sm"
-                  >
-                    Shop CS2 Cheats
-                  </Button>
-                </Link>
-              </div>
-            </motion.div>
           </div>
         </section>
 

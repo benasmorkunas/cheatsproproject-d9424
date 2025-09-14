@@ -177,26 +177,15 @@ export default function CartPage() {
       <div className="min-h-screen">
         <Header />
         
-        <main className="pt-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <main className="pt-12 pb-75">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Header */}
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="flex items-center justify-between mb-8"
-            >
-              <div>
-                <h1 className="text-3xl font-bold text-white">
-                  {isCheckoutMode ? 'Checkout' : 'Shopping Cart'}
-                </h1>
-                {!isCheckoutMode && (
-                  <p className="text-gray-400 mt-2">
-                    {/* Description for cart mode if needed */}
-                  </p>
-                )}
-              </div>
-              
-              {isCheckoutMode && (
+            {isCheckoutMode && (
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="flex justify-end mb-8"
+              >
                 <button
                   onClick={handleBackToCart}
                   className="flex items-center space-x-2 text-gray-400 hover:text-gray-300 transition-colors duration-200"
@@ -204,21 +193,123 @@ export default function CartPage() {
                   <ArrowLeft className="w-4 h-4" />
                   <span>Back to Cart</span>
                 </button>
-              )}
-              
-              {!isCheckoutMode && items.length > 0 && (
+              </motion.div>
+            )}
+
+            {!isCheckoutMode && items.length > 0 && (
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="flex justify-end mb-8"
+              >
                 <button
                   onClick={clearCart}
                   className="text-red-400 hover:text-red-300 text-sm font-medium transition-colors duration-200"
                 >
                   Clear All Items
                 </button>
-              )}
-            </motion.div>
+              </motion.div>
+            )}
 
-            <div className={`grid gap-8 ${isCheckoutMode ? 'lg:grid-cols-5' : 'lg:grid-cols-5'}`}>
-              {/* Main Content */}
-              <div className={isCheckoutMode ? 'lg:col-span-3' : 'lg:col-span-3'}>
+            <div className={`grid gap-8 ${isCheckoutMode ? 'lg:grid-cols-1' : 'lg:grid-cols-5'}`}>
+              {/* Payment Method and Trust Signals - Left Side */}
+              <div className={isCheckoutMode ? 'hidden' : 'lg:col-span-2'}>
+                <div className="space-y-6">
+                  {!isCheckoutMode && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.1 }}
+                      className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-2xl p-6"
+                    >
+                      <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
+                        <CreditCard className="w-5 h-5 mr-3 text-gray-400" />
+                        Select Payment Method
+                      </h3>
+                      
+                      <div className="space-y-3">
+                        {PAYMENT_METHODS.map((method) => (
+                          <label
+                            key={method.id}
+                            className={`flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all duration-200 ${
+                              selectedPaymentMethod === method.id
+                                ? 'border-gray-500 bg-gray-500/10'
+                                : 'border-gray-600 hover:border-gray-500 bg-black/20'
+                            }`}
+                          >
+                            <input
+                              type="radio"
+                              name="paymentMethod"
+                              value={method.id}
+                              checked={selectedPaymentMethod === method.id}
+                              onChange={(e) => setSelectedPaymentMethod(e.target.value)}
+                              className="sr-only"
+                            />
+                            <div className={`w-5 h-5 rounded-full border-2 mr-4 flex items-center justify-center ${
+                              selectedPaymentMethod === method.id
+                                ? 'border-gray-500 bg-gray-500'
+                                : 'border-gray-400'
+                            }`}>
+                              {selectedPaymentMethod === method.id && (
+                                <div className="w-2 h-2 bg-white rounded-full" />
+                              )}
+                            </div>
+                            <div className="flex items-center flex-1">
+                              <span className="text-2xl mr-3">{method.icon}</span>
+                              <div>
+                                <div className="text-white font-medium">{method.name}</div>
+                                <div className="text-gray-400 text-sm">{method.description}</div>
+                              </div>
+                            </div>
+                            {selectedPaymentMethod === method.id && (
+                              <CheckCircle className="w-5 h-5 text-gray-400 ml-auto" />
+                            )}
+                          </label>
+                        ))}
+                      </div>
+
+                      {/* Proceed to Checkout Button */}
+                      <div className="mt-6">
+                        <button
+                          onClick={handleProceedToCheckout}
+                          disabled={isCreatingOrder || items.length === 0}
+                          className="w-full bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 disabled:from-gray-600 disabled:to-gray-700 text-white py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 disabled:cursor-not-allowed"
+                        >
+                          {isCreatingOrder ? (
+                            <div className="flex items-center justify-center space-x-2">
+                              <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                              <span>Preparing Checkout...</span>
+                            </div>
+                          ) : (
+                            <div className="flex items-center justify-center space-x-2">
+                              <Lock className="w-5 h-5" />
+                              <span>Proceed to Checkout - ${total.toFixed(2)}</span>
+                            </div>
+                          )}
+                        </button>
+
+                        {checkoutError && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="mt-4 bg-red-500/10 border border-red-500/20 rounded-lg p-4"
+                          >
+                            <div className="flex items-center space-x-2">
+                              <Info className="w-5 h-5 text-red-400" />
+                              <p className="text-red-400 text-sm">{checkoutError}</p>
+                            </div>
+                          </motion.div>
+                        )}
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {!isCheckoutMode && <TrustSignals />}
+                </div>
+              </div>
+
+              {/* Order Summary and Reviews - Right Side */}
+              <div className={isCheckoutMode ? 'lg:col-span-1' : 'lg:col-span-3'}>
                 {isCheckoutMode && clientSecret ? (
                   /* Checkout Form */
                   <Elements 
@@ -248,173 +339,11 @@ export default function CartPage() {
                     />
                   </Elements>
                 ) : (
-                  /* Cart Items */
+                  /* Order Summary and Reviews */
                   <div className="space-y-6">
-                    {items.map((item, index) => (
-                      <motion.div
-                        key={item.product.id}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6, delay: index * 0.1 }}
-                        className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-2xl p-6"
-                      >
-                        <div className="flex items-center space-x-4">
-                          {/* Product Image */}
-                          <div className="w-20 h-20 bg-black/30 rounded-lg flex items-center justify-center overflow-hidden">
-                            {item.product.image ? (
-                              <Image
-                                src={item.product.image}
-                                alt={item.product.name}
-                                width={80}
-                                height={80}
-                                className="object-cover w-full h-full"
-                              />
-                            ) : (
-                              <ShoppingBag className="w-8 h-8 text-gray-400" />
-                            )}
-                          </div>
-
-                          {/* Product Info */}
-                          <div className="flex-1">
-                            <h3 className="text-xl font-semibold text-white mb-2">
-                              {item.product.name}
-                            </h3>
-                            <p className="text-gray-400 text-sm mb-4">
-                              Digital product • Instant delivery
-                            </p>
-                            
-                            <div className="flex items-center justify-between">
-                              {/* Quantity Controls */}
-                              <div className="flex items-center space-x-3">
-                                <button
-                                  onClick={() => updateQuantity(item.product.id, Math.max(1, item.quantity - 1))}
-                                  className="w-10 h-10 bg-black/30 hover:bg-black/40 rounded-lg flex items-center justify-center transition-colors"
-                                >
-                                  <Minus className="w-4 h-4 text-white" />
-                                </button>
-                                <span className="text-white font-semibold px-4">
-                                  {item.quantity}
-                                </span>
-                                <button
-                                  onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
-                                  className="w-10 h-10 bg-black/30 hover:bg-black/40 rounded-lg flex items-center justify-center transition-colors"
-                                >
-                                  <Plus className="w-4 h-4 text-white" />
-                                </button>
-                                <button
-                                  onClick={() => removeFromCart(item.product.id)}
-                                  className="ml-4 w-10 h-10 text-red-400 hover:text-red-300 hover:bg-red-500/10 rounded-lg flex items-center justify-center transition-all"
-                                >
-                                  <Trash2 className="w-4 h-4" />
-                                </button>
-                              </div>
-
-                              {/* Price */}
-                              <div className="text-right">
-                                <div className="text-2xl font-bold text-gray-400">
-                                  ${((item.product.price / 100) * item.quantity).toFixed(2)}
-                                </div>
-                                {item.quantity > 1 && (
-                                  <div className="text-sm text-gray-400">
-                                    ${(item.product.price / 100).toFixed(2)} each
-                                  </div>
-                                )}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </motion.div>
-                    ))}
-
-                    {/* Payment Method Selection */}
-                    {!isCheckoutMode && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: items.length * 0.1 }}
-                        className="bg-black/40 backdrop-blur-sm border border-gray-600/20 rounded-2xl p-6"
-                      >
-                        <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
-                          <CreditCard className="w-5 h-5 mr-3 text-gray-400" />
-                          Select Payment Method
-                        </h3>
-                        
-                        <div className="space-y-3">
-                          {PAYMENT_METHODS.map((method) => (
-                            <label
-                              key={method.id}
-                              className={`flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all duration-200 ${
-                                selectedPaymentMethod === method.id
-                                  ? 'border-gray-500 bg-gray-500/10'
-                                  : 'border-gray-600 hover:border-gray-500 bg-black/20'
-                              }`}
-                            >
-                              <input
-                                type="radio"
-                                name="paymentMethod"
-                                value={method.id}
-                                checked={selectedPaymentMethod === method.id}
-                                onChange={(e) => setSelectedPaymentMethod(e.target.value)}
-                                className="sr-only"
-                              />
-                              <div className={`w-5 h-5 rounded-full border-2 mr-4 flex items-center justify-center ${
-                                selectedPaymentMethod === method.id
-                                  ? 'border-gray-500 bg-gray-500'
-                                  : 'border-gray-400'
-                              }`}>
-                                {selectedPaymentMethod === method.id && (
-                                  <div className="w-2 h-2 bg-white rounded-full" />
-                                )}
-                              </div>
-                              <div className="flex items-center flex-1">
-                                <span className="text-2xl mr-3">{method.icon}</span>
-                                <div>
-                                  <div className="text-white font-medium">{method.name}</div>
-                                  <div className="text-gray-400 text-sm">{method.description}</div>
-                                </div>
-                              </div>
-                              {selectedPaymentMethod === method.id && (
-                                <CheckCircle className="w-5 h-5 text-gray-400 ml-auto" />
-                              )}
-                            </label>
-                          ))}
-                        </div>
-
-                        {/* Proceed to Checkout Button */}
-                        <div className="mt-6">
-                          <button
-                            onClick={handleProceedToCheckout}
-                            disabled={isCreatingOrder || items.length === 0}
-                            className="w-full bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 disabled:from-gray-600 disabled:to-gray-700 text-white py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 disabled:cursor-not-allowed"
-                          >
-                            {isCreatingOrder ? (
-                              <div className="flex items-center justify-center space-x-2">
-                                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                                <span>Preparing Checkout...</span>
-                              </div>
-                            ) : (
-                              <div className="flex items-center justify-center space-x-2">
-                                <Lock className="w-5 h-5" />
-                                <span>Proceed to Checkout - ${total.toFixed(2)}</span>
-                              </div>
-                            )}
-                          </button>
-
-                          {checkoutError && (
-                            <motion.div
-                              initial={{ opacity: 0, y: 10 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              className="mt-4 bg-red-500/10 border border-red-500/20 rounded-lg p-4"
-                            >
-                              <div className="flex items-center space-x-2">
-                                <Info className="w-5 h-5 text-red-400" />
-                                <p className="text-red-400 text-sm">{checkoutError}</p>
-                              </div>
-                            </motion.div>
-                          )}
-                        </div>
-                      </motion.div>
-                    )}
+                    <OrderSummary 
+                      items={items}
+                    />
 
                     {/* Customer Reviews */}
                     {!isCheckoutMode && (
@@ -422,17 +351,6 @@ export default function CartPage() {
                     )}
                   </div>
                 )}
-              </div>
-
-              {/* Sidebar */}
-              <div className="lg:col-span-2">
-                <div className="space-y-6">
-                  <OrderSummary 
-                    items={items}
-                  />
-                  
-                  {!isCheckoutMode && <TrustSignals />}
-                </div>
               </div>
             </div>
           </div>

@@ -228,6 +228,7 @@ export default function LandingPageProduct({ productGroup, selectedVariant }: La
                     {showCheckout ? (
                       <InstantCheckoutWidget 
                         productGroup={productGroup}
+                        selectedVariant={currentVariant}
                         onClose={() => setShowCheckout(false)}
                         colors={colors}
                       />

@@ -1,0 +1,24 @@
+{
+  "amount": 399,
+  "currency": "usd",
+  "automatic_payment_methods": {
+    "enabled": false
+  },
+  "payment_method_types": [
+    "card"
+  ],
+  "selected_payment_method": "card",
+  "metadata": {
+    "product_id": "cs2-lite-1day",
+    "customer_email": "",
+    "payment_method": "card",
+    "products": [],
+    "isFirstTimePurchase": true,
+    "productCount": 0
+  },
+  "timestamp": "2025-09-11T19:20:25.355Z",
+  "status": "incomplete",
+  "customerInfo": null,
+  "id": "T876RF",
+  "createdAt": "2025-09-11T19:20:30.215Z"
+}
