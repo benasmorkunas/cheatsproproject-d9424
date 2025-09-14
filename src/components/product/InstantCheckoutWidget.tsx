@@ -89,6 +89,7 @@ function StripePaymentForm({ clientSecret, onPaymentComplete, isProcessing, pric
       },
     },
     hidePostalCode: false,
+    disableLink: true, // Disable Link for development
   };
 
   return (
@@ -654,7 +655,21 @@ export default function InstantCheckoutWidget({ productGroup, selectedVariant: i
           {clientSecret && (
             <div>
               <p className="text-green-400 text-sm mb-4">✓ Payment form ready</p>
-              <Elements stripe={stripePromise} options={{ clientSecret }}>
+              <Elements
+                stripe={stripePromise}
+                options={{
+                  clientSecret,
+                  appearance: {
+                    theme: 'night',
+                    variables: {
+                      colorPrimary: '#6B7280',
+                      colorBackground: 'rgba(0,0,0,0.2)',
+                      colorText: '#ffffff',
+                      colorDanger: '#EF4444'
+                    }
+                  }
+                }}
+              >
                 <StripePaymentForm
                   clientSecret={clientSecret}
                   onPaymentComplete={handlePaymentComplete}
